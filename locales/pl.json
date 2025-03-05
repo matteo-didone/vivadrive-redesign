@@ -1,0 +1,104 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Wystąpił błąd",
+    "success": "Sukces!"
+  },
+  "nav": {
+    "solutions": "Rozwiązania",
+    "benefits": "Korzyści",
+    "how-it-works": "Jak to działa",
+    "resources": "Zasoby",
+    "company": "Firma",
+    "fleet-electrification": "Elektryfikacja floty",
+    "fleet-management": "Zarządzanie flotą"
+  },
+  "button": {
+    "login": "Zaloguj się",
+    "contact": "Kontakt",
+    "contact-sales": "Kontakt handlowy",
+    "explore": "Poznaj więcej",
+    "book-demo": "Zamów demo",
+    "get-started": "Rozpocznij",
+    "learn-more": "Dowiedz się więcej"
+  },
+  "hero": {
+    "badge": "Zarządzanie flotą",
+    "title-1": "Wdrażaj i zarządzaj",
+    "title-2": "pojazdami elektrycznymi",
+    "title-3": "w swojej flocie",
+    "description": "Płynnie przeprowadzaj elektryfikację floty, zmniejszaj koszty i emisję CO₂ oraz optymalizuj działanie.",
+    "trusted": "ZAUFAŁY NAM WIODĄCE FIRMY",
+    "co2-reduction": "Średnia redukcja CO₂",
+    "per-vehicle": "48% na pojazd"
+  },
+  "process": {
+    "section-title": "Elektryfikacja floty w 4 krokach",
+    "section-description": "Nasze kompleksowe podejście zapewnia płynne przejście na pojazdy elektryczne przy minimalnym zakłóceniu działania.",
+    "step1-title": "Analiza floty",
+    "step1-description": "Analizujemy aktualne wzorce użytkowania floty i wymagania.",
+    "step2-title": "Infrastruktura ładowania",
+    "step2-description": "Planujemy i wdrażamy optymalne rozwiązanie ładowania dla Twoich potrzeb.",
+    "step3-title": "Plan wdrożenia",
+    "step3-description": "Tworzymy etapowe podejście do wprowadzania pojazdów elektrycznych do floty.",
+    "step4-title": "Zarządzanie EV",
+    "step4-description": "Ciągłe wsparcie i optymalizacja Twojej floty elektrycznej."
+  },
+  "solutions": {
+    "section-title": "Rozwiązania VivaDrive",
+    "section-description": "Kompleksowe narzędzia do efektywnego zarządzania flotą pojazdów elektrycznych.",
+    "electrification-title": "Elektryfikacja floty",
+    "management-title": "Zarządzanie flotą",
+    "ev-selection": "Dobór pojazdów EV",
+    "ev-selection-desc": "Znajdź odpowiednie pojazdy dla swoich potrzeb",
+    "tco-analysis": "Analiza TCO",
+    "tco-analysis-desc": "Obliczanie całkowitego kosztu posiadania",
+    "infrastructure": "Planowanie infrastruktury",
+    "infrastructure-desc": "Zaprojektuj optymalny system ładowania",
+    "compliance": "Pozwolenia i zgodność",
+    "compliance-desc": "Nawigacja w wymaganiach regulacyjnych",
+    "dashboard": "Kompleksowy pulpit",
+    "dashboard-desc": "Monitoruj wszystkie metryki floty w czasie rzeczywistym",
+    "driver": "Zarządzanie kierowcami",
+    "driver-desc": "Śledź i optymalizuj zachowanie kierowców",
+    "route": "Optymalizacja tras",
+    "route-desc": "Planuj efektywne trasy z przystankami do ładowania",
+    "health": "Stan techniczny i ładowanie EV",
+    "health-desc": "Monitoruj stan techniczny pojazdu i status ładowania"
+  },
+  "benefits": {
+    "section-title": "Korzyści z elektryfikacji floty",
+    "section-description": "Odkryj, jak przejście na pojazdy elektryczne może przekształcić Twoją firmę.",
+    "regulations": "Zgodność z przepisami",
+    "regulations-desc": "Spełnij wymogi środowiskowe i unikaj kar",
+    "costs": "Oszczędności kosztów floty",
+    "costs-desc": "Zmniejsz wydatki operacyjne i koszty utrzymania",
+    "emissions": "Redukcja emisji CO2",
+    "emissions-desc": "Zmniejsz swój ślad węglowy i wpływ na środowisko",
+    "image": "Poprawa wizerunku firmy",
+    "image-desc": "Wzmocnij markę jako odpowiedzialną ekologicznie"
+  },
+  "partners": {
+    "title": "NASI PARTNERZY I INTEGRACJE"
+  },
+  "awards": {
+    "title": "NAGRODY I WYRÓŻNIENIA"
+  },
+  "cta": {
+    "ready": "Gotowi na elektryfikację?",
+    "description": "Rozpocznij od bezpłatnej konsultacji, aby ocenić potencjał elektryfikacji Twojej floty.",
+    "final-title": "Gotowi przejść na energię elektryczną?",
+    "final-description": "Dołącz do rosnącej liczby firm przekształcających swoje floty z VivaDrive. Nasi eksperci są gotowi prowadzić Cię przez każdy etap procesu elektryfikacji.",
+    "take-action": "Działaj teraz"
+  },
+  "footer": {
+    "company-description": "Wspieramy firmy w przejściu na zrównoważone floty pojazdów elektrycznych dzięki kompleksowym rozwiązaniom zarządzania.",
+    "solutions": "Rozwiązania",
+    "resources": "Zasoby",
+    "company": "Firma",
+    "rights": "© {{year}} VivaDrive. Wszelkie prawa zastrzeżone.",
+    "privacy": "Polityka prywatności",
+    "terms": "Warunki korzystania z usługi",
+    "cookies": "Polityka cookies"
+  }
+}
