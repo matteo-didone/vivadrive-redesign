@@ -1,147 +1,332 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+    ChevronRight,
+    Globe,
+    Menu,
+    X,
+    ChevronDown,
+    User,
+    Users,
+    GraduationCap,
+    Newspaper,
+    CarFront,
+    Zap,
+    BatteryCharging
+} from "lucide-react";
+
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import { Button } from "@/components/ui/button";
+
+// Define the cn utility function if you don't have it
+const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { t } = useLanguage();
-
-    const navLinks = [
-        { href: '#solutions', label: 'nav.solutions' },
-        { href: '#benefits', label: 'nav.benefits' },
-        { href: '#how-it-works', label: 'nav.how-it-works' },
-        { href: '#resources', label: 'nav.resources' },
-    ];
+    const [currentLanguage, setCurrentLanguage] = useState("EN");
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 20) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            setScrolled(window.scrollY > 10);
         };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Main navigation structure
+    const mainNav = [
+        {
+            title: "Fleet Electrification",
+            href: "/fleet-electrification",
+            description: "Transform your fleet with AI-driven electrification solutions",
+            icon: <Zap className="h-5 w-5 text-emerald-500" />
+        },
+        {
+            title: "Fleet Management",
+            href: "/fleet-management",
+            description: "Comprehensive tools for managing your electric vehicle fleet",
+            icon: <CarFront className="h-5 w-5 text-emerald-500" />
+        }
+    ];
+
+    // Company submenu structure
+    const companyItems = [
+        {
+            title: "About",
+            href: "/about",
+            description: "Learn about our mission and vision",
+            icon: <User className="h-5 w-5 text-emerald-500" />
+        },
+        {
+            title: "Careers",
+            href: "/careers",
+            description: "Join our growing team",
+            icon: <Users className="h-5 w-5 text-emerald-500" />
+        },
+        {
+            title: "Internships",
+            href: "/internships",
+            description: "Opportunities for students",
+            icon: <GraduationCap className="h-5 w-5 text-emerald-500" />
+        },
+        {
+            title: "Newsroom",
+            href: "/newsroom",
+            description: "Latest updates and press releases",
+            icon: <Newspaper className="h-5 w-5 text-emerald-500" />
+        },
+    ];
+
+    // Map all navigation items for mobile menu
+    const allNavItems = [
+        ...mainNav,
+        {
+            title: "Company",
+            items: companyItems
+        }
+    ];
 
     return (
         <header
-            className={`sticky top-0 z-50 w-full border-b border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-gray-950/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-950/60 transition-all duration-300 ${scrolled ? 'h-14 shadow-md' : 'h-16'
-                }`}
+            className={cn(
+                "sticky top-0 z-50 w-full transition-all duration-300",
+                scrolled
+                    ? "border-b border-gray-200 shadow-sm bg-white/80 backdrop-blur-md"
+                    : "bg-white"
+            )}
         >
-            <div className="container flex h-full items-center justify-between">
-                <div className="flex items-center gap-8">
-                    <Link href="/" className="flex items-center gap-2 z-20 ml-1">
-                        <Image
-                            src="/vivadrive-logo-dark.png"
-                            alt="VivaDrive Logo"
-                            width={scrolled ? 130 : 150}
-                            height={scrolled ? 35 : 40}
-                            priority
-                            className="dark:hidden transition-all duration-300"
-                        />
-                        <Image
-                            src="/vivadrive-logo-light.png"
-                            alt="VivaDrive Logo"
-                            width={scrolled ? 130 : 150}
-                            height={scrolled ? 35 : 40}
-                            priority
-                            className="hidden dark:block transition-all duration-300"
-                        />
-                    </Link>
-
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex gap-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="text-sm font-medium hover:text-primary relative group"
-                            >
-                                {t(link.label)}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                            </Link>
-                        ))}
-                    </nav>
-                </div>
-
-                <div className="flex items-center gap-4">
-                    {/* Language Switcher Component */}
-                    <div className="hidden md:block">
-                        <LanguageSwitcher />
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className={cn(
+                    "flex items-center justify-between transition-all duration-300",
+                    scrolled ? "h-16" : "h-20"
+                )}>
+                    {/* Logo */}
+                    <div className="flex-shrink-0">
+                        <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105">
+                            <Image
+                                src="/vivadrive-logo-dark.png"
+                                alt="VivaDrive Logo"
+                                width={scrolled ? 140 : 160}
+                                height={scrolled ? 35 : 40}
+                                className="transition-all duration-300"
+                                priority
+                            />
+                        </Link>
                     </div>
 
-                    <Button
-                        variant="ghost"
-                        className="hidden md:flex hover:bg-primary/10 dark:hover:bg-primary/20"
-                    >
-                        {t('button.login')}
-                    </Button>
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex md:items-center md:justify-between md:flex-1 md:ml-10">
+                        <NavigationMenu>
+                            <NavigationMenuList className="gap-4">
+                                {mainNav.map((item) => (
+                                    <NavigationMenuItem key={item.title}>
+                                        <Link href={item.href} legacyBehavior passHref>
+                                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                                {item.title}
+                                            </NavigationMenuLink>
+                                        </Link>
+                                    </NavigationMenuItem>
+                                ))}
 
-                    <Button
-                        className={`shadow-lg shadow-primary/20 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transition-all duration-300 ${scrolled ? 'text-sm px-4 py-1' : 'px-5 py-2'
-                            }`}
-                    >
-                        {t('button.contact')}
-                    </Button>
+                                {/* Company dropdown - using shadcn/ui default styling */}
+                                <NavigationMenuItem>
+                                    <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                                    <NavigationMenuContent>
+                                        <div className="w-[550px] lg:w-[600px] p-6">
+                                            <div className="grid grid-cols-2 gap-6">
+                                                {companyItems.map((item) => (
+                                                    <Link
+                                                        key={item.title}
+                                                        href={item.href}
+                                                        className="group flex flex-col gap-2 rounded-md p-3 hover:bg-gray-50"
+                                                    >
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 bg-white shadow-sm group-hover:border-emerald-200 group-hover:bg-emerald-50">
+                                                                {item.icon}
+                                                            </div>
+                                                            <div className="font-medium">{item.title}</div>
+                                                        </div>
+                                                        <div className="text-sm text-gray-500">{item.description}</div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
+                            </NavigationMenuList>
+                        </NavigationMenu>
 
-                    {/* Mobile menu button */}
-                    <button
-                        className="md:hidden p-2 rounded-md"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? (
-                            <X className="h-6 w-6" />
-                        ) : (
-                            <Menu className="h-6 w-6" />
-                        )}
-                    </button>
+                        <div className="flex items-center gap-3">
+                            {/* Language Switcher */}
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="sm" className="h-8 gap-1 px-2">
+                                        <Globe className="h-4 w-4 text-emerald-500" />
+                                        <span className="text-sm font-medium">{currentLanguage}</span>
+                                        <ChevronDown className="h-3 w-3 opacity-50" />
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" className="w-32">
+                                    <DropdownMenuItem
+                                        className={cn(
+                                            "flex items-center gap-2 text-sm cursor-pointer",
+                                            currentLanguage === "EN" && "bg-gray-50"
+                                        )}
+                                        onClick={() => setCurrentLanguage("EN")}
+                                    >
+                                        <span className={currentLanguage === "EN" ? "font-medium text-emerald-600" : ""}>
+                                            English
+                                        </span>
+                                        {currentLanguage === "EN" && (
+                                            <ChevronRight className="ml-auto h-4 w-4 text-emerald-500" />
+                                        )}
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        className={cn(
+                                            "flex items-center gap-2 text-sm cursor-pointer",
+                                            currentLanguage === "PL" && "bg-gray-50"
+                                        )}
+                                        onClick={() => setCurrentLanguage("PL")}
+                                    >
+                                        <span className={currentLanguage === "PL" ? "font-medium text-emerald-600" : ""}>
+                                            Polski
+                                        </span>
+                                        {currentLanguage === "PL" && (
+                                            <ChevronRight className="ml-auto h-4 w-4 text-emerald-500" />
+                                        )}
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+
+                            <div className="h-5 w-px bg-gray-200"></div>
+
+                            <Button variant="ghost" size="sm" className="h-8 px-3 text-sm font-medium">
+                                Log In
+                            </Button>
+                            <Button className="h-9 bg-emerald-500 hover:bg-emerald-600 text-white font-medium gap-1">
+                                Contact Sales
+                                <ChevronRight className="h-4 w-4" />
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="flex md:hidden">
+                        <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                            {mobileMenuOpen ? (
+                                <X className="h-6 w-6" />
+                            ) : (
+                                <Menu className="h-6 w-6" />
+                            )}
+                        </Button>
+                    </div>
                 </div>
             </div>
 
-            {/* Mobile menu */}
+            {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="fixed inset-0 bg-white dark:bg-gray-950 z-10 pt-16 px-4">
-                    <nav className="flex flex-col space-y-6 text-lg font-medium mt-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="p-2 border-b border-gray-100 dark:border-gray-800"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                {t(link.label)}
-                            </Link>
-                        ))}
+                <div className="fixed inset-0 top-16 z-40 bg-white overflow-y-auto animate-in slide-in-from-top duration-300">
+                    <div className="container mx-auto px-4 py-6 space-y-6">
+                        <nav className="space-y-6">
+                            {allNavItems.map((section, idx) =>
+                                section.items ? (
+                                    <div key={idx} className="space-y-3">
+                                        <h3 className="font-semibold text-sm text-emerald-600 uppercase tracking-wider">
+                                            {section.title}
+                                        </h3>
+                                        <div className="grid grid-cols-1 gap-2 pl-1">
+                                            {section.items.map((item) => (
+                                                <Link
+                                                    key={item.title}
+                                                    href={item.href}
+                                                    className="flex items-center p-2 rounded-md hover:bg-gray-50"
+                                                    onClick={() => setMobileMenuOpen(false)}
+                                                >
+                                                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white">
+                                                        {item.icon}
+                                                    </div>
+                                                    <div className="ml-3">
+                                                        <p className="text-sm font-medium">{item.title}</p>
+                                                        <p className="text-xs text-gray-500">{item.description}</p>
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        key={section.title}
+                                        href={section.href}
+                                        className="flex items-center p-2 rounded-md hover:bg-gray-50"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white">
+                                            {section.icon}
+                                        </div>
+                                        <div className="ml-3">
+                                            <p className="text-sm font-medium">{section.title}</p>
+                                            <p className="text-xs text-gray-500">{section.description}</p>
+                                        </div>
+                                    </Link>
+                                )
+                            )}
+                        </nav>
 
-                        <div className="p-2 border-b border-gray-100 dark:border-gray-800">
-                            <LanguageSwitcher variant="mobile" />
-                        </div>
+                        <div className="border-t border-gray-200 pt-5 space-y-4">
+                            <div className="flex items-center gap-4">
+                                <Button
+                                    variant="outline"
+                                    className={cn(
+                                        "flex-1 justify-center",
+                                        currentLanguage === "EN" && "border-emerald-500 text-emerald-600 bg-emerald-50"
+                                    )}
+                                    onClick={() => setCurrentLanguage("EN")}
+                                >
+                                    English
+                                </Button>
+                                <Button
+                                    variant="outline"
+                                    className={cn(
+                                        "flex-1 justify-center",
+                                        currentLanguage === "PL" && "border-emerald-500 text-emerald-600 bg-emerald-50"
+                                    )}
+                                    onClick={() => setCurrentLanguage("PL")}
+                                >
+                                    Polski
+                                </Button>
+                            </div>
 
-                        <div className="pt-4 flex flex-col space-y-3">
-                            <Button
-                                variant="outline"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                {t('button.login')}
-                            </Button>
-                            <Button onClick={() => setMobileMenuOpen(false)}>
-                                {t('button.contact')}
-                            </Button>
+                            <div className="flex flex-col space-y-3">
+                                <Button variant="outline" className="w-full justify-center">
+                                    Log In
+                                </Button>
+                                <Button className="w-full justify-center bg-emerald-500 hover:bg-emerald-600">
+                                    Contact Sales
+                                    <ChevronRight className="ml-1 h-4 w-4" />
+                                </Button>
+                            </div>
                         </div>
-                    </nav>
+                    </div>
                 </div>
             )}
         </header>
