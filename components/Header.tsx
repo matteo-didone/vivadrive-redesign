@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
     ChevronRight,
+    ArrowRight,
     Globe,
     Menu,
     X,
@@ -106,13 +107,17 @@ const Header = () => {
         }
     ];
 
+    // Classe personalizzata per l'effetto underline in hover
+    const underlineHoverClass = "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-emerald-500 after:transition-all after:duration-300 hover:after:w-4/5";
+
     return (
         <header
             className={cn(
-                "sticky top-0 z-50 w-full transition-all duration-300",
+                "sticky top-0 z-50 w-full transition-all duration-500",
                 scrolled
-                    ? "border-b border-gray-200 shadow-sm bg-white/80 backdrop-blur-md"
-                    : "bg-white"
+                    ? "border-b border-gray-200 shadow-sm bg-white/70 backdrop-blur-xl"
+                    : "bg-white",
+                "supports-backdrop-blur:bg-white/80 supports-backdrop-blur:backdrop-blur-xl"
             )}
         >
             <div className="container mx-auto px-4 sm:px-6">
@@ -141,27 +146,27 @@ const Header = () => {
                                 {mainNav.map((item) => (
                                     <NavigationMenuItem key={item.title}>
                                         <Link href={item.href} legacyBehavior passHref>
-                                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), underlineHoverClass)}>
                                                 {item.title}
                                             </NavigationMenuLink>
                                         </Link>
                                     </NavigationMenuItem>
                                 ))}
 
-                                {/* Company dropdown - using shadcn/ui default styling */}
+                                {/* Company dropdown - con styling migliorato */}
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                                    <NavigationMenuTrigger className={underlineHoverClass}>Company</NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <div className="w-[550px] lg:w-[600px] p-6">
+                                        <div className="w-[550px] lg:w-[600px] p-6 rounded-lg">
                                             <div className="grid grid-cols-2 gap-6">
                                                 {companyItems.map((item) => (
                                                     <Link
                                                         key={item.title}
                                                         href={item.href}
-                                                        className="group flex flex-col gap-2 rounded-md p-3 hover:bg-gray-50"
+                                                        className="group flex flex-col gap-2 rounded-md p-3 hover:bg-gray-50 transition-colors duration-200"
                                                     >
                                                         <div className="flex items-center gap-3">
-                                                            <div className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 bg-white shadow-sm group-hover:border-emerald-200 group-hover:bg-emerald-50">
+                                                            <div className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 bg-white shadow-sm group-hover:border-emerald-200 group-hover:bg-emerald-50 transition-colors duration-200">
                                                                 {item.icon}
                                                             </div>
                                                             <div className="font-medium">{item.title}</div>
@@ -169,6 +174,15 @@ const Header = () => {
                                                         <div className="text-sm text-gray-500">{item.description}</div>
                                                     </Link>
                                                 ))}
+                                            </div>
+                                            <div className="mt-6 pt-6 border-t border-gray-100">
+                                                <div className="flex items-center justify-between">
+                                                    <p className="text-sm text-gray-500">Need help or have questions?</p>
+                                                    <Button variant="link" className="text-emerald-600 p-0 h-auto font-medium text-sm">
+                                                        Contact Support
+                                                        <ChevronRight className="ml-1 h-3 w-3" />
+                                                    </Button>
+                                                </div>
                                             </div>
                                         </div>
                                     </NavigationMenuContent>
@@ -180,13 +194,13 @@ const Header = () => {
                             {/* Language Switcher */}
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button variant="ghost" size="sm" className="h-8 gap-1 px-2">
+                                    <Button variant="ghost" size="sm" className={cn("h-8 gap-1 px-2", underlineHoverClass)}>
                                         <Globe className="h-4 w-4 text-emerald-500" />
                                         <span className="text-sm font-medium">{currentLanguage}</span>
                                         <ChevronDown className="h-3 w-3 opacity-50" />
                                     </Button>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" className="w-32">
+                                <DropdownMenuContent align="end" className="w-32 rounded-xl border-0 shadow-xl">
                                     <DropdownMenuItem
                                         className={cn(
                                             "flex items-center gap-2 text-sm cursor-pointer",
@@ -220,12 +234,20 @@ const Header = () => {
 
                             <div className="h-5 w-px bg-gray-200"></div>
 
-                            <Button variant="ghost" size="sm" className="h-8 px-3 text-sm font-medium">
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                className={cn("h-8 px-3 text-sm font-medium", underlineHoverClass)}
+                            >
                                 Log In
                             </Button>
-                            <Button className="h-9 bg-emerald-500 hover:bg-emerald-600 text-white font-medium gap-1">
+
+                            {/* Contact Sales button nello stile di Explore Now */}
+                            <Button
+                                className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 gap-2 shadow-lg shadow-emerald-500/20 bg-gradient-to-r from-emerald-500 to-emerald-500/90 hover:from-emerald-500/90 hover:to-emerald-500 font-medium px-5 transition-all hover:scale-105 rounded-full"
+                            >
                                 Contact Sales
-                                <ChevronRight className="h-4 w-4" />
+                                <ArrowRight className="h-4 w-4" />
                             </Button>
                         </div>
                     </div>
@@ -245,7 +267,7 @@ const Header = () => {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="fixed inset-0 top-16 z-40 bg-white overflow-y-auto animate-in slide-in-from-top duration-300">
+                <div className="fixed inset-0 top-16 z-40 bg-white/95 backdrop-blur-sm overflow-y-auto animate-in slide-in-from-top duration-300">
                     <div className="container mx-auto px-4 py-6 space-y-6">
                         <nav className="space-y-6">
                             {allNavItems.map((section, idx) =>
@@ -259,16 +281,17 @@ const Header = () => {
                                                 <Link
                                                     key={item.title}
                                                     href={item.href}
-                                                    className="flex items-center p-2 rounded-md hover:bg-gray-50"
+                                                    className="flex items-center p-2 rounded-md hover:bg-gray-50 transition-colors duration-200 relative group"
                                                     onClick={() => setMobileMenuOpen(false)}
                                                 >
-                                                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white">
+                                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white shadow-sm group-hover:border-emerald-200 group-hover:bg-emerald-50 transition-colors duration-200">
                                                         {item.icon}
                                                     </div>
                                                     <div className="ml-3">
-                                                        <p className="text-sm font-medium">{item.title}</p>
+                                                        <p className="text-sm font-medium group-hover:text-emerald-600 transition-colors duration-200">{item.title}</p>
                                                         <p className="text-xs text-gray-500">{item.description}</p>
                                                     </div>
+                                                    <div className="absolute bottom-0 left-12 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-1/2"></div>
                                                 </Link>
                                             ))}
                                         </div>
@@ -277,16 +300,17 @@ const Header = () => {
                                     <Link
                                         key={section.title}
                                         href={section.href}
-                                        className="flex items-center p-2 rounded-md hover:bg-gray-50"
+                                        className="flex items-center p-2 rounded-md hover:bg-gray-50 transition-colors duration-200 relative group"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white">
+                                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white shadow-sm group-hover:border-emerald-200 group-hover:bg-emerald-50 transition-colors duration-200">
                                             {section.icon}
                                         </div>
                                         <div className="ml-3">
-                                            <p className="text-sm font-medium">{section.title}</p>
+                                            <p className="text-sm font-medium group-hover:text-emerald-600 transition-colors duration-200">{section.title}</p>
                                             <p className="text-xs text-gray-500">{section.description}</p>
                                         </div>
+                                        <div className="absolute bottom-0 left-12 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-1/2"></div>
                                     </Link>
                                 )
                             )}
@@ -320,9 +344,13 @@ const Header = () => {
                                 <Button variant="outline" className="w-full justify-center">
                                     Log In
                                 </Button>
-                                <Button className="w-full justify-center bg-emerald-500 hover:bg-emerald-600">
+
+                                {/* Contact Sales nel menu mobile */}
+                                <Button
+                                    className="w-full justify-center inline-flex items-center text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 gap-2 shadow-lg shadow-emerald-500/20 bg-gradient-to-r from-emerald-500 to-emerald-500/90 hover:from-emerald-500/90 hover:to-emerald-500 font-medium transition-all hover:scale-105 rounded-full"
+                                >
                                     Contact Sales
-                                    <ChevronRight className="ml-1 h-4 w-4" />
+                                    <ArrowRight className="h-4 w-4" />
                                 </Button>
                             </div>
                         </div>

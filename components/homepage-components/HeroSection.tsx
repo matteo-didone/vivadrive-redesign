@@ -100,19 +100,6 @@ const HeroSection = () => {
                             Book a Demo
                         </Button>
                     </div>
-
-                    {/* Added trusted by section */}
-                    <div className="pt-6">
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Trusted by leading companies</p>
-                        <div className="flex flex-wrap gap-6 items-center">
-                            {trustedCompanies.map((company, index) => (
-                                <div key={index} className="opacity-70 hover:opacity-100 transition-opacity">
-                                    {/* Replace with actual logos if available */}
-                                    <p className="text-gray-600 dark:text-gray-300 font-medium">{company.name}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
                 </motion.div>
 
                 <motion.div
