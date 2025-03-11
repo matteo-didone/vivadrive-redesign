@@ -57,10 +57,6 @@ const HeroSection = () => {
                 ref={orb1Ref}
                 className="absolute right-0 top-0 -mt-16 -mr-16 h-80 w-80 rounded-full bg-gradient-to-br from-primary/15 to-blue-400/10 blur-3xl transition-transform duration-200"
             ></div>
-            <div
-                ref={orb2Ref}
-                className="absolute left-0 bottom-0 -mb-16 -ml-16 h-80 w-80 rounded-full bg-gradient-to-tr from-blue-500/10 to-emerald-400/10 blur-3xl transition-transform duration-200"
-            ></div>
 
             <div className="container grid gap-12 md:grid-cols-2 md:gap-16 items-center">
                 <motion.div
@@ -87,15 +83,15 @@ const HeroSection = () => {
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Button
                             size="lg"
-                            className="gap-2 shadow-lg shadow-primary/20 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary font-medium px-8 transition-all hover:scale-105 rounded-full"
+                            className="gap-2 bg-emerald-500 hover:bg-emerald-600 font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
                         >
                             Explore Now
-                            <ArrowRight className="h-4 w-4" />
+                            <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                         </Button>
                         <Button
                             size="lg"
                             variant="outline"
-                            className="border-primary/20 text-primary hover:bg-primary/10 transition-all hover:scale-105 rounded-full"
+                            className="border-primary/20 text-primary hover:bg-primary/10 transition-all hover:scale-105 rounded-full py-6 text-lg"
                         >
                             Book a Demo
                         </Button>

@@ -201,19 +201,6 @@ const DetailedStepsSection = () => {
                                         alt={step.imageAlt}
                                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
-
-                                    {/* Additional report image for first step */}
-                                    {step.reportImage && (
-                                        <div className="absolute bottom-0 right-0 w-1/2 transform translate-y-1/4 translate-x-1/4 shadow-2xl rounded-lg overflow-hidden border-4 border-white dark:border-gray-800">
-                                            <Image
-                                                src={step.reportImage}
-                                                width={350}
-                                                height={250}
-                                                alt="Fleet report detail"
-                                                className="w-full h-auto object-cover"
-                                            />
-                                        </div>
-                                    )}
                                 </div>
                             </div>
                         </motion.div>

@@ -7,6 +7,7 @@ import DetailedStepsSection from '@/components/homepage-components/DetailedSteps
 import FinalCTASection from '@/components/homepage-components/FinalCTASection';
 import PartnerLogos from '@/components/homepage-components/PartnerLogos';
 import IndustryTrust from '@/components/homepage-components/IndustryTrust';
+import FleetReportSection from '@/components/homepage-components/FleetReportSection';
 
 const MainContent = () => {
   return (
@@ -18,6 +19,7 @@ const MainContent = () => {
       <SolutionsSection />
       <BenefitsSection />
       <DetailedStepsSection />
+      <FleetReportSection />
       <FinalCTASection />
     </main>
   );
