@@ -51,11 +51,11 @@ const HeroSection = () => {
     ];
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-white dark:from-gray-900/50 dark:to-gray-950 py-12 md:py-16">
-            {/* Enhanced background elements */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-[#F2FAF7] via-white to-[#F2FAF7] dark:from-gray-900/50 dark:to-gray-950 py-12 md:py-16">
+            {/* Enhanced background elements with green palette */}
             <div
                 ref={orb1Ref}
-                className="absolute right-0 top-0 -mt-16 -mr-16 h-80 w-80 rounded-full bg-gradient-to-br from-primary/15 to-blue-400/10 blur-3xl transition-transform duration-200"
+                className="absolute right-0 top-0 -mt-16 -mr-16 h-80 w-80 rounded-full bg-gradient-to-br from-[#108C57]/15 to-[#8BD9B8]/10 blur-3xl transition-transform duration-200"
             ></div>
 
             <div className="container grid gap-12 md:grid-cols-2 md:gap-16 items-center">
@@ -65,15 +65,16 @@ const HeroSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Badge className="px-3 py-1.5 text-sm font-medium bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-all backdrop-blur-sm">
+                    <div className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium text-white bg-[#12AC6C] hover:bg-[#108C57] transition-all">
                         Fleet Management
-                    </Badge>
+                    </div>
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                         Deploy and Manage{" "}
-                        <span className="text-primary relative inline-block">
+                        <span className="bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] dark:from-white dark:via-[#8BD9B8] dark:to-[#15BF70] bg-clip-text text-transparent relative inline-block">
                             Electric Vehicles
                         </span>{" "}
-                        <br className="md:hidden" />in your Fleet
+                        <br className="md:hidden" />
+                        <span className="bg-gradient-to-r from-[#111826] to-[#12AC6C] dark:from-white dark:to-[#8BD9B8] bg-clip-text text-transparent">in your Fleet</span>
                     </h1>
                     <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
                         Drive your fleet's electrification seamlessly, reduce costs &
@@ -83,7 +84,7 @@ const HeroSection = () => {
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Button
                             size="lg"
-                            className="gap-2 bg-emerald-500 hover:bg-emerald-600 font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
+                            className="gap-2 bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] hover:from-[#0F7B4B] hover:to-[#14AD69] font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
                         >
                             Explore Now
                             <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -91,7 +92,7 @@ const HeroSection = () => {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="border-primary/20 text-primary hover:bg-primary/10 transition-all hover:scale-105 rounded-full py-6 text-lg"
+                            className="border-[#12AC6C]/20 text-[#12AC6C] hover:bg-[#12AC6C]/10 transition-all hover:scale-105 rounded-full py-6 text-lg"
                         >
                             Book a Demo
                         </Button>
@@ -104,8 +105,8 @@ const HeroSection = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 hover:shadow-primary/20 transition-all duration-500 transform hover:-translate-y-1">
-                        <div className="relative bg-gradient-to-br from-blue-100 to-gray-100 dark:from-blue-900/30 dark:to-gray-800/30 p-2 backdrop-blur-sm">
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#12AC6C]/10 hover:shadow-[#12AC6C]/20 transition-all duration-500 transform hover:-translate-y-1">
+                        <div className="relative bg-gradient-to-br from-[#F2FAF7] to-gray-100 dark:from-[#108C57]/10 dark:to-gray-800/30 p-2 backdrop-blur-sm">
                             <Image
                                 src="/fleet-dashboard.png"
                                 width={800}
@@ -118,27 +119,27 @@ const HeroSection = () => {
                             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
                         </div>
 
-                        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
-                        <div className="absolute -top-6 -left-6 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+                        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#12AC6C]/10 rounded-full blur-xl"></div>
+                        <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#8BD9B8]/10 rounded-full blur-xl"></div>
                     </div>
 
-                    <div className="absolute -z-10 top-1/2 right-1/2 w-[200%] aspect-square -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-radial from-primary/5 via-primary/2 to-transparent"></div>
+                    <div className="absolute -z-10 top-1/2 right-1/2 w-[200%] aspect-square -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-radial from-[#12AC6C]/5 via-[#12AC6C]/2 to-transparent"></div>
 
                     {/* Floating elements with animations */}
                     <div
                         ref={floatingElement1Ref}
-                        className="absolute -top-4 -right-4 h-24 w-24 bg-blue-100 dark:bg-blue-900/20 rounded-xl rotate-12 blur opacity-60 transition-transform duration-1000"
+                        className="absolute -top-4 -right-4 h-24 w-24 bg-[#8BD9B8]/20 dark:bg-[#8BD9B8]/10 rounded-xl rotate-12 blur opacity-60 transition-transform duration-1000"
                     ></div>
                     <div
                         ref={floatingElement2Ref}
-                        className="absolute -bottom-6 left-8 h-16 w-16 bg-primary/20 rounded-xl -rotate-12 blur opacity-60 transition-transform duration-1000"
+                        className="absolute -bottom-6 left-8 h-16 w-16 bg-[#12AC6C]/20 rounded-xl -rotate-12 blur opacity-60 transition-transform duration-1000"
                     ></div>
 
                     {/* Enhanced data metrics floating card */}
-                    <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-primary/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md">
+                    <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-[#12AC6C]/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md">
                         <div className="flex items-center gap-3">
-                            <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-full">
-                                <Check className="h-5 w-5 text-green-600 dark:text-green-400" />
+                            <div className="bg-[#12AC6C]/10 dark:bg-[#12AC6C]/30 p-3 rounded-full">
+                                <Check className="h-5 w-5 text-[#12AC6C] dark:text-[#8BD9B8]" />
                             </div>
                             <div>
                                 <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Average CO₂ reduction</p>
@@ -147,11 +148,11 @@ const HeroSection = () => {
                         </div>
                     </div>
 
-                    {/* Added metrics card on the right side - Changed star color to primary */}
-                    <div className="absolute -top-2 -right-2 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-3 transition-all duration-300 hover:shadow-primary/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md">
+                    {/* Added metrics card on the right side */}
+                    <div className="absolute -top-2 -right-2 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-3 transition-all duration-300 hover:shadow-[#12AC6C]/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md">
                         <div className="flex items-center space-x-2">
-                            <div className="bg-primary/10 dark:bg-primary/30 p-2 rounded-full">
-                                <Star className="h-4 w-4 text-primary dark:text-primary" />
+                            <div className="bg-[#12AC6C]/10 dark:bg-[#12AC6C]/30 p-2 rounded-full">
+                                <Star className="h-4 w-4 text-[#12AC6C] dark:text-[#8BD9B8]" />
                             </div>
                             <p className="text-sm font-bold text-gray-800 dark:text-gray-200">4.9/5 <span className="text-xs font-normal text-gray-500">rating</span></p>
                         </div>
@@ -160,7 +161,7 @@ const HeroSection = () => {
             </div>
 
             {/* Add a subtle, clean background without grid patterns */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/30 dark:from-transparent dark:to-blue-900/5 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F2FAF7]/30 dark:from-transparent dark:to-[#108C57]/5 pointer-events-none"></div>
         </section>
     );
 };

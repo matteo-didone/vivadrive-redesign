@@ -5,15 +5,16 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-// CSS variables for theming
+// Updated CSS variables using the green palette from Adobe Color
 const cssVariables = `
 :root {
-  --primary-color: 124, 58, 237;
-  --secondary-color: 16, 185, 129;
-  --accent-color: 14, 165, 233;
-  --success-color: 34, 197, 94;
-  --background-light: 255, 255, 255;
-  --background-dark: 17, 24, 39;
+  --primary-color: 18, 172, 108;      /* #12AC6C - Medium green */
+  --secondary-color: 19, 166, 97;     /* #13A661 - Emerald green from the palette */
+  --accent-color: 139, 217, 184;      /* #8BD9B8 - Light mint green */
+  --dark-color: 17, 24, 38;           /* #111826 - Dark navy from the palette */
+  --success-color: 34, 197, 94;       /* Same success color */
+  --background-light: 242, 250, 247;  /* Very light mint green */
+  --background-dark: 17, 24, 38;      /* Same as dark-color */
   --noise-opacity: 0.4;
 }
 
@@ -26,14 +27,14 @@ const BenefitsSection = () => {
   // State for hover effects and animations
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // More detailed benefits data with additional information for enhanced cards
+  // Updated benefits data with color palette adjustments
   const benefits = [
     {
       title: "Reduce CO₂ Emissions",
       description: "Lower your carbon footprint and contribute to a cleaner environment with zero-emission vehicles",
       imageUrl: "/benefits-section/co2_cloud.png",
       iconOutlined: true,
-      gradient: "from-emerald-500 to-green-400",
+      gradient: "from-[#13A661] to-[#12AC6C]", // Emerald to medium green
       stat: "48% reduction",
       detailedStat: {
         before: "235g",
@@ -48,7 +49,7 @@ const BenefitsSection = () => {
       description: "Significantly reduce operational and maintenance expenses with electric vehicles",
       imageUrl: "/benefits-section/coin.png",
       iconOutlined: false,
-      gradient: "from-blue-400 to-primary",
+      gradient: "from-[#12AC6C] to-[#15BF70]", // Medium green to bright green
       stat: "30% savings",
       detailedStat: {
         before: "$0.42",
@@ -63,7 +64,7 @@ const BenefitsSection = () => {
       description: "Stay ahead of environmental regulations and avoid potential penalties",
       imageUrl: "/benefits-section/esg.png",
       iconOutlined: true,
-      gradient: "from-teal-400 to-emerald-500",
+      gradient: "from-[#15BF70] to-[#8BD9B8]", // Bright green to light mint
       stat: "100% compliance",
       detailedStat: {
         before: "47%",
@@ -78,7 +79,7 @@ const BenefitsSection = () => {
       description: "Build a stronger brand as an environmentally responsible company",
       imageUrl: "/benefits-section/opinions.png",
       iconOutlined: true,
-      gradient: "from-indigo-500 to-blue-500",
+      gradient: "from-[#13A661] to-[#8BD9B8]", // Emerald green to light mint
       stat: "Improved reputation",
       detailedStat: {
         before: "64",
@@ -143,7 +144,7 @@ const BenefitsSection = () => {
           initial={{ width: 0 }}
           whileInView={{ width: '100%' }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="absolute inset-0 bg-gradient-to-r from-gray-500 to-primary"
+          className="absolute inset-0 bg-gradient-to-r from-gray-500 to-[#12AC6C]"
         ></motion.div>
       </div>
 
@@ -168,7 +169,7 @@ const BenefitsSection = () => {
 
       <section
         id="benefits"
-        className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900/90 dark:to-gray-950 relative overflow-hidden"
+        className="py-20 md:py-28 bg-gradient-to-b from-[#F2FAF7] to-white dark:from-[#111826]/90 dark:to-[#111826] relative overflow-hidden"
       >
         {/* Noise texture overlay */}
         <div
@@ -178,27 +179,27 @@ const BenefitsSection = () => {
           }}
         ></div>
 
-        {/* Enhanced decorative elements with parallax */}
+        {/* Enhanced decorative elements with parallax using the new color palette */}
         <motion.div
           custom={1}
           variants={parallaxEffect}
           initial="initial"
           animate="animate"
-          className="absolute top-20 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"
+          className="absolute top-20 left-0 w-64 h-64 bg-[#12AC6C]/10 rounded-full blur-3xl -z-10"
         ></motion.div>
         <motion.div
           custom={2}
           variants={parallaxEffect}
           initial="initial"
           animate="animate"
-          className="absolute bottom-20 right-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl -z-10"
+          className="absolute bottom-20 right-0 w-80 h-80 bg-[#13A661]/10 rounded-full blur-3xl -z-10"
         ></motion.div>
         <motion.div
           custom={3}
           variants={parallaxEffect}
           initial="initial"
           animate="animate"
-          className="absolute top-40 right-1/4 w-40 h-40 bg-blue-500/5 rounded-full blur-2xl -z-10"
+          className="absolute top-40 right-1/4 w-40 h-40 bg-[#8BD9B8]/15 rounded-full blur-2xl -z-10"
         ></motion.div>
 
         <div className="container relative z-10">
@@ -209,10 +210,10 @@ const BenefitsSection = () => {
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 py-1.5 px-4 text-sm font-medium">
+            <Badge className="mb-4 bg-[#12AC6C]/10 text-[#12AC6C] border-[#12AC6C]/20 hover:bg-[#12AC6C]/20 py-1.5 px-4 text-sm font-medium">
               Why Choose Us
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-[#111826] to-[#12AC6C] dark:from-white dark:to-[#8BD9B8] bg-clip-text text-transparent">
               Benefits of Fleet Electrification
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
@@ -242,19 +243,19 @@ const BenefitsSection = () => {
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <Card
-                  className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-gray-100/80 dark:border-gray-800/80 overflow-hidden 
+                  className="bg-white/80 dark:bg-[#111826]/80 backdrop-blur-sm border-gray-100/80 dark:border-gray-800/80 overflow-hidden 
                   group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full
-                  hover:border-opacity-80 hover:border-primary/30 dark:hover:border-primary/20"
+                  hover:border-opacity-80 hover:border-[#12AC6C]/30 dark:hover:border-[#12AC6C]/20"
                 >
                   <div className={`h-2.5 w-full bg-gradient-to-r ${benefit.gradient}`}></div>
                   <CardContent className="p-6 sm:p-8 flex flex-col items-center text-center">
-                    {/* Icon container that matches the design in Image 2 */}
+                    {/* Icon container with updated colors */}
                     <div
                       className={`mb-6 mx-auto flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-full 
-                      ${i === 0 ? 'bg-emerald-500' :
-                          i === 1 ? 'bg-gradient-to-r from-blue-400 to-teal-500' :
-                            i === 2 ? 'bg-teal-500' :
-                              'bg-indigo-500'} 
+                      ${i === 0 ? 'bg-[#13A661]' :
+                          i === 1 ? 'bg-gradient-to-r from-[#12AC6C] to-[#15BF70]' :
+                            i === 2 ? 'bg-[#15BF70]' :
+                              'bg-[#13A661]'} 
                       shadow-lg
                       p-5 transition-all duration-300 group-hover:shadow-xl`}
                     >
@@ -274,7 +275,7 @@ const BenefitsSection = () => {
                       )}
                     </div>
 
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-[#12AC6C] transition-colors">
                       {benefit.title}
                     </h3>
 
@@ -293,7 +294,7 @@ const BenefitsSection = () => {
 
                     {/* Testimonial quote */}
                     <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-                      <blockquote className="italic text-sm text-gray-500 dark:text-gray-400 relative px-4 py-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+                      <blockquote className="italic text-sm text-gray-500 dark:text-gray-400 relative px-4 py-3 bg-gray-50 dark:bg-[#111826]/50 rounded-lg">
                         "{benefit.testimonial}"
                       </blockquote>
                     </div>
