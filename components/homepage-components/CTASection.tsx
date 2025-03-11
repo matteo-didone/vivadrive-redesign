@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const CTASection = () => {
   return (
@@ -18,10 +18,10 @@ const CTASection = () => {
           </div>
           <Button
             size="lg"
-            className="whitespace-nowrap shadow-lg shadow-primary/20 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transition-all hover:scale-105 flex items-center gap-2"
+            className="whitespace-nowrap shadow-lg shadow-primary/20 bg-gradient-to-r from-emerald-500 to-emerald-500/90 hover:from-emerald-500/90 hover:to-emerald-500 text-white font-medium transition-all hover:scale-105 rounded-full px-8 flex items-center gap-2"
           >
             Get Started
-            <ChevronRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
       </div>
