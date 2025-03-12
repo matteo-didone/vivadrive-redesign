@@ -1,0 +1,272 @@
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+
+const BenefitsSection = () => {
+  // State for hover effects and animations
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  // Benefits data with color palette adjustments
+  const benefits = [
+    {
+      title: "Reduce CO₂ Emissions",
+      description: "Lower your carbon footprint and contribute to a cleaner environment with zero-emission vehicles",
+      imageUrl: "/benefits-section/co2_cloud.png",
+      iconOutlined: true,
+      gradient: "from-[#13A661] to-[#12AC6C]", // Emerald to medium green
+      stat: "48% reduction",
+      detailedStat: {
+        before: "235g",
+        after: "122g",
+        unit: "CO₂/km"
+      },
+      testimonial: "We've seen a dramatic drop in our company's carbon footprint since switching to EVs.",
+      learnMoreUrl: "/benefits/emissions"
+    },
+    {
+      title: "Save Fleet Costs",
+      description: "Significantly reduce operational and maintenance expenses with electric vehicles",
+      imageUrl: "/benefits-section/coin.png",
+      iconOutlined: false,
+      gradient: "from-[#12AC6C] to-[#15BF70]", // Medium green to bright green
+      stat: "30% savings",
+      detailedStat: {
+        before: "$0.42",
+        after: "$0.29",
+        unit: "per mile"
+      },
+      testimonial: "Our maintenance costs have dropped substantially in the first year alone.",
+      learnMoreUrl: "/benefits/costs"
+    },
+    {
+      title: "Comply with Regulations",
+      description: "Stay ahead of environmental regulations and avoid potential penalties",
+      imageUrl: "/benefits-section/esg.png",
+      iconOutlined: true,
+      gradient: "from-[#15BF70] to-[#8BD9B8]", // Bright green to light mint
+      stat: "100% compliance",
+      detailedStat: {
+        before: "47%",
+        after: "100%",
+        unit: "compliance rate"
+      },
+      testimonial: "We're now fully compliant with all current and upcoming emissions regulations.",
+      learnMoreUrl: "/benefits/compliance"
+    },
+    {
+      title: "Enhance Corporate Image",
+      description: "Build a stronger brand as an environmentally responsible company",
+      imageUrl: "/benefits-section/opinions.png",
+      iconOutlined: true,
+      gradient: "from-[#13A661] to-[#8BD9B8]", // Emerald green to light mint
+      stat: "Improved reputation",
+      detailedStat: {
+        before: "64",
+        after: "89",
+        unit: "brand perception score"
+      },
+      testimonial: "Our customers and partners consistently cite our sustainable fleet as a reason they choose us.",
+      learnMoreUrl: "/benefits/brand-image"
+    },
+  ];
+
+  // Animation variants with enhanced effects
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 30, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24
+      }
+    }
+  };
+
+  // Function to render the mini comparison chart
+  const renderComparisonChart = (data) => (
+    <div className="w-full mt-3 mb-2 flex items-center justify-between text-xs">
+      <div className="flex flex-col items-center">
+        <span className="text-gray-500 dark:text-gray-400">Before</span>
+        <span className="font-bold text-sm">{data.before}</span>
+      </div>
+
+      <div className="h-0.5 flex-1 mx-2 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700"></div>
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: '100%' }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="absolute inset-0 bg-gradient-to-r from-gray-500 to-[#12AC6C]"
+        ></motion.div>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <span className="text-gray-500 dark:text-gray-400">After</span>
+        <span className="font-bold text-sm">{data.after}</span>
+      </div>
+    </div>
+  );
+
+  return (
+    <section
+      id="benefits"
+      className="py-20 md:py-28 bg-gradient-to-b from-[#F2FAF7] to-white dark:from-[#111826]/90 dark:to-[#111826] relative overflow-hidden"
+    >
+      {/* Noise texture overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-5 dark:opacity-10 z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      ></div>
+
+      {/* Decorative background elements */}
+      <motion.div
+        animate={{
+          y: [0, -8, 0],
+          transition: { repeat: Infinity, duration: 5, ease: "easeInOut" }
+        }}
+        className="absolute top-20 left-0 w-64 h-64 bg-[#12AC6C]/10 rounded-full blur-3xl -z-10"
+      ></motion.div>
+      
+      <motion.div
+        animate={{
+          y: [0, 8, 0],
+          transition: { repeat: Infinity, duration: 6, ease: "easeInOut" }
+        }}
+        className="absolute bottom-20 right-0 w-80 h-80 bg-[#13A661]/10 rounded-full blur-3xl -z-10"
+      ></motion.div>
+      
+      <motion.div
+        animate={{
+          y: [0, -5, 0],
+          transition: { repeat: Infinity, duration: 4, ease: "easeInOut" }
+        }}
+        className="absolute top-40 right-1/4 w-40 h-40 bg-[#8BD9B8]/15 rounded-full blur-2xl -z-10"
+      ></motion.div>
+
+      <div className="container relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <Badge className="mb-4 bg-[#12AC6C]/10 text-[#12AC6C] border-[#12AC6C]/20 hover:bg-[#12AC6C]/20 py-1.5 px-4 text-sm font-medium">
+            Why Choose Us
+          </Badge>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-[#111826] to-[#12AC6C] dark:from-white dark:to-[#8BD9B8] bg-clip-text text-transparent">
+            Benefits of Fleet Electrification
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
+            Discover how transitioning to electric vehicles can transform
+            your business operations and sustainability goals.
+          </p>
+        </motion.div>
+
+        {/* Benefits cards grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8"
+        >
+          {benefits.map((benefit, i) => (
+            <motion.div
+              key={i}
+              variants={item}
+              className={`${i === 0 || i === 3 ? "sm:translate-y-4" : ""}`}
+              onMouseEnter={() => setHoveredCard(i)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <Card
+                className="bg-white/80 dark:bg-[#111826]/80 backdrop-blur-sm border-gray-100/80 dark:border-gray-800/80 overflow-hidden 
+                group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full
+                hover:border-opacity-80 hover:border-[#12AC6C]/30 dark:hover:border-[#12AC6C]/20"
+              >
+                <div className={`h-2.5 w-full bg-gradient-to-r ${benefit.gradient}`}></div>
+                <CardContent className="p-6 sm:p-8 flex flex-col items-center text-center">
+                  {/* Icon container */}
+                  <div
+                    className={`mb-6 mx-auto flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-full 
+                    ${i === 0 ? 'bg-[#13A661]' :
+                        i === 1 ? 'bg-gradient-to-r from-[#12AC6C] to-[#15BF70]' :
+                          i === 2 ? 'bg-[#15BF70]' :
+                            'bg-[#13A661]'} 
+                    shadow-lg
+                    p-5 transition-all duration-300 group-hover:shadow-xl`}
+                  >
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={benefit.imageUrl}
+                        alt={benefit.title}
+                        fill
+                        className="object-contain brightness-0 invert"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      />
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#12AC6C] transition-colors">
+                    {benefit.title}
+                  </h3>
+
+                  <div className="mb-4">
+                    <span className={`inline-block text-sm font-semibold px-3 py-1 rounded-full bg-gradient-to-r ${benefit.gradient} text-white`}>
+                      {benefit.stat}
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {benefit.description}
+                  </p>
+
+                  {/* Mini comparison chart */}
+                  {renderComparisonChart(benefit.detailedStat)}
+
+                  {/* Testimonial quote */}
+                  <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <blockquote className="italic text-sm text-gray-500 dark:text-gray-400 relative px-4 py-3 bg-gray-50 dark:bg-[#111826]/50 rounded-lg">
+                      "{benefit.testimonial}"
+                    </blockquote>
+                  </div>
+
+                  {/* Learn more link */}
+                  <motion.a
+                    href={benefit.learnMoreUrl}
+                    className={`mt-4 inline-flex items-center text-sm px-4 py-2 rounded-full bg-gradient-to-r ${benefit.gradient} text-white shadow-md`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    Learn more <ChevronRight className="ml-1 h-4 w-4" />
+                  </motion.a>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default BenefitsSection;
