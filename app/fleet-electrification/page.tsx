@@ -5,11 +5,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/app/fleet-electrification/components/HeroSection';
 import PartnerLogos from '@/app/fleet-electrification/components/PartnerLogos';
-import ProcessSection from '@/app/fleet-electrification/components/ProcessSection';
-import CTASection from '@/app/fleet-electrification/components/CTASection';
-import SolutionsSection from '@/app/fleet-electrification/components/SolutionsSection';
-import BenefitsSection from '@/app/fleet-electrification/components/BenefitsSection';
 import FinalCTASection from '@/app/fleet-electrification/components/FinalCTASection';
+import FeaturesSection from '@/app/fleet-electrification/components/FeaturesSection';
+import FleetManagementSection from '@/app/fleet-electrification/components/FleetManagementSection';
 
 export default function FleetElectrificationPage() {
   return (
@@ -18,10 +16,8 @@ export default function FleetElectrificationPage() {
       <main className="flex-1">
         <HeroSection />
         <PartnerLogos />
-        <ProcessSection />
-        <CTASection />
-        <SolutionsSection />
-        <BenefitsSection />
+        <FeaturesSection />
+        <FleetManagementSection />
         <FinalCTASection />
       </main>
       <Footer />

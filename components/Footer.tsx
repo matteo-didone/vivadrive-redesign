@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+    const [email, setEmail] = useState('');
+
     const footerLinks = {
         solutions: [
-            { label: 'Fleet Electrification', href: '#' },
-            { label: 'Fleet Management', href: '#' },
+            { label: 'Fleet Electrification', href: '/fleet-electrification' },
+            { label: 'Fleet Management', href: '/fleet-management' },
             { label: 'Charging Infrastructure', href: '#' },
             { label: 'Sustainability Reporting', href: '#' },
         ],
@@ -17,138 +19,129 @@ const Footer = () => {
             { label: 'Webinars', href: '#' },
         ],
         company: [
-            { label: 'About Us', href: '#' },
-            { label: 'Careers', href: '#' },
-            { label: 'Contact', href: '#' },
-            { label: 'Partners', href: '#' },
-        ],
-        legal: [
-            { label: 'Privacy Policy', href: '#' },
-            { label: 'Terms of Service', href: '#' },
-            { label: 'Cookie Policy', href: '#' },
-        ],
-        social: [
-            {
-                name: 'Facebook',
-                href: '#',
-                icon: (
-                    <svg
-                        className="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                            clipRule="evenodd"
-                        ></path>
-                    </svg>
-                ),
-            },
-            {
-                name: 'Twitter',
-                href: '#',
-                icon: (
-                    <svg
-                        className="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                    </svg>
-                ),
-            },
-            {
-                name: 'YouTube',
-                href: '#',
-                icon: (
-                    <svg
-                        className="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                ),
-            },
-            {
-                name: 'Dribbble',
-                href: '#',
-                icon: (
-                    <svg
-                        className="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                            clipRule="evenodd"
-                        ></path>
-                    </svg>
-                ),
-            },
+            { label: 'About', href: '/about' },
+            { label: 'Careers', href: '/careers' },
+            { label: 'Internships', href: '/internships' },
+            { label: 'Newsroom', href: '/newsroom' },
         ],
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle newsletter subscription
+        console.log('Subscribed with email:', email);
+        // Reset form
+        setEmail('');
+        // Here you would typically show a success message
+        alert('Thank you for subscribing!');
+    };
+
     return (
-        <footer className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 border-t border-gray-100 dark:border-gray-800">
-            
+        <footer className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 border-t border-gray-100 dark:border-gray-800 relative">
+            {/* Subtle pattern overlay for visual depth */}
+            <div
+                className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300b074' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+                    backgroundSize: '20px 20px'
+                }}
+                aria-hidden="true"
+            ></div>
+
             {/* Main footer content */}
-            <div className="container py-12">
-                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
-                    <div className="lg:col-span-2">
-                        <Link href="/" className="inline-block mb-6">
-                            <Image
-                                src="/vivadrive-logo-dark.png"
-                                alt="VivaDrive Logo"
-                                width={180}
-                                height={48}
-                                className="dark:hidden"
-                            />
-                            <Image
-                                src="/vivadrive-logo-light.png"
-                                alt="VivaDrive Logo"
-                                width={180}
-                                height={48}
-                                className="hidden dark:block"
-                            />
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative">
+                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="lg:col-span-1">
+                        <Link
+                            href="/"
+                            className="inline-block mb-6 transform transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md"
+                        >
+                            <div className="h-12 w-auto">
+                                <img
+                                    src="/vivadrive-logo-dark.png"
+                                    alt="VivaDrive Logo"
+                                    className="h-full w-auto dark:hidden"
+                                />
+                                <img
+                                    src="/vivadrive-logo-light.png"
+                                    alt="VivaDrive Logo"
+                                    className="h-full w-auto hidden dark:block"
+                                />
+                            </div>
                         </Link>
-                        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md">
-                            Empowering businesses to transition to sustainable electric
-                            vehicle fleets with comprehensive management solutions.
-                        </p>
-                        <div className="flex space-x-5">
-                            {footerLinks.social.map((item) => (
-                                <a
-                                    key={item.name}
-                                    href={item.href}
-                                    className="text-gray-500 hover:text-emerald-500 dark:text-gray-400 dark:hover:text-emerald-400 transition-colors"
-                                    aria-label={`${item.name} social link`}
+                        <div className="text-gray-600 dark:text-gray-400 space-y-4 mb-8 max-w-md">
+                            <p>
+                                Empowering businesses to transition to sustainable electric
+                                vehicle fleets with comprehensive management solutions.
+                            </p>
+                            <div className="pt-2 text-sm space-y-1">
+                                <p className="font-semibold text-gray-700 dark:text-gray-300">VivaDrive Polska sp. z o.o.</p>
+                                <p>Dobra 56/66</p>
+                                <p>00-312 Warszawa, Poland</p>
+                                <p>VAT-ID: PL7010929600</p>
+                            </div>
+                        </div>
+
+                        {/* Newsletter signup with improved width and positioning */}
+                        <div className="mb-8 w-full sm:max-w-md lg:max-w-lg">
+                            <p className="font-semibold mb-3">Stay updated</p>
+                            <form onSubmit={handleSubmit} className="flex w-full">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Email address"
+                                    className="flex-grow px-5 h-12 border border-gray-200 dark:border-gray-700 rounded-l-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm transition-all duration-300 focus:shadow-md"
+                                    required
+                                    aria-label="Email for newsletter"
+                                />
+                                <button
+                                    type="submit"
+                                    className="inline-flex items-center justify-center bg-emerald-500 hover:bg-emerald-600 focus:bg-emerald-700 text-white font-medium h-12 px-5 rounded-r-full transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                                    aria-label="Subscribe to newsletter"
                                 >
-                                    <span className="sr-only">{item.name}</span>
-                                    {item.icon}
-                                </a>
-                            ))}
+                                    Subscribe
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 ml-2">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                                We respect your privacy. Unsubscribe at any time.
+                            </p>
+                        </div>
+
+                        <div className="flex space-x-5">
+                            <a
+                                href="#"
+                                className="text-gray-500 hover:text-emerald-500 dark:text-gray-400 dark:hover:text-emerald-400 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-full p-1"
+                                aria-label="LinkedIn"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                            <a
+                                href="#"
+                                className="text-gray-500 hover:text-emerald-500 dark:text-gray-400 dark:hover:text-emerald-400 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-full p-1"
+                                aria-label="Facebook"
+                            >
+                                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd"></path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
                     <div>
-                        <h4 className="font-semibold text-lg mb-6">Solutions</h4>
+                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Solutions</h4>
                         <ul className="space-y-4">
                             {footerLinks.solutions.map((link) => (
                                 <li key={link.label}>
                                     <Link
                                         href={link.href}
-                                        className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                                        className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300 hover:translate-x-1 inline-block focus:outline-none focus:text-emerald-500 dark:focus:text-emerald-400"
                                     >
                                         {link.label}
                                     </Link>
@@ -158,13 +151,13 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="font-semibold text-lg mb-6">Resources</h4>
+                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Resources</h4>
                         <ul className="space-y-4">
                             {footerLinks.resources.map((link) => (
                                 <li key={link.label}>
                                     <Link
                                         href={link.href}
-                                        className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                                        className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300 hover:translate-x-1 inline-block focus:outline-none focus:text-emerald-500 dark:focus:text-emerald-400"
                                     >
                                         {link.label}
                                     </Link>
@@ -174,13 +167,13 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="font-semibold text-lg mb-6">Company</h4>
+                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Company</h4>
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
                                 <li key={link.label}>
                                     <Link
                                         href={link.href}
-                                        className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                                        className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300 hover:translate-x-1 inline-block focus:outline-none focus:text-emerald-500 dark:focus:text-emerald-400"
                                     >
                                         {link.label}
                                     </Link>
@@ -190,18 +183,64 @@ const Footer = () => {
                     </div>
                 </div>
 
+                {/* Partners section with improved handling of SVGs */}
+                <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+                    <h4 className="font-semibold text-lg mb-8 text-center">In collaboration with</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center">
+                        {[
+                            { src: '/footer-logos/urban-mobility.png', alt: 'Urban Mobility', height: 16 },
+                            { src: '/footer-logos/ncbr.png', alt: 'NCBR', height: 16 },
+                            { src: '/footer-logos/space-bridge-fund.png', alt: 'Space Bridge Fund', height: 16 }
+                        ].map((logo) => (
+                            <div
+                                key={logo.alt}
+                                className="flex items-center justify-center h-16 transform transition-transform duration-300 hover:scale-105 filter hover:brightness-110"
+                            >
+                                <img
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    className={`h-${logo.height} w-auto object-contain`}
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center mt-8">
+                        {[
+                            { src: '/footer-logos/eu-funds.svg', alt: 'European Funds', height: 12 },
+                            { src: '/footer-logos/poland-republic-of.svg', alt: 'Republic of Poland', height: 12 },
+                            { src: '/footer-logos/eu-structural-funds.svg', alt: 'EU Structural Funds', height: 12 }
+                        ].map((logo) => (
+                            <div
+                                key={logo.alt}
+                                className="flex items-center justify-center h-12 transform transition-transform duration-300 hover:scale-105 filter hover:brightness-110"
+                            >
+                                <img
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    className={`h-${logo.height} w-auto object-contain`}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Bottom section */}
-                <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                        © {new Date().getFullYear()} VivaDrive. All rights reserved.
+                        © {currentYear} VivaDrive Polska sp. z o.o. All rights reserved.
                     </p>
 
                     <div className="flex flex-wrap gap-x-8 gap-y-3">
-                        {footerLinks.legal.map((link) => (
+                        {[
+                            { label: 'Terms of Service', href: '/terms-of-service' },
+                            { label: 'Privacy Policy', href: '/privacy-policy' },
+                            { label: 'Cookie Policy', href: '/cookie-policy' }
+                        ].map((link) => (
                             <Link
                                 key={link.label}
                                 href={link.href}
-                                className="text-sm text-gray-500 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                                className="text-sm text-gray-500 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:bg-emerald-500 after:h-[1px] after:w-0 hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:text-emerald-500 dark:focus:text-emerald-400"
                             >
                                 {link.label}
                             </Link>
