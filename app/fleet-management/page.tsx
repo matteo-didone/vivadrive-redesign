@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/app/fleet-management/components/HeroSection';
 import PartnerLogos from '@/app/fleet-electrification/components/PartnerLogos';
+import FleetPotentialShowcase from '@/app/fleet-management/components/FleetPotentialShowcase';
 
 
 export default function FleetElectrificationPage() {
@@ -13,6 +14,7 @@ export default function FleetElectrificationPage() {
       <main className="flex-1">
         <HeroSection />
         <PartnerLogos />
+        <FleetPotentialShowcase />
       </main>
       <Footer />
     </div>
