@@ -8,6 +8,7 @@ import PhilosophySection from '@/app/about/components/PhilosophySection';
 import PartnerLogos from '@/app/about/components/PartnerLogos';
 import OurStory from '@/app/about/components/OurStory';
 import TeamSection from '@/app/about/components/TeamSection';
+import JoinOurTeamSection from '@/app/about/components/JoinOurTeamSection';
 
 export default function FleetElectrificationPage() {
   return (
@@ -20,6 +21,7 @@ export default function FleetElectrificationPage() {
         <PartnerLogos />
         <OurStory />
         <TeamSection />
+        <JoinOurTeamSection />
       </main>
       <Footer />
     </div>
