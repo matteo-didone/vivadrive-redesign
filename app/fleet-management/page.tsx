@@ -5,6 +5,10 @@ import Footer from '@/components/Footer';
 import HeroSection from '@/app/fleet-management/components/HeroSection';
 import PartnerLogos from '@/app/fleet-electrification/components/PartnerLogos';
 import FleetPotentialShowcase from '@/app/fleet-management/components/FleetPotentialShowcase';
+import FeatureSection from '@/app/fleet-management/components/FeatureSection';
+import VivaDriveFleetSolutions from '@/app/fleet-management/components/VivaDriveFleetSolutions';
+import CostReductionSection from '@/app/fleet-management/components/CostReductionSection';
+import SuperchargeCTA from '@/app/fleet-management/components/SuperchargeCTA';
 
 
 export default function FleetElectrificationPage() {
@@ -15,6 +19,10 @@ export default function FleetElectrificationPage() {
         <HeroSection />
         <PartnerLogos />
         <FleetPotentialShowcase />
+        <FeatureSection />
+        <VivaDriveFleetSolutions />
+        <CostReductionSection />
+        <SuperchargeCTA />
       </main>
       <Footer />
     </div>
