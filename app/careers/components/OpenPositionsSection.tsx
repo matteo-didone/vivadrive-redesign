@@ -1,0 +1,222 @@
+"use client";
+
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { Briefcase, ArrowRight, Code, Layout, Database, TrendingUp, Building, Palette, Sparkles } from 'lucide-react';
+
+const OpenPositionsSection = () => {
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+
+    // Job positions data with icons
+    const positions = [
+        {
+            title: "Python/Django Developer",
+            subtitle: "Smart City/AI",
+            description: "We are looking for an experienced Python/Django developer with at least 4 years...",
+            icon: <Code className="h-6 w-6" />,
+            color: "from-blue-500 to-blue-400",
+            textColor: "text-blue-600",
+            bgColor: "bg-blue-50"
+        },
+        {
+            title: "Front-end Developer",
+            subtitle: "",
+            description: "We are looking for an experienced Python/Django developer with at least 4 years...",
+            icon: <Layout className="h-6 w-6" />,
+            color: "from-emerald-500 to-emerald-400",
+            textColor: "text-emerald-600",
+            bgColor: "bg-emerald-50"
+        },
+        {
+            title: "Data Scientist",
+            subtitle: "",
+            description: "We are looking for a Data Scientist with at least 3 years experience...",
+            icon: <Database className="h-6 w-6" />,
+            color: "from-blue-500 to-blue-400",
+            textColor: "text-blue-600",
+            bgColor: "bg-blue-50"
+        },
+        {
+            title: "Digital Marketer",
+            subtitle: "",
+            description: "We are looking for a Digital Marketer with at least 2 years experience...",
+            icon: <TrendingUp className="h-6 w-6" />,
+            color: "from-emerald-500 to-emerald-400",
+            textColor: "text-emerald-600",
+            bgColor: "bg-emerald-50"
+        },
+        {
+            title: "Business Developer",
+            subtitle: "",
+            description: "We are looking for a Business Developer with at least 5 years experience...",
+            icon: <Building className="h-6 w-6" />,
+            color: "from-blue-500 to-blue-400",
+            textColor: "text-blue-600",
+            bgColor: "bg-blue-50"
+        },
+        {
+            title: "UX/UI",
+            subtitle: "",
+            description: "We are looking for a UX/UI designer with at least 2 years experience...",
+            icon: <Palette className="h-6 w-6" />,
+            color: "from-emerald-500 to-emerald-400",
+            textColor: "text-emerald-600",
+            bgColor: "bg-emerald-50"
+        },
+        {
+            title: "Different position?",
+            subtitle: "",
+            description: "Is your skillset not on our list? Don't worry, we are always open for talents....",
+            icon: <Sparkles className="h-6 w-6" />,
+            color: "from-blue-500 to-blue-400",
+            textColor: "text-blue-600",
+            bgColor: "bg-blue-50"
+        }
+    ];
+
+    return (
+        <section ref={sectionRef} className="py-24 relative overflow-hidden bg-gray-50">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-100 rounded-full opacity-30 blur-3xl" />
+                <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-100 rounded-full opacity-30 blur-3xl" />
+
+                {/* Dotted grid pattern */}
+                <div className="absolute inset-0 opacity-[0.03]" style={{
+                    backgroundImage: 'radial-gradient(#10b981 1px, transparent 1px)',
+                    backgroundSize: '30px 30px'
+                }} />
+            </div>
+
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                {/* Section Header with animated underline */}
+                <motion.div
+                    className="mb-20 max-w-4xl mx-auto text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    transition={{ duration: 0.7 }}
+                >
+                    <div className="flex items-center justify-center mb-4">
+                        <Briefcase className="w-8 h-8 text-emerald-500 mr-2" />
+                        <span className="text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
+                            Career opportunities
+                        </span>
+                    </div>
+                    
+                    <h2 className="text-5xl sm:text-6xl font-bold mb-10 text-gray-900 relative inline-block">
+                        Open positions
+                        <motion.span
+                            className="absolute -bottom-2 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-400 to-emerald-500 rounded-full"
+                            initial={{ width: 0, left: "50%" }}
+                            animate={isInView ? { width: "100%", left: 0 } : { width: 0, left: "50%" }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                        />
+                    </h2>
+
+                    <motion.p
+                        className="text-xl text-gray-700 leading-relaxed mx-auto"
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                        transition={{ duration: 0.7, delay: 0.5 }}
+                    >
+                        Join our team and help us build sustainable solutions for the future.
+                        We're looking for passionate people who want to make a difference.
+                    </motion.p>
+                </motion.div>
+
+                {/* Job Cards */}
+                <div className="space-y-6 max-w-5xl mx-auto">
+                    {positions.map((position, index) => (
+                        <motion.div
+                            key={index}
+                            className="relative group"
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.2 + index * 0.1,
+                                ease: [0.22, 1, 0.36, 1]
+                            }}
+                        >
+                            <div className={`rounded-xl ${position.bgColor} backdrop-blur-sm p-6 shadow-md relative z-10 
+                                border border-white/30 group-hover:shadow-xl group-hover:shadow-${position.color.split('-')[1]}-200/20 
+                                transition-all duration-300 overflow-hidden`}
+                            >
+                                {/* Background gradient animation on hover */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-white via-transparent to-transparent transition-opacity duration-300" />
+
+                                <div className="flex flex-col md:flex-row md:items-center justify-between">
+                                    <div className="flex items-start md:items-center mb-4 md:mb-0">
+                                        {/* Icon */}
+                                        <div className={`mr-4 flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl 
+                                            bg-gradient-to-br ${position.color} shadow-md`}>
+                                            <div className="text-white">
+                                                {position.icon}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h3 className="text-xl font-bold text-gray-800">
+                                                {position.title}
+                                                {position.subtitle && (
+                                                    <span className="text-sm font-medium ml-2 text-gray-500">
+                                                        ({position.subtitle})
+                                                    </span>
+                                                )}
+                                            </h3>
+                                            <p className="text-gray-600 mt-1">
+                                                {position.description}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Apply button */}
+                                    <div className="flex-shrink-0">
+                                        <a href={`/apply/${position.title.toLowerCase().replace(/\s+/g, '-')}`} 
+                                            className={`inline-flex items-center px-5 py-2.5 
+                                            bg-gradient-to-r ${position.color} text-white 
+                                            rounded-full shadow-sm hover:shadow-lg transition-all duration-300 
+                                            transform hover:scale-105 group/btn`}>
+                                            Apply
+                                            <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Call To Action */}
+                <motion.div
+                    className="mt-20 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                >
+                    <p className="text-lg text-gray-600 mb-6">
+                        Don't see a position that fits your skills?
+                    </p>
+                    <a
+                        href="/contact"
+                        className="relative inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-white 
+                        bg-gradient-to-r from-blue-500 to-blue-600 rounded-full 
+                        shadow-lg shadow-blue-500/20 overflow-hidden
+                        transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30
+                        hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    >
+                        {/* Subtle background animation */}
+                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                        -translate-x-full animate-shimmer opacity-0 hover:opacity-100" />
+
+                        Contact our team
+                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </a>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
+
+export default OpenPositionsSection;
