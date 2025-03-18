@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, ChevronLeft, Quote } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Quote, Users } from 'lucide-react';
 
 const InternTestimonials = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -98,17 +98,14 @@ const InternTestimonials = () => {
     };
 
     const nextSlide = () => {
-        console.log("Next slide clicked");
         handleSlideChange((currentSlide + 1) % testimonials.length);
     };
 
     const prevSlide = () => {
-        console.log("Previous slide clicked");
         handleSlideChange((currentSlide - 1 + testimonials.length) % testimonials.length);
     };
 
     const goToSlide = (index) => {
-        console.log("Go to slide", index);
         handleSlideChange(index);
     };
 
@@ -124,7 +121,7 @@ const InternTestimonials = () => {
     const nextButtonRef = useRef(null);
 
     return (
-        <section className="py-20 bg-gradient-to-br from-white to-emerald-50 overflow-hidden relative">
+        <section className="py-20 bg-gradient-to-br from-white to-emerald-50/50 overflow-hidden relative">
             {/* Background decorative elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-10 right-10 w-64 h-64 bg-emerald-200 rounded-full opacity-20 blur-xl"></div>
@@ -143,14 +140,14 @@ const InternTestimonials = () => {
 
             <div className="container mx-auto px-4 relative z-10" data-testid="testimonial-container">
                 {/* Header Section */}
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium text-white bg-emerald-600 mb-4">
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <div className="inline-flex items-center rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 mb-4 bg-emerald-600/10 text-emerald-600 border-emerald-600/20 hover:bg-emerald-600/20 py-1.5 px-4 text-sm font-medium">
                         Our People
                     </div>
-                    <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
-                        From <span className="text-emerald-600">Interns</span> to <span className="text-gray-900">Innovators</span>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gray-900 to-emerald-600 dark:from-white dark:to-emerald-400 bg-clip-text text-transparent">
+                        From Interns to Innovators
                     </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
                         Our interns grow into leaders, bringing fresh perspectives and innovative solutions to VivaDrive.
                     </p>
                 </div>
@@ -171,7 +168,7 @@ const InternTestimonials = () => {
                                         {/* Photo */}
                                         <div className="order-2 md:order-1">
                                             <div className="relative mx-auto">
-                                                <div className="bg-white p-3 rounded-2xl shadow-xl transform rotate-3 mx-auto max-w-sm">
+                                                <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-3 rounded-2xl shadow-xl transform rotate-3 mx-auto max-w-sm">
                                                     <div className="overflow-hidden rounded-xl aspect-[3/4] border-4 border-white shadow-inner relative">
                                                         <img
                                                             src={testimonial.photo}
@@ -193,20 +190,23 @@ const InternTestimonials = () => {
 
                                         {/* Quote */}
                                         <div className="order-1 md:order-2">
-                                            <div className="bg-white rounded-2xl p-8 shadow-lg relative">
-                                                <Quote className="absolute top-4 left-4 h-12 w-12 text-emerald-100" />
+                                            <div className="rounded-lg border text-card-foreground shadow-sm bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-gray-100/80 dark:border-gray-800/80 p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-opacity-80 hover:border-emerald-600/30 dark:hover:border-emerald-600/20 relative group">
+                                                <div className="h-2.5 w-full bg-gradient-to-r from-[#13A661] to-[#12AC6C] absolute top-0 left-0"></div>
+                                                <div className="flex justify-between items-start mb-4">
+                                                    <div className="h-12 w-12 flex items-center justify-center rounded-full bg-gradient-to-r from-[#13A661] to-[#12AC6C] shadow-lg p-3 transition-all duration-300 group-hover:shadow-xl">
+                                                        <Quote className="h-6 w-6 text-white" />
+                                                    </div>
+                                                    <div className="text-3xl" title={testimonial.country}>
+                                                        {testimonial.flag}
+                                                    </div>
+                                                </div>
                                                 <div className="relative z-10">
-                                                    <p className="text-lg md:text-xl text-gray-700 mb-6 italic relative z-10">
+                                                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 italic relative z-10">
                                                         "{testimonial.quote}"
                                                     </p>
-                                                    <div className="flex items-center justify-between">
-                                                        <div>
-                                                            <h4 className="text-xl md:text-2xl font-bold text-gray-900">{testimonial.name}</h4>
-                                                            <p className="text-emerald-600">{testimonial.position}</p>
-                                                        </div>
-                                                        <div className="text-3xl" title={testimonial.country}>
-                                                            {testimonial.flag}
-                                                        </div>
+                                                    <div>
+                                                        <h4 className="text-xl md:text-2xl font-bold group-hover:text-emerald-600 transition-colors">{testimonial.name}</h4>
+                                                        <p className="text-emerald-600">{testimonial.position}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -225,8 +225,8 @@ const InternTestimonials = () => {
                                         key={index}
                                         onClick={() => goToSlide(index)}
                                         className={`rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center shadow relative z-20 ${currentSlide === index
-                                            ? 'bg-emerald-600 w-8 h-3'
-                                            : 'bg-gray-300 w-3 h-3 hover:bg-emerald-400'
+                                                ? 'bg-gradient-to-r from-[#13A661] to-[#15BF70] w-8 h-3'
+                                                : 'bg-gray-300 w-3 h-3 hover:bg-emerald-400'
                                             }`}
                                         aria-label={`Go to slide ${index + 1}`}
                                         aria-pressed={currentSlide === index}
@@ -241,7 +241,7 @@ const InternTestimonials = () => {
                                     type="button"
                                     ref={prevButtonRef}
                                     onClick={prevSlide}
-                                    className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 cursor-pointer z-50 relative"
+                                    className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white flex items-center justify-center hover:shadow-lg transition-all duration-300 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 cursor-pointer z-50 relative"
                                     aria-label="Previous testimonial"
                                     tabIndex={0}
                                 >
@@ -251,7 +251,7 @@ const InternTestimonials = () => {
                                     type="button"
                                     ref={nextButtonRef}
                                     onClick={nextSlide}
-                                    className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 cursor-pointer z-50 relative"
+                                    className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white flex items-center justify-center hover:shadow-lg transition-all duration-300 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 cursor-pointer z-50 relative"
                                     aria-label="Next testimonial"
                                     tabIndex={0}
                                 >
@@ -260,6 +260,20 @@ const InternTestimonials = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/* Call to Action - Added to match WhatIsVivaDrive */}
+                <div className="text-center max-w-2xl mx-auto">
+                    <p className="text-emerald-600 text-xl font-medium mb-5">
+                        Interested in joining our intern program?
+                    </p>
+                    <a
+                        href="/internship-opportunities"
+                        className="inline-flex items-center text-sm px-6 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-md hover:shadow-lg transition-all duration-300"
+                    >
+                        View Opportunities
+                        <ChevronRight className="ml-2 h-4 w-4" />
+                    </a>
                 </div>
             </div>
         </section>

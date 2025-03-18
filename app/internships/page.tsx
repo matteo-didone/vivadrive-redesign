@@ -5,7 +5,9 @@ import Footer from '@/components/Footer';
 import InternshipsHeroSection from '@/app/internships/components/InternshipsHeroSection';
 import UniversityPartners from '@/app/internships/components/UniversityPartners';
 import InternTestimonials from '@/app/internships/components/InternTestimonials';
-import WhatIsVivaDrive from '@/app/internships/components/WhatIsVivaDrive'
+import WhatIsVivaDrive from '@/app/internships/components/WhatIsVivaDrive';
+import WhyJoinVivaDrive from '@/app/internships/components/WhyJoinVivaDrive';
+import AlumniGrid from '@/app/internships/components/AlumniGrid';
 
 export default function InternshipsPage() {
   return (
@@ -16,6 +18,8 @@ export default function InternshipsPage() {
         <UniversityPartners />
         <InternTestimonials />
         <WhatIsVivaDrive />
+        <WhyJoinVivaDrive />
+        <AlumniGrid />
       </main>
       <Footer />
     </div>
