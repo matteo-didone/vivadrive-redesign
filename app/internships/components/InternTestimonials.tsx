@@ -8,41 +8,61 @@ const InternTestimonials = () => {
 
     const testimonials = [
         {
+            name: "Patrik Zigó",
+            position: "Full Stack Developer Intern",
+            photo: "/internships/testimonials/Patrik.jpg",
+            quote: "Joining VivaDrive as a full stack intern has been transformative for my career. The opportunity to work across the entire technology stack allowed me to discover my strengths and develop a holistic understanding of software development that would have taken years to gain elsewhere.",
+            country: "Slovakia",
+            flag: "🇸🇰"
+        },
+        {
             name: "Matteo Didonè",
-            position: "Frontend Developer",
+            position: "Frontend Developer Intern",
             photo: "/internships/testimonials/Matteo.png",
             quote: "Time flies when you really enjoy what you do! Came to VivaDrive as a frontend intern to learn and gain experience. The flexible working culture and exploration-friendly environment made me move towards new challenges and grow as a developer.",
+            country: "Italy",
+            flag: "🇮🇹"
         },
         {
             name: "Gabriele Michelli",
             position: "Data Science Intern",
             photo: "/internships/testimonials/Gabriele.jpg",
             quote: "The best decision I ever made was to join VivaDrive as a data science intern. I learned a lot and a bit of everything, more than I asked for. I had space to learn, practice, and evolve as a professional in the data science field.",
+            country: "Italy",
+            flag: "🇮🇹"
         },
         {
             name: "Giovanni Podbersig",
             position: "AI Developer Intern",
             photo: "/internships/testimonials/Giovanni.jpg",
             quote: "I joined VivaDrive as an AI developer intern. It allowed me to gain so much practical experience on real projects that today I continue my AI development career thanks to this decision.",
+            country: "Italy",
+            flag: "🇮🇹"
         },
         {
             name: "Christina Metalouli",
             position: "Data Science Intern",
             photo: "/internships/testimonials/Christina.jpg",
             quote: "Every day starts with new technical challenges and new objectives. I discovered my true passion for data science at VivaDrive which showed my impact on real-world data projects.",
+            country: "Greece",
+            flag: "🇬🇷"
         },
         {
             name: "Gonçalo Lopes",
             position: "Backend Developer Intern",
             photo: "/internships/testimonials/Gonçalo.jpg",
             quote: "Working at VivaDrive as a backend developer intern has been an incredible journey. The collaborative environment and hands-on approach have helped me develop both my technical skills and understanding of server-side architecture.",
+            country: "Portugal",
+            flag: "🇵🇹"
         },
         {
             name: "Dorian Peltier",
             position: "Frontend Developer Intern",
             photo: "/internships/testimonials/Dorian.jpg",
             quote: "My experience as a frontend developer intern at VivaDrive has been truly enriching. Being part of a collaborative team and working on real-world projects has deepened my expertise in building dynamic user interfaces and refining client-side architecture.",
-        },
+            country: "France",
+            flag: "🇫🇷"
+        }
     ];
 
     // Auto advance slides
@@ -152,16 +172,22 @@ const InternTestimonials = () => {
                                         <div className="order-2 md:order-1">
                                             <div className="relative mx-auto">
                                                 <div className="bg-white p-3 rounded-2xl shadow-xl transform rotate-3 mx-auto max-w-sm">
-                                                    <div className="overflow-hidden rounded-xl aspect-[3/4] border-4 border-white shadow-inner">
+                                                    <div className="overflow-hidden rounded-xl aspect-[3/4] border-4 border-white shadow-inner relative">
                                                         <img
                                                             src={testimonial.photo}
                                                             alt={testimonial.name}
                                                             className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                                                         />
+                                                        {/* Flag in the corner */}
+                                                        <div className="absolute top-3 right-3 bg-white rounded-full shadow-lg p-2 transform rotate-3 z-10">
+                                                            <div className="text-2xl" title={testimonial.country}>
+                                                                {testimonial.flag}
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-100 rounded-full -z-10"></div>
-                                                <div className="absolute -top-4 -left-4 w-24 h-24 bg-yellow-100 rounded-full -z-10"></div>
+                                                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-50 rounded-full -z-10 opacity-80"></div>
+                                                <div className="absolute -top-4 -left-4 w-24 h-24 bg-yellow-50 rounded-full -z-10 opacity-80"></div>
                                             </div>
                                         </div>
 
@@ -173,9 +199,14 @@ const InternTestimonials = () => {
                                                     <p className="text-lg md:text-xl text-gray-700 mb-6 italic relative z-10">
                                                         "{testimonial.quote}"
                                                     </p>
-                                                    <div>
-                                                        <h4 className="text-xl md:text-2xl font-bold text-gray-900">{testimonial.name}</h4>
-                                                        <p className="text-emerald-600">{testimonial.position}</p>
+                                                    <div className="flex items-center justify-between">
+                                                        <div>
+                                                            <h4 className="text-xl md:text-2xl font-bold text-gray-900">{testimonial.name}</h4>
+                                                            <p className="text-emerald-600">{testimonial.position}</p>
+                                                        </div>
+                                                        <div className="text-3xl" title={testimonial.country}>
+                                                            {testimonial.flag}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +218,7 @@ const InternTestimonials = () => {
 
                         {/* Navigation buttons - Fixed position at the bottom of the container */}
                         <div className="flex justify-between items-center py-6 mt-4">
-                            {/* MODIFICATO: Aumentato z-index e dimensioni dei dot indicators per renderli più facilmente cliccabili */}
+                            {/* Dot indicators with increased size for better clickability */}
                             <div className="flex space-x-3 relative z-20">
                                 {testimonials.map((_, index) => (
                                     <button
