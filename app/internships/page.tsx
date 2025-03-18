@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import InternshipsHeroSection from '@/app/internships/components/InternshipsHeroSection';
 import UniversityPartners from '@/app/internships/components/UniversityPartners';
 import InternTestimonials from '@/app/internships/components/InternTestimonials';
+import WhatIsVivaDrive from '@/app/internships/components/WhatIsVivaDrive'
 
 export default function InternshipsPage() {
   return (
@@ -14,6 +15,7 @@ export default function InternshipsPage() {
         <InternshipsHeroSection />
         <UniversityPartners />
         <InternTestimonials />
+        <WhatIsVivaDrive />
       </main>
       <Footer />
     </div>
