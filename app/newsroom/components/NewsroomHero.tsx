@@ -121,24 +121,6 @@ const NewsroomHero = () => {
             </div>
           </div>
         </div>
-
-        {/* Recent Press Releases heading with line animation */}
-        <div
-          className={`flex items-center justify-between border-b border-gray-200 pb-4 mb-10 transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-        >
-          <h2 className="text-2xl font-bold flex items-center">
-            <span className="w-1 h-6 bg-emerald-500 rounded-full mr-2 inline-block"></span>
-            Recent Press Releases
-          </h2>
-          <Link
-            href="/press-center/all-news"
-            className="text-emerald-600 hover:text-emerald-700 font-medium inline-flex items-center group bg-emerald-50/50 px-4 py-1.5 rounded-full hover:bg-emerald-50 transition-all"
-          >
-            View all
-            <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform ml-0.5" />
-          </Link>
-        </div>
       </div>
     </div>
   );
