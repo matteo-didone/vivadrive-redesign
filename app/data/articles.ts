@@ -1,4 +1,5 @@
 // app/data/articles.ts
+// This file exports article data and utility functions
 import { Article } from "@/app/newsroom/components/NewsTypes";
 import startupsPalacu from "./articles/vivadrive-among-the-most-innovative-startups-in-poland";
 import mitefCee from "./articles/mitef-cee-vivadrive-wins-mit-acceleration-program";
@@ -9,6 +10,9 @@ import warsawEmobility from "./articles/warsaw-emobility-conference";
 import nissanTownstar from "./articles/nissan-townstar-review";
 import sagensoPartnership from "./articles/vivadrive-partners-with-sagenso";
 import evWebinar from "./articles/ev-webinar-elektryfikacja-floty";
+import vivadriveTermoPartnership from "./articles/vivadrive-tergo-partnership";
+import vivadriveGreenkickPartnership from "./articles/vivadrive-partners-with-greenkick";
+import pzuFleetElectrification from "./articles/pzu-iflota-fleet-electrification";
 
 export const articles: Article[] = [
   startupsPalacu,
@@ -20,6 +24,9 @@ export const articles: Article[] = [
   nissanTownstar,
   sagensoPartnership,
   evWebinar,
+  vivadriveTermoPartnership,
+  vivadriveGreenkickPartnership,
+  pzuFleetElectrification,
 ];
 
 // Helper functions
