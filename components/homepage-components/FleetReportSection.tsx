@@ -32,35 +32,37 @@ const FleetReportSection = () => {
     };
 
     return (
-        <section className="py-20 md:py-28 bg-white">
+        <section className="py-16 md:py-28 bg-white">
             <div className="container mx-auto px-4">
-
                 <div className="max-w-screen-xl mx-auto grid md:grid-cols-12 gap-8 gap-y-12 items-center">
-                    {/* Left column with text content - 5 columns */}
+                    {/* Text content - full width on mobile, 5 columns on desktop */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeIn}
-                        className="md:col-span-5"
+                        className="md:col-span-5 text-center md:text-left"
                     >
-                        <div className="inline-flex items-center rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-600 mb-6">
+                        <div className="inline-flex items-center rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-600 mb-5">
                             Comprehensive Analysis
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                            Fleet <br className="hidden sm:block" />
-                            Electrification <br className="hidden sm:block" />
-                            Report
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 text-gray-900 leading-tight">
+                            Fleet
+                            <span className="md:hidden"> Electrification Report</span>
+                            <br className="hidden md:block" />
+                            <span className="hidden md:inline">Electrification</span>
+                            <br className="hidden md:block" />
+                            <span className="hidden md:inline">Report</span>
                         </h2>
 
-                        <p className="text-gray-600 text-lg mb-8">
+                        <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-xl mx-auto md:mx-0">
                             Access a detailed report on your fleet's electrification journey. Benefit from valuable insights, including cost analysis, potential savings, and tailored recommendations, enabling you to make informed decisions and accelerate your sustainability goals.
                         </p>
 
                         <motion.a
                             href="/request-report"
-                            className="inline-flex items-center rounded-full bg-emerald-500 hover:bg-emerald-600 px-5 py-3 text-white font-medium transition-colors"
+                            className="inline-flex items-center justify-center rounded-full bg-emerald-500 hover:bg-emerald-600 px-5 py-3 text-white font-medium transition-colors"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -69,23 +71,22 @@ const FleetReportSection = () => {
                         </motion.a>
                     </motion.div>
 
-                    {/* Right column with report image - 7 columns for larger image */}
+                    {/* Report image - full width on mobile, 7 columns on desktop */}
                     <div className="md:col-span-7 relative">
-                        {/* Direct image without card container */}
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
                             whileHover="hover"
                             viewport={{ once: true }}
                             variants={imageVariants}
-                            className="relative z-10"
+                            className="relative z-10 flex justify-center md:justify-start"
                         >
                             <Image
                                 src="/steps/fleet-report.png"
                                 width={1400}
                                 height={1050}
                                 alt="Fleet electrification report"
-                                className="w-full h-auto"
+                                className="w-full h-auto max-w-2xl md:max-w-none"
                                 priority
                             />
                         </motion.div>

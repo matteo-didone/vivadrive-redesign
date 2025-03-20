@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const CTASection = () => {
@@ -16,13 +17,15 @@ const CTASection = () => {
               electrification potential and discover how much you could save.
             </p>
           </div>
-          <Button
-            size="lg"
-            className="whitespace-nowrap shadow-lg shadow-emerald-500/20 bg-emerald-500 hover:bg-emerald-600 text-white font-medium transition-all hover:scale-105 rounded-full px-8 flex items-center gap-2"
-          >
-            Get Started
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          <Link href="/contact-us">
+  <Button
+    size="lg"
+    className="whitespace-nowrap shadow-lg shadow-emerald-500/20 bg-emerald-500 hover:bg-emerald-600 text-white font-medium transition-all hover:scale-105 rounded-full px-8 flex items-center gap-2"
+  >
+    Get Started
+    <ArrowRight className="h-4 w-4" />
+  </Button>
+</Link>
         </div>
       </div>
     </section>

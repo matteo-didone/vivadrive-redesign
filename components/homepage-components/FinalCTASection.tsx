@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { ChevronRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -64,6 +65,7 @@ const FinalCTASection = () => {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                            <Link href="/contact-us">
                             <Button
                                 size="lg"
                                 className="gap-2 bg-emerald-500 hover:bg-emerald-600 font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
@@ -71,9 +73,10 @@ const FinalCTASection = () => {
                                 Get Started
                                 <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                             </Button>
+                            </Link>
                         </motion.div>
-
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                            <Link href="/contact-us">
                             <Button
                                 size="lg"
                                 variant="outline"
@@ -81,6 +84,7 @@ const FinalCTASection = () => {
                             >
                                 Book a Demo
                             </Button>
+                            </Link>
                         </motion.div>
                     </div>
 

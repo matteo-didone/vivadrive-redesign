@@ -50,7 +50,6 @@ const ProcessSection = () => {
             electric vehicles with minimal disruption to your operations.
           </p>
         </div>
-
         {/* Added connecting lines between steps for desktop */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 relative">
           {processSteps.map((item, i) => (
@@ -62,8 +61,7 @@ const ProcessSection = () => {
               <div className="absolute top-6 right-6 flex items-center justify-center h-8 w-8 rounded-full bg-primary/15 text-primary font-medium group-hover:bg-primary group-hover:text-white transition-all">
                 {item.step}
               </div>
-
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-center md:items-start">
                 <div className="mb-6 w-full flex justify-center">
                   <div className="relative w-28 h-28 flex items-center justify-center">
                     <Image
@@ -75,12 +73,10 @@ const ProcessSection = () => {
                     />
                   </div>
                 </div>
-
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white flex items-center">
+                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white flex items-center text-center md:text-left">
                   <span className="text-primary mr-2">{item.step}.</span> {item.title}
                 </h3>
-
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-gray-400 text-center md:text-left">
                   {item.description}
                 </p>
               </div>

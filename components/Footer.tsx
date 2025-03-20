@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     const [email, setEmail] = useState('');
+    const [expandedSection, setExpandedSection] = useState(null);
 
     const footerLinks = {
         solutions: [
@@ -24,6 +26,14 @@ const Footer = () => {
             { label: 'Internships', href: '/internships' },
             { label: 'Newsroom', href: '/newsroom' },
         ],
+    };
+
+    const toggleSection = (section) => {
+        if (expandedSection === section) {
+            setExpandedSection(null);
+        } else {
+            setExpandedSection(section);
+        }
     };
 
     const handleSubmit = (e) => {
@@ -50,8 +60,9 @@ const Footer = () => {
 
             {/* Main footer content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative">
-                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-                    <div className="lg:col-span-1">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    {/* Company Info Section */}
+                    <div className="lg:col-span-1 flex flex-col items-center md:items-start">
                         <Link
                             href="/"
                             className="inline-block mb-6 transform transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md"
@@ -69,7 +80,7 @@ const Footer = () => {
                                 />
                             </div>
                         </Link>
-                        <div className="text-gray-600 dark:text-gray-400 space-y-4 mb-8 max-w-md">
+                        <div className="text-gray-600 dark:text-gray-400 space-y-4 mb-8 max-w-md text-center md:text-left">
                             <p>
                                 Empowering businesses to transition to sustainable electric
                                 vehicle fleets with comprehensive management solutions.
@@ -83,36 +94,33 @@ const Footer = () => {
                         </div>
 
                         {/* Newsletter signup with improved width and positioning */}
-                        <div className="mb-8 w-full sm:max-w-md lg:max-w-lg">
-                            <p className="font-semibold mb-3">Stay updated</p>
+                        <div className="mb-8 w-full max-w-md mx-auto md:mx-0">
+                            <p className="font-semibold mb-3 text-center md:text-left">Stay updated</p>
                             <form onSubmit={handleSubmit} className="flex w-full">
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Email address"
-                                    className="flex-grow px-5 h-12 border border-gray-200 dark:border-gray-700 rounded-l-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm transition-all duration-300 focus:shadow-md"
+                                    className="flex-grow min-w-0 px-4 h-12 border border-gray-200 dark:border-gray-700 rounded-l-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm transition-all duration-300 focus:shadow-md"
                                     required
                                     aria-label="Email for newsletter"
                                 />
                                 <button
                                     type="submit"
-                                    className="inline-flex items-center justify-center bg-emerald-500 hover:bg-emerald-600 focus:bg-emerald-700 text-white font-medium h-12 px-5 rounded-r-full transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                                    className="inline-flex items-center justify-center whitespace-nowrap bg-emerald-500 hover:bg-emerald-600 focus:bg-emerald-700 text-white font-medium h-12 px-4 sm:px-5 rounded-r-full transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                                     aria-label="Subscribe to newsletter"
                                 >
-                                    Subscribe
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 ml-2">
-                                        <path d="M5 12h14"></path>
-                                        <path d="m12 5 7 7-7 7"></path>
-                                    </svg>
+                                    <span className="hidden sm:inline">Subscribe</span>
+                                    <ChevronRight className="h-4 w-4 sm:ml-2" />
                                 </button>
                             </form>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center md:text-left">
                                 We respect your privacy. Unsubscribe at any time.
                             </p>
                         </div>
 
-                        <div className="flex space-x-5">
+                        <div className="flex space-x-5 mt-4 justify-center md:justify-start">
                             <a
                                 href="#"
                                 className="text-gray-500 hover:text-emerald-500 dark:text-gray-400 dark:hover:text-emerald-400 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-full p-1"
@@ -134,7 +142,8 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div>
+                    {/* Mobile Accordion Links and Desktop Regular Links */}
+                    <div className="hidden md:block">
                         <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Solutions</h4>
                         <ul className="space-y-4">
                             {footerLinks.solutions.map((link) => (
@@ -150,7 +159,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="hidden md:block">
                         <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Resources</h4>
                         <ul className="space-y-4">
                             {footerLinks.resources.map((link) => (
@@ -166,7 +175,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="hidden md:block">
                         <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Company</h4>
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
@@ -181,12 +190,90 @@ const Footer = () => {
                             ))}
                         </ul>
                     </div>
+
+                    {/* Mobile Accordion Menu */}
+                    <div className="md:hidden col-span-full space-y-4 max-w-md mx-auto w-full">
+                        {/* Solutions Section */}
+                        <div className="border-b border-gray-200 dark:border-gray-800 pb-4">
+                            <button
+                                onClick={() => toggleSection('solutions')}
+                                className="flex justify-between items-center w-full text-left font-semibold text-lg pb-2"
+                            >
+                                <span>Solutions</span>
+                                <ChevronDown className={`h-5 w-5 transition-transform ${expandedSection === 'solutions' ? 'rotate-180' : ''}`} />
+                            </button>
+                            {expandedSection === 'solutions' && (
+                                <ul className="mt-4 space-y-3 pl-2">
+                                    {footerLinks.solutions.map((link) => (
+                                        <li key={link.label}>
+                                            <Link
+                                                href={link.href}
+                                                className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300 inline-block"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+
+                        {/* Resources Section */}
+                        <div className="border-b border-gray-200 dark:border-gray-800 pb-4">
+                            <button
+                                onClick={() => toggleSection('resources')}
+                                className="flex justify-between items-center w-full text-left font-semibold text-lg pb-2"
+                            >
+                                <span>Resources</span>
+                                <ChevronDown className={`h-5 w-5 transition-transform ${expandedSection === 'resources' ? 'rotate-180' : ''}`} />
+                            </button>
+                            {expandedSection === 'resources' && (
+                                <ul className="mt-4 space-y-3 pl-2">
+                                    {footerLinks.resources.map((link) => (
+                                        <li key={link.label}>
+                                            <Link
+                                                href={link.href}
+                                                className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300 inline-block"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+
+                        {/* Company Section */}
+                        <div className="border-b border-gray-200 dark:border-gray-800 pb-4">
+                            <button
+                                onClick={() => toggleSection('company')}
+                                className="flex justify-between items-center w-full text-left font-semibold text-lg pb-2"
+                            >
+                                <span>Company</span>
+                                <ChevronDown className={`h-5 w-5 transition-transform ${expandedSection === 'company' ? 'rotate-180' : ''}`} />
+                            </button>
+                            {expandedSection === 'company' && (
+                                <ul className="mt-4 space-y-3 pl-2">
+                                    {footerLinks.company.map((link) => (
+                                        <li key={link.label}>
+                                            <Link
+                                                href={link.href}
+                                                className="text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300 inline-block"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </div>
                 </div>
 
-                {/* Partners section with improved handling of SVGs */}
-                <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+                {/* Partners section with improved responsiveness */}
+                <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
                     <h4 className="font-semibold text-lg mb-8 text-center">In collaboration with</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center">
                         {[
                             { src: '/footer-logos/urban-mobility.png', alt: 'Urban Mobility', height: 16 },
                             { src: '/footer-logos/ncbr.png', alt: 'NCBR', height: 16 },
@@ -194,18 +281,18 @@ const Footer = () => {
                         ].map((logo) => (
                             <div
                                 key={logo.alt}
-                                className="flex items-center justify-center h-16 transform transition-transform duration-300 hover:scale-105 filter hover:brightness-110"
+                                className="flex items-center justify-center h-12 sm:h-16 transform transition-transform duration-300 hover:scale-105 filter hover:brightness-110"
                             >
                                 <img
                                     src={logo.src}
                                     alt={logo.alt}
-                                    className={`h-${logo.height} w-auto object-contain`}
+                                    className="h-full w-auto max-w-full object-contain"
                                 />
                             </div>
                         ))}
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center mt-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center mt-8">
                         {[
                             { src: '/footer-logos/eu-funds.svg', alt: 'European Funds', height: 12 },
                             { src: '/footer-logos/poland-republic-of.svg', alt: 'Republic of Poland', height: 12 },
@@ -213,25 +300,25 @@ const Footer = () => {
                         ].map((logo) => (
                             <div
                                 key={logo.alt}
-                                className="flex items-center justify-center h-12 transform transition-transform duration-300 hover:scale-105 filter hover:brightness-110"
+                                className="flex items-center justify-center h-10 sm:h-12 transform transition-transform duration-300 hover:scale-105 filter hover:brightness-110"
                             >
                                 <img
                                     src={logo.src}
                                     alt={logo.alt}
-                                    className={`h-${logo.height} w-auto object-contain`}
+                                    className="h-full w-auto max-w-full object-contain"
                                 />
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Bottom section */}
+                {/* Bottom section with improved responsiveness */}
                 <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
                         © {currentYear} VivaDrive Polska sp. z o.o. All rights reserved.
                     </p>
 
-                    <div className="flex flex-wrap gap-x-8 gap-y-3">
+                    <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3">
                         {[
                             { label: 'Terms of Service', href: '/terms-of-service' },
                             { label: 'Privacy Policy', href: '/privacy-policy' },

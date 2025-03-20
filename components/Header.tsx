@@ -242,13 +242,15 @@ const Header = () => {
                                 Log In
                             </Button>
 
-                            {/* Contact Sales button with proper color matching */}
-                            <Button
-                                className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 gap-2 shadow-lg shadow-emerald-500/20 bg-emerald-500 hover:bg-emerald-600 font-medium px-5 transition-all hover:scale-105 rounded-full"
-                            >
-                                Contact Sales
-                                <ArrowRight className="h-4 w-4" />
-                            </Button>
+                            {/* Contact Sales nel menu mobile */}
+                                    <Link href="/contact-us">
+                                        <Button
+                                            className="w-full justify-center inline-flex items-center text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 gap-2 shadow-lg shadow-emerald-500/20 bg-gradient-to-r from-emerald-500 to-emerald-500/90 hover:from-emerald-500/90 hover:to-emerald-500 font-medium transition-all hover:scale-105 rounded-full"
+                                        >
+                                            Contact Sales
+                                            <ArrowRight className="h-4 w-4" />
+                                        </Button>
+                                    </Link>
                         </div>
                     </div>
 

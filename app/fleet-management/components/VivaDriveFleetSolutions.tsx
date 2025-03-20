@@ -43,24 +43,14 @@ const VivaDriveFleetSolutions = () => {
 
     return (
         <div className="bg-white overflow-hidden">
+
             {/* Section 1: Improve your drivers' experience - Text Left, Image Right */}
-            <section className="py-24 overflow-hidden border-b border-gray-100 relative">
-                {/* Background elements */}
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald-50 opacity-50 rounded-l-full transform -translate-x-1/4" />
-                <div className="absolute -top-16 -left-16 w-40 h-40 bg-emerald-100 rounded-full opacity-20" />
-                <div className="absolute bottom-24 right-0 w-24 h-24 bg-yellow-300 rounded-full opacity-20" />
-
-                {/* Decorative grid */}
-                <div className="absolute inset-0 bg-grid-pattern opacity-5" style={{
-                    backgroundImage: 'linear-gradient(to right, #10b981 1px, transparent 1px), linear-gradient(to bottom, #10b981 1px, transparent 1px)',
-                    backgroundSize: '40px 40px'
-                }} />
-
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        {/* Content Column */}
+            <section className="pt-16 sm:pt-20 pb-0 overflow-hidden border-b border-gray-100 relative">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-0 relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-0 items-center">
+                        {/* Content Column - With proper spacing at bottom */}
                         <motion.div
-                            className="space-y-6"
+                            className="space-y-5 pr-4 sm:pr-6 lg:pr-12 mx-auto lg:mx-0 max-w-lg lg:max-w-none pb-16"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -107,7 +97,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.div>
 
                             <motion.div
-                                className="flex flex-wrap gap-4 pt-2"
+                                className="flex flex-wrap gap-4 pt-2 justify-center sm:justify-start"
                                 variants={itemVariant}
                             >
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
@@ -123,82 +113,28 @@ const VivaDriveFleetSolutions = () => {
                                     <span className="text-sm font-medium text-emerald-700">Better engagement</span>
                                 </div>
                             </motion.div>
-
-                            <motion.div variants={itemVariant}>
-                                <motion.button
-                                    whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.3)" }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
-                                >
-                                    Learn More
-                                    <ChevronRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-                                </motion.button>
-                            </motion.div>
                         </motion.div>
 
-                        {/* Image Column with Device Mockup */}
+                        {/* Image Column - Adjusted to remove the gap */}
                         <motion.div
-                            className="relative"
+                            className="relative h-full flex items-center justify-end -mr-4 sm:-mr-6 lg:-mr-8 xl:-mr-16 mt-8 sm:mt-0 pb-0"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
                             variants={scaleIn}
                         >
-                            <div className="relative">
-                                {/* Main image with pseudo-3D effect */}
-                                <div className="relative flex justify-center">
-                                    <motion.div
-                                        className="bg-gradient-to-br from-white to-gray-50 p-4 rounded-3xl shadow-2xl transform perspective-md z-20"
-                                        whileHover={{ y: -5 }}
-                                        transition={{ duration: 0.5 }}
-                                    >
-                                        <img
-                                            src="/fleet-management/mobile-small.png"
-                                            alt="VivaDrive Mobile App Trip Finished"
-                                            className="w-full max-w-xs h-auto rounded-2xl border border-gray-200"
-                                        />
-                                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-emerald-500/10 to-transparent pointer-events-none" />
-                                    </motion.div>
-
-                                    {/* Decorative elements */}
-                                    <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-emerald-500 rounded-full opacity-20 blur-xl" />
-                                </div>
-
-                                {/* Floating elements */}
-                                <motion.div
-                                    className="absolute -bottom-10 left-10 p-2 bg-white rounded-lg shadow-xl"
-                                    initial={{ opacity: 0, x: -20, y: 20 }}
-                                    animate={{ opacity: 1, x: 0, y: 0 }}
-                                    transition={{ delay: 0.6, duration: 0.8 }}
-                                >
-                                    <div className="flex items-center gap-2 p-2">
-                                        <Zap className="h-8 w-8 text-emerald-500" />
-                                        <div>
-                                            <div className="font-bold text-emerald-500">10.46 km</div>
-                                            <div className="text-xs text-gray-500">Trip distance</div>
-                                        </div>
-                                    </div>
-                                </motion.div>
-
-                                <motion.div
-                                    className="absolute -top-8 right-10 p-2 bg-white rounded-lg shadow-xl"
-                                    initial={{ opacity: 0, x: 20, y: -20 }}
-                                    animate={{ opacity: 1, x: 0, y: 0 }}
-                                    transition={{ delay: 0.8, duration: 0.8 }}
-                                >
-                                    <div className="text-sm font-medium text-gray-800 px-3 py-1">
-                                        <span className="text-emerald-500">00:43:40 </span>
-                                        trip time
-                                    </div>
-                                </motion.div>
-                            </div>
+                            <img
+                                src="/fleet-management/iphone-mockup.png"
+                                alt="VivaDrive Mobile App"
+                                className="w-[160%] max-w-none h-auto object-contain"
+                            />
                         </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* Section 2: Switch to EV easily - Text Right, Image Left */}
-            <section className="py-24 overflow-hidden bg-gray-50 border-b border-gray-100 relative">
+            <section className="pt-16 sm:pt-20 pb-24 overflow-hidden bg-gray-50 border-b border-gray-100 relative">
                 {/* Background elements */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-200 rounded-full opacity-20" />
                 <div className="absolute bottom-16 left-0 w-32 h-32 bg-yellow-100 rounded-full opacity-30" />
@@ -271,7 +207,7 @@ const VivaDriveFleetSolutions = () => {
 
                         {/* Content Column - On the right for this section */}
                         <motion.div
-                            className="space-y-6"
+                            className="space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -343,16 +279,7 @@ const VivaDriveFleetSolutions = () => {
                                 </motion.div>
                             </motion.div>
 
-                            <motion.div variants={itemVariant}>
-                                <motion.button
-                                    whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.3)" }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
-                                >
-                                    Learn More
-                                    <ChevronRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-                                </motion.button>
-                            </motion.div>
+                            {/* Learn More button removed */}
                         </motion.div>
                     </div>
                 </div>
@@ -380,7 +307,7 @@ const VivaDriveFleetSolutions = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Content Column */}
                         <motion.div
-                            className="space-y-6"
+                            className="space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -430,7 +357,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.div>
 
                             <motion.div
-                                className="flex flex-wrap gap-4 pt-2"
+                                className="flex flex-wrap gap-4 pt-2 justify-center sm:justify-start"
                                 variants={itemVariant}
                             >
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
@@ -447,16 +374,7 @@ const VivaDriveFleetSolutions = () => {
                                 </div>
                             </motion.div>
 
-                            <motion.div variants={itemVariant}>
-                                <motion.button
-                                    whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.3)" }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
-                                >
-                                    Learn More
-                                    <ChevronRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-                                </motion.button>
-                            </motion.div>
+                            {/* Learn More button removed */}
                         </motion.div>
 
                         {/* Image Column */}

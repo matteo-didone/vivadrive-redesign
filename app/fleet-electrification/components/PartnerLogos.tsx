@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const PartnerLogos = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
   const partners = [
@@ -23,79 +24,127 @@ const PartnerLogos = () => {
     { url: "https://www.lafarge.pl/", img: "https://res.cloudinary.com/efer/image/upload/v1684228475/laff-removebg-preview_iyxsp1.png", name: "Lafarge" }
   ];
 
-  // Duplicate partners for continuous scrolling effect
-  const allPartners = [...partners, ...partners, ...partners];
-
+  // Detect if we're on a touch device
   useEffect(() => {
-    if (!scrollRef.current) return;
+    const detectTouch = () => {
+      setIsTouchDevice(
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        (navigator as any).msMaxTouchPoints > 0
+      );
+    };
 
-    // Initial scroll position - start from the second set of partners
-    scrollRef.current.scrollLeft = scrollRef.current.scrollWidth / 3;
+    detectTouch();
+  }, []);
 
-    // Animation function for smooth scrolling
+  // For non-touch devices only: set up automatic scrolling
+  useEffect(() => {
+    if (!scrollRef.current || isTouchDevice) return;
+
+    // Only for desktop: Duplicate partners for continuous scrolling effect
+    const allPartnersDiv = scrollRef.current;
+
+    // Initial scroll position (for desktop only)
+    if (partners.length > 5) {
+      scrollRef.current.scrollLeft = 50; // Start with slight offset
+    }
+
+    // Animation function for smooth scrolling (desktop only)
     const animateScroll = () => {
       if (scrollRef.current && !isHovering) {
-        // If we reach the third set, jump back to the first set (invisible transition)
-        if (scrollRef.current.scrollLeft >= (scrollRef.current.scrollWidth * 2 / 3)) {
-          scrollRef.current.scrollLeft = scrollRef.current.scrollWidth / 3 - 100;
+        if (scrollRef.current.scrollLeft >= (scrollRef.current.scrollWidth - scrollRef.current.clientWidth - 50)) {
+          // Reset to beginning when we reach the end
+          scrollRef.current.scrollLeft = 0;
         } else {
           scrollRef.current.scrollLeft += 1;
         }
       }
     };
 
-    // Start animation
+    // Start animation for desktop
     const animationId = setInterval(animateScroll, 30);
 
     return () => {
       clearInterval(animationId);
     };
-  }, [isHovering]);
+  }, [isHovering, isTouchDevice, partners.length]);
 
+  // Create mobile-friendly or desktop-friendly rendering
   return (
-    <div className="w-full py-12 bg-white dark:bg-gray-950">
-      <div className="text-center mb-10">
-        <h3 className="text-base font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+    <div className="w-full py-6 md:py-12 bg-white dark:bg-gray-950">
+      <div className="text-center mb-6 md:mb-10">
+        <h3 className="text-sm md:text-base font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider px-4">
           OUR PARTNERS & INTEGRATIONS
         </h3>
       </div>
 
-      <div
-        className="w-full overflow-hidden relative"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
+      <div className="w-full overflow-hidden relative">
+        {/* Container with different behavior based on device type */}
         <div
           ref={scrollRef}
-          className="flex items-center gap-16 overflow-x-scroll whitespace-nowrap py-8"
+          className={`
+            flex items-center gap-8 md:gap-12 whitespace-nowrap py-4 md:py-8 px-4
+            ${isTouchDevice ? 'overflow-x-auto snap-x snap-mandatory' : 'overflow-x-hidden'}
+          `}
           style={{
-            scrollBehavior: "smooth",
             scrollbarWidth: "none",
-            msOverflowStyle: "none"
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch"
           }}
+          onMouseEnter={isTouchDevice ? undefined : () => setIsHovering(true)}
+          onMouseLeave={isTouchDevice ? undefined : () => setIsHovering(false)}
         >
-          {allPartners.map((partner, i) => (
+          {/* Render differently based on device type */}
+          {partners.map((partner, i) => (
             <a
               key={i}
               href={partner.url}
               rel="noreferrer"
               target="_blank"
-              className="shrink-0 transition-all duration-300 hover:opacity-100 opacity-70 grayscale hover:grayscale-0 hover:scale-110 px-2"
+              className={`
+                shrink-0 transition-all duration-300
+                ${isTouchDevice ? 'snap-center opacity-90' : 'opacity-70 hover:opacity-100 hover:scale-110 grayscale hover:grayscale-0'}
+                px-2
+              `}
+              style={{ WebkitTapHighlightColor: "transparent" }}
+              aria-label={`Visit ${partner.name} website`}
             >
               <Image
                 src={partner.img}
                 alt={partner.name}
-                width={140}
-                height={40}
-                className="h-12 max-w-[180px] object-contain"
+                width={120}
+                height={35}
+                className="h-8 md:h-10 max-w-[100px] md:max-w-[160px] object-contain"
+                priority={i < 6}
+              />
+            </a>
+          ))}
+
+          {/* Add extra copies for desktop continuous scrolling */}
+          {!isTouchDevice && partners.map((partner, i) => (
+            <a
+              key={`copy-${i}`}
+              href={partner.url}
+              rel="noreferrer"
+              target="_blank"
+              className="shrink-0 transition-all duration-300 opacity-70 hover:opacity-100 hover:scale-110 grayscale hover:grayscale-0 px-2"
+              style={{ WebkitTapHighlightColor: "transparent" }}
+              aria-label={`Visit ${partner.name} website`}
+            >
+              <Image
+                src={partner.img}
+                alt={partner.name}
+                width={120}
+                height={35}
+                className="h-8 md:h-10 max-w-[100px] md:max-w-[160px] object-contain"
               />
             </a>
           ))}
         </div>
 
         {/* Gradient fading effect on edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white to-transparent dark:from-gray-950 dark:to-transparent pointer-events-none z-10"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white to-transparent dark:from-gray-950 dark:to-transparent pointer-events-none z-10"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent dark:from-gray-950 dark:to-transparent pointer-events-none z-10"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent dark:from-gray-950 dark:to-transparent pointer-events-none z-10"></div>
       </div>
     </div>
   );

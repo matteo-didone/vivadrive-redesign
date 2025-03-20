@@ -41,7 +41,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-[#f2faf7]">
+        <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-white to-[#f2faf7]">
             {/* Background decorative elements */}
             <div
                 ref={orbRef}
@@ -51,8 +51,8 @@ const HeroSection = () => {
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Navigation tabs and Learn more button */}
-                <div className="flex justify-between items-center mb-10">
-                    <div className="flex space-x-8">
+                <div className="flex flex-col sm:flex-row justify-between items-center mb-8 md:mb-10">
+                    <div className="flex space-x-8 mb-4 sm:mb-0">
                         <div className="relative">
                             <span className="text-lg font-medium text-gray-900 cursor-pointer">Benefits</span>
                             <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-500 rounded-full" />
@@ -68,28 +68,29 @@ const HeroSection = () => {
                     </button>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                     {/* Left content column */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
+                        className="text-center md:text-left"
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-8">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 md:mb-8">
                             Save up to 1000€
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-emerald-600 block">
                                 annually on a single fleet car
                             </span>
                         </h1>
 
-                        <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+                        <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-10 leading-relaxed max-w-md mx-auto md:mx-0">
                             VivaDrive helps you increase your fleet efficiency and reduces your
                             TCO costs including fuel, service and insurance costs, among
                             others.
                         </p>
 
                         {/* Email and CTA */}
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <input
                                 type="email"
                                 placeholder="Email address"
@@ -108,9 +109,9 @@ const HeroSection = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="relative"
+                        className="relative flex justify-center md:justify-start"
                     >
-                        <div className="relative w-full h-[520px]">
+                        <div className="relative w-full max-w-md md:max-w-none h-[300px] sm:h-[400px] md:h-[520px]">
                             <Image
                                 src="/fleet-electrification/laptop.png"
                                 alt="VivaDrive dashboard on laptop"
@@ -119,7 +120,25 @@ const HeroSection = () => {
                                 priority
                             />
 
-                            {/* Floating info cards - removed or can be adapted based on the new image */}
+                            {/* Optional floating cards - can be uncommented and customized if needed
+                            <motion.div
+                                ref={cardRef1}
+                                className="absolute top-4 right-4 bg-white p-3 rounded-xl shadow-xl z-20 transition-transform duration-300 ease-in-out"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.4, duration: 0.8 }}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <div className="h-10 w-10 rounded-full bg-emerald-50 flex items-center justify-center">
+                                        <span className="text-emerald-600 font-bold">€</span>
+                                    </div>
+                                    <div>
+                                        <div className="text-xs text-gray-500">ANNUAL SAVINGS</div>
+                                        <div className="text-lg font-bold text-emerald-600">1000€</div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                            */}
                         </div>
                     </motion.div>
                 </div>

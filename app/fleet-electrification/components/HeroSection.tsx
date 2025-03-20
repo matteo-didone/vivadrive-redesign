@@ -41,7 +41,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-[#f2faf7]">
+        <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-white to-[#f2faf7]">
             {/* Background decorative elements */}
             <div
                 ref={orbRef}
@@ -51,8 +51,8 @@ const HeroSection = () => {
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Navigation tabs and Learn more button */}
-                <div className="flex justify-between items-center mb-10">
-                    <div className="flex space-x-8">
+                <div className="flex flex-col sm:flex-row justify-between items-center mb-8 md:mb-10">
+                    <div className="flex space-x-8 mb-4 sm:mb-0">
                         <div className="relative">
                             <span className="text-lg font-medium text-gray-900 cursor-pointer">Benefits</span>
                             <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-500 rounded-full" />
@@ -68,27 +68,28 @@ const HeroSection = () => {
                     </button>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                     {/* Left content column */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
+                        className="text-center md:text-left"
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-8">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 md:mb-8">
                             Electrify your fleet
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-emerald-600 block">
                                 with data
                             </span>
                         </h1>
 
-                        <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+                        <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-10 leading-relaxed max-w-md mx-auto md:mx-0">
                             VivaDrive helps you select the best EV for your fleet, find the ideal charging
                             infrastructure and help you manage your sustainable EV fleet.
                         </p>
 
                         {/* Email and CTA */}
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <input
                                 type="email"
                                 placeholder="Email address"
@@ -107,9 +108,9 @@ const HeroSection = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="relative"
+                        className="relative flex justify-center md:justify-start"
                     >
-                        <div className="relative w-full h-[520px]">
+                        <div className="relative w-full max-w-md md:max-w-none h-[400px] md:h-[520px]">
                             <Image
                                 src="/fleet-electrification/charging-station.png"
                                 alt="Electric vehicle charging station"
@@ -121,10 +122,10 @@ const HeroSection = () => {
                             {/* Floating info cards */}
                             <div
                                 ref={cardRef1}
-                                className="absolute top-4 right-0 bg-white p-4 rounded-xl shadow-xl z-20 transition-transform duration-300 ease-in-out"
+                                className="absolute top-4 right-0 bg-white p-3 sm:p-4 rounded-xl shadow-xl z-20 transition-transform duration-300 ease-in-out"
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="flex flex-col items-center justify-center w-14 h-14 bg-emerald-50 rounded-lg">
+                                <div className="flex items-center gap-2 sm:gap-3">
+                                    <div className="flex flex-col items-center justify-center w-12 sm:w-14 h-12 sm:h-14 bg-emerald-50 rounded-lg">
                                         <div className="text-emerald-500 text-xs font-medium">BMW</div>
                                         <div className="text-emerald-600 text-xl font-bold">i3</div>
                                     </div>
@@ -137,32 +138,32 @@ const HeroSection = () => {
 
                             <div
                                 ref={cardRef2}
-                                className="absolute top-1/2 -left-6 bg-white p-3 rounded-xl shadow-xl z-20 transition-transform duration-300 ease-in-out"
+                                className="absolute top-1/2 -left-6 bg-white p-2 sm:p-3 rounded-xl shadow-xl z-20 transition-transform duration-300 ease-in-out"
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="h-12 w-12 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold">
+                                <div className="flex items-center gap-2 sm:gap-3">
+                                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold">
                                         158<span className="text-xs">h</span>
                                     </div>
                                     <div>
                                         <div className="text-xs text-gray-500 uppercase tracking-wider">USAGE</div>
-                                        <div className="font-medium">Weekly average</div>
+                                        <div className="text-sm sm:text-base font-medium">Weekly average</div>
                                     </div>
                                 </div>
                             </div>
 
                             <div
                                 ref={cardRef3}
-                                className="absolute bottom-10 right-12 bg-white p-3 rounded-xl shadow-xl z-20 transition-transform duration-300 ease-in-out"
+                                className="absolute bottom-10 right-4 sm:right-12 bg-white p-2 sm:p-3 rounded-xl shadow-xl z-20 transition-transform duration-300 ease-in-out"
                             >
-                                <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-2 sm:gap-3">
                                     <div className="flex flex-col">
                                         <div className="text-xs text-gray-500 uppercase tracking-wider">PUBLIC CHARGER</div>
                                         <div className="font-medium text-emerald-600 flex items-center gap-1">
                                             37% <span className="text-xs text-gray-500">suitability</span>
                                         </div>
                                     </div>
-                                    <div className="h-12 w-12 flex items-center justify-center">
-                                        <svg viewBox="0 0 36 36" className="h-12 w-12">
+                                    <div className="h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center">
+                                        <svg viewBox="0 0 36 36" className="h-10 w-10 sm:h-12 sm:w-12">
                                             <path
                                                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                                                 fill="none"

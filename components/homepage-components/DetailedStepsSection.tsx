@@ -167,7 +167,7 @@ const DetailedStepsSection = () => {
                                 <div className="mb-8">
                                     <div className="flex items-center">
                                         <div className="mr-4">
-                                            <div className={`inline-flex h-10 min-w-16 items-center justify-center rounded-full border-2 border-emerald-500 bg-white text-emerald-500 px-3 py-1 text-sm font-semibold`}>
+                                            <div className={`inline-flex h-10 min-w-[80px] items-center justify-center rounded-full border-2 border-emerald-500 bg-white text-emerald-500 px-3 py-1 text-sm font-semibold whitespace-nowrap`}>
                                                 Step {step.number}
                                             </div>
                                         </div>

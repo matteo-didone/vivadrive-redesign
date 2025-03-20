@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronRight, Star, Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,6 +13,7 @@ const HeroSection = () => {
     const orb2Ref = useRef(null);
     const floatingElement1Ref = useRef(null);
     const floatingElement2Ref = useRef(null);
+    const macbookRef = useRef(null);
 
     useEffect(() => {
         // Enhanced parallax effect on scroll
@@ -20,6 +22,18 @@ const HeroSection = () => {
                 const scrollY = window.scrollY;
                 orb1Ref.current.style.transform = `translate(${scrollY * 0.05}px, ${scrollY * -0.05}px) scale(${1 + scrollY * 0.0005})`;
                 orb2Ref.current.style.transform = `translate(${scrollY * -0.05}px, ${scrollY * 0.05}px) scale(${1 + scrollY * 0.0003})`;
+            }
+        };
+
+        // Advanced floating animation for the macbook
+        const macbookAnimation = () => {
+            if (macbookRef.current) {
+                const time = Date.now() * 0.0005;
+                // Create a more dynamic floating effect with multiple sine waves
+                const yOffset = Math.sin(time) * 15 + Math.sin(time * 1.5) * 7;
+                const xOffset = Math.sin(time * 0.7) * 8;
+                const rotation = Math.sin(time * 0.3) * 2;
+                macbookRef.current.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${rotation}deg)`;
             }
         };
 
@@ -33,10 +47,12 @@ const HeroSection = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
+        const macbookInterval = setInterval(macbookAnimation, 20); // Smoother animation with higher frequency
         const animationInterval = setInterval(floatAnimation, 50);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            clearInterval(macbookInterval);
             clearInterval(animationInterval);
         };
     }, []);
@@ -51,21 +67,23 @@ const HeroSection = () => {
     ];
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-[#F2FAF7] via-white to-[#F2FAF7] dark:from-gray-900/50 dark:to-gray-950 py-12 md:py-16">
+        <section className="relative overflow-hidden bg-gradient-to-b from-[#F2FAF7] via-white to-[#F2FAF7] dark:from-gray-900/50 dark:to-gray-950 py-12 md:py-24 min-h-[90vh] flex items-center text-center md:text-left">
             {/* Enhanced background elements with green palette */}
             <div
                 ref={orb1Ref}
-                className="absolute right-0 top-0 -mt-16 -mr-16 h-80 w-80 rounded-full bg-gradient-to-br from-[#108C57]/15 to-[#8BD9B8]/10 blur-3xl transition-transform duration-200"
+                className="absolute right-0 top-0 -mt-16 -mr-16 h-96 w-96 rounded-full bg-gradient-to-br from-[#108C57]/15 to-[#8BD9B8]/10 blur-3xl transition-transform duration-200"
             ></div>
+            
+            <div className="absolute left-0 bottom-0 -ml-32 -mb-32 h-96 w-96 rounded-full bg-gradient-to-tr from-[#108C57]/10 to-[#8BD9B8]/5 blur-3xl transition-transform duration-200"></div>
 
-            <div className="container grid gap-12 md:grid-cols-2 md:gap-16 items-center">
+            <div className="container relative z-10 grid gap-12 md:grid-cols-2 md:gap-16 items-center px-4 sm:px-6">
                 <motion.div
-                    className="space-y-8 max-w-lg"
+                    className="space-y-8 max-w-lg mx-auto md:mx-0"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium text-white bg-[#12AC6C] hover:bg-[#108C57] transition-all">
+                    <div className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium text-white bg-[#12AC6C] hover:bg-[#108C57] transition-all mx-auto md:mx-0">
                         Fleet Management
                     </div>
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
@@ -81,62 +99,67 @@ const HeroSection = () => {
                         CO₂ emissions, and optimize your operation.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <Button
-                            size="lg"
-                            className="gap-2 bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] hover:from-[#0F7B4B] hover:to-[#14AD69] font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
-                        >
-                            Explore Now
-                            <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-[#12AC6C]/20 text-[#12AC6C] hover:bg-[#12AC6C]/10 transition-all hover:scale-105 rounded-full py-6 text-lg"
-                        >
-                            Book a Demo
-                        </Button>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <Link href="/contact-us">
+                            <Button
+                                size="lg"
+                                className="gap-2 bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] hover:from-[#0F7B4B] hover:to-[#14AD69] font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
+                            >
+                                Explore Now
+                                <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                            </Button>
+                        </Link>
+                        <Link href="/contact-us">
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-[#12AC6C]/20 text-[#12AC6C] hover:bg-[#12AC6C]/10 transition-all hover:scale-105 rounded-full py-6 text-lg"
+                            >
+                                Book a Demo
+                            </Button>
+                        </Link>
                     </div>
                 </motion.div>
 
-                <motion.div
-                    className="relative"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                >
-                    <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#12AC6C]/10 hover:shadow-[#12AC6C]/20 transition-all duration-500 transform hover:-translate-y-1">
-                        <div className="relative bg-gradient-to-br from-[#F2FAF7] to-gray-100 dark:from-[#108C57]/10 dark:to-gray-800/30 p-2 backdrop-blur-sm">
-                            <Image
-                                src="/fleet-dashboard.png"
-                                width={800}
-                                height={600}
-                                alt="Fleet management dashboard showing electric vehicle statistics"
-                                className="w-full h-auto object-cover rounded-2xl"
-                            />
+                {/* Enhanced flying image section */}
+                <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center mt-12 sm:mt-6 md:mt-0">
+                    {/* Animated MacBook Image - Now larger and with floating effect */}
+                    <motion.div
+                        ref={macbookRef}
+                        className="absolute z-20 w-[150%] md:w-[150%] lg:w-[180%] xl:w-[200%] max-w-none transition-all duration-200"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ 
+                            duration: 0.8, 
+                            delay: 0.3,
+                            ease: [0.19, 1.0, 0.22, 1.0] // Ease out expo for more dramatic effect
+                        }}
+                    >
+                        <Image
+                            src="/macbook-floating.png"
+                            width={1200}
+                            height={800}
+                            alt="Fleet management dashboard showing electric vehicle statistics"
+                            className="w-full h-auto object-contain drop-shadow-2xl"
+                            style={{ transform: "perspective(1000px) rotateX(5deg)" }}
+                            priority
+                        />
+                    </motion.div>
 
-                            {/* Add a subtle overlay gradient */}
-                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+                    {/* Light beams radiating from behind */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-full h-full max-w-md max-h-md">
+                            <div className="absolute inset-0 bg-gradient-radial from-[#12AC6C]/30 via-[#12AC6C]/5 to-transparent opacity-60 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }}></div>
                         </div>
-
-                        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#12AC6C]/10 rounded-full blur-xl"></div>
-                        <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#8BD9B8]/10 rounded-full blur-xl"></div>
                     </div>
 
-                    <div className="absolute -z-10 top-1/2 right-1/2 w-[200%] aspect-square -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-radial from-[#12AC6C]/5 via-[#12AC6C]/2 to-transparent"></div>
-
-                    {/* Floating elements with animations */}
-                    <div
-                        ref={floatingElement1Ref}
-                        className="absolute -top-4 -right-4 h-24 w-24 bg-[#8BD9B8]/20 dark:bg-[#8BD9B8]/10 rounded-xl rotate-12 blur opacity-60 transition-transform duration-1000"
-                    ></div>
-                    <div
-                        ref={floatingElement2Ref}
-                        className="absolute -bottom-6 left-8 h-16 w-16 bg-[#12AC6C]/20 rounded-xl -rotate-12 blur opacity-60 transition-transform duration-1000"
-                    ></div>
-
-                    {/* Enhanced data metrics floating card */}
-                    <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-[#12AC6C]/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md">
+                    {/* Floating UI elements */}
+                    <motion.div
+                        className="absolute z-30 -bottom-10 left-0 md:-left-16 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 transition-all duration-300 hover:shadow-[#12AC6C]/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.9 }}
+                    >
                         <div className="flex items-center gap-3">
                             <div className="bg-[#12AC6C]/10 dark:bg-[#12AC6C]/30 p-3 rounded-full">
                                 <Check className="h-5 w-5 text-[#12AC6C] dark:text-[#8BD9B8]" />
@@ -146,21 +169,43 @@ const HeroSection = () => {
                                 <p className="text-lg font-bold text-gray-800 dark:text-gray-200">48% per vehicle</p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Added metrics card on the right side */}
-                    <div className="absolute -top-2 -right-2 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-3 transition-all duration-300 hover:shadow-[#12AC6C]/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md">
+                    <motion.div
+                        className="absolute z-30 top-0 right-0 md:-right-10 bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-3 transition-all duration-300 hover:shadow-[#12AC6C]/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 1.1 }}
+                    >
                         <div className="flex items-center space-x-2">
                             <div className="bg-[#12AC6C]/10 dark:bg-[#12AC6C]/30 p-2 rounded-full">
                                 <Star className="h-4 w-4 text-[#12AC6C] dark:text-[#8BD9B8]" />
                             </div>
                             <p className="text-sm font-bold text-gray-800 dark:text-gray-200">4.9/5 <span className="text-xs font-normal text-gray-500">rating</span></p>
                         </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+
+                    {/* Additional floating element */}
+                    <motion.div
+                        className="absolute z-30 top-1/4 right-0 md:-right-12 bg-white dark:bg-gray-900 rounded-xl shadow-lg p-2.5 transition-all duration-300 hover:shadow-[#12AC6C]/20 border border-gray-100 dark:border-gray-800 backdrop-blur-md"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 1.3 }}
+                    >
+                        <div className="flex items-center space-x-2">
+                            <div className="bg-[#12AC6C]/10 dark:bg-[#12AC6C]/30 p-1.5 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#12AC6C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <p className="text-xs font-bold text-gray-800 dark:text-gray-200">Fast setup</p>
+                        </div>
+                    </motion.div>
+                </div>
             </div>
 
-            {/* Add a subtle, clean background without grid patterns */}
+            {/* Enhanced subtle background elements */}
+            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-[0.015] dark:opacity-[0.03] pointer-events-none"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F2FAF7]/30 dark:from-transparent dark:to-[#108C57]/5 pointer-events-none"></div>
         </section>
     );
