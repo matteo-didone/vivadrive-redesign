@@ -8,6 +8,7 @@ import doubleGreen from "./articles/vivadrive-partners-with-double-green";
 import warsawEmobility from "./articles/warsaw-emobility-conference";
 import nissanTownstar from "./articles/nissan-townstar-review";
 import sagensoPartnership from "./articles/vivadrive-partners-with-sagenso";
+import evWebinar from "./articles/ev-webinar-elektryfikacja-floty";
 
 export const articles: Article[] = [
   startupsPalacu,
@@ -18,6 +19,7 @@ export const articles: Article[] = [
   warsawEmobility,
   nissanTownstar,
   sagensoPartnership,
+  evWebinar,
 ];
 
 // Helper functions
@@ -26,7 +28,7 @@ export function getAllArticles(): Article[] {
 }
 
 export function getArticleBySlug(slug: string): Article | undefined {
-  return articles.find(article => article.slug === slug);
+  return articles.find((article) => article.slug === slug);
 }
 
 export function getRecentArticles(count: number = 6): Article[] {

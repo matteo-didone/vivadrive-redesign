@@ -18,10 +18,9 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded }) => {
   const animationDelay = 100 + (index * 100);
 
   return (
-    <div 
-      className={`group h-full transition-all duration-700 transform ${
-        isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+    <div
+      className={`group h-full transition-all duration-700 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
       style={{ transitionDelay: `${animationDelay}ms` }}
     >
       <Link
@@ -30,7 +29,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded }) => {
       >
         {/* Decorative elements */}
         <div className="absolute -right-6 -top-6 w-12 h-12 bg-emerald-50 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-[6] z-0"></div>
-        
+
         <div className="relative">
           {/* Feature image with zoom effect */}
           <div className="relative h-52 w-full overflow-hidden">
@@ -73,16 +72,16 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded }) => {
               {article.category === "WEBINAR" && (
                 <div className="bg-blue-500 text-white text-xs font-medium py-1.5 px-3 rounded-full flex items-center gap-1.5 shadow-md">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 10.34l1.96 1.97L15 16.25" />
-                    <path d="M9 10.34l-1.96 1.97L9 16.25" />
                     <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <path d="M12 17v4" />
-                    <path d="M8 21h8" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                    <circle cx="12" cy="10" r="1" />
+                    <path d="M9 10a3 3 0 0 1 3-3a3 3 0 0 1 3 3" />
                   </svg>
                   {article.category}
                 </div>
               )}
-              {article.category === "EV Review" && (
+              {article.category === "EV REVIEW" && (
                 <div className="bg-purple-500 text-white text-xs font-medium py-1.5 px-3 rounded-full flex items-center gap-1.5 shadow-md">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.6-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -93,7 +92,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded }) => {
                   {article.category}
                 </div>
               )}
-              {!["AWARD", "PARTNERSHIP ANNOUNCEMENT", "WEBINAR", "EV Review"].includes(article.category) && (
+              {!["AWARD", "PARTNERSHIP ANNOUNCEMENT", "WEBINAR", "EV REVIEW"].includes(article.category) && (
                 <div className="bg-gray-700 text-white text-xs font-medium py-1.5 px-3 rounded-full flex items-center gap-1.5 shadow-md">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
@@ -131,7 +130,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded }) => {
               {article.type || "PRESS"}
             </div>
             <span className="text-emerald-600 text-sm font-medium flex items-center opacity-0 transform translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-              Read more 
+              Read more
               <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </span>
           </div>

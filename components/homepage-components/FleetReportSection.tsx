@@ -14,28 +14,47 @@ const FleetReportSection = () => {
         }
     };
 
+    const imageVariants = {
+        hidden: { opacity: 0, scale: 0.95 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.8,
+                ease: "easeOut",
+                delay: 0.2
+            }
+        },
+        hover: {
+            scale: 1.02,
+            transition: { duration: 0.4 }
+        }
+    };
+
     return (
-        <section className="py-24 md:py-32 bg-white">
-            <div className="container max-w-screen-xl mx-auto px-4">
-                <div className="grid gap-16 md:grid-cols-2 items-center">
-                    {/* Left column with text content (swapped) */}
+        <section className="py-20 md:py-28 bg-white">
+            <div className="container mx-auto px-4">
+
+                <div className="max-w-screen-xl mx-auto grid md:grid-cols-12 gap-8 gap-y-12 items-center">
+                    {/* Left column with text content - 5 columns */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeIn}
+                        className="md:col-span-5"
                     >
                         <div className="inline-flex items-center rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-600 mb-6">
                             Comprehensive Analysis
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-                            Fleet<br />
-                            Electrification<br />
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
+                            Fleet <br className="hidden sm:block" />
+                            Electrification <br className="hidden sm:block" />
                             Report
                         </h2>
 
-                        <p className="text-gray-600 text-lg mb-8 max-w-lg">
+                        <p className="text-gray-600 text-lg mb-8">
                             Access a detailed report on your fleet's electrification journey. Benefit from valuable insights, including cost analysis, potential savings, and tailored recommendations, enabling you to make informed decisions and accelerate your sustainability goals.
                         </p>
 
@@ -50,41 +69,27 @@ const FleetReportSection = () => {
                         </motion.a>
                     </motion.div>
 
-                    {/* Right column with report image (swapped) */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeIn}
-                        className="relative"
-                    >
-                        <div className="relative">
-                            {/* Subtle glow effect for the card */}
-                            <div className="absolute inset-0 rounded-3xl bg-emerald-100/20 blur-xl"></div>
-
-                            {/* Report image */}
-                            <div className="relative">
-                                <Image
-                                    src="/steps/fleet-report.png"
-                                    width={500}
-                                    height={580}
-                                    alt="Fleet electrification report"
-                                    className="w-full h-auto max-w-md mx-auto"
-                                />
-
-                                {/* Green circular icon overlay */}
-                                <div className="absolute -bottom-6 -right-6">
-                                    <div className="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                            <polyline points="2 17 12 22 22 17"></polyline>
-                                            <polyline points="2 12 12 17 22 12"></polyline>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+                    {/* Right column with report image - 7 columns for larger image */}
+                    <div className="md:col-span-7 relative">
+                        {/* Direct image without card container */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            whileHover="hover"
+                            viewport={{ once: true }}
+                            variants={imageVariants}
+                            className="relative z-10"
+                        >
+                            <Image
+                                src="/steps/fleet-report.png"
+                                width={1400}
+                                height={1050}
+                                alt="Fleet electrification report"
+                                className="w-full h-auto"
+                                priority
+                            />
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

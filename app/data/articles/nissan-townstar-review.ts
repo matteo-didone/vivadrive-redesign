@@ -8,7 +8,7 @@ const article: Article = {
   date: "2023-04-28T05:32:00Z",
   readTime: 5,
   image: "/newsroom/townstar/townstar.png",
-  category: "EV Review",
+  category: "EV REVIEW",
   type: "BLOG",
   excerpt:
     "Thanks to the kindness of Nissan Sales Central & Eastern Europe, we had the pleasure of testing the new Nissan Townstar. For those who don't know, it's a fully electric delivery van.",
