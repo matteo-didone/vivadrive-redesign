@@ -12,12 +12,12 @@ const OurStory = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100/50">
-      {/* Background decorative elements */}
+    <section className="py-12 md:py-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100/50">
+      {/* Background decorative elements - adjusted for mobile */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-emerald-200 rounded-full opacity-20 blur-md" />
-        <div className="absolute top-1/2 -right-20 w-48 h-48 bg-blue-300 rounded-full opacity-20 blur-md" />
-        <div className="absolute bottom-0 left-1/4 w-32 h-32 bg-emerald-400 rounded-full opacity-10 blur-md" />
+        <div className="absolute -top-16 md:-top-24 -left-16 md:-left-24 w-48 md:w-64 h-48 md:h-64 bg-emerald-200 rounded-full opacity-20 blur-md" />
+        <div className="absolute top-1/2 -right-12 md:-right-20 w-32 md:w-48 h-32 md:h-48 bg-blue-300 rounded-full opacity-20 blur-md" />
+        <div className="absolute bottom-0 left-1/4 w-24 md:w-32 h-24 md:h-32 bg-emerald-400 rounded-full opacity-10 blur-md" />
 
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-10" style={{
@@ -27,13 +27,13 @@ const OurStory = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-8 md:gap-12">
           {/* Content Column */}
           <motion.div
-            className="lg:w-1/2 space-y-6"
+            className="w-full lg:w-1/2 space-y-4 md:space-y-6 pt-8 md:pt-0"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             variants={{
               hidden: { opacity: 0 },
               visible: {
@@ -44,14 +44,14 @@ const OurStory = () => {
               }
             }}
           >
-            <motion.div variants={fadeInUp}>
-              <motion.span className="text-emerald-500 font-semibold inline-flex items-center gap-2">
-                <Calendar className="h-5 w-5" />
+            <motion.div variants={fadeInUp} className="text-center lg:text-left">
+              <motion.span className="text-emerald-500 font-semibold inline-flex items-center gap-2 justify-center lg:justify-start">
+                <Calendar className="h-4 md:h-5 w-4 md:w-5" />
                 Since 2019
               </motion.span>
 
               <motion.h2
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mt-2 leading-tight"
+                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-2 leading-tight"
                 variants={fadeInUp}
               >
                 Our <span className="relative text-emerald-500">
@@ -61,36 +61,36 @@ const OurStory = () => {
               </motion.h2>
             </motion.div>
 
-            <motion.div className="space-y-4 text-gray-700" variants={fadeInUp}>
-              <motion.p className="text-xl font-medium" variants={fadeInUp}>
+            <motion.div className="space-y-4 text-gray-700 text-center lg:text-left" variants={fadeInUp}>
+              <motion.p className="text-lg md:text-xl font-medium" variants={fadeInUp}>
                 VivaDrive was founded in 2019 in Warsaw with a vision to revolutionize fleet management.
               </motion.p>
 
-              <motion.p className="text-lg" variants={fadeInUp}>
+              <motion.p className="text-base md:text-lg" variants={fadeInUp}>
                 Our main idea behind VivaDrive was to make fleet management as simple as possible and to reduce time and money one has to spend on it.
               </motion.p>
 
               <motion.div
-                className="relative bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow overflow-hidden group my-8"
+                className="relative bg-white rounded-xl p-4 md:p-6 shadow-md hover:shadow-xl transition-shadow overflow-hidden group my-6 md:my-8"
                 variants={fadeInUp}
                 whileHover={{ y: -5 }}
               >
-                <div className="absolute top-0 right-0 w-24 h-24 -mr-8 -mt-8 bg-emerald-100 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
+                <div className="absolute top-0 right-0 w-16 md:w-24 h-16 md:h-24 -mr-6 md:-mr-8 -mt-6 md:-mt-8 bg-emerald-100 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
 
-                <div className="border-l-4 border-emerald-500 pl-4 py-2">
-                  <p className="text-lg italic text-gray-700">
+                <div className="border-l-4 border-emerald-500 pl-3 md:pl-4 py-2">
+                  <p className="text-base md:text-lg italic text-gray-700">
                     With years of experience in the field and cutting edge technology, we were able to create a unique product that has taken the market by storm from day one!
                   </p>
                 </div>
               </motion.div>
 
               <motion.div
-                className="pt-4 flex flex-wrap gap-4"
+                className="pt-4 flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4"
                 variants={fadeInUp}
               >
                 <motion.a
                   href="/about/technology"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-emerald-500 text-emerald-500 rounded-full hover:bg-emerald-50 transition-all shadow-md hover:shadow-lg group"
+                  className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white border border-emerald-500 text-emerald-500 rounded-full hover:bg-emerald-50 transition-all shadow-md hover:shadow-lg group text-sm md:text-base"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -100,7 +100,7 @@ const OurStory = () => {
 
                 <motion.a
                   href="/about/team"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
+                  className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group text-sm md:text-base"
                   whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.3)" }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -111,9 +111,9 @@ const OurStory = () => {
             </motion.div>
           </motion.div>
 
-          {/* Image Column with overlapping design */}
+          {/* Image Column with overlapping design - Optimized for mobile */}
           <motion.div
-            className="lg:w-1/2 relative"
+            className="w-full lg:w-1/2 relative mx-auto max-w-md lg:max-w-none"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -130,14 +130,14 @@ const OurStory = () => {
               />
 
               {/* Progress bars overlay */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-blue-500/10 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-blue-500/10 flex flex-col justify-end p-4 md:p-6">
                 <div className="mb-2">
                   <div className="flex justify-between items-center mb-1">
                     <span className="text-xs font-medium text-white drop-shadow-md">Growth since 2019</span>
                     <span className="text-xs font-medium text-white drop-shadow-md">85%</span>
                   </div>
                   <motion.div
-                    className="w-full h-2 bg-white/30 rounded-full overflow-hidden"
+                    className="w-full h-1.5 md:h-2 bg-white/30 rounded-full overflow-hidden"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
@@ -155,25 +155,25 @@ const OurStory = () => {
               </div>
             </div>
 
-            {/* Decorative elements */}
-            <div className="absolute -bottom-5 -left-5 w-24 h-24 rounded-lg bg-blue-500 -z-10"></div>
-            <div className="absolute -top-5 -right-5 w-36 h-36 rounded-lg bg-emerald-500 -z-10"></div>
+            {/* Decorative elements - adjusted for mobile */}
+            <div className="absolute -bottom-4 md:-bottom-5 -left-4 md:-left-5 w-16 md:w-24 h-16 md:h-24 rounded-lg bg-blue-500 -z-10"></div>
+            <div className="absolute -top-4 md:-top-5 -right-4 md:-right-5 w-24 md:w-36 h-24 md:h-36 rounded-lg bg-emerald-500 -z-10"></div>
 
-            {/* Floating stats badge */}
+            {/* Floating stats badge - adjusted for mobile */}
             <motion.div
-              className="absolute -bottom-6 right-12 bg-white shadow-lg rounded-xl px-6 py-4 flex items-center space-x-2"
+              className="absolute -bottom-5 md:-bottom-6 right-6 md:right-12 bg-white shadow-lg rounded-xl px-4 md:px-6 py-3 md:py-4 flex items-center space-x-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center shadow-md">
-                <Calendar className="h-5 w-5 text-white" />
+              <div className="w-8 md:w-10 h-8 md:h-10 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center shadow-md">
+                <Calendar className="h-4 md:h-5 w-4 md:w-5 text-white" />
               </div>
               <div>
-                <span className="block text-sm text-gray-500">Established</span>
-                <span className="font-bold text-gray-800">2019</span>
+                <span className="block text-xs md:text-sm text-gray-500">Established</span>
+                <span className="font-bold text-sm md:text-base text-gray-800">2019</span>
               </div>
             </motion.div>
           </motion.div>

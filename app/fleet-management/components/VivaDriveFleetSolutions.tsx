@@ -50,7 +50,7 @@ const VivaDriveFleetSolutions = () => {
                     <div className="grid lg:grid-cols-2 gap-0 items-center">
                         {/* Content Column - With proper spacing at bottom */}
                         <motion.div
-                            className="space-y-5 pr-4 sm:pr-6 lg:pr-12 mx-auto lg:mx-0 max-w-lg lg:max-w-none pb-16"
+                            className="space-y-5 pr-4 sm:pr-6 lg:pr-12 mx-auto lg:mx-0 max-w-lg lg:max-w-none pb-16 text-center lg:text-left"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -65,7 +65,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.div>
 
                             <motion.h2
-                                className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
                                 Improve your
@@ -77,7 +77,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.h2>
 
                             <motion.p
-                                className="text-lg text-gray-600"
+                                className="text-base sm:text-lg text-gray-600 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
                                 Analytics, personalised feedback, gamification and a motivation
@@ -87,17 +87,17 @@ const VivaDriveFleetSolutions = () => {
                             </motion.p>
 
                             <motion.div
-                                className="p-4 bg-gradient-to-br from-emerald-50 to-white rounded-2xl border border-emerald-100 shadow-sm"
+                                className="p-4 bg-gradient-to-br from-emerald-50 to-white rounded-2xl border border-emerald-100 shadow-sm max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                <p className="text-gray-700 font-medium">
+                                <p className="text-gray-700 font-medium text-sm sm:text-base">
                                     Our mobile app provides real-time feedback, personalized guidance,
                                     and gamified elements to boost driver engagement and performance.
                                 </p>
                             </motion.div>
 
                             <motion.div
-                                className="flex flex-wrap gap-4 pt-2 justify-center sm:justify-start"
+                                className="flex flex-wrap gap-4 pt-2 justify-center lg:justify-start"
                                 variants={itemVariant}
                             >
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
@@ -117,7 +117,7 @@ const VivaDriveFleetSolutions = () => {
 
                         {/* Image Column - Adjusted to remove the gap */}
                         <motion.div
-                            className="relative h-full flex items-center justify-end -mr-4 sm:-mr-6 lg:-mr-8 xl:-mr-16 mt-8 sm:mt-0 pb-0"
+                            className="relative h-full flex items-center justify-center lg:justify-end -mr-4 sm:-mr-6 lg:-mr-8 xl:-mr-16 mt-8 sm:mt-0 pb-0"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -126,7 +126,7 @@ const VivaDriveFleetSolutions = () => {
                             <img
                                 src="/fleet-management/iphone-mockup.png"
                                 alt="VivaDrive Mobile App"
-                                className="w-[160%] max-w-none h-auto object-contain"
+                                className="w-[100%] lg:w-[160%] max-w-none h-auto object-contain"
                             />
                         </motion.div>
                     </div>
@@ -134,7 +134,7 @@ const VivaDriveFleetSolutions = () => {
             </section>
 
             {/* Section 2: Switch to EV easily - Text Right, Image Left */}
-            <section className="pt-16 sm:pt-20 pb-24 overflow-hidden bg-gray-50 border-b border-gray-100 relative">
+            <section className="pt-16 sm:pt-20 pb-16 sm:pb-24 overflow-hidden bg-gray-50 border-b border-gray-100 relative">
                 {/* Background elements */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-200 rounded-full opacity-20" />
                 <div className="absolute bottom-16 left-0 w-32 h-32 bg-yellow-100 rounded-full opacity-30" />
@@ -147,19 +147,19 @@ const VivaDriveFleetSolutions = () => {
                 }} />
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        {/* Image Column - On the left for this section */}
+                    <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+                        {/* Image Column - On the left for desktop, but appears second on mobile */}
                         <motion.div
-                            className="relative"
+                            className="relative order-2 lg:order-1 flex justify-center lg:justify-start"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeIn}
                         >
-                            <div className="relative">
+                            <div className="relative max-w-md w-full">
                                 {/* Main image with pseudo-3D effect */}
                                 <motion.div
-                                    className="bg-gradient-to-br from-white to-emerald-50 p-6 rounded-xl shadow-2xl transform perspective-md"
+                                    className="bg-gradient-to-br from-white to-emerald-50 p-4 sm:p-6 rounded-xl shadow-2xl transform perspective-md"
                                     whileHover={{ y: -5, rotateY: -5, rotateX: 2 }}
                                     transition={{ duration: 0.5 }}
                                 >
@@ -174,30 +174,30 @@ const VivaDriveFleetSolutions = () => {
                                     <div className="absolute -top-3 -left-3 w-24 h-24 bg-emerald-500 rounded-full opacity-20 blur-xl" />
                                 </motion.div>
 
-                                {/* Floating elements */}
+                                {/* Floating elements with responsive positioning */}
                                 <motion.div
-                                    className="absolute -bottom-8 right-8 p-3 bg-white rounded-lg shadow-xl"
+                                    className="absolute -bottom-4 sm:-bottom-8 right-4 sm:right-8 p-2 sm:p-3 bg-white rounded-lg shadow-xl"
                                     initial={{ opacity: 0, x: 20, y: 20 }}
                                     animate={{ opacity: 1, x: 0, y: 0 }}
                                     transition={{ delay: 0.7, duration: 0.8 }}
                                 >
                                     <div className="flex items-center gap-2">
-                                        <Zap className="h-6 w-6 text-emerald-500" />
-                                        <div className="text-sm font-medium text-gray-800">
+                                        <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-500" />
+                                        <div className="text-xs sm:text-sm font-medium text-gray-800">
                                             75% savings
                                         </div>
                                     </div>
                                 </motion.div>
 
                                 <motion.div
-                                    className="absolute top-10 -left-6 p-3 bg-white rounded-lg shadow-xl"
+                                    className="absolute top-6 sm:top-10 -left-4 sm:-left-6 p-2 sm:p-3 bg-white rounded-lg shadow-xl"
                                     initial={{ opacity: 0, x: -20, y: 0 }}
                                     animate={{ opacity: 1, x: 0, y: 0 }}
                                     transition={{ delay: 0.9, duration: 0.8 }}
                                 >
                                     <div className="flex items-center gap-2">
-                                        <Battery className="h-6 w-6 text-emerald-500" />
-                                        <div className="text-sm font-medium text-gray-800">
+                                        <Battery className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-500" />
+                                        <div className="text-xs sm:text-sm font-medium text-gray-800">
                                             42.2 kWh
                                         </div>
                                     </div>
@@ -205,9 +205,9 @@ const VivaDriveFleetSolutions = () => {
                             </div>
                         </motion.div>
 
-                        {/* Content Column - On the right for this section */}
+                        {/* Content Column - On the right for desktop, but appears first on mobile */}
                         <motion.div
-                            className="space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none"
+                            className="space-y-5 sm:space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none order-1 lg:order-2 text-center lg:text-left"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -222,7 +222,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.div>
 
                             <motion.h2
-                                className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
                                 Switch to
@@ -234,7 +234,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.h2>
 
                             <motion.p
-                                className="text-lg text-gray-600"
+                                className="text-base sm:text-lg text-gray-600 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
                                 Are you still wondering if Electric Vehicles is suitable for you or your
@@ -245,48 +245,46 @@ const VivaDriveFleetSolutions = () => {
                             </motion.p>
 
                             <motion.div
-                                className="space-y-4 pt-2"
+                                className="space-y-3 sm:space-y-4 pt-2 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
                                 <motion.div
-                                    className="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                                    className="flex items-start sm:items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
                                     whileHover={{ x: 5 }}
                                 >
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center flex-shrink-0">
                                         <CheckSquare className="text-white h-5 w-5 flex-shrink-0" />
                                     </div>
-                                    <span className="text-gray-700 font-medium">Vehicle suitability analysis</span>
+                                    <span className="text-gray-700 font-medium text-left">Vehicle suitability analysis</span>
                                 </motion.div>
 
                                 <motion.div
-                                    className="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                                    className="flex items-start sm:items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
                                     whileHover={{ x: 5 }}
                                 >
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center flex-shrink-0">
                                         <CheckSquare className="text-white h-5 w-5 flex-shrink-0" />
                                     </div>
-                                    <span className="text-gray-700 font-medium">Charging infrastructure planning</span>
+                                    <span className="text-gray-700 font-medium text-left">Charging infrastructure planning</span>
                                 </motion.div>
 
                                 <motion.div
-                                    className="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                                    className="flex items-start sm:items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
                                     whileHover={{ x: 5 }}
                                 >
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center flex-shrink-0">
                                         <CheckSquare className="text-white h-5 w-5 flex-shrink-0" />
                                     </div>
-                                    <span className="text-gray-700 font-medium">Electric fleet cost optimization</span>
+                                    <span className="text-gray-700 font-medium text-left">Electric fleet cost optimization</span>
                                 </motion.div>
                             </motion.div>
-
-                            {/* Learn More button removed */}
                         </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* Section 3: Control your costs - Text Left, Image Right */}
-            <section className="py-24 overflow-hidden relative">
+            <section className="py-16 sm:py-24 overflow-hidden relative">
                 {/* Background elements */}
                 <div className="absolute top-0 left-0 w-full h-full">
                     <div className="absolute top-16 left-16 w-64 h-64 bg-emerald-100 rounded-full opacity-20 blur-xl" />
@@ -304,10 +302,10 @@ const VivaDriveFleetSolutions = () => {
                 </div>
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
                         {/* Content Column */}
                         <motion.div
-                            className="space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none"
+                            className="space-y-5 sm:space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none text-center lg:text-left"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -322,7 +320,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.div>
 
                             <motion.h2
-                                className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
                                 Control your
@@ -334,7 +332,7 @@ const VivaDriveFleetSolutions = () => {
                             </motion.h2>
 
                             <motion.p
-                                className="text-lg text-gray-600"
+                                className="text-base sm:text-lg text-gray-600 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
                                 We will help you replace a paper-based system with an electronic
@@ -347,17 +345,17 @@ const VivaDriveFleetSolutions = () => {
                             </motion.p>
 
                             <motion.div
-                                className="p-4 bg-gradient-to-br from-emerald-50 to-white rounded-lg border border-emerald-100 shadow-sm"
+                                className="p-4 bg-gradient-to-br from-emerald-50 to-white rounded-lg border border-emerald-100 shadow-sm max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                <p className="text-gray-700 font-medium">
+                                <p className="text-gray-700 font-medium text-sm sm:text-base">
                                     Our integrated dashboard provides real-time cost analysis, charging status monitoring,
                                     and vehicle performance metrics in one centralized platform.
                                 </p>
                             </motion.div>
 
                             <motion.div
-                                className="flex flex-wrap gap-4 pt-2 justify-center sm:justify-start"
+                                className="flex flex-wrap gap-4 pt-2 justify-center lg:justify-start"
                                 variants={itemVariant}
                             >
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
@@ -373,22 +371,20 @@ const VivaDriveFleetSolutions = () => {
                                     <span className="text-sm font-medium text-emerald-700">Automated management</span>
                                 </div>
                             </motion.div>
-
-                            {/* Learn More button removed */}
                         </motion.div>
 
                         {/* Image Column */}
                         <motion.div
-                            className="relative"
+                            className="relative flex justify-center lg:justify-start"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
                             variants={scaleIn}
                         >
-                            <div className="relative">
+                            <div className="relative max-w-md w-full">
                                 {/* Main image with pseudo-3D effect */}
                                 <motion.div
-                                    className="bg-gradient-to-br from-white to-emerald-50 p-6 rounded-xl shadow-2xl transform perspective-md"
+                                    className="bg-gradient-to-br from-white to-emerald-50 p-4 sm:p-6 rounded-xl shadow-2xl transform perspective-md"
                                     whileHover={{ y: -5, rotateY: 5, rotateX: -2 }}
                                     transition={{ duration: 0.5 }}
                                 >
@@ -403,31 +399,31 @@ const VivaDriveFleetSolutions = () => {
                                     <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-emerald-500 rounded-full opacity-20 blur-xl" />
                                 </motion.div>
 
-                                {/* Floating stats card */}
+                                {/* Floating stats card - responsive positioning */}
                                 <motion.div
-                                    className="absolute -bottom-6 -left-6 p-4 bg-white rounded-lg shadow-xl"
+                                    className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white rounded-lg shadow-xl"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.6, duration: 0.8 }}
                                 >
                                     <div className="flex flex-col">
                                         <div className="text-xs text-gray-500 mb-1">Total Availability</div>
-                                        <div className="text-2xl font-bold text-emerald-500">87%</div>
-                                        <div className="w-24 h-2 bg-gray-100 rounded-full mt-2">
+                                        <div className="text-xl sm:text-2xl font-bold text-emerald-500">87%</div>
+                                        <div className="w-20 sm:w-24 h-2 bg-gray-100 rounded-full mt-2">
                                             <div className="w-[87%] h-full bg-emerald-500 rounded-full" />
                                         </div>
                                     </div>
                                 </motion.div>
 
-                                {/* Floating notification */}
+                                {/* Floating notification - responsive positioning */}
                                 <motion.div
-                                    className="absolute -top-4 right-8 p-3 bg-white rounded-lg shadow-xl flex items-center gap-2"
+                                    className="absolute -top-2 sm:-top-4 right-4 sm:right-8 p-2 sm:p-3 bg-white rounded-lg shadow-xl flex items-center gap-2"
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.8, duration: 0.8 }}
                                 >
-                                    <div className="w-3 h-3 bg-emerald-500 rounded-full" />
-                                    <div className="text-sm font-medium text-gray-800">Real-time updates</div>
+                                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-500 rounded-full" />
+                                    <div className="text-xs sm:text-sm font-medium text-gray-800">Real-time updates</div>
                                 </motion.div>
                             </div>
                         </motion.div>

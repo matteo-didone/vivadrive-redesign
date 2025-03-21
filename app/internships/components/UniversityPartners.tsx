@@ -4,7 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const UniversityPartners = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
   // University partners with logos
@@ -25,83 +26,140 @@ const UniversityPartners = () => {
     { url: "https://www.telecom-sudparis.eu/en/", img: "/internships/univeristy-logos/telecom-sudparis.png", name: "Télécom SudParis" }
   ];
 
-  // Duplicate universities for continuous scrolling effect
-  const allUniversities = [...universities, ...universities, ...universities];
-
+  // Detect if we're on a touch device
   useEffect(() => {
-    if (!scrollRef.current) return;
+    const detectTouch = () => {
+      setIsTouchDevice(
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0
+      );
+    };
 
-    // Initial scroll position - start from the second set of partners
-    scrollRef.current.scrollLeft = scrollRef.current.scrollWidth / 3;
+    detectTouch();
 
-    // Animation function for smooth scrolling
-    const animateScroll = () => {
-      if (scrollRef.current && !isHovering) {
-        // If we reach the third set, jump back to the first set (invisible transition)
-        if (scrollRef.current.scrollLeft >= (scrollRef.current.scrollWidth * 2 / 3)) {
-          scrollRef.current.scrollLeft = scrollRef.current.scrollWidth / 3 - 100;
-        } else {
-          scrollRef.current.scrollLeft += 1;
-        }
+    // Fallback for server-side rendering
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsTouchDevice(true);
       }
     };
 
-    // Start animation
-    const animationId = setInterval(animateScroll, 30);
+    window.addEventListener('resize', handleResize);
+    handleResize();
 
-    return () => {
-      clearInterval(animationId);
-    };
-  }, [isHovering]);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Set up automatic scrolling
+  useEffect(() => {
+    if (!scrollRef.current) return;
+
+    // For non-touch devices or when not hovering
+    if (isTouchDevice) {
+      // On mobile, just set initial scroll position
+      scrollRef.current.scrollLeft = 0;
+    } else {
+      // On desktop, set initial scroll position
+      scrollRef.current.scrollLeft = 50;
+
+      // Animation function for smooth scrolling (desktop only)
+      const animateScroll = () => {
+        if (scrollRef.current && !isHovering) {
+          if (scrollRef.current.scrollLeft >= (scrollRef.current.scrollWidth - scrollRef.current.clientWidth - 50)) {
+            // Reset to beginning when we reach the end
+            scrollRef.current.scrollLeft = 0;
+          } else {
+            scrollRef.current.scrollLeft += 1;
+          }
+        }
+      };
+
+      // Start animation for desktop
+      const animationId = setInterval(animateScroll, 30);
+
+      return () => {
+        clearInterval(animationId);
+      };
+    }
+  }, [isHovering, isTouchDevice]);
 
   return (
-    <div className="w-full py-12 bg-emerald-500">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h3 className="text-base font-medium text-white uppercase tracking-wider">
+    <div className="w-full py-6 md:py-12 bg-emerald-500">
+      <div className="container mx-auto">
+        <div className="text-center mb-6 md:mb-10">
+          <h3 className="text-sm md:text-base font-medium text-white uppercase tracking-wider px-4">
             UNIVERSITY PARTNERS
           </h3>
         </div>
 
-        <div
-          className="w-full overflow-hidden relative"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
+        <div className="w-full overflow-hidden relative">
+          {/* Container with different behavior based on device type */}
           <div
             ref={scrollRef}
-            className="flex items-center gap-10 overflow-x-scroll whitespace-nowrap py-12"
+            className={`
+              flex items-center gap-6 md:gap-10 whitespace-nowrap py-6 md:py-12 px-4
+              ${isTouchDevice ? 'overflow-x-auto snap-x snap-mandatory' : 'overflow-x-hidden'}
+            `}
             style={{
-              scrollBehavior: "smooth",
               scrollbarWidth: "none",
               msOverflowStyle: "none",
-              WebkitOverflowScrolling: "touch",
-              "::-webkit-scrollbar": { display: "none" }
+              WebkitOverflowScrolling: "touch"
             }}
+            onMouseEnter={isTouchDevice ? undefined : () => setIsHovering(true)}
+            onMouseLeave={isTouchDevice ? undefined : () => setIsHovering(false)}
           >
-            {allUniversities.map((university, i) => (
+            {/* Render universities with appropriate mobile styling */}
+            {universities.map((university, i) => (
               <a
                 key={i}
                 href={university.url}
                 rel="noreferrer"
                 target="_blank"
-                className="shrink-0 transition-all duration-300 opacity-90 hover:opacity-100 hover:scale-110 px-2"
+                className={`
+                  shrink-0 transition-all duration-300
+                  ${isTouchDevice ? 'snap-center opacity-90' : 'opacity-80 hover:opacity-100 hover:scale-110'}
+                  px-2
+                `}
+                style={{ WebkitTapHighlightColor: "transparent" }}
+                aria-label={`Visit ${university.name} website`}
               >
                 <Image
                   src={university.img}
                   alt={university.name}
-                  width={220}
-                  height={90}
-                  className="h-20 max-w-[220px] object-contain"
-                  style={{ margin: "0 2vw" }}
+                  width={180}
+                  height={70}
+                  className="h-12 md:h-20 max-w-[150px] md:max-w-[220px] object-contain"
+                  priority={i < 6}
+                />
+              </a>
+            ))}
+
+            {/* Add extra copies for desktop continuous scrolling */}
+            {!isTouchDevice && universities.map((university, i) => (
+              <a
+                key={`copy-${i}`}
+                href={university.url}
+                rel="noreferrer"
+                target="_blank"
+                className="shrink-0 transition-all duration-300 opacity-80 hover:opacity-100 hover:scale-110 px-2"
+                style={{ WebkitTapHighlightColor: "transparent" }}
+                aria-label={`Visit ${university.name} website`}
+              >
+                <Image
+                  src={university.img}
+                  alt={university.name}
+                  width={180}
+                  height={70}
+                  className="h-12 md:h-20 max-w-[150px] md:max-w-[220px] object-contain"
                 />
               </a>
             ))}
           </div>
 
           {/* Gradient fading effect on edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-emerald-500 to-transparent pointer-events-none z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-emerald-500 to-transparent pointer-events-none z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-emerald-500 to-transparent pointer-events-none z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-emerald-500 to-transparent pointer-events-none z-10"></div>
         </div>
       </div>
     </div>

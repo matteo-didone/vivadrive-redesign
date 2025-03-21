@@ -2,13 +2,19 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimation, PanInfo } from "framer-motion";
 import { Mail, ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 
 const TeamCarousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
     const carouselRef = useRef(null);
+    const controls = useAnimation();
+
+    // Track touch/drag state
+    const dragStartX = useRef(0);
+    const dragEndX = useRef(0);
 
     // Resize handler to determine how many cards to show
     useEffect(() => {
@@ -37,17 +43,17 @@ const TeamCarousel = () => {
             isLeadership: true
         },
         {
-            name: "Dinesh Kumar",
-            role: "COO",
-            image: "/about/team/Dinesh.jpg",
-            linkedin: "https://www.linkedin.com/in/dkr27/",
-            isLeadership: true
-        },
-        {
             name: "Piotr Ptaszyński",
             role: "Fleet Program Director",
             image: "/about/team/Piotr.png",
             linkedin: "https://www.linkedin.com/in/piotr-ptaszyński-82187415a/",
+            isLeadership: true
+        },
+        {
+            name: "Dinesh Kumar",
+            role: "COO",
+            image: "/about/team/Dinesh.jpg",
+            linkedin: "https://www.linkedin.com/in/dkr27/",
             isLeadership: true
         },
         {
@@ -69,16 +75,77 @@ const TeamCarousel = () => {
     const itemsPerSlide = isMobile ? 1 : 3;
     const totalSlides = Math.ceil(teamMembers.length / itemsPerSlide);
 
+    // Update animation when slide changes
+    useEffect(() => {
+        controls.start({ x: `-${currentSlide * 100}%` });
+    }, [currentSlide, controls]);
+
+    // Navigation functions
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+        if (currentSlide < totalSlides - 1) {
+            setCurrentSlide(currentSlide + 1);
+        } else {
+            setCurrentSlide(0); // Loop back to first slide
+        }
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+        if (currentSlide > 0) {
+            setCurrentSlide(currentSlide - 1);
+        } else {
+            setCurrentSlide(totalSlides - 1); // Loop to last slide
+        }
     };
 
     const goToSlide = (slideIndex) => {
         setCurrentSlide(slideIndex);
+    };
+
+    // Touch/drag handlers
+    const handleDragStart = (event, info) => {
+        setIsDragging(true);
+        dragStartX.current = info.point.x;
+    };
+
+    const handleDragEnd = (event, info) => {
+        setIsDragging(false);
+        dragEndX.current = info.point.x;
+
+        const dragThreshold = 50; // Minimum drag distance to trigger slide change
+        const dragDifference = dragStartX.current - dragEndX.current;
+
+        // Determine if user dragged enough to change slides
+        if (Math.abs(dragDifference) > dragThreshold) {
+            if (dragDifference > 0) {
+                nextSlide(); // Swiped left, go to next slide
+            } else {
+                prevSlide(); // Swiped right, go to previous slide
+            }
+        } else {
+            // If user didn't drag enough, snap back to current slide
+            controls.start({ x: `-${currentSlide * 100}%` });
+        }
+    };
+
+    // While dragging, follow the finger but with resistance
+    const handleDrag = (event, info) => {
+        if (isDragging) {
+            const dragOffset = info.point.x - dragStartX.current;
+            const currentOffset = -currentSlide * 100;
+
+            // Add resistance at the edges
+            let newX;
+            if ((currentSlide === 0 && dragOffset > 0) ||
+                (currentSlide === totalSlides - 1 && dragOffset < 0)) {
+                // At the edges, apply more resistance
+                newX = `${currentOffset + dragOffset * 0.2}%`;
+            } else {
+                // Normal dragging
+                newX = `${currentOffset + dragOffset * 0.5}%`;
+            }
+
+            controls.set({ x: newX });
+        }
     };
 
     const fadeInUp = {
@@ -87,7 +154,7 @@ const TeamCarousel = () => {
     };
 
     return (
-        <section className="py-24 relative overflow-hidden bg-gray-50">
+        <section className="py-16 md:py-24 relative overflow-hidden bg-gray-50">
             {/* Background decorative elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-50 rounded-bl-full opacity-70"></div>
@@ -98,22 +165,22 @@ const TeamCarousel = () => {
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
-                    className="text-center mb-16"
+                    className="text-center mb-10 md:mb-16"
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-50px" }}
                     variants={fadeInUp}
                 >
-                    <motion.p className="text-emerald-500 text-lg font-medium mb-2" variants={fadeInUp}>
+                    <motion.p className="text-emerald-500 text-base md:text-lg font-medium mb-2" variants={fadeInUp}>
                         The people behind VivaDrive
                     </motion.p>
 
-                    <motion.h2 className="text-4xl md:text-5xl font-bold text-gray-900" variants={fadeInUp}>
+                    <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900" variants={fadeInUp}>
                         Our <span className="text-emerald-500">core team</span>
                     </motion.h2>
 
                     <motion.p
-                        className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto"
+                        className="mt-4 text-base md:text-lg text-gray-600 max-w-3xl mx-auto"
                         variants={fadeInUp}
                     >
                         Meet the talented individuals who are driving innovation and excellence at VivaDrive
@@ -122,6 +189,15 @@ const TeamCarousel = () => {
 
                 {/* Carousel Container */}
                 <div className="relative px-4 sm:px-8 md:px-12">
+                    {/* Mobile swipe instruction - only shown on mobile */}
+                    {isMobile && (
+                        <div className="text-center mb-4 text-sm text-gray-500 flex items-center justify-center">
+                            <ChevronLeft className="h-4 w-4 inline" />
+                            <span className="mx-1">Swipe to navigate</span>
+                            <ChevronRight className="h-4 w-4 inline" />
+                        </div>
+                    )}
+
                     {/* Carousel Navigation - Previous Button */}
                     <button
                         onClick={prevSlide}
@@ -134,19 +210,30 @@ const TeamCarousel = () => {
                     {/* Carousel Track */}
                     <div
                         ref={carouselRef}
-                        className="overflow-hidden"
+                        className="overflow-hidden touch-pan-y"
                     >
                         <motion.div
-                            className="flex transition-all duration-500 ease-in-out"
-                            initial={false}
-                            animate={{ x: `-${currentSlide * 100}%` }}
-                            transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+                            className="flex"
+                            animate={controls}
+                            initial={{ x: 0 }}
+                            transition={{
+                                type: "tween",
+                                ease: "easeInOut",
+                                duration: isDragging ? 0 : 0.4
+                            }}
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0}
+                            onDragStart={handleDragStart}
+                            onDrag={handleDrag}
+                            onDragEnd={handleDragEnd}
+                            style={{ touchAction: "pan-y" }}
                         >
                             {/* Slides */}
                             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                                 <div
                                     key={slideIndex}
-                                    className="flex-shrink-0 w-full flex flex-wrap justify-center gap-8"
+                                    className="flex-shrink-0 w-full flex flex-wrap justify-center gap-6 md:gap-8"
                                     style={{ minWidth: "100%" }}
                                 >
                                     {teamMembers
@@ -155,7 +242,7 @@ const TeamCarousel = () => {
                                             <motion.div
                                                 key={`${slideIndex}-${memberIndex}`}
                                                 className="w-full sm:w-80 max-w-xs mx-auto"
-                                                whileHover={{ y: -10 }}
+                                                whileHover={{ y: -8 }}
                                                 whileTap={{ scale: 0.98 }}
                                             >
                                                 <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full">
@@ -166,11 +253,13 @@ const TeamCarousel = () => {
                                                             alt={member.name}
                                                             fill
                                                             className="object-cover object-center"
+                                                            sizes="(max-width: 768px) 90vw, 350px"
+                                                            priority={slideIndex === 0}
                                                         />
                                                     </div>
 
                                                     {/* Content centered in card */}
-                                                    <div className="p-6 text-center flex-grow flex flex-col justify-center">
+                                                    <div className="p-5 md:p-6 text-center flex-grow flex flex-col justify-center">
                                                         <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
                                                         <p className="text-emerald-600 font-medium mb-4">{member.role}</p>
 
@@ -222,7 +311,7 @@ const TeamCarousel = () => {
                 </div>
 
                 {/* Carousel Indicators */}
-                <div className="flex justify-center mt-10 space-x-2">
+                <div className="flex justify-center mt-8 md:mt-10 space-x-2">
                     {Array.from({ length: totalSlides }).map((_, index) => (
                         <button
                             key={index}
@@ -236,7 +325,7 @@ const TeamCarousel = () => {
 
                 {/* Join Team Button */}
                 <motion.div
-                    className="mt-16 text-center"
+                    className="mt-12 md:mt-16 text-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
@@ -246,7 +335,7 @@ const TeamCarousel = () => {
                         href="/about/careers"
                         whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.3)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
+                        className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
                     >
                         Join Our Team
                         <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />

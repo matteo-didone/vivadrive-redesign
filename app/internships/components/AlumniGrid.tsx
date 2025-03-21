@@ -123,8 +123,8 @@ const AlumniGrid = () => {
             role: "Business Growth Hacker",
             image: "/internships/previous-interns/narjisse-lasri.jpg",
             linkedin: "https://www.linkedin.com/in/narjisse-lasri-65a457151/",
-            country: "Morocco",
-            flag: "🇲🇦"
+            country: "France",
+            flag: "🇲🇫"
         },
         {
             name: "Adrien Schoen",
