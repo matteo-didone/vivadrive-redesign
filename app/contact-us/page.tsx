@@ -53,19 +53,19 @@ export default function ContactPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                {/* Left Column - Text Content */}
+                {/* Left Column - Text Content - centrato SOLO su mobile */}
                 <div>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5 }}
-                    className="mb-12"
+                    className="mb-12 text-center lg:text-left"
                   >
                     <span className="inline-block text-emerald-600 font-medium mb-2">Contact Us</span>
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6 leading-tight">
                       Book a <span className="bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] bg-clip-text text-transparent relative inline-block">free demo</span>
                     </h1>
-                    <p className="text-xl text-gray-600 mb-8 max-w-md">
+                    <p className="text-xl text-gray-600 mb-8 max-w-md mx-auto lg:mx-0">
                       Discover how VivaDrive can transform your fleet management with our 
                       sustainable solutions.
                     </p>
@@ -79,14 +79,12 @@ export default function ContactPage() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     {benefitItems.map((item, index) => (
-                      <div key={index} className="flex items-start">
+                      <div key={index} className="flex items-start justify-center lg:justify-start">
                         <CheckCircle className="h-6 w-6 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" />
                         <p className="text-lg text-gray-700">{item.text}</p>
                       </div>
                     ))}
                   </motion.div>
-
-
                 </div>
 
                 {/* Right Column - Form Card */}
@@ -94,7 +92,7 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden relative"
+                  className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden relative max-w-xl mx-auto lg:ml-0 lg:mr-0"
                 >
                   {/* Success message overlay */}
                   {formSubmitted && (
@@ -110,7 +108,7 @@ export default function ContactPage() {
                   )}
 
                   <form onSubmit={handleSubmit} className="p-8">
-                    {/* Get in touch title with gradient - centered */}
+                    {/* Get in touch title with gradient */}
                     <motion.div 
                       className="mb-6 text-center"
                       initial={{ opacity: 0, y: 20 }}
@@ -134,6 +132,7 @@ export default function ContactPage() {
                           id="name"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
+                          placeholder="Your name"
                         />
                       </div>
 
@@ -147,6 +146,7 @@ export default function ContactPage() {
                           id="phone"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
+                          placeholder="Your phone number"
                         />
                       </div>
 
@@ -160,6 +160,7 @@ export default function ContactPage() {
                           id="email"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
+                          placeholder="your.email@example.com"
                         />
                       </div>
 
@@ -173,6 +174,7 @@ export default function ContactPage() {
                           id="company"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
+                          placeholder="Your company"
                         />
                       </div>
 
@@ -209,11 +211,12 @@ export default function ContactPage() {
                           id="message"
                           rows="4"
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none resize-none"
+                          placeholder="Your message or questions (optional)"
                         ></textarea>
                       </div>
 
                       {/* reCAPTCHA */}
-                      <div className="mb-2">
+                      <div className="mb-2 flex justify-center lg:justify-start">
                         <div className="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>
                       </div>
 
