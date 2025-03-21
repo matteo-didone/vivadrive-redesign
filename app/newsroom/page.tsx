@@ -1,5 +1,5 @@
 "use client"; // Marks this as a client-side component
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import NewsroomHero from '@/app/newsroom/components/NewsroomHero';
@@ -7,9 +7,6 @@ import NewsGrid from '@/app/newsroom/components/NewsGrid';
 import { getAllArticles } from '@/app/data/articles';
 
 export default function NewsroomPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [currentPage, setCurrentPage] = useState(1);
-  
   // Get all articles from your data file
   const allArticles = getAllArticles();
   
