@@ -42,17 +42,17 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
       if (selectedCategory !== "all" && article.category !== selectedCategory) {
         return false;
       }
-      
+
       // Type filter
       if (selectedType !== "all" && article.type !== selectedType) {
         return false;
       }
-      
+
       // Tag filter
       if (selectedTag !== "all" && !(article.tags || []).includes(selectedTag)) {
         return false;
       }
-      
+
       // Search filter
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
@@ -60,12 +60,12 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
         const excerptMatch = article.excerpt.toLowerCase().includes(query);
         const contentMatch = article.content.toLowerCase().includes(query);
         const tagsMatch = (article.tags || []).some(tag => tag.toLowerCase().includes(query));
-        
+
         if (!(titleMatch || excerptMatch || contentMatch || tagsMatch)) {
           return false;
         }
       }
-      
+
       return true;
     });
 
@@ -138,24 +138,6 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" }
-    }
-  };
-
-  const listItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.4, ease: "easeOut" }
-    }
-  };
-
   const emptyStateVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -198,115 +180,25 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
       {/* Articles grid or list */}
       <AnimatePresence mode="wait">
         {paginatedArticles.length > 0 ? (
-          viewMode === "grid" ? (
-            <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-              key={`grid-${selectedCategory}-${selectedType}-${selectedTag}-${searchQuery}-${currentPage}-${sortOrder}`}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {paginatedArticles.map((article, index) => (
-                <NewsCard
-                  key={article.id}
-                  article={article}
-                  index={index}
-                  isLoaded={isLoaded}
-                />
-              ))}
-            </motion.div>
-          ) : (
-            <motion.div
-              className="space-y-6"
-              key={`list-${selectedCategory}-${selectedType}-${selectedTag}-${searchQuery}-${currentPage}-${sortOrder}`}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {paginatedArticles.map((article, index) => (
-                <motion.div
-                  key={article.id}
-                  variants={listItemVariants}
-                  className="bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:border-emerald-200 group"
-                >
-                  <Link href={`/newsroom/${article.slug}`} className="flex flex-col md:flex-row">
-                    {/* Image */}
-                    <div className="relative w-full md:w-1/3 h-56 md:h-auto">
-                      <Image
-                        src={article.image}
-                        alt={article.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Category badge */}
-                      <div className="absolute top-4 left-4">
-                        <div className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
-                          article.category === "AWARD" ? "bg-yellow-500 text-white" :
-                          article.category === "PARTNERSHIP ANNOUNCEMENT" ? "bg-blue-500 text-white" :
-                          article.category === "EVENT" ? "bg-purple-500 text-white" :
-                          "bg-emerald-500 text-white"
-                        }`}>
-                          {article.category}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 p-6 flex flex-col">
-                      {/* Meta info */}
-                      <div className="flex flex-wrap items-center text-sm text-gray-500 mb-3 gap-3">
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1.5 text-emerald-500" />
-                          <time dateTime={article.date}>{formatDate(article.date)}</time>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1.5 text-emerald-500" />
-                          <span>{article.readTime} min read</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Tag className="h-4 w-4 mr-1.5 text-emerald-500" />
-                          <span>{article.type}</span>
-                        </div>
-                      </div>
-                      
-                      {/* Title */}
-                      <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors line-clamp-2">
-                        {article.title}
-                      </h2>
-                      
-                      {/* Excerpt */}
-                      <p className="text-gray-600 mb-4 line-clamp-2 flex-grow">
-                        {article.excerpt}
-                      </p>
-                      
-                      {/* Tags and read more */}
-                      <div className="flex flex-wrap items-center justify-between mt-2">
-                        <div className="flex flex-wrap gap-2 mb-2 md:mb-0">
-                          {article.tags && article.tags.slice(0, 3).map(tag => (
-                            <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 rounded-md text-xs">
-                              #{tag}
-                            </span>
-                          ))}
-                          {article.tags && article.tags.length > 3 && (
-                            <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-md text-xs">
-                              +{article.tags.length - 3}
-                            </span>
-                          )}
-                        </div>
-                        <span className="inline-flex items-center text-emerald-600 text-sm font-medium group-hover:translate-x-1 transition-transform">
-                          Read article
-                          <ArrowUpRight className="h-4 w-4 ml-1.5" />
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          )
+          <motion.div
+            className={viewMode === "grid" ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" : "space-y-6"}
+            key={`${viewMode}-${selectedCategory}-${selectedType}-${selectedTag}-${searchQuery}-${currentPage}-${sortOrder}`}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {paginatedArticles.map((article, index) => (
+              <NewsCard
+                key={article.id}
+                article={article}
+                index={index}
+                isLoaded={isLoaded}
+                viewMode={viewMode}
+              />
+            ))}
+          </motion.div>
         ) : (
-          <motion.div 
+          <motion.div
             className="flex flex-col items-center justify-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100 mb-8 text-center"
             key="empty-state"
             variants={emptyStateVariants}
@@ -334,7 +226,7 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
           </motion.div>
         )}
       </AnimatePresence>
-      
+
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-12 mb-6">
@@ -343,17 +235,16 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className={`flex items-center justify-center h-10 px-4 ${
-                currentPage === 1
+              className={`flex items-center justify-center h-10 px-4 ${currentPage === 1
                   ? "text-gray-300 cursor-not-allowed"
                   : "text-gray-700 hover:bg-gray-50"
-              }`}
+                }`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 18l-6-6 6-6"/>
+                <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
-            
+
             {/* Page numbers */}
             <div className="hidden sm:flex items-center border-l border-r border-gray-200">
               {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
@@ -385,51 +276,49 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
                     pageNumber = currentPage + (i - 2);
                   }
                 }
-                
+
                 // Show ellipsis instead of page number in certain cases
-                if ((totalPages > 5) && 
-                    ((i === 1 && pageNumber !== 2) || 
-                     (i === 3 && pageNumber !== totalPages - 1))) {
+                if ((totalPages > 5) &&
+                  ((i === 1 && pageNumber !== 2) ||
+                    (i === 3 && pageNumber !== totalPages - 1))) {
                   return (
                     <span key={`ellipsis-${i}`} className="w-10 h-10 flex items-center justify-center text-gray-500">
                       •••
                     </span>
                   );
                 }
-                
+
                 return (
                   <button
                     key={pageNumber}
                     onClick={() => setCurrentPage(pageNumber)}
-                    className={`w-10 h-10 flex items-center justify-center text-sm font-medium ${
-                      currentPage === pageNumber
+                    className={`w-10 h-10 flex items-center justify-center text-sm font-medium ${currentPage === pageNumber
                         ? "bg-emerald-500 text-white"
                         : "text-gray-700 hover:bg-gray-50"
-                    }`}
+                      }`}
                   >
                     {pageNumber}
                   </button>
                 );
               })}
             </div>
-            
+
             {/* Current page indicator for mobile */}
             <div className="flex sm:hidden items-center px-4 h-10 text-sm text-gray-500">
               Page {currentPage} of {totalPages}
             </div>
-            
+
             {/* Next page button */}
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className={`flex items-center justify-center h-10 px-4 ${
-                currentPage === totalPages
+              className={`flex items-center justify-center h-10 px-4 ${currentPage === totalPages
                   ? "text-gray-300 cursor-not-allowed"
                   : "text-gray-700 hover:bg-gray-50"
-              }`}
+                }`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6"/>
+                <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
           </div>
