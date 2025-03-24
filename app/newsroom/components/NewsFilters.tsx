@@ -49,8 +49,10 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [showAllTags, setShowAllTags] = useState(false);
-  const [showSearchOverlay, setShowSearchOverlay] = useState(false);
+  const [showMobileSearchOverlay, setShowMobileSearchOverlay] = useState(false);
+  const [isDesktopSearchVisible, setIsDesktopSearchVisible] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const desktopSearchInputRef = useRef<HTMLInputElement>(null);
 
   // Animation variants
   const filterDrawerVariants = {
@@ -88,15 +90,30 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
     }
   };
 
+  const desktopSearchVariants = {
+    hidden: { width: "48px", opacity: 0.9 },
+    visible: {
+      width: "320px",
+      opacity: 1,
+      transition: { duration: 0.2 }
+    }
+  };
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
   useEffect(() => {
-    if (showSearchOverlay && searchInputRef.current) {
+    if (showMobileSearchOverlay && searchInputRef.current) {
       searchInputRef.current.focus();
     }
-  }, [showSearchOverlay]);
+  }, [showMobileSearchOverlay]);
+
+  useEffect(() => {
+    if (isDesktopSearchVisible && desktopSearchInputRef.current) {
+      desktopSearchInputRef.current.focus();
+    }
+  }, [isDesktopSearchVisible]);
 
   const anyFilterActive = selectedCategory !== "all" || selectedType !== "all" || selectedTag !== "all" || searchQuery !== "";
 
@@ -129,15 +146,72 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
     };
   }, [showMobileFilters]);
 
+  // Handle click outside for desktop search
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isDesktopSearchVisible && !target.closest('.desktop-search-container') && !searchQuery) {
+        setIsDesktopSearchVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDesktopSearchVisible, searchQuery]);
+
   return (
     <div className="mb-10">
       {/* Main filter bar - Matching the screenshot design */}
       <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-4 transition-all duration-300 mb-8">
         <div className="flex items-center gap-4">
-          {/* Search button */}
-          <div className="w-16 sm:w-auto">
+          {/* Desktop Search Field */}
+          <div className="hidden md:block desktop-search-container relative z-10">
+            <motion.div
+              className="flex items-center"
+              initial="hidden"
+              animate={isDesktopSearchVisible ? "visible" : "hidden"}
+              variants={desktopSearchVariants}
+            >
+              {isDesktopSearchVisible ? (
+                <div className="relative w-full">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Search className="h-5 w-5 text-gray-400" />
+                  </div>
+            <input
+                    ref={desktopSearchInputRef}
+                    type="text"
+                    placeholder="Search articles..."
+                    value={searchQuery}
+                    onChange={(e) => onSearchChange(e.target.value)}
+                    className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#10b981] focus:border-[#10b981] focus:outline-none transition-colors"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={() => onSearchChange("")}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={() => setIsDesktopSearchVisible(true)}
+                  className="p-3 rounded-xl bg-gray-50 hover:bg-gray-100 text-gray-600"
+                  aria-label="Search articles"
+                >
+                  <Search className="h-5 w-5" />
+                </button>
+              )}
+            </motion.div>
+          </div>
+
+          {/* Mobile Search button */}
+          <div className="md:hidden w-16 sm:w-auto">
             <button
-              onClick={() => setShowSearchOverlay(true)}
+              onClick={() => setShowMobileSearchOverlay(true)}
               className="p-3 rounded-xl bg-gray-50 hover:bg-gray-100 text-gray-600"
               aria-label="Search articles"
             >
@@ -259,16 +333,16 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
         )}
       </div>
 
-      {/* Search Overlay */}
+      {/* Mobile Search Overlay */}
       <AnimatePresence>
-        {showSearchOverlay && (
+        {showMobileSearchOverlay && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-start justify-center pt-16"
+            className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-start justify-center pt-16 md:hidden"
             variants={searchOverlayVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            onClick={() => setShowSearchOverlay(false)}
+            onClick={() => setShowMobileSearchOverlay(false)}
           >
             <motion.div
               className="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-4 mx-4"
@@ -283,13 +357,13 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
                     <Search className="h-5 w-5 text-gray-400" />
                   </div>
                   <input
-                    ref={searchInputRef}
-                    type="text"
-                    placeholder="Search articles..."
-                    value={searchQuery}
-                    onChange={(e) => onSearchChange(e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-                  />
+  ref={searchInputRef}
+  type="text"
+  placeholder="Search articles..."
+  value={searchQuery}
+  onChange={(e) => onSearchChange(e.target.value)}
+  className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#10b981] focus:border-[#10b981] focus:outline-none transition-colors"
+/>
                   {searchQuery && (
                     <button
                       onClick={() => onSearchChange("")}
@@ -300,7 +374,7 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
                   )}
                 </div>
                 <button
-                  onClick={() => setShowSearchOverlay(false)}
+                  onClick={() => setShowMobileSearchOverlay(false)}
                   className="ml-2 p-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl"
                 >
                   Cancel
@@ -481,12 +555,12 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
                       <Search className="h-5 w-5 text-gray-400" />
                     </div>
                     <input
-                      type="text"
-                      placeholder="Search articles..."
-                      value={searchQuery}
-                      onChange={(e) => onSearchChange(e.target.value)}
-                      className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-                    />
+  type="text"
+  placeholder="Search articles..."
+  value={searchQuery}
+  onChange={(e) => onSearchChange(e.target.value)}
+  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#10b981] focus:border-[#10b981] focus:outline-none transition-colors"
+/>
                     {searchQuery && (
                       <button
                         onClick={() => onSearchChange("")}
@@ -623,8 +697,8 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
                     <button
                       onClick={() => onSortOrderChange("newest")}
                       className={`px-3 py-2 rounded-xl text-sm font-medium flex-1 ${sortOrder === "newest"
-                          ? "bg-emerald-500 text-white"
-                          : "bg-gray-50 text-gray-700 border border-gray-200"
+                        ? "bg-emerald-500 text-white"
+                        : "bg-gray-50 text-gray-700 border border-gray-200"
                         }`}
                     >
                       Newest first
@@ -632,14 +706,45 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
                     <button
                       onClick={() => onSortOrderChange("oldest")}
                       className={`px-3 py-2 rounded-xl text-sm font-medium flex-1 ${sortOrder === "oldest"
-                          ? "bg-emerald-500 text-white"
-                          : "bg-gray-50 text-gray-700 border border-gray-200"
+                        ? "bg-emerald-500 text-white"
+                        : "bg-gray-50 text-gray-700 border border-gray-200"
                         }`}
                     >
                       Oldest first
                     </button>
                   </div>
                 </div>
+
+                {/* View mode options in mobile */}
+                <div>
+                  <h3 className="font-medium text-gray-900 mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    View Mode
+                  </h3>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => onViewModeChange("grid")}
+                      className={`px-3 py-2 rounded-xl text-sm font-medium flex-1 flex items-center justify-center gap-2 ${viewMode === "grid"
+                        ? "bg-emerald-500 text-white"
+                        : "bg-gray-50 text-gray-700 border border-gray-200"
+                        }`}
+                    >
+                      <Grid className="h-4 w-4" />
+                      Grid
+                    </button>
+                    <button
+                      onClick={() => onViewModeChange("list")}
+                      className={`px-3 py-2 rounded-xl text-sm font-medium flex-1 flex items-center justify-center gap-2 ${viewMode === "list"
+                        ? "bg-emerald-500 text-white"
+                        : "bg-gray-50 text-gray-700 border border-gray-200"
+                        }`}
+                    >
+                      <List className="h-4 w-4" />
+                      List
+                    </button>
+                  </div>
+                </div>
+
               </div>
 
               {/* Mobile filter footer with actions */}
@@ -665,6 +770,17 @@ const NewsFilters: React.FC<NewsFiltersProps> = ({
           </div>
         )}
       </AnimatePresence>
+
+      {/* Mobile filter toggle - Fixed button at bottom */}
+      <div className="md:hidden fixed bottom-6 right-6 z-30">
+        <button
+          onClick={() => setShowMobileFilters(true)}
+          className="mobile-filter-toggle p-4 rounded-full bg-emerald-500 text-white shadow-lg hover:bg-emerald-600 transition-colors"
+          aria-label="Show filters"
+        >
+          <Filter className="h-6 w-6" />
+        </button>
+      </div>
     </div>
   );
 };
