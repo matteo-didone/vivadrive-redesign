@@ -109,11 +109,6 @@ const FleetPotentialShowcase = () => {
                 <p className="text-gray-600">
                   See which cars can be replaced by EVs and how many replacement options there are available.
                 </p>
-                <div className="pt-4">
-                  <div className="text-emerald-500 font-medium flex items-center gap-1 group-hover:translate-x-2 transition-transform">
-                    Learn more <ChevronRight className="h-4 w-4" />
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -147,11 +142,6 @@ const FleetPotentialShowcase = () => {
                 <p className="text-gray-600">
                   Check out how to deploy your EV charging infrastructure such that you can still perform your transportation tasks.
                 </p>
-                <div className="pt-4">
-                  <div className="text-emerald-500 font-medium flex items-center gap-1 group-hover:translate-x-2 transition-transform">
-                    Learn more <ChevronRight className="h-4 w-4" />
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -184,11 +174,6 @@ const FleetPotentialShowcase = () => {
                 <p className="text-gray-600">
                   We will prepare for you a personalized EV deployment and business plan that will allow you to save money and meet sustainability criteria.
                 </p>
-                <div className="pt-4">
-                  <div className="text-emerald-500 font-medium flex items-center gap-1 group-hover:translate-x-2 transition-transform">
-                    Learn more <ChevronRight className="h-4 w-4" />
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -215,11 +200,6 @@ const FleetPotentialShowcase = () => {
                 <p className="text-gray-600">
                   Our fleet management tools can manage your hybrid fleet consisting of traditional combustion engine cars and electric ones.
                 </p>
-                <div className="pt-4">
-                  <div className="text-emerald-500 font-medium flex items-center gap-1 group-hover:translate-x-2 transition-transform">
-                    Learn more <ChevronRight className="h-4 w-4" />
-                  </div>
-                </div>
               </div>
             </motion.div>
           </motion.div>

@@ -213,10 +213,12 @@ const Header = () => {
                                                 <div className="mt-6 pt-6 border-t border-gray-100">
                                                     <div className="flex items-center justify-between">
                                                         <p className="text-sm text-gray-500">Need help or have questions?</p>
-                                                        <Button variant="link" className="text-emerald-600 p-0 h-auto font-medium text-sm">
-                                                            Contact Support
-                                                            <ChevronRight className="ml-1 h-3 w-3" />
-                                                        </Button>
+                                                        <Link href="/contact-us">
+                                                            <Button variant="link" className="text-emerald-600 p-0 h-auto font-medium text-sm">
+                                                                Contact Support
+                                                                <ChevronRight className="ml-1 h-3 w-3" />
+                                                            </Button>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
