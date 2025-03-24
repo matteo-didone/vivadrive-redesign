@@ -6,17 +6,14 @@ import Image from "next/image";
 import {
     ChevronRight,
     ArrowRight,
-    Globe,
     Menu,
     X,
-    ChevronDown,
     User,
     Users,
     GraduationCap,
     Newspaper,
     CarFront,
-    Zap,
-    BatteryCharging
+    Zap
 } from "lucide-react";
 
 import {
@@ -29,14 +26,9 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Define the cn utility function if you don't have it
 const cn = (...classes) => classes.filter(Boolean).join(" ");
@@ -44,31 +36,31 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [currentLanguage, setCurrentLanguage] = useState("EN");
     const headerRef = useRef(null);
     const [headerHeight, setHeaderHeight] = useState(0);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 10);
         };
-        
+
         const updateHeaderHeight = () => {
             if (headerRef.current) {
                 setHeaderHeight(headerRef.current.offsetHeight);
             }
         };
-        
+
         // Initial calculation
         updateHeaderHeight();
-        
+
         // Set up event listeners
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", updateHeaderHeight);
-        
+
         // Re-calculate when scroll state changes
         updateHeaderHeight();
-        
+
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("resize", updateHeaderHeight);
@@ -90,15 +82,15 @@ const Header = () => {
     // Main navigation structure
     const mainNav = [
         {
-            title: "Fleet Electrification",
+            title: t('header.nav.fleet_electrification'),
             href: "/fleet-electrification",
-            description: "Transform your fleet with AI-driven electrification solutions",
+            description: t('header.nav.fleet_electrification_desc'),
             icon: <Zap className="h-5 w-5 text-emerald-500" />
         },
         {
-            title: "Fleet Management",
+            title: t('header.nav.fleet_management'),
             href: "/fleet-management",
-            description: "Comprehensive tools for managing your electric vehicle fleet",
+            description: t('header.nav.fleet_management_desc'),
             icon: <CarFront className="h-5 w-5 text-emerald-500" />
         }
     ];
@@ -106,27 +98,27 @@ const Header = () => {
     // Company submenu structure
     const companyItems = [
         {
-            title: "About",
+            title: t('header.company.about'),
             href: "/about",
-            description: "Learn about our mission and vision",
+            description: t('header.company.about_desc'),
             icon: <User className="h-5 w-5 text-emerald-500" />
         },
         {
-            title: "Careers",
+            title: t('header.company.careers'),
             href: "/careers",
-            description: "Join our growing team",
+            description: t('header.company.careers_desc'),
             icon: <Users className="h-5 w-5 text-emerald-500" />
         },
         {
-            title: "Internships",
+            title: t('header.company.internships'),
             href: "/internships",
-            description: "Opportunities for students",
+            description: t('header.company.internships_desc'),
             icon: <GraduationCap className="h-5 w-5 text-emerald-500" />
         },
         {
-            title: "Newsroom",
+            title: t('header.company.newsroom'),
             href: "/newsroom",
-            description: "Latest updates and press releases",
+            description: t('header.company.newsroom_desc'),
             icon: <Newspaper className="h-5 w-5 text-emerald-500" />
         },
     ];
@@ -135,7 +127,7 @@ const Header = () => {
     const allNavItems = [
         ...mainNav,
         {
-            title: "Company",
+            title: t('header.nav.company'),
             items: companyItems
         }
     ];
@@ -190,7 +182,7 @@ const Header = () => {
 
                                     {/* Company dropdown - improved styling */}
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger className={underlineHoverClass}>Company</NavigationMenuTrigger>
+                                        <NavigationMenuTrigger className={underlineHoverClass}>{t('header.nav.company')}</NavigationMenuTrigger>
                                         <NavigationMenuContent>
                                             <div className="w-[550px] lg:w-[600px] p-6 rounded-lg">
                                                 <div className="grid grid-cols-2 gap-6">
@@ -212,10 +204,10 @@ const Header = () => {
                                                 </div>
                                                 <div className="mt-6 pt-6 border-t border-gray-100">
                                                     <div className="flex items-center justify-between">
-                                                        <p className="text-sm text-gray-500">Need help or have questions?</p>
+                                                        <p className="text-sm text-gray-500">{t('header.support.help')}</p>
                                                         <Link href="/contact-us">
                                                             <Button variant="link" className="text-emerald-600 p-0 h-auto font-medium text-sm">
-                                                                Contact Support
+                                                                {t('header.support.contact')}
                                                                 <ChevronRight className="ml-1 h-3 w-3" />
                                                             </Button>
                                                         </Link>
@@ -229,45 +221,7 @@ const Header = () => {
 
                             <div className="flex items-center gap-3">
                                 {/* Language Switcher */}
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" size="sm" className={cn("h-8 gap-1 px-2", underlineHoverClass)}>
-                                            <Globe className="h-4 w-4 text-emerald-500" />
-                                            <span className="text-sm font-medium">{currentLanguage}</span>
-                                            <ChevronDown className="h-3 w-3 opacity-50" />
-                                        </Button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="end" className="w-32 rounded-xl border-0 shadow-xl">
-                                        <DropdownMenuItem
-                                            className={cn(
-                                                "flex items-center gap-2 text-sm cursor-pointer",
-                                                currentLanguage === "EN" && "bg-gray-50"
-                                            )}
-                                            onClick={() => setCurrentLanguage("EN")}
-                                        >
-                                            <span className={currentLanguage === "EN" ? "font-medium text-emerald-600" : ""}>
-                                                English
-                                            </span>
-                                            {currentLanguage === "EN" && (
-                                                <ChevronRight className="ml-auto h-4 w-4 text-emerald-500" />
-                                            )}
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem
-                                            className={cn(
-                                                "flex items-center gap-2 text-sm cursor-pointer",
-                                                currentLanguage === "PL" && "bg-gray-50"
-                                            )}
-                                            onClick={() => setCurrentLanguage("PL")}
-                                        >
-                                            <span className={currentLanguage === "PL" ? "font-medium text-emerald-600" : ""}>
-                                                Polski
-                                            </span>
-                                            {currentLanguage === "PL" && (
-                                                <ChevronRight className="ml-auto h-4 w-4 text-emerald-500" />
-                                            )}
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
+                                <LanguageSwitcher variant="default" />
 
                                 <div className="h-5 w-px bg-gray-200"></div>
 
@@ -276,14 +230,14 @@ const Header = () => {
                                     size="sm"
                                     className={cn("h-8 px-3 text-sm font-medium", underlineHoverClass)}
                                 >
-                                    Log In
+                                    {t('header.auth.login')}
                                 </Button>
 
                                 <Link href="/contact-us">
                                     <Button
                                         className="inline-flex items-center text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 gap-2 shadow-lg shadow-emerald-500/20 bg-gradient-to-r from-emerald-500 to-emerald-500/90 hover:from-emerald-500/90 hover:to-emerald-500 font-medium transition-all hover:scale-105 rounded-full"
                                     >
-                                        Contact Sales
+                                        {t('header.auth.contact_sales')}
                                         <ArrowRight className="h-4 w-4" />
                                     </Button>
                                 </Link>
@@ -309,7 +263,7 @@ const Header = () => {
 
             {/* Mobile Menu - Using exact header height for positioning */}
             {mobileMenuOpen && (
-                <div 
+                <div
                     style={{ top: `${headerHeight}px` }}
                     className="fixed inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur-sm overflow-y-auto transition-all duration-300 animate-in slide-in-from-top"
                 >
@@ -362,39 +316,19 @@ const Header = () => {
                         </nav>
 
                         <div className="border-t border-gray-200 pt-5 space-y-4">
-                            <div className="flex items-center gap-4">
-                                <Button
-                                    variant="outline"
-                                    className={cn(
-                                        "flex-1 justify-center",
-                                        currentLanguage === "EN" && "border-emerald-500 text-emerald-600 bg-emerald-50"
-                                    )}
-                                    onClick={() => setCurrentLanguage("EN")}
-                                >
-                                    English
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    className={cn(
-                                        "flex-1 justify-center",
-                                        currentLanguage === "PL" && "border-emerald-500 text-emerald-600 bg-emerald-50"
-                                    )}
-                                    onClick={() => setCurrentLanguage("PL")}
-                                >
-                                    Polski
-                                </Button>
-                            </div>
+                            {/* Language Switcher for mobile */}
+                            <LanguageSwitcher variant="mobile" />
 
                             <div className="flex flex-col space-y-3">
                                 <Button variant="outline" className="w-full justify-center">
-                                    Log In
+                                    {t('header.auth.login')}
                                 </Button>
 
                                 <Link href="/contact-us">
                                     <Button
                                         className="w-full justify-center inline-flex items-center text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 gap-2 shadow-lg shadow-emerald-500/20 bg-gradient-to-r from-emerald-500 to-emerald-500/90 hover:from-emerald-500/90 hover:to-emerald-500 font-medium transition-all hover:scale-105 rounded-full"
                                     >
-                                        Contact Sales
+                                        {t('header.auth.contact_sales')}
                                         <ArrowRight className="h-4 w-4" />
                                     </Button>
                                 </Link>

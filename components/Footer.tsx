@@ -1,30 +1,34 @@
+"use client";
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+    const { t } = useLanguage();
     const currentYear = new Date().getFullYear();
     const [email, setEmail] = useState('');
     const [expandedSection, setExpandedSection] = useState(null);
 
     const footerLinks = {
         solutions: [
-            { label: 'Fleet Electrification', href: '/fleet-electrification' },
-            { label: 'Fleet Management', href: '/fleet-management' },
-            { label: 'Charging Infrastructure', href: '#' },
-            { label: 'Sustainability Reporting', href: '#' },
+            { label: t('footer.solutions.items.fleet_electrification'), href: '/fleet-electrification' },
+            { label: t('footer.solutions.items.fleet_management'), href: '/fleet-management' },
+            { label: t('footer.solutions.items.charging_infrastructure'), href: '#' },
+            { label: t('footer.solutions.items.sustainability_reporting'), href: '#' },
         ],
         resources: [
-            { label: 'Blog', href: '#' },
-            { label: 'Case Studies', href: '#' },
-            { label: 'Guides', href: '#' },
-            { label: 'Webinars', href: '#' },
+            { label: t('footer.resources.items.blog'), href: '#' },
+            { label: t('footer.resources.items.case_studies'), href: '#' },
+            { label: t('footer.resources.items.guides'), href: '#' },
+            { label: t('footer.resources.items.webinars'), href: '#' },
         ],
         company: [
-            { label: 'About', href: '/about' },
-            { label: 'Careers', href: '/careers' },
-            { label: 'Internships', href: '/internships' },
-            { label: 'Newsroom', href: '/newsroom' },
+            { label: t('footer.company.items.about'), href: '/about' },
+            { label: t('footer.company.items.careers'), href: '/careers' },
+            { label: t('footer.company.items.internships'), href: '/internships' },
+            { label: t('footer.company.items.newsroom'), href: '/newsroom' },
         ],
     };
 
@@ -43,7 +47,7 @@ const Footer = () => {
         // Reset form
         setEmail('');
         // Here you would typically show a success message
-        alert('Thank you for subscribing!');
+        alert(t('footer.newsletter.success_message'));
     };
 
     return (
@@ -82,26 +86,25 @@ const Footer = () => {
                         </Link>
                         <div className="text-gray-600 dark:text-gray-400 space-y-4 mb-8 max-w-md text-center md:text-left">
                             <p>
-                                Empowering businesses to transition to sustainable electric
-                                vehicle fleets with comprehensive management solutions.
+                                {t('footer.company_description')}
                             </p>
                             <div className="pt-2 text-sm space-y-1">
-                                <p className="font-semibold text-gray-700 dark:text-gray-300">VivaDrive Polska sp. z o.o.</p>
-                                <p>Dobra 56/66</p>
-                                <p>00-312 Warszawa, Poland</p>
-                                <p>VAT-ID: PL7010929600</p>
+                                <p className="font-semibold text-gray-700 dark:text-gray-300">{t('footer.company_info.name')}</p>
+                                <p>{t('footer.company_info.address1')}</p>
+                                <p>{t('footer.company_info.address2')}</p>
+                                <p>{t('footer.company_info.vat')}</p>
                             </div>
                         </div>
 
                         {/* Newsletter signup with improved width and positioning */}
                         <div className="mb-8 w-full max-w-md mx-auto md:mx-0">
-                            <p className="font-semibold mb-3 text-center md:text-left">Stay updated</p>
+                            <p className="font-semibold mb-3 text-center md:text-left">{t('footer.newsletter.title')}</p>
                             <form onSubmit={handleSubmit} className="flex w-full">
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Email address"
+                                    placeholder={t('footer.newsletter.placeholder')}
                                     className="flex-grow min-w-0 px-4 h-12 border border-gray-200 dark:border-gray-700 rounded-l-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm transition-all duration-300 focus:shadow-md"
                                     required
                                     aria-label="Email for newsletter"
@@ -111,12 +114,12 @@ const Footer = () => {
                                     className="inline-flex items-center justify-center whitespace-nowrap bg-emerald-500 hover:bg-emerald-600 focus:bg-emerald-700 text-white font-medium h-12 px-4 sm:px-5 rounded-r-full transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                                     aria-label="Subscribe to newsletter"
                                 >
-                                    <span className="hidden sm:inline">Subscribe</span>
+                                    <span className="hidden sm:inline">{t('footer.newsletter.subscribe')}</span>
                                     <ChevronRight className="h-4 w-4 sm:ml-2" />
                                 </button>
                             </form>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center md:text-left">
-                                We respect your privacy. Unsubscribe at any time.
+                                {t('footer.newsletter.privacy_notice')}
                             </p>
                         </div>
 
@@ -142,9 +145,11 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Mobile Accordion Links and Desktop Regular Links */}
+                    {/* Desktop Regular Links */}
                     <div className="hidden md:block">
-                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Solutions</h4>
+                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">
+                            {t('footer.solutions.title')}
+                        </h4>
                         <ul className="space-y-4">
                             {footerLinks.solutions.map((link) => (
                                 <li key={link.label}>
@@ -160,7 +165,9 @@ const Footer = () => {
                     </div>
 
                     <div className="hidden md:block">
-                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Resources</h4>
+                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">
+                            {t('footer.resources.title')}
+                        </h4>
                         <ul className="space-y-4">
                             {footerLinks.resources.map((link) => (
                                 <li key={link.label}>
@@ -176,7 +183,9 @@ const Footer = () => {
                     </div>
 
                     <div className="hidden md:block">
-                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">Company</h4>
+                        <h4 className="font-semibold text-lg mb-6 pb-1 border-b-2 border-emerald-500 inline-block">
+                            {t('footer.company.title')}
+                        </h4>
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
                                 <li key={link.label}>
@@ -199,7 +208,7 @@ const Footer = () => {
                                 onClick={() => toggleSection('solutions')}
                                 className="flex justify-between items-center w-full text-left font-semibold text-lg pb-2"
                             >
-                                <span>Solutions</span>
+                                <span>{t('footer.solutions.title')}</span>
                                 <ChevronDown className={`h-5 w-5 transition-transform ${expandedSection === 'solutions' ? 'rotate-180' : ''}`} />
                             </button>
                             {expandedSection === 'solutions' && (
@@ -224,7 +233,7 @@ const Footer = () => {
                                 onClick={() => toggleSection('resources')}
                                 className="flex justify-between items-center w-full text-left font-semibold text-lg pb-2"
                             >
-                                <span>Resources</span>
+                                <span>{t('footer.resources.title')}</span>
                                 <ChevronDown className={`h-5 w-5 transition-transform ${expandedSection === 'resources' ? 'rotate-180' : ''}`} />
                             </button>
                             {expandedSection === 'resources' && (
@@ -249,7 +258,7 @@ const Footer = () => {
                                 onClick={() => toggleSection('company')}
                                 className="flex justify-between items-center w-full text-left font-semibold text-lg pb-2"
                             >
-                                <span>Company</span>
+                                <span>{t('footer.company.title')}</span>
                                 <ChevronDown className={`h-5 w-5 transition-transform ${expandedSection === 'company' ? 'rotate-180' : ''}`} />
                             </button>
                             {expandedSection === 'company' && (
@@ -272,7 +281,7 @@ const Footer = () => {
 
                 {/* Partners section with improved responsiveness */}
                 <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-                    <h4 className="font-semibold text-lg mb-8 text-center">In collaboration with</h4>
+                    <h4 className="font-semibold text-lg mb-8 text-center">{t('footer.partners.title')}</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center">
                         {[
                             { src: '/footer-logos/urban-mobility.png', alt: 'Urban Mobility', height: 16 },
@@ -315,14 +324,14 @@ const Footer = () => {
                 {/* Bottom section with improved responsiveness */}
                 <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
-                        © {currentYear} VivaDrive Polska sp. z o.o. All rights reserved.
+                        © {currentYear} VivaDrive Polska sp. z o.o. {t('footer.legal.copyright')}
                     </p>
 
                     <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3">
                         {[
-                            { label: 'Terms of Service', href: '/terms-of-service' },
-                            { label: 'Privacy Policy', href: '/privacy-policy' },
-                            { label: 'Cookie Policy', href: '/cookie-policy' }
+                            { label: t('footer.legal.terms'), href: '/terms-of-service' },
+                            { label: t('footer.legal.privacy'), href: '/privacy-policy' },
+                            { label: t('footer.legal.cookies'), href: '/cookie-policy' }
                         ].map((link) => (
                             <Link
                                 key={link.label}

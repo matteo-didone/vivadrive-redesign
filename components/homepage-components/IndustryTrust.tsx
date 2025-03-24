@@ -1,9 +1,10 @@
 "use client";
-
 import React from "react";
 import Image from "next/image";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const IndustryTrust = () => {
+  const { t } = useLanguage();
   const awards = [
     {
       name: "Central European Startup Awards",
@@ -36,12 +37,11 @@ const IndustryTrust = () => {
       height: 90,
     },
   ];
-
   return (
     <section className="w-full py-20 bg-white dark:bg-gray-950">
       <div className="container mx-auto">
         <h3 className="text-center text-base font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-14">
-          AWARDS & RECOGNITIONS
+          {t('awards.heading')}
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 place-items-center">
           {awards.map((award, index) => (
@@ -60,5 +60,4 @@ const IndustryTrust = () => {
     </section>
   );
 };
-
 export default IndustryTrust;

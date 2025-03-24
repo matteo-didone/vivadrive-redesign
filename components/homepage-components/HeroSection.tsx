@@ -5,10 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Star, Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
+    const { t } = useLanguage();
     const orb1Ref = useRef(null);
     const orb2Ref = useRef(null);
     const floatingElement1Ref = useRef(null);
@@ -73,7 +74,7 @@ const HeroSection = () => {
                 ref={orb1Ref}
                 className="absolute right-0 top-0 -mt-16 -mr-16 h-96 w-96 rounded-full bg-gradient-to-br from-[#108C57]/15 to-[#8BD9B8]/10 blur-3xl transition-transform duration-200"
             ></div>
-            
+
             <div className="absolute left-0 bottom-0 -ml-32 -mb-32 h-96 w-96 rounded-full bg-gradient-to-tr from-[#108C57]/10 to-[#8BD9B8]/5 blur-3xl transition-transform duration-200"></div>
 
             <div className="container relative z-10 grid gap-12 md:grid-cols-2 md:gap-16 items-center px-4 sm:px-6">
@@ -84,19 +85,18 @@ const HeroSection = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <div className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium text-white bg-[#12AC6C] hover:bg-[#108C57] transition-all mx-auto md:mx-0">
-                        Fleet Management
+                        {t('hero.badge')}
                     </div>
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                        Deploy and Manage{" "}
+                        {t('hero.title_part1')}{" "}
                         <span className="bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] dark:from-white dark:via-[#8BD9B8] dark:to-[#15BF70] bg-clip-text text-transparent relative inline-block">
-                            Electric Vehicles
+                            {t('hero.title_highlight')}
                         </span>{" "}
                         <br className="md:hidden" />
-                        <span className="bg-gradient-to-r from-[#111826] to-[#12AC6C] dark:from-white dark:to-[#8BD9B8] bg-clip-text text-transparent">in your Fleet</span>
+                        <span className="bg-gradient-to-r from-[#111826] to-[#12AC6C] dark:from-white dark:to-[#8BD9B8] bg-clip-text text-transparent">{t('hero.title_part2')}</span>
                     </h1>
                     <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
-                        Drive your fleet's electrification seamlessly, reduce costs &
-                        CO₂ emissions, and optimize your operation.
+                        {t('hero.description')}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -105,7 +105,7 @@ const HeroSection = () => {
                                 size="lg"
                                 className="gap-2 bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] hover:from-[#0F7B4B] hover:to-[#14AD69] font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
                             >
-                                Explore Now
+                                {t('hero.button_explore')}
                                 <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                             </Button>
                         </Link>
@@ -115,7 +115,7 @@ const HeroSection = () => {
                                 variant="outline"
                                 className="border-[#12AC6C]/20 text-[#12AC6C] hover:bg-[#12AC6C]/10 transition-all hover:scale-105 rounded-full py-6 text-lg"
                             >
-                                Book a Demo
+                                {t('hero.button_demo')}
                             </Button>
                         </Link>
                     </div>
@@ -129,8 +129,8 @@ const HeroSection = () => {
                         className="absolute z-20 w-[150%] md:w-[150%] lg:w-[180%] xl:w-[200%] max-w-none transition-all duration-200"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                            duration: 0.8, 
+                        transition={{
+                            duration: 0.8,
                             delay: 0.3,
                             ease: [0.19, 1.0, 0.22, 1.0] // Ease out expo for more dramatic effect
                         }}
@@ -165,8 +165,8 @@ const HeroSection = () => {
                                 <Check className="h-5 w-5 text-[#12AC6C] dark:text-[#8BD9B8]" />
                             </div>
                             <div>
-                                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Average CO₂ reduction</p>
-                                <p className="text-lg font-bold text-gray-800 dark:text-gray-200">48% per vehicle</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">{t('hero.stat_co2_label')}</p>
+                                <p className="text-lg font-bold text-gray-800 dark:text-gray-200">{t('hero.stat_co2_value')}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -181,7 +181,7 @@ const HeroSection = () => {
                             <div className="bg-[#12AC6C]/10 dark:bg-[#12AC6C]/30 p-2 rounded-full">
                                 <Star className="h-4 w-4 text-[#12AC6C] dark:text-[#8BD9B8]" />
                             </div>
-                            <p className="text-sm font-bold text-gray-800 dark:text-gray-200">4.9/5 <span className="text-xs font-normal text-gray-500">rating</span></p>
+                            <p className="text-sm font-bold text-gray-800 dark:text-gray-200">{t('hero.stat_rating')} <span className="text-xs font-normal text-gray-500">{t('hero.stat_rating_label')}</span></p>
                         </div>
                     </motion.div>
 
@@ -198,7 +198,7 @@ const HeroSection = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <p className="text-xs font-bold text-gray-800 dark:text-gray-200">Fast setup</p>
+                            <p className="text-xs font-bold text-gray-800 dark:text-gray-200">{t('hero.stat_setup')}</p>
                         </div>
                     </motion.div>
                 </div>
