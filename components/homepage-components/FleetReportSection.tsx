@@ -2,8 +2,12 @@ import React from 'react';
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FleetReportSection = () => {
+    // Add the useLanguage hook to get translations
+    const { t } = useLanguage();
+
     // Animation variants
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
@@ -44,20 +48,27 @@ const FleetReportSection = () => {
                         className="md:col-span-5 text-center md:text-left"
                     >
                         <div className="inline-flex items-center rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-600 mb-5">
-                            Comprehensive Analysis
+                            {t('fleetReport.badge')}
                         </div>
 
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 text-gray-900 leading-tight">
-                            Fleet
-                            <span className="md:hidden"> Electrification Report</span>
-                            <br className="hidden md:block" />
-                            <span className="hidden md:inline">Electrification</span>
-                            <br className="hidden md:block" />
-                            <span className="hidden md:inline">Report</span>
+                            {/* Split the title for responsive display, if needed */}
+                            {t('fleetReport.title').split(' ').length > 2 ? (
+                                <>
+                                    {t('fleetReport.title').split(' ').slice(0, 1).join(' ')}
+                                    <span className="md:hidden"> {t('fleetReport.title').split(' ').slice(1).join(' ')}</span>
+                                    <br className="hidden md:block" />
+                                    <span className="hidden md:inline">{t('fleetReport.title').split(' ').slice(1, 2).join(' ')}</span>
+                                    <br className="hidden md:block" />
+                                    <span className="hidden md:inline">{t('fleetReport.title').split(' ').slice(2).join(' ')}</span>
+                                </>
+                            ) : (
+                                t('fleetReport.title')
+                            )}
                         </h2>
 
                         <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-xl mx-auto md:mx-0">
-                            Access a detailed report on your fleet's electrification journey. Benefit from valuable insights, including cost analysis, potential savings, and tailored recommendations, enabling you to make informed decisions and accelerate your sustainability goals.
+                            {t('fleetReport.description')}
                         </p>
 
                         <motion.a
@@ -66,7 +77,7 @@ const FleetReportSection = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Request Your Report
+                            {t('fleetReport.buttonText')}
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </motion.a>
                     </motion.div>
@@ -85,7 +96,7 @@ const FleetReportSection = () => {
                                 src="/steps/fleet-report.png"
                                 width={1400}
                                 height={1050}
-                                alt="Fleet electrification report"
+                                alt={t('fleetReport.title')}
                                 className="w-full h-auto max-w-2xl md:max-w-none"
                                 priority
                             />

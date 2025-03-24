@@ -1,18 +1,14 @@
 import React from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Car, BatteryCharging, Shield, BarChart2, Users, MapPin } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SolutionsSection = () => {
-  const fleetElectrificationItems = [
-    {
-      title: "EV Selection",
-      description: "Find the right vehicles for your needs",
-      icon: Car,
-    },
-    {
-      title: "TCO Analysis",
-      description: "Calculate total cost of ownership",
-      icon: (props) => (
+  const { t } = useLanguage();
+
+  const fleetElectrificationItems = t('solutions.fleetElectrification.items').map((item, index) => {
+    const icons = [Car,
+      (props) => (
         <svg viewBox="0 0 24 24" fill="none" {...props} className="text-primary">
           <text
             x="50%"
@@ -20,47 +16,32 @@ const SolutionsSection = () => {
             dominantBaseline="middle"
             textAnchor="middle"
             fill="currentColor"
-            style={{ fontSize: '14px', fontWeight: '500' }} // Adjusted font size and weight
+            style={{ fontSize: '14px', fontWeight: '500' }}
           >
             zł
           </text>
         </svg>
       ),
-    },
-    {
-      title: "Infrastructure Planning",
-      description: "Design optimal charging setup",
-      icon: BatteryCharging,
-    },
-    {
-      title: "Permissions and Compliance",
-      description: "Navigate regulatory requirements",
-      icon: Shield,
-    },
-  ];
+      BatteryCharging,
+      Shield
+    ];
 
-  const fleetManagementItems = [
-    {
-      title: "Comprehensive Dashboard",
-      description: "Monitor all fleet metrics in real-time",
-      icon: BarChart2,
-    },
-    {
-      title: "Driver Management",
-      description: "Track and optimize driver behavior",
-      icon: Users,
-    },
-    {
-      title: "Route Optimization",
-      description: "Plan efficient routes with charging stops",
-      icon: MapPin,
-    },
-    {
-      title: "EV Health & Charging",
-      description: "Monitor vehicle health and charging status",
-      icon: BatteryCharging,
-    },
-  ];
+    return {
+      title: item.title,
+      description: item.description,
+      icon: icons[index]
+    };
+  });
+
+  const fleetManagementItems = t('solutions.fleetManagement.items').map((item, index) => {
+    const icons = [BarChart2, Users, MapPin, BatteryCharging];
+
+    return {
+      title: item.title,
+      description: item.description,
+      icon: icons[index]
+    };
+  });
 
   const renderSolutionItems = (items) => (
     <div className="relative">
@@ -96,14 +77,13 @@ const SolutionsSection = () => {
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge className="mb-4 px-3 py-1.5 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
-            Our Solutions
+            {t('solutions.badge')}
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-            VivaDrive Solutions
+            {t('solutions.heading')}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Comprehensive tools to manage your electric vehicle fleet
-            efficiently.
+            {t('solutions.description')}
           </p>
         </div>
 
@@ -111,7 +91,7 @@ const SolutionsSection = () => {
           {/* Fleet Electrification */}
           <div className="space-y-8 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow duration-500">
             <h3 className="text-2xl font-bold text-primary">
-              Fleet Electrification
+              {t('solutions.fleetElectrification.title')}
             </h3>
             {renderSolutionItems(fleetElectrificationItems)}
           </div>
@@ -119,7 +99,7 @@ const SolutionsSection = () => {
           {/* Fleet Management */}
           <div className="space-y-8 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow duration-500">
             <h3 className="text-2xl font-bold text-primary">
-              Fleet Management
+              {t('solutions.fleetManagement.title')}
             </h3>
             {renderSolutionItems(fleetManagementItems)}
           </div>

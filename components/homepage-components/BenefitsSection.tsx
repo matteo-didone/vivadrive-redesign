@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Updated CSS variables using the green palette from Adobe Color
 const cssVariables = `
@@ -24,69 +25,76 @@ const cssVariables = `
 `;
 
 const BenefitsSection = () => {
+  // Add language hook
+  const { t } = useLanguage();
+
   // State for hover effects and animations
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Updated benefits data with color palette adjustments
+  // Updated benefits data with color palette adjustments and translations
   const benefits = [
     {
-      title: "Reduce CO₂ Emissions",
-      description: "Lower your carbon footprint and contribute to a cleaner environment with zero-emission vehicles",
+      title: t('benefits.items.0.title'),
+      description: t('benefits.items.0.description'),
       imageUrl: "/benefits-section/co2_cloud.png",
       iconOutlined: true,
       gradient: "from-[#13A661] to-[#12AC6C]", // Emerald to medium green
-      stat: "48% reduction",
+      stat: t('benefits.items.0.stat'),
       detailedStat: {
-        before: "235g",
-        after: "122g",
-        unit: "CO₂/km"
+        before: t('benefits.items.0.detailedStat.before'),
+        after: t('benefits.items.0.detailedStat.after'),
+        unit: t('benefits.items.0.detailedStat.unit')
       },
-      testimonial: "We've seen a dramatic drop in our company's carbon footprint since switching to EVs.",
+      testimonial: t('benefits.items.0.testimonial'),
+      learnMoreText: t('benefits.items.0.learnMore'),
       learnMoreUrl: "/benefits/emissions"
     },
     {
-      title: "Save Fleet Costs",
-      description: "Significantly reduce operational and maintenance expenses with electric vehicles",
+      title: t('benefits.items.1.title'),
+      description: t('benefits.items.1.description'),
       imageUrl: "/benefits-section/coin.png",
       iconOutlined: false,
       gradient: "from-[#12AC6C] to-[#15BF70]", // Medium green to bright green
-      stat: "30% savings",
+      stat: t('benefits.items.1.stat'),
       detailedStat: {
-        before: "$0.42",
-        after: "$0.29",
-        unit: "per mile"
+        before: t('benefits.items.1.detailedStat.before'),
+        after: t('benefits.items.1.detailedStat.after'),
+        unit: t('benefits.items.1.detailedStat.unit')
       },
-      testimonial: "Our maintenance costs have dropped substantially in the first year alone.",
+      testimonial: t('benefits.items.1.testimonial'),
+      learnMoreText: t('benefits.items.1.learnMore'),
       learnMoreUrl: "/benefits/costs"
     },
     {
-      title: "Comply with Regulations",
-      description: "Stay ahead of environmental regulations and avoid potential penalties",
+      title: t('benefits.items.2.title'),
+      description: t('benefits.items.2.description'),
       imageUrl: "/benefits-section/esg.png",
       iconOutlined: true,
       gradient: "from-[#15BF70] to-[#8BD9B8]", // Bright green to light mint
-      stat: "100% compliance",
+      stat: t('benefits.items.2.stat'),
       detailedStat: {
-        before: "47%",
-        after: "100%",
-        unit: "compliance rate"
+        before: t('benefits.items.2.detailedStat.before'),
+        after: t('benefits.items.2.detailedStat.after'),
+        unit: t('benefits.items.2.detailedStat.unit')
       },
-      testimonial: "We're now fully compliant with all current and upcoming emissions regulations.",
+      testimonial: t('benefits.items.2.testimonial'),
+      learnMoreText: t('benefits.items.2.learnMore'),
       learnMoreUrl: "/benefits/compliance"
     },
     {
-      title: "Enhance Corporate Image",
-      description: "Build a stronger brand as an environmentally responsible company",
+      title: t('benefits.items.3.title'),
+      description: t('benefits.items.3.description'),
       imageUrl: "/benefits-section/opinions.png",
       iconOutlined: true,
       gradient: "from-[#13A661] to-[#8BD9B8]", // Emerald green to light mint
-      stat: "Improved reputation",
+      stat: t('benefits.items.3.stat'),
       detailedStat: {
-        before: "64",
-        after: "89",
-        unit: "brand perception score"
+        before: t('benefits.items.3.detailedStat.before'),
+        after: t('benefits.items.3.detailedStat.after'),
+        unit: t('benefits.items.3.detailedStat.unit')
       },
-      testimonial: "Our customers and partners consistently cite our sustainable fleet as a reason they choose us.",
+      testimonial: t('benefits.items.3.testimonial'),
+      learnMoreText: t('benefits.items.3.learnMore'),
       learnMoreUrl: "/benefits/brand-image"
     },
   ];
@@ -134,7 +142,7 @@ const BenefitsSection = () => {
   const renderComparisonChart = (data) => (
     <div className="w-full mt-3 mb-2 flex items-center justify-between text-xs">
       <div className="flex flex-col items-center">
-        <span className="text-gray-500 dark:text-gray-400">Before</span>
+        <span className="text-gray-500 dark:text-gray-400">{t('benefits.chartLabels.before')}</span>
         <span className="font-bold text-sm">{data.before}</span>
       </div>
 
@@ -149,7 +157,7 @@ const BenefitsSection = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        <span className="text-gray-500 dark:text-gray-400">After</span>
+        <span className="text-gray-500 dark:text-gray-400">{t('benefits.chartLabels.after')}</span>
         <span className="font-bold text-sm">{data.after}</span>
       </div>
     </div>
@@ -211,14 +219,13 @@ const BenefitsSection = () => {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <Badge className="mb-4 bg-[#12AC6C]/10 text-[#12AC6C] border-[#12AC6C]/20 hover:bg-[#12AC6C]/20 py-1.5 px-4 text-sm font-medium">
-              Why Choose Us
+              {t('benefits.badge')}
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-[#111826] to-[#12AC6C] dark:from-white dark:to-[#8BD9B8] bg-clip-text text-transparent">
-              Benefits of Fleet Electrification
+              {t('benefits.heading')}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
-              Discover how transitioning to electric vehicles can transform
-              your business operations and sustainability goals.
+              {t('benefits.description')}
             </p>
           </motion.div>
 
@@ -307,7 +314,7 @@ const BenefitsSection = () => {
                       whileTap={{ scale: 0.95 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
-                      Learn more <ChevronRight className="ml-1 h-4 w-4" />
+                      {benefit.learnMoreText} <ChevronRight className="ml-1 h-4 w-4" />
                     </motion.a>
                   </CardContent>
                 </Card>

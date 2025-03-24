@@ -3,31 +3,34 @@ import Image from 'next/image';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ProcessSection = () => {
+  const { t } = useLanguage();
+  
   const processSteps = [
     {
       step: 1,
-      title: "Fleet Analysis",
-      description: "Discover your fleet's potential for electrification through our AI-driven data analysis.",
+      title: t('process.steps.0.title'),
+      description: t('process.steps.0.description'),
       image: "/process-section/car-service.png",
     },
     {
       step: 2,
-      title: "Charging Infrastructure",
-      description: "Find the ideal charging locations and specifications customized for your fleet's requirements.",
+      title: t('process.steps.1.title'),
+      description: t('process.steps.1.description'),
       image: "/process-section/charging-infrastructure.png",
     },
     {
       step: 3,
-      title: "Deployment Plan",
-      description: "Get a personalized plan and cost analysis for EV implementation.",
+      title: t('process.steps.2.title'),
+      description: t('process.steps.2.description'),
       image: "/process-section/deployment-plan.png",
     },
     {
       step: 4,
-      title: "EV Fleet Management",
-      description: "Manage and optimize your electric and hybrid fleet with our advanced system.",
+      title: t('process.steps.3.title'),
+      description: t('process.steps.3.description'),
       image: "/process-section/ev-fleet-management.png",
     },
   ];
@@ -40,14 +43,13 @@ const ProcessSection = () => {
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge className="mb-4 px-3 py-1.5 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
-            Our Process
+            {t('process.badge')}
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-            Fleet Electrification in 4 Steps
+            {t('process.heading')}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Our comprehensive approach ensures a smooth transition to
-            electric vehicles with minimal disruption to your operations.
+            {t('process.description')}
           </p>
         </div>
         {/* Added connecting lines between steps for desktop */}
