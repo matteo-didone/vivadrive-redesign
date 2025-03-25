@@ -824,12 +824,24 @@ const en = {
         visit_label: "Visit {{name}} website"
       },
       testimonials: {
+        badge: "Our People",
+        title: "From Interns to Innovators",
+        subtitle: "Our interns grow into leaders, bringing fresh perspectives and innovative solutions to VivaDrive.",
+        cta_text: "Interested in joining our intern program?",
+        cta_button: "View Opportunities",
         positions: {
           fullstack: "Full Stack Developer Intern",
           frontend: "Frontend Developer Intern",
           backend: "Backend Developer Intern",
           datascience: "Data Science Intern",
           ai: "AI Developer Intern"
+        },
+        countries: {
+          slovakia: "Slovakia",
+          italy: "Italy",
+          greece: "Greece",
+          portugal: "Portugal",
+          france: "France"
         },
         quotes: {
           patrik: "Joining VivaDrive as a full stack intern has been transformative for my career. The opportunity to work across the entire technology stack allowed me to discover my strengths and develop a holistic understanding of software development that would have taken years to gain elsewhere.",
@@ -840,29 +852,13 @@ const en = {
           goncalo: "Working at VivaDrive as a backend developer intern has been an incredible journey. The collaborative environment and hands-on approach have helped me develop both my technical skills and understanding of server-side architecture.",
           dorian: "My experience as a frontend developer intern at VivaDrive has been truly enriching. Being part of a collaborative team and working on real-world projects has deepened my expertise in building dynamic user interfaces and refining client-side architecture."
         },
-        countries: {
-          slovakia: "Slovakia",
-          italy: "Italy",
-          greece: "Greece",
-          portugal: "Portugal",
-          france: "France"
-        },
-        sections: {
-          our_people: "Our People",
-          heading: "From Interns to Innovators",
-          subheading: "Our interns grow into leaders, bringing fresh perspectives and innovative solutions to VivaDrive."
-        },
-        cta: {
-          question: "Interested in joining our intern program?",
-          button: "View Opportunities"
-        },
         aria: {
           linkedin: "Visit {{name}}'s LinkedIn profile",
-          slide: "Go to slide {{index}}",
+          goto_slide: "Go to slide {{index}}",
           previous: "Previous testimonial",
           next: "Next testimonial"
         }
-      },
+      }
     },   
   },
 };

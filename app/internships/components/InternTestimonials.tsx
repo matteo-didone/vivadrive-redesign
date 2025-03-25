@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Quote, Linkedin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const InternTestimonials = () => {
+    const { t } = useLanguage(); // Add the translation hook
     const [currentSlide, setCurrentSlide] = useState(0);
     const [autoplay, setAutoplay] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
-    
+
     // Create refs for navigation buttons
     const prevButtonRef = useRef(null);
     const nextButtonRef = useRef(null);
@@ -16,7 +18,7 @@ const InternTestimonials = () => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
-        
+
         handleResize(); // Initial check
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -25,64 +27,64 @@ const InternTestimonials = () => {
     const testimonials = [
         {
             name: "Patrik Zigó",
-            position: "Full Stack Developer Intern",
+            position: t('pages.internships.testimonials.positions.fullstack'),
             photo: "/internships/testimonials/Patrik.jpg",
-            quote: "Joining VivaDrive as a full stack intern has been transformative for my career. The opportunity to work across the entire technology stack allowed me to discover my strengths and develop a holistic understanding of software development that would have taken years to gain elsewhere.",
-            country: "Slovakia",
+            quote: t('pages.internships.testimonials.quotes.patrik'),
+            country: t('pages.internships.testimonials.countries.slovakia'),
             flag: "🇸🇰",
             linkedin: "https://www.linkedin.com/in/patrik-zig%C3%B3-420430319/"
         },
         {
             name: "Matteo Didonè",
-            position: "Frontend Developer Intern",
+            position: t('pages.internships.testimonials.positions.frontend'),
             photo: "/internships/testimonials/Matteo.png",
-            quote: "Time flies when you really enjoy what you do! Came to VivaDrive as a frontend intern to learn and gain experience. The flexible working culture and exploration-friendly environment made me move towards new challenges and grow as a developer.",
-            country: "Italy",
+            quote: t('pages.internships.testimonials.quotes.matteo'),
+            country: t('pages.internships.testimonials.countries.italy'),
             flag: "🇮🇹",
             linkedin: "https://www.linkedin.com/in/matteo-didon%C3%A8-477b4b290/"
         },
         {
             name: "Gabriele Michelli",
-            position: "Data Science Intern",
+            position: t('pages.internships.testimonials.positions.datascience'),
             photo: "/internships/testimonials/Gabriele.jpg",
-            quote: "The best decision I ever made was to join VivaDrive as a data science intern. I learned a lot and a bit of everything, more than I asked for. I had space to learn, practice, and evolve as a professional in the data science field.",
-            country: "Italy",
+            quote: t('pages.internships.testimonials.quotes.gabriele'),
+            country: t('pages.internships.testimonials.countries.italy'),
             flag: "🇮🇹",
             linkedin: "https://www.linkedin.com/in/gabriele-michelli-99051430b/"
         },
         {
             name: "Giovanni Podbersig",
-            position: "AI Developer Intern",
+            position: t('pages.internships.testimonials.positions.ai'),
             photo: "/internships/testimonials/Giovanni.jpg",
-            quote: "I joined VivaDrive as an AI developer intern. It allowed me to gain so much practical experience on real projects that today I continue my AI development career thanks to this decision.",
-            country: "Italy",
+            quote: t('pages.internships.testimonials.quotes.giovanni'),
+            country: t('pages.internships.testimonials.countries.italy'),
             flag: "🇮🇹",
             linkedin: "https://www.linkedin.com/in/giovanni-podbersig-8449ba1a4/"
         },
         {
             name: "Christina Metalouli",
-            position: "Data Science Intern",
+            position: t('pages.internships.testimonials.positions.datascience'),
             photo: "/internships/testimonials/Christina.jpg",
-            quote: "Every day starts with new technical challenges and new objectives. I discovered my true passion for data science at VivaDrive which showed my impact on real-world data projects.",
-            country: "Greece",
+            quote: t('pages.internships.testimonials.quotes.christina'),
+            country: t('pages.internships.testimonials.countries.greece'),
             flag: "🇬🇷",
             linkedin: "https://www.linkedin.com/in/cmetalouli/"
         },
         {
             name: "Gonçalo Lopes",
-            position: "Backend Developer Intern",
+            position: t('pages.internships.testimonials.positions.backend'),
             photo: "/internships/testimonials/Gonçalo.jpg",
-            quote: "Working at VivaDrive as a backend developer intern has been an incredible journey. The collaborative environment and hands-on approach have helped me develop both my technical skills and understanding of server-side architecture.",
-            country: "Portugal",
+            quote: t('pages.internships.testimonials.quotes.goncalo'),
+            country: t('pages.internships.testimonials.countries.portugal'),
             flag: "🇵🇹",
             linkedin: "https://www.linkedin.com/in/goncalo-lopes-8008732b4/"
         },
         {
             name: "Dorian Peltier",
-            position: "Frontend Developer Intern",
+            position: t('pages.internships.testimonials.positions.frontend'),
             photo: "/internships/testimonials/Dorian.jpg",
-            quote: "My experience as a frontend developer intern at VivaDrive has been truly enriching. Being part of a collaborative team and working on real-world projects has deepened my expertise in building dynamic user interfaces and refining client-side architecture.",
-            country: "France",
+            quote: t('pages.internships.testimonials.quotes.dorian'),
+            country: t('pages.internships.testimonials.countries.france'),
             flag: "🇫🇷",
             linkedin: "https://www.linkedin.com/in/dorian-peltier-47684624b/"
         }
@@ -152,7 +154,7 @@ const InternTestimonials = () => {
         const dragEndX = touch.clientX;
         const dragThreshold = 50;
         const dragDifference = dragStartX.current - dragEndX;
-        
+
         if (Math.abs(dragDifference) > dragThreshold) {
             if (dragDifference > 0) {
                 nextSlide();
@@ -161,18 +163,18 @@ const InternTestimonials = () => {
             }
         }
     };
-    
+
     const dragStartX = useRef(0);
 
     // RENDER TWO DIFFERENT LAYOUTS BASED ON SCREEN SIZE
-    
+
     // 1. MOBILE LAYOUT - Simplified for better mobile experience
     const MobileLayout = () => (
         <div className="max-w-6xl mx-auto mb-10">
             {/* Mobile Carousel */}
             <div className="relative">
                 {/* Simplified structure for mobile */}
-                <div 
+                <div
                     className="mb-8"
                     onTouchStart={handleDragStart}
                     onTouchEnd={handleDragEnd}
@@ -204,12 +206,12 @@ const InternTestimonials = () => {
                                                 <p className="text-emerald-600 text-sm">{testimonial.position}</p>
                                             </div>
                                             {testimonial.linkedin && (
-                                                <a 
-                                                    href={testimonial.linkedin} 
-                                                    target="_blank" 
+                                                <a
+                                                    href={testimonial.linkedin}
+                                                    target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="p-2 text-blue-600 hover:text-blue-800 transition-colors"
-                                                    aria-label={`Visit ${testimonial.name}'s LinkedIn profile`}
+                                                    aria-label={t('pages.internships.testimonials.aria.linkedin', { name: testimonial.name })}
                                                 >
                                                     <Linkedin className="h-5 w-5" />
                                                 </a>
@@ -248,12 +250,11 @@ const InternTestimonials = () => {
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`rounded-full transition-all duration-300 cursor-pointer shadow ${
-                                    currentSlide === index
+                                className={`rounded-full transition-all duration-300 cursor-pointer shadow ${currentSlide === index
                                         ? 'bg-gradient-to-r from-[#13A661] to-[#15BF70] w-6 h-3'
                                         : 'bg-gray-300 w-3 h-3 hover:bg-emerald-400'
-                                }`}
-                                aria-label={`Go to slide ${index + 1}`}
+                                    }`}
+                                aria-label={t('pages.internships.testimonials.aria.goto_slide', { index: index + 1 })}
                                 aria-pressed={currentSlide === index}
                             />
                         ))}
@@ -262,7 +263,7 @@ const InternTestimonials = () => {
             </div>
         </div>
     );
-    
+
     // 2. DESKTOP LAYOUT - Original complex layout with more styling
     const DesktopLayout = () => (
         <div className="max-w-6xl mx-auto mb-16">
@@ -323,12 +324,12 @@ const InternTestimonials = () => {
                                                     <p className="text-emerald-600">{testimonial.position}</p>
                                                 </div>
                                                 {testimonial.linkedin && (
-                                                    <a 
-                                                        href={testimonial.linkedin} 
-                                                        target="_blank" 
+                                                    <a
+                                                        href={testimonial.linkedin}
+                                                        target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="p-2 text-blue-600 hover:text-blue-800 transition-colors bg-white/80 rounded-full shadow-md hover:shadow-lg"
-                                                        aria-label={`Visit ${testimonial.name}'s LinkedIn profile`}
+                                                        aria-label={t('pages.internships.testimonials.aria.linkedin', { name: testimonial.name })}
                                                     >
                                                         <Linkedin className="h-6 w-6" />
                                                     </a>
@@ -351,10 +352,10 @@ const InternTestimonials = () => {
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className={`rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center shadow relative z-20 ${currentSlide === index
-                                        ? 'bg-gradient-to-r from-[#13A661] to-[#15BF70] w-8 h-3'
-                                        : 'bg-gray-300 w-3 h-3 hover:bg-emerald-400'
+                                    ? 'bg-gradient-to-r from-[#13A661] to-[#15BF70] w-8 h-3'
+                                    : 'bg-gray-300 w-3 h-3 hover:bg-emerald-400'
                                     }`}
-                                aria-label={`Go to slide ${index + 1}`}
+                                aria-label={t('pages.internships.testimonials.aria.goto_slide', { index: index + 1 })}
                                 aria-pressed={currentSlide === index}
                                 tabIndex={0}
                                 style={{ minWidth: '12px', minHeight: '12px' }}
@@ -368,7 +369,7 @@ const InternTestimonials = () => {
                             ref={prevButtonRef}
                             onClick={prevSlide}
                             className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white flex items-center justify-center hover:shadow-lg transition-all duration-300 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 cursor-pointer z-50 relative"
-                            aria-label="Previous testimonial"
+                            aria-label={t('pages.internships.testimonials.aria.previous')}
                             tabIndex={0}
                         >
                             <ChevronLeft className="h-6 w-6" />
@@ -378,7 +379,7 @@ const InternTestimonials = () => {
                             ref={nextButtonRef}
                             onClick={nextSlide}
                             className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white flex items-center justify-center hover:shadow-lg transition-all duration-300 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 cursor-pointer z-50 relative"
-                            aria-label="Next testimonial"
+                            aria-label={t('pages.internships.testimonials.aria.next')}
                             tabIndex={0}
                         >
                             <ChevronRight className="h-6 w-6" />
@@ -411,13 +412,13 @@ const InternTestimonials = () => {
                 {/* Header Section */}
                 <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
                     <div className="inline-flex items-center rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 mb-4 bg-emerald-600/10 text-emerald-600 border-emerald-600/20 hover:bg-emerald-600/20 py-1.5 px-4 text-sm font-medium">
-                        Our People
+                        {t('pages.internships.testimonials.badge')}
                     </div>
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4 md:mb-6 bg-gradient-to-r from-gray-900 to-emerald-600 dark:from-white dark:to-emerald-400 bg-clip-text text-transparent">
-                        From Interns to Innovators
+                        {t('pages.internships.testimonials.title')}
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg lg:text-xl">
-                        Our interns grow into leaders, bringing fresh perspectives and innovative solutions to VivaDrive.
+                        {t('pages.internships.testimonials.subtitle')}
                     </p>
                 </div>
 
@@ -427,13 +428,13 @@ const InternTestimonials = () => {
                 {/* Call to Action - Clear separation from the carousel */}
                 <div className="text-center max-w-2xl mx-auto pt-4 md:pt-0">
                     <p className="text-emerald-600 text-lg md:text-xl font-medium mb-6 md:mb-8">
-                        Interested in joining our intern program?
+                        {t('pages.internships.testimonials.cta_text')}
                     </p>
                     <a
                         href="/internship-opportunities"
                         className="inline-flex items-center text-sm px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-md hover:shadow-lg transition-all duration-300"
                     >
-                        View Opportunities
+                        {t('pages.internships.testimonials.cta_button')}
                         <ChevronRight className="ml-2 h-4 w-4" />
                     </a>
                 </div>

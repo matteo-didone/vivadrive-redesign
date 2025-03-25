@@ -387,33 +387,40 @@ const pl = {
       features: {
         badge: "Odkryj wszystkie funkcje",
         heading: "Przejdź na elektryczne z pewnością",
-        description: "VivaDrive pomaga w przejściu na pojazdy elektryczne dzięki kompleksowej analizie i wsparciu.",
+        description:
+          "VivaDrive pomaga w przejściu na pojazdy elektryczne dzięki kompleksowej analizie i wsparciu.",
         items: {
           1: {
             title: "Analiza Floty",
-            description: "Analizujemy Twoją obecną flotę pod kątem zadań transportowych, zużycia energii i wzorców operacyjnych."
+            description:
+              "Analizujemy Twoją obecną flotę pod kątem zadań transportowych, zużycia energii i wzorców operacyjnych.",
           },
           2: {
             title: "Infrastruktura Ładowania",
-            description: "Szczegółowe symulacje dla różnych scenariuszy wprowadzania nowej infrastruktury ładowania dostosowanej do Twoich potrzeb."
+            description:
+              "Szczegółowe symulacje dla różnych scenariuszy wprowadzania nowej infrastruktury ładowania dostosowanej do Twoich potrzeb.",
           },
           3: {
             title: "Analiza TCO",
-            description: "Kompleksowe obliczenia całkowitego kosztu posiadania, aby podejmować świadome decyzje finansowe."
+            description:
+              "Kompleksowe obliczenia całkowitego kosztu posiadania, aby podejmować świadome decyzje finansowe.",
           },
           4: {
             title: "Modelowanie Biznesowe",
-            description: "Tworzenie szczegółowego modelu biznesowego dla wdrożenia pojazdów elektrycznych dostosowanego do wymagań Twojej firmy."
+            description:
+              "Tworzenie szczegółowego modelu biznesowego dla wdrożenia pojazdów elektrycznych dostosowanego do wymagań Twojej firmy.",
           },
           5: {
             title: "Plan Wdrożenia",
-            description: "Plan działania krok po kroku dla częściowego lub całkowitego przejścia floty na pojazdy elektryczne."
+            description:
+              "Plan działania krok po kroku dla częściowego lub całkowitego przejścia floty na pojazdy elektryczne.",
           },
           6: {
             title: "Bieżące Zarządzanie",
-            description: "Wsparcie w zarządzaniu mieszaną flotą pojazdów elektrycznych i tradycyjnych oraz ich infrastrukturą ładowania."
-          }
-        }
+            description:
+              "Wsparcie w zarządzaniu mieszaną flotą pojazdów elektrycznych i tradycyjnych oraz ich infrastrukturą ładowania.",
+          },
+        },
       },
       sections: {
         learn_more: "Dowiedz się więcej",
@@ -422,116 +429,125 @@ const pl = {
           title: {
             pre: "Znajdź najlepsze",
             highlight: "opcje EV",
-            post: "dla swojej floty"
+            post: "dla swojej floty",
           },
-          description: "Uwzględnimy Twoje potrzeby operacyjne. Przetestujemy wykonalność pojazdów elektrycznych na różnych drogach i w różnych warunkach pogodowych. Ocenimy także Twoje potrzeby w zakresie ładowania i infrastruktury EV.",
-          result: "Rezultat: Kompleksowa rekomendacja pokazująca, które pojazdy można zastąpić elektrycznymi, którzy kierowcy są odpowiedni oraz jakie braki w infrastrukturze ładowania należy uzupełnić.",
+          description:
+            "Uwzględnimy Twoje potrzeby operacyjne. Przetestujemy wykonalność pojazdów elektrycznych na różnych drogach i w różnych warunkach pogodowych. Ocenimy także Twoje potrzeby w zakresie ładowania i infrastruktury EV.",
+          result:
+            "Rezultat: Kompleksowa rekomendacja pokazująca, które pojazdy można zastąpić elektrycznymi, którzy kierowcy są odpowiedni oraz jakie braki w infrastrukturze ładowania należy uzupełnić.",
           image_alt: "Rekomendowane pojazdy elektryczne",
           stats: {
             reliability: "Niezawodność EV",
-            co2: "mniej CO₂"
-          }
+            co2: "mniej CO₂",
+          },
         },
         section2: {
           badge: "Sieć Ładowania",
           title: {
             pre: "Wdrażaj",
             highlight: "idealną infrastrukturę",
-            post: "dla swojej floty"
+            post: "dla swojej floty",
           },
-          description: "VivaDrive umożliwi Ci zaprojektowanie i wdrożenie opłacalnej infrastruktury ładowania pojazdów elektrycznych dla Twojej floty EV - ocenimy przydatność miejsc ładowania i oszacujemy koszty instalacji infrastruktury.",
+          description:
+            "VivaDrive umożliwi Ci zaprojektowanie i wdrożenie opłacalnej infrastruktury ładowania pojazdów elektrycznych dla Twojej floty EV - ocenimy przydatność miejsc ładowania i oszacujemy koszty instalacji infrastruktury.",
           image_alt: "Infrastruktura Ładowania EV",
           checklist: {
             home: "Rozwiązania ładowania w miejscu zamieszkania",
             office: "Optymalizacja lokalizacji biurowych",
             public: "Mapowanie publicznych stacji ładowania",
-            stop: "Analiza miejsc postojowych powyżej 45 minut"
-          }
+            stop: "Analiza miejsc postojowych powyżej 45 minut",
+          },
         },
         section3: {
           badge: "Zintegrowane Zarządzanie",
           title: {
             pre: "Zarządzaj",
             highlight: "wszystkim",
-            post: "w jednym miejscu"
+            post: "w jednym miejscu",
           },
-          description: "Zarządzaj swoimi pojazdami spalinowymi i elektrycznymi w jednym miejscu. Śledź gdzie, kiedy i jak są wykorzystywane. Zarządzaj swoją flotą EV, w tym optymalizacją kosztów, zarządzaniem ładowaniem i optymalizacją tras.",
+          description:
+            "Zarządzaj swoimi pojazdami spalinowymi i elektrycznymi w jednym miejscu. Śledź gdzie, kiedy i jak są wykorzystywane. Zarządzaj swoją flotą EV, w tym optymalizacją kosztów, zarządzaniem ładowaniem i optymalizacją tras.",
           info: "Dowiedz się, jak skutecznie obniżać koszty dzięki Big Data i naszym technologiom AI, które optymalizują operacje floty w czasie rzeczywistym.",
           image_alt: "Panel zarządzania flotą",
           features: {
             fleet: "Zarządzanie flotą",
             charging: "Zarządzanie ładowaniem",
             route: "Optymalizacja tras",
-            cost: "Analityka kosztów"
+            cost: "Analityka kosztów",
           },
           stats: {
             cost: {
-              label: "Redukcja Kosztów"
+              label: "Redukcja Kosztów",
             },
-            realtime: "Aktualizacje w czasie rzeczywistym"
-          }
-        }
+            realtime: "Aktualizacje w czasie rzeczywistym",
+          },
+        },
       },
       final_cta: {
         badge: "Skontaktuj się",
         heading: "Wierzymy, że przyszłość jazdy jest elektryczna",
-        button: "Rozpocznij teraz"
-      }
+        button: "Rozpocznij teraz",
+      },
     },
     fleet_management: {
       hero: {
         title: "Oszczędź do 4170 zł",
         title_highlight: "rocznie na pojedynczym samochodzie we flocie",
-        description: "VivaDrive pomaga Ci zwiększyć efektywność Twojej floty i obniża koszty TCO, w tym koszty paliwa, serwisu i ubezpieczenia, i inne.",
+        description:
+          "VivaDrive pomaga Ci zwiększyć efektywność Twojej floty i obniża koszty TCO, w tym koszty paliwa, serwisu i ubezpieczenia, i inne.",
         email_placeholder: "Adres email",
         contact_sales: "Kontakt z Działem Sprzedaży",
         learn_more: "Dowiedz się więcej",
         image_alt: "Panel VivaDrive na laptopie",
         tabs: {
           benefits: "Korzyści",
-          features: "Funkcje"
+          features: "Funkcje",
         },
         cards: {
           annual_savings: {
             label: "ROCZNE OSZCZĘDNOŚCI",
-            value: "4170 zł"
-          }
-        }
+            value: "4170 zł",
+          },
+        },
       },
       features: {
         badge: "Odkryj wszystkie funkcje",
         heading: "Mierzymy. Analizujemy. Zyskujesz.",
-        description: "Jesteśmy Twoim partnerem w zarządzaniu kosztami TCO. Najpierw skupiamy się na poznaniu Twoich potrzeb, specyfikacji, KPI i ocenie Twojej floty. Następnie nasze algorytmy automatyzują system i interfejs zgodnie z Twoimi potrzebami. Zaczniesz oszczędzać pieniądze już po miesiącu, co oznacza, że rozwiązanie zwróci się już w pierwszym kwartale!",
+        description:
+          "Jesteśmy Twoim partnerem w zarządzaniu kosztami TCO. Najpierw skupiamy się na poznaniu Twoich potrzeb, specyfikacji, KPI i ocenie Twojej floty. Następnie nasze algorytmy automatyzują system i interfejs zgodnie z Twoimi potrzebami. Zaczniesz oszczędzać pieniądze już po miesiącu, co oznacza, że rozwiązanie zwróci się już w pierwszym kwartale!",
         badge_roi: "Szybki zwrot inwestycji w pierwszym kwartale",
         cards: {
           1: {
             title: "Ocena Floty",
-            description: "Analizujemy Twoją obecną flotę, aby zidentyfikować możliwości optymalizacji i ustalić podstawowe wskaźniki."
+            description:
+              "Analizujemy Twoją obecną flotę, aby zidentyfikować możliwości optymalizacji i ustalić podstawowe wskaźniki.",
           },
           2: {
             title: "Spersonalizowane Rozwiązania",
-            description: "Nasze algorytmy tworzą dostosowane interfejsy i systemy, które odpowiadają Twoim konkretnym potrzebom operacyjnym."
+            description:
+              "Nasze algorytmy tworzą dostosowane interfejsy i systemy, które odpowiadają Twoim konkretnym potrzebom operacyjnym.",
           },
           3: {
             title: "Szybki Zwrot z Inwestycji",
-            description: "Zacznij oszczędzać koszty już po miesiącu, a rozwiązanie zwróci się w ciągu pierwszego kwartału."
-          }
+            description:
+              "Zacznij oszczędzać koszty już po miesiącu, a rozwiązanie zwróci się w ciągu pierwszego kwartału.",
+          },
         },
         stats: {
           cost_reduction: {
             value: "27%",
-            label: "Średnia redukcja kosztów"
+            label: "Średnia redukcja kosztów",
           },
           first_results: {
             value: "1 Miesiąc",
-            label: "Do pierwszych rezultatów"
+            label: "Do pierwszych rezultatów",
           },
           roi: {
             value: "1 Kwartał",
-            label: "Do pełnego zwrotu z inwestycji"
-          }
+            label: "Do pełnego zwrotu z inwestycji",
+          },
         },
-        cta: "Odkryj Więcej"
+        cta: "Odkryj Więcej",
       },
       solutions: {
         section1: {
@@ -539,53 +555,56 @@ const pl = {
           heading_pre: "Popraw",
           heading_highlight: "doświadczenie",
           heading_post: "kierowców",
-          description: "Analityka, spersonalizowany feedback, grywalizacja i program motywacyjny stworzony dla lepszych i bardziej efektywnych kierowców. Z pomocą VivaDrive mobile możesz dokładnie komunikować się z kierowcami oraz uprościć i usprawnić sposób zarządzania personelem we flocie.",
+          description:
+            "Analityka, spersonalizowany feedback, grywalizacja i program motywacyjny stworzony dla lepszych i bardziej efektywnych kierowców. Z pomocą VivaDrive mobile możesz dokładnie komunikować się z kierowcami oraz uprościć i usprawnić sposób zarządzania personelem we flocie.",
           note: "Nasza aplikacja mobilna zapewnia informacje zwrotne w czasie rzeczywistym, spersonalizowane wskazówki i elementy grywalizacji, aby zwiększyć zaangażowanie i wydajność kierowców.",
           image_alt: "Aplikacja mobilna VivaDrive",
           tags: {
             safety: "Większe bezpieczeństwo",
             efficiency: "Wyższa wydajność",
-            engagement: "Lepsze zaangażowanie"
-          }
+            engagement: "Lepsze zaangażowanie",
+          },
         },
         section2: {
           badge: "Przejście na Pojazdy Elektryczne",
           heading_pre: "Przejdź na",
           heading_highlight: "EV",
           heading_post: "łatwo",
-          description: "Wciąż zastanawiasz się, czy pojazdy elektryczne są odpowiednie dla Ciebie lub Twojej firmy? Możemy rozwiązać tę zagadkę i znaleźć najlepsze rozwiązanie dla Twojej floty. Strefy zeroemisyjne, car-sharing, transport multimodalny - wszystkie te wyzwania powodują wielki ból głowy. Możemy pomóc Ci zmodernizować i zelektryfikować Twój park samochodowy w optymalny sposób.",
+          description:
+            "Wciąż zastanawiasz się, czy pojazdy elektryczne są odpowiednie dla Ciebie lub Twojej firmy? Możemy rozwiązać tę zagadkę i znaleźć najlepsze rozwiązanie dla Twojej floty. Strefy zeroemisyjne, car-sharing, transport multimodalny - wszystkie te wyzwania powodują wielki ból głowy. Możemy pomóc Ci zmodernizować i zelektryfikować Twój park samochodowy w optymalny sposób.",
           image_alt: "Panel rekomendacji pojazdów elektrycznych",
           stats: {
             savings: "75% oszczędności",
-            battery: "42,2 kWh"
+            battery: "42,2 kWh",
           },
           features: {
             analysis: "Analiza przydatności pojazdu",
             infrastructure: "Planowanie infrastruktury ładowania",
-            optimization: "Optymalizacja kosztów floty elektrycznej"
-          }
+            optimization: "Optymalizacja kosztów floty elektrycznej",
+          },
         },
         section3: {
           badge: "Zarządzanie Kosztami",
           heading_pre: "Kontroluj",
           heading_highlight: "koszty",
           heading_post: "i uprość swoją pracę",
-          description: "Pomożemy Ci zastąpić system papierowy systemem elektronicznym, który pomoże wykonać zadania administracyjne w krótszym czasie. Dzięki połączeniu telematyki zyskasz potężne narzędzie, które pomoże Ci zarządzać pojazdami, kierowcami, kosztami i narzędziami administracyjnymi. Wszystko zautomatyzowane! Dodatkowo nasze algorytmy oparte na sztucznej inteligencji będą rekomendować działania, które znacznie obniżą koszty TCO Twojej floty.",
+          description:
+            "Pomożemy Ci zastąpić system papierowy systemem elektronicznym, który pomoże wykonać zadania administracyjne w krótszym czasie. Dzięki połączeniu telematyki zyskasz potężne narzędzie, które pomoże Ci zarządzać pojazdami, kierowcami, kosztami i narzędziami administracyjnymi. Wszystko zautomatyzowane! Dodatkowo nasze algorytmy oparte na sztucznej inteligencji będą rekomendować działania, które znacznie obniżą koszty TCO Twojej floty.",
           note: "Nasz zintegrowany panel zapewnia analizę kosztów w czasie rzeczywistym, monitorowanie stanu ładowania i wskaźniki wydajności pojazdu na jednej scentralizowanej platformie.",
           image_alt: "Panel stacji ładowania",
           tags: {
             cost: "Redukcja kosztów",
             time: "Oszczędność czasu",
-            automated: "Zautomatyzowane zarządzanie"
+            automated: "Zautomatyzowane zarządzanie",
           },
           stats: {
             availability: {
               label: "Całkowita Dostępność",
-              value: "87%"
+              value: "87%",
             },
-            updates: "Aktualizacje w czasie rzeczywistym"
-          }
-        }
+            updates: "Aktualizacje w czasie rzeczywistym",
+          },
+        },
       },
       cost_reduction: {
         subtitle: "Możliwości w każdym wymiarze",
@@ -595,50 +614,54 @@ const pl = {
         items: {
           maintenance: {
             percentage: "40%",
-            label: "Koszty utrzymania"
+            label: "Koszty utrzymania",
           },
           insurance: {
             percentage: "10%",
-            label: "Opłaty ubezpieczeniowe"
+            label: "Opłaty ubezpieczeniowe",
           },
           fuel: {
             percentage: "20%",
-            label: "Oszczędności na paliwie i energii"
+            label: "Oszczędności na paliwie i energii",
           },
           claims: {
             percentage: "25%",
-            label: "Szkody"
-          }
-        }
+            label: "Szkody",
+          },
+        },
       },
       supercharge: {
         badge: "Gotowy do rozpoczęcia?",
         heading: "Przyspiesz swoją flotę",
         heading_highlight: "teraz!",
         primary_button: "Rozpocznij teraz",
-        secondary_button: "Dowiedz się więcej"
+        secondary_button: "Dowiedz się więcej",
       },
     },
     about: {
       hero: {
         title_pre: "Kształtujemy przyszłość",
         title_highlight: "Zarządzania Flotą",
-        description: "Jedna misja, wiele rewolucyjnych rozwiązań. Zmieniamy floty samochodowe na ekologiczne i pozwalamy klientom oszczędzać pieniądze i czas!",
+        description:
+          "Jedna misja, wiele rewolucyjnych rozwiązań. Zmieniamy floty samochodowe na ekologiczne i pozwalamy klientom oszczędzać pieniądze i czas!",
         primary_button: "Nasze Rozwiązania",
         secondary_button: "Poznaj Nasz Zespół",
         scroll_text: "Przewiń, aby odkryć więcej",
-        image_alt: "Widok z lotu ptaka na węzeł drogowy"
+        image_alt: "Widok z lotu ptaka na węzeł drogowy",
       },
       what_we_do: {
         heading: "Co robimy?",
         subheading: "Dostarczamy innowacyjne rozwiązania dla flot i menedżerów",
-        point1: "Codziennie pracujemy z pasją, aby dostarczać narzędzia, które sprawiają, że praca menedżerów floty jest łatwa i przyjemna.",
-        point2: "Każdego dnia oszczędzamy cenny czas i pieniądze na zniechęcających zadaniach związanych z zarządzaniem flotą.",
-        point3: "Jesteśmy jednymi z pierwszych na świecie, którzy opracowali system oszczędzający pieniądze, czas i środowisko jednocześnie.",
+        point1:
+          "Codziennie pracujemy z pasją, aby dostarczać narzędzia, które sprawiają, że praca menedżerów floty jest łatwa i przyjemna.",
+        point2:
+          "Każdego dnia oszczędzamy cenny czas i pieniądze na zniechęcających zadaniach związanych z zarządzaniem flotą.",
+        point3:
+          "Jesteśmy jednymi z pierwszych na świecie, którzy opracowali system oszczędzający pieniądze, czas i środowisko jednocześnie.",
         cta_button: "Dowiedz się więcej o naszych rozwiązaniach",
         image_alt: "Menedżerowie floty omawiający rozwiązania",
         stat_value: "30%",
-        stat_description: "Średnia redukcja kosztów dla naszych klientów"
+        stat_description: "Średnia redukcja kosztów dla naszych klientów",
       },
       philosophy: {
         heading: "Nasza filozofia",
@@ -646,53 +669,61 @@ const pl = {
         cards: {
           sustainable: {
             title: "Zrównoważony",
-            description: "Promujemy pojazdy elektryczne, aby uczynić świat bardziej ekologicznym i zrównoważonym"
+            description:
+              "Promujemy pojazdy elektryczne, aby uczynić świat bardziej ekologicznym i zrównoważonym",
           },
           modern: {
             title: "Nowoczesny",
-            description: "Korzystamy z najnowszych technologii i narzędzi na świecie"
+            description:
+              "Korzystamy z najnowszych technologii i narzędzi na świecie",
           },
           human: {
             title: "Skoncentrowany na człowieku",
-            description: "Nawet przy ogromnych zbiorach danych i złożonych algorytmach, pozostajemy firmą skoncentrowaną na człowieku."
+            description:
+              "Nawet przy ogromnych zbiorach danych i złożonych algorytmach, pozostajemy firmą skoncentrowaną na człowieku.",
           },
           simple: {
             title: "Prosty",
-            description: "Zarządzanie flotą nigdy nie było tak proste i przyjazne dla użytkownika"
-          }
-        }
+            description:
+              "Zarządzanie flotą nigdy nie było tak proste i przyjazne dla użytkownika",
+          },
+        },
       },
       partners: {
         heading: "NASI PARTNERZY",
-        visit_label: "Odwiedź stronę {{name}}"
+        visit_label: "Odwiedź stronę {{name}}",
       },
       our_story: {
         since: "Od 2019",
         heading_pre: "Nasza",
         heading_highlight: "historia",
-        paragraph1: "VivaDrive został założony w 2019 roku w Warszawie z wizją zrewolucjonizowania zarządzania flotą.",
-        paragraph2: "Naszym głównym pomysłem za VivaDrive było uczynienie zarządzania flotą tak prostym, jak to możliwe, oraz zmniejszenie czasu i pieniędzy, które trzeba na to poświęcić.",
-        quote: "Dzięki wieloletniemu doświadczeniu w branży i nowatorskiej technologii, udało nam się stworzyć unikalny produkt, który od pierwszego dnia podbił rynek!",
+        paragraph1:
+          "VivaDrive został założony w 2019 roku w Warszawie z wizją zrewolucjonizowania zarządzania flotą.",
+        paragraph2:
+          "Naszym głównym pomysłem za VivaDrive było uczynienie zarządzania flotą tak prostym, jak to możliwe, oraz zmniejszenie czasu i pieniędzy, które trzeba na to poświęcić.",
+        quote:
+          "Dzięki wieloletniemu doświadczeniu w branży i nowatorskiej technologii, udało nam się stworzyć unikalny produkt, który od pierwszego dnia podbił rynek!",
         technology_button: "Nasza Technologia",
         team_button: "Poznaj Nasz Zespół",
         image_alt: "Siedziba VivaDrive",
         growth_label: "Wzrost od 2019",
         growth_value: "85%",
         established_label: "Założona",
-        established_year: "2019"
+        established_year: "2019",
       },
       team: {
         subtitle: "Ludzie tworzący VivaDrive",
         heading_pre: "Nasz",
         heading_highlight: "kluczowy zespół",
-        description: "Poznaj utalentowane osoby, które napędzają innowacje i doskonałość w VivaDrive",
+        description:
+          "Poznaj utalentowane osoby, które napędzają innowacje i doskonałość w VivaDrive",
         swipe_instruction: "Przesuń, aby nawigować",
         prev_slide: "Poprzedni slajd",
         next_slide: "Następny slajd",
         linkedin_aria: "Profil LinkedIn {{name}}",
         email_aria: "Email do {{name}}",
         go_to_slide: "Przejdź do slajdu {{number}}",
-        join_button: "Dołącz do Naszego Zespołu"
+        join_button: "Dołącz do Naszego Zespołu",
       },
       partners_section: {
         heading: "Projekt VivaDrive jest rozwijany dzięki inwestycji od",
@@ -700,175 +731,205 @@ const pl = {
           eu_funds: "Fundusze Europejskie Inteligentny Rozwój",
           republic_of_poland: "Rzeczpospolita Polska",
           eit_urban_mobility: "EIT Urban Mobility",
-          eu_structural_funds: "Unia Europejska Europejskie Fundusze Strukturalne i Inwestycyjne",
+          eu_structural_funds:
+            "Unia Europejska Europejskie Fundusze Strukturalne i Inwestycyjne",
           ncbr: "Narodowe Centrum Badań i Rozwoju",
-          space_bridge_fund: "Space Bridge Fund"
-        }
+          space_bridge_fund: "Space Bridge Fund",
+        },
       },
       join_team: {
         subtitle: "Praca w VivaDrive",
         heading_pre: "Zacznij",
         heading_highlight: "tworzyć innowacje",
         heading_post: "z nami",
-        description: "VivaDrive to idealne miejsce do rozwijania swoich umiejętności w różnorodnym środowisku",
-        point1: "Dołącz do szybko rozwijającego się zespołu największych talentów z całego świata",
-        point2: "Pracuj nad najnowocześniejszymi technologiami w zarządzaniu flotą i elektryfikacji",
-        point3: "Rozwijaj się zawodowo w wspierającym i współpracującym środowisku, które ceni innowacje",
-        quote: "\"Nie tylko tworzymy produkt, budujemy zespół, który z pasją dąży do wprowadzania zmian w zarządzaniu flotą i zrównoważonym rozwoju.\"",
+        description:
+          "VivaDrive to idealne miejsce do rozwijania swoich umiejętności w różnorodnym środowisku",
+        point1:
+          "Dołącz do szybko rozwijającego się zespołu największych talentów z całego świata",
+        point2:
+          "Pracuj nad najnowocześniejszymi technologiami w zarządzaniu flotą i elektryfikacji",
+        point3:
+          "Rozwijaj się zawodowo w wspierającym i współpracującym środowisku, które ceni innowacje",
+        quote:
+          '"Nie tylko tworzymy produkt, budujemy zespół, który z pasją dąży do wprowadzania zmian w zarządzaniu flotą i zrównoważonym rozwoju."',
         cta_button: "Otwarte Stanowiska",
         image_alt: "Współpraca Zespołu VivaDrive",
         badge_label: "Globalny Zespół",
-        badge_value: "Dołącz do Nas"
-      }
+        badge_value: "Dołącz do Nas",
+      },
     },
     careers: {
       hero: {
         title_pre: "W VivaDrive",
         title_highlight: "rozwijamy się razem",
-        description: "To idealne miejsce dla Ciebie, jeśli masz własne pomysły, kreatywny umysł i chęć do nauki",
+        description:
+          "To idealne miejsce dla Ciebie, jeśli masz własne pomysły, kreatywny umysł i chęć do nauki",
         button_positions: "Otwarte Stanowiska",
         button_benefits: "Nasze Benefity",
         scroll_text: "Przewiń, aby odkryć więcej",
-        image_alt: "Zespół VivaDrive współpracujący"
+        image_alt: "Zespół VivaDrive współpracujący",
       },
       culture: {
         heading: "Kultura i benefity",
-        description: "Jesteśmy zespołem pełnym pasji, składającym się z ponad 12 narodowości, pracującym razem, aby uczynić świat bardziej zrównoważonym. Wierzymy, że stymulujące i komfortowe warunki pracy są naprawdę ważne dla innowacji i tworzenia czegoś wyjątkowego. Wierzymy w pracę zespołową, technologię i równowagę między życiem zawodowym a prywatnym, nie wspominając o dobrej zabawie.",
+        description:
+          "Jesteśmy zespołem pełnym pasji, składającym się z ponad 12 narodowości, pracującym razem, aby uczynić świat bardziej zrównoważonym. Wierzymy, że stymulujące i komfortowe warunki pracy są naprawdę ważne dla innowacji i tworzenia czegoś wyjątkowego. Wierzymy w pracę zespołową, technologię i równowagę między życiem zawodowym a prywatnym, nie wspominając o dobrej zabawie.",
         apply_button: "Aplikuj",
         perks: {
           flexible: {
             title: "Elastyczny czas pracy",
-            description: "Ufamy, że znasz swój harmonogram i pracujesz wtedy, gdy czujesz się najbardziej produktywny."
+            description:
+              "Ufamy, że znasz swój harmonogram i pracujesz wtedy, gdy czujesz się najbardziej produktywny.",
           },
           learning: {
             title: "Nauka i rozwój",
-            description: "Wewnętrzne webinary, program mentorski, praca P2P - wszystko po to, abyś się rozwijał. Jeśli ty rośniesz, my także rośniemy 😊"
+            description:
+              "Wewnętrzne webinary, program mentorski, praca P2P - wszystko po to, abyś się rozwijał. Jeśli ty rośniesz, my także rośniemy 😊",
           },
           think_big: {
             title: "Myślimy globalnie",
-            description: "Lubimy wyzwania i dążymy do zbudowania znaczącej firmy, wpływającej na życie milionów ludzi i chroniącej planetę."
+            description:
+              "Lubimy wyzwania i dążymy do zbudowania znaczącej firmy, wpływającej na życie milionów ludzi i chroniącej planetę.",
           },
           fun: {
             title: "Przyjazne biuro",
-            description: "Śmiech, aby prosperować - to nasze motto. W startupie musisz pozostać pozytywny! Ale realistyczny też ;)"
+            description:
+              "Śmiech, aby prosperować - to nasze motto. W startupie musisz pozostać pozytywny! Ale realistyczny też ;)",
           },
           diverse: {
             title: "Różnorodność",
-            description: "Cenimy wszystkie głosy w VivaDrive i staramy się tworzyć zróżnicowane i sprawiedliwe środowisko pracy, gdzie każda osoba się liczy."
+            description:
+              "Cenimy wszystkie głosy w VivaDrive i staramy się tworzyć zróżnicowane i sprawiedliwe środowisko pracy, gdzie każda osoba się liczy.",
           },
           international: {
             title: "Międzynarodowość",
-            description: "Budujemy globalną markę, więc musimy rozumieć naszych klientów z różnych części świata. Dlatego nasz zespół również jest globalny."
+            description:
+              "Budujemy globalną markę, więc musimy rozumieć naszych klientów z różnych części świata. Dlatego nasz zespół również jest globalny.",
           },
           empowering: {
             title: "Wzmacniający",
-            description: "Wiemy, że jedna osoba może mieć znaczący wpływ. Pracuj z nami i przekonaj się o tym."
+            description:
+              "Wiemy, że jedna osoba może mieć znaczący wpływ. Pracuj z nami i przekonaj się o tym.",
           },
           collaborative: {
             title: "Współpraca",
-            description: "Jesteśmy wolni od silosów i ego. Jesteśmy jednym zespołem, który wspiera się nawzajem, aby odnieść sukces."
-          }
-        }
+            description:
+              "Jesteśmy wolni od silosów i ego. Jesteśmy jednym zespołem, który wspiera się nawzajem, aby odnieść sukces.",
+          },
+        },
       },
       positions: {
         badge: "Możliwości kariery",
         heading: "Otwarte stanowiska",
-        description: "Dołącz do naszego zespołu i pomóż nam budować zrównoważone rozwiązania dla przyszłości. Szukamy ludzi z pasją, którzy chcą wprowadzać pozytywne zmiany.",
+        description:
+          "Dołącz do naszego zespołu i pomóż nam budować zrównoważone rozwiązania dla przyszłości. Szukamy ludzi z pasją, którzy chcą wprowadzać pozytywne zmiany.",
         apply_button: "Aplikuj",
-        cta_question: "Nie widzisz stanowiska pasującego do Twoich umiejętności?",
+        cta_question:
+          "Nie widzisz stanowiska pasującego do Twoich umiejętności?",
         cta_button: "Skontaktuj się z nami",
         jobs: {
           python_django: {
             title: "Python/Django Developer",
             subtitle: "Smart City/AI",
-            description: "Poszukujemy doświadczonego programisty Python/Django z co najmniej 4-letnim doświadczeniem..."
+            description:
+              "Poszukujemy doświadczonego programisty Python/Django z co najmniej 4-letnim doświadczeniem...",
           },
           frontend: {
             title: "Front-end Developer",
             subtitle: "",
-            description: "Poszukujemy doświadczonego programisty Python/Django z co najmniej 4-letnim doświadczeniem..."
+            description:
+              "Poszukujemy doświadczonego programisty Python/Django z co najmniej 4-letnim doświadczeniem...",
           },
           data_scientist: {
             title: "Data Scientist",
             subtitle: "",
-            description: "Poszukujemy Data Scientista z co najmniej 3-letnim doświadczeniem..."
+            description:
+              "Poszukujemy Data Scientista z co najmniej 3-letnim doświadczeniem...",
           },
           digital_marketer: {
             title: "Digital Marketer",
             subtitle: "",
-            description: "Poszukujemy Digital Marketera z co najmniej 2-letnim doświadczeniem..."
+            description:
+              "Poszukujemy Digital Marketera z co najmniej 2-letnim doświadczeniem...",
           },
           business_developer: {
             title: "Business Developer",
             subtitle: "",
-            description: "Poszukujemy Business Developera z co najmniej 5-letnim doświadczeniem..."
+            description:
+              "Poszukujemy Business Developera z co najmniej 5-letnim doświadczeniem...",
           },
           ux_ui: {
             title: "UX/UI",
             subtitle: "",
-            description: "Poszukujemy projektanta UX/UI z co najmniej 2-letnim doświadczeniem..."
+            description:
+              "Poszukujemy projektanta UX/UI z co najmniej 2-letnim doświadczeniem...",
           },
           different: {
             title: "Inne stanowisko?",
             subtitle: "",
-            description: "Twoje umiejętności nie znajdują się na naszej liście? Nie martw się, zawsze jesteśmy otwarci na talenty..."
-          }
-        }
-      }
+            description:
+              "Twoje umiejętności nie znajdują się na naszej liście? Nie martw się, zawsze jesteśmy otwarci na talenty...",
+          },
+        },
+      },
     },
     internships: {
       hero: {
         title: "Staże",
-        subtitle: "Buduj swoją karierę z VivaDrive",
-        description: "W VivaDrive wierzymy, że współpraca to najlepszy sposób na naukę i robienie czegoś znaczącego. Rozpocznij swoją karierę w technologii, Data Science i Biznesie/Komunikacji w międzynarodowym środowisku.",
+        subtitle: "Zbuduj swoją karierę z VivaDrive",
+        description:
+          "W VivaDrive wierzymy, że współpraca to najlepszy sposób na naukę i robienie czegoś wartościowego. Rozpocznij swoją karierę w technologii, Data Science i Biznesie/Komunikacji w międzynarodowym środowisku.",
         button: "Zobacz staże",
         scroll_text: "Przewiń, aby odkryć więcej",
-        image_alt: "Zespół stażystów VivaDrive współpracujący ze sobą"
+        image_alt: "Zespół stażystów VivaDrive współpracujący przy projekcie",
       },
       partners: {
         heading: "PARTNERZY UNIWERSYTECCY",
-        visit_label: "Odwiedź stronę {{name}}"
+        visit_label: "Odwiedź stronę {{name}}",
       },
       testimonials: {
+        badge: "Nasi Ludzie",
+        title: "Od Stażystów do Innowatorów",
+        subtitle:
+          "Nasi stażyści rozwijają się w liderów, wnosząc świeże perspektywy i innowacyjne rozwiązania do VivaDrive.",
+        cta_text: "Zainteresowany dołączeniem do naszego programu stażowego?",
+        cta_button: "Zobacz Możliwości",
         positions: {
           fullstack: "Stażysta Full Stack Developer",
           frontend: "Stażysta Frontend Developer",
           backend: "Stażysta Backend Developer",
           datascience: "Stażysta Data Science",
-          ai: "Stażysta AI Developer"
-        },
-        quotes: {
-          patrik: "Dołączenie do VivaDrive jako stażysta full stack było przełomowe dla mojej kariery. Możliwość pracy z całym stosem technologicznym pozwoliła mi odkryć moje mocne strony i rozwinąć holistyczne zrozumienie tworzenia oprogramowania, które gdzie indziej zajęłoby mi lata.",
-          matteo: "Czas leci, gdy naprawdę lubisz to, co robisz! Przyszedłem do VivaDrive jako stażysta frontend, aby uczyć się i zdobywać doświadczenie. Elastyczna kultura pracy i środowisko sprzyjające eksploracji pozwoliły mi zmierzyć się z nowymi wyzwaniami i rozwinąć się jako programista.",
-          gabriele: "Najlepszą decyzją, jaką kiedykolwiek podjąłem, było dołączenie do VivaDrive jako stażysta data science. Nauczyłem się wiele i trochę wszystkiego, więcej niż prosiłem. Miałem przestrzeń do nauki, praktyki i rozwoju jako profesjonalista w dziedzinie data science.",
-          giovanni: "Dołączyłem do VivaDrive jako stażysta AI developer. Pozwoliło mi to zdobyć tak dużo praktycznego doświadczenia w rzeczywistych projektach, że dziś kontynuuję moją karierę w rozwoju AI dzięki tej decyzji.",
-          christina: "Każdy dzień zaczyna się od nowych wyzwań technicznych i nowych celów. Odkryłam swoją prawdziwą pasję do data science w VivaDrive, co pokazało mój wpływ na projekty z danymi w rzeczywistym świecie.",
-          goncalo: "Praca w VivaDrive jako stażysta backend developer była niesamowitą podróżą. Współpracujące środowisko i praktyczne podejście pomogły mi rozwinąć zarówno moje umiejętności techniczne, jak i zrozumienie architektury po stronie serwera.",
-          dorian: "Moje doświadczenie jako stażysta frontend developer w VivaDrive było naprawdę wzbogacające. Bycie częścią współpracującego zespołu i praca nad projektami z rzeczywistego świata pogłębiły moją wiedzę w budowaniu dynamicznych interfejsów użytkownika i dopracowywaniu architektury po stronie klienta."
+          ai: "Stażysta AI Developer",
         },
         countries: {
           slovakia: "Słowacja",
           italy: "Włochy",
           greece: "Grecja",
           portugal: "Portugalia",
-          france: "Francja"
+          france: "Francja",
         },
-        sections: {
-          our_people: "Nasi Ludzie",
-          heading: "Od Stażystów do Innowatorów",
-          subheading: "Nasi stażyści stają się liderami, wnosząc świeże perspektywy i innowacyjne rozwiązania do VivaDrive."
-        },
-        cta: {
-          question: "Zainteresowany dołączeniem do naszego programu stażowego?",
-          button: "Zobacz Możliwości"
+        quotes: {
+          patrik:
+            "Dołączenie do VivaDrive jako stażysta full stack było transformacyjne dla mojej kariery. Możliwość pracy z całym stackiem technologicznym pozwoliła mi odkryć moje mocne strony i rozwinąć holistyczne zrozumienie tworzenia oprogramowania, które gdzie indziej zajęłoby lata.",
+          matteo:
+            "Czas leci, gdy naprawdę lubisz to, co robisz! Przyszedłem do VivaDrive jako stażysta frontend, aby uczyć się i zdobywać doświadczenie. Elastyczna kultura pracy i środowisko sprzyjające eksploracji pozwoliły mi podejmować nowe wyzwania i rozwijać się jako deweloper.",
+          gabriele:
+            "Najlepszą decyzją, jaką kiedykolwiek podjąłem, było dołączenie do VivaDrive jako stażysta data science. Nauczyłem się wiele i trochę wszystkiego, więcej niż prosiłem. Miałem przestrzeń do nauki, praktyki i rozwoju jako profesjonalista w dziedzinie data science.",
+          giovanni:
+            "Dołączyłem do VivaDrive jako stażysta AI developer. Pozwoliło mi to zdobyć tak dużo praktycznego doświadczenia na rzeczywistych projektach, że dziś kontynuuję karierę w rozwoju AI dzięki tej decyzji.",
+          christina:
+            "Każdy dzień zaczyna się od nowych wyzwań technicznych i nowych celów. Odkryłam swoją prawdziwą pasję do data science w VivaDrive, co pokazało mój wpływ na rzeczywiste projekty danych.",
+          goncalo:
+            "Praca w VivaDrive jako stażysta backend developer była niesamowitą podróżą. Współpracujące środowisko i praktyczne podejście pomogły mi rozwinąć zarówno moje umiejętności techniczne, jak i zrozumienie architektury serwerowej.",
+          dorian:
+            "Moje doświadczenie jako stażysta frontend developer w VivaDrive było prawdziwie wzbogacające. Bycie częścią zespołu współpracującego i pracowanie nad rzeczywistymi projektami pogłębiło moją wiedzę w budowaniu dynamicznych interfejsów użytkownika i udoskonalaniu architektury po stronie klienta.",
         },
         aria: {
           linkedin: "Odwiedź profil LinkedIn {{name}}",
-          slide: "Przejdź do slajdu {{index}}",
-          previous: "Poprzednie opinie",
-          next: "Następne opinie"
-        }
-      }
+          goto_slide: "Przejdź do slajdu {{index}}",
+          previous: "Poprzedni testimonial",
+          next: "Następny testimonial",
+        },
+      },
     },
   },
 };
