@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FleetPotentialShowcase = () => {
+  
+  const { t } = useLanguage();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,19 +52,16 @@ const FleetPotentialShowcase = () => {
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12z" />
               </svg>
-              <span>Fleet Optimization</span>
+              <span>{t('pages.fleet_electrification.showcase.badge')}</span>
             </motion.div>
 
             <motion.p className="text-xl md:text-2xl text-emerald-600 font-medium" variants={itemVariants}>
-              Made to make you productive
+              {t('pages.fleet_electrification.showcase.subtitle')}
             </motion.p>
 
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
-              variants={itemVariants}
-            >
-              Discover your fleet's <span className="text-emerald-500">full potential!</span>
-            </motion.h1>
+            <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight" variants={itemVariants}>
+  {t('pages.fleet_electrification.showcase.heading_start')} <span className="text-emerald-500">{t('pages.fleet_electrification.showcase.heading_highlight')}</span>
+</motion.h1>
 
             <motion.div variants={itemVariants} className="pt-4">
               <motion.button
@@ -68,7 +69,7 @@ const FleetPotentialShowcase = () => {
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white rounded-full font-medium hover:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20 text-lg"
               >
-                Get Started
+                {t('pages.fleet_electrification.showcase.button')}
                 <ChevronRight className="h-5 w-5" />
               </motion.button>
             </motion.div>
@@ -105,10 +106,10 @@ const FleetPotentialShowcase = () => {
                     </g>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Replace your cars</h3>
-                <p className="text-gray-600">
-                  See which cars can be replaced by EVs and how many replacement options there are available.
-                </p>
+                <h3 className="text-xl font-bold text-gray-900">{t('pages.fleet_electrification.showcase.cards.1.title')}</h3>
+<p className="text-gray-600">
+  {t('pages.fleet_electrification.showcase.cards.1.description')}
+</p>
               </div>
             </motion.div>
 
@@ -138,10 +139,10 @@ const FleetPotentialShowcase = () => {
                     </g>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Find the best charging strategy</h3>
-                <p className="text-gray-600">
-                  Check out how to deploy your EV charging infrastructure such that you can still perform your transportation tasks.
-                </p>
+                <h3 className="text-xl font-bold text-gray-900">{t('pages.fleet_electrification.showcase.cards.2.title')}</h3>
+<p className="text-gray-600">
+  {t('pages.fleet_electrification.showcase.cards.2.description')}
+</p>
               </div>
             </motion.div>
 
@@ -170,10 +171,10 @@ const FleetPotentialShowcase = () => {
                     </g>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Build an EV deployment plan</h3>
-                <p className="text-gray-600">
-                  We will prepare for you a personalized EV deployment and business plan that will allow you to save money and meet sustainability criteria.
-                </p>
+                <h3 className="text-xl font-bold text-gray-900">{t('pages.fleet_electrification.showcase.cards.3.title')}</h3>
+<p className="text-gray-600">
+  {t('pages.fleet_electrification.showcase.cards.3.description')}
+</p>
               </div>
             </motion.div>
 
@@ -196,10 +197,10 @@ const FleetPotentialShowcase = () => {
                     </g>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Manage EV fleet and reduce TCO</h3>
-                <p className="text-gray-600">
-                  Our fleet management tools can manage your hybrid fleet consisting of traditional combustion engine cars and electric ones.
-                </p>
+                <h3 className="text-xl font-bold text-gray-900">{t('pages.fleet_electrification.showcase.cards.4.title')}</h3>
+<p className="text-gray-600">
+  {t('pages.fleet_electrification.showcase.cards.4.description')}
+</p>
               </div>
             </motion.div>
           </motion.div>

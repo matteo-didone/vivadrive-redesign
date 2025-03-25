@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -10,8 +12,11 @@ import {
     MapPin,
     TrendingUp
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FleetElectrificationSections = () => {
+    const { t } = useLanguage();
+
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -63,25 +68,23 @@ const FleetElectrificationSections = () => {
                                 variants={itemVariant}
                             >
                                 <Zap className="h-4 w-4" />
-                                <span>EV Fleet Transition</span>
+                                <span>{t('pages.fleet_electrification.sections.section1.badge')}</span>
                             </motion.div>
 
                             <motion.h2
                                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
-                                Find out the best
-                                <span className="text-emerald-500"> EV options </span>
-                                for your fleet
+                                {t('pages.fleet_electrification.sections.section1.title.pre')}
+                                <span className="text-emerald-500"> {t('pages.fleet_electrification.sections.section1.title.highlight')} </span>
+                                {t('pages.fleet_electrification.sections.section1.title.post')}
                             </motion.h2>
 
                             <motion.p
                                 className="text-base md:text-lg text-gray-600 max-w-lg mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                We will take into account your operational needs. We will test EV feasibility in
-                                different roads and in different weather conditions. We will also assess your
-                                charging and EV infrastructure needs.
+                                {t('pages.fleet_electrification.sections.section1.description')}
                             </motion.p>
 
                             <motion.div
@@ -89,8 +92,7 @@ const FleetElectrificationSections = () => {
                                 variants={itemVariant}
                             >
                                 <p className="text-gray-700 font-medium text-sm md:text-base">
-                                    The result: A comprehensive recommendation showing which vehicles can be replaced by EVs,
-                                    which drivers are suitable, and what charging infrastructure gaps need to be addressed.
+                                    {t('pages.fleet_electrification.sections.section1.result')}
                                 </p>
                             </motion.div>
 
@@ -100,7 +102,7 @@ const FleetElectrificationSections = () => {
                                     whileTap={{ scale: 0.98 }}
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white rounded-full font-medium hover:bg-emerald-600 transition-colors shadow-md"
                                 >
-                                    Learn More
+                                    {t('pages.fleet_electrification.sections.learn_more')}
                                     <ChevronRight className="h-5 w-5" />
                                 </motion.button>
                             </motion.div>
@@ -123,7 +125,7 @@ const FleetElectrificationSections = () => {
                                 >
                                     <img
                                         src="/fleet-electrification/ev-recommended.png"
-                                        alt="Recommended EVs"
+                                        alt={t('pages.fleet_electrification.sections.section1.image_alt')}
                                         className="w-full h-auto rounded-lg"
                                     />
                                 </motion.div>
@@ -135,7 +137,7 @@ const FleetElectrificationSections = () => {
                                         <Battery className="h-7 w-7 md:h-9 md:w-9 text-emerald-500" />
                                         <div>
                                             <div className="font-bold text-emerald-500">95%</div>
-                                            <div className="text-xs text-gray-500">EV reliability</div>
+                                            <div className="text-xs text-gray-500">{t('pages.fleet_electrification.sections.section1.stats.reliability')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +146,7 @@ const FleetElectrificationSections = () => {
                                 <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 py-1 px-2 md:p-2 bg-white rounded-lg shadow-lg">
                                     <div className="text-sm font-medium text-gray-800">
                                         <span className="text-emerald-500">17% </span>
-                                        reduced CO₂
+                                        {t('pages.fleet_electrification.sections.section1.stats.co2')}
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +174,7 @@ const FleetElectrificationSections = () => {
                             <div className="relative rounded-2xl overflow-hidden shadow-md max-w-md w-full">
                                 <img
                                     src="/fleet-electrification/map.png"
-                                    alt="EV Charging Infrastructure"
+                                    alt={t('pages.fleet_electrification.sections.section2.image_alt')}
                                     className="w-full h-auto"
                                 />
                             </div>
@@ -191,25 +193,23 @@ const FleetElectrificationSections = () => {
                                 variants={itemVariant}
                             >
                                 <MapPin className="h-4 w-4" />
-                                <span>Charging Network</span>
+                                <span>{t('pages.fleet_electrification.sections.section2.badge')}</span>
                             </motion.div>
 
                             <motion.h2
                                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
-                                Deploy the
-                                <span className="text-emerald-500"> ideal infrastructure </span>
-                                for your fleet
+                                {t('pages.fleet_electrification.sections.section2.title.pre')}
+                                <span className="text-emerald-500"> {t('pages.fleet_electrification.sections.section2.title.highlight')} </span>
+                                {t('pages.fleet_electrification.sections.section2.title.post')}
                             </motion.h2>
 
                             <motion.p
                                 className="text-base md:text-lg text-gray-600 max-w-lg mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                VivaDrive will allow you to design and implement a cost effective EV charging
-                                infrastructure for your EV fleet - we will assess charging site suitability and
-                                estimate the cost of infrastructure installation.
+                                {t('pages.fleet_electrification.sections.section2.description')}
                             </motion.p>
 
                             {/* Cleaner checklist items with green checkmark */}
@@ -217,33 +217,16 @@ const FleetElectrificationSections = () => {
                                 className="space-y-4 pt-2 max-w-lg mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="flex-shrink-0">
-                                        <CheckCircle className="h-5 w-5 text-emerald-500" strokeWidth={3} />
+                                {['home', 'office', 'public', 'stop'].map((item, index) => (
+                                    <div key={index} className="flex items-center gap-3">
+                                        <div className="flex-shrink-0">
+                                            <CheckCircle className="h-5 w-5 text-emerald-500" strokeWidth={3} />
+                                        </div>
+                                        <span className="text-gray-700 font-medium">
+                                            {t(`pages.fleet_electrification.sections.section2.checklist.${item}`)}
+                                        </span>
                                     </div>
-                                    <span className="text-gray-700 font-medium">Home location charging solutions</span>
-                                </div>
-
-                                <div className="flex items-center gap-3">
-                                    <div className="flex-shrink-0">
-                                        <CheckCircle className="h-5 w-5 text-emerald-500" strokeWidth={3} />
-                                    </div>
-                                    <span className="text-gray-700 font-medium">Office location optimization</span>
-                                </div>
-
-                                <div className="flex items-center gap-3">
-                                    <div className="flex-shrink-0">
-                                        <CheckCircle className="h-5 w-5 text-emerald-500" strokeWidth={3} />
-                                    </div>
-                                    <span className="text-gray-700 font-medium">Public charging station mapping</span>
-                                </div>
-
-                                <div className="flex items-center gap-3">
-                                    <div className="flex-shrink-0">
-                                        <CheckCircle className="h-5 w-5 text-emerald-500" strokeWidth={3} />
-                                    </div>
-                                    <span className="text-gray-700 font-medium">Stop location analysis for 45+ minutes</span>
-                                </div>
+                                ))}
                             </motion.div>
 
                             <motion.div variants={itemVariant} className="flex justify-center lg:justify-start pt-4">
@@ -252,7 +235,7 @@ const FleetElectrificationSections = () => {
                                     whileTap={{ scale: 0.98 }}
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white rounded-full font-medium hover:bg-emerald-600 transition-colors shadow-md"
                                 >
-                                    Learn More
+                                    {t('pages.fleet_electrification.sections.learn_more')}
                                     <ChevronRight className="h-5 w-5" />
                                 </motion.button>
                             </motion.div>
@@ -284,25 +267,23 @@ const FleetElectrificationSections = () => {
                                 variants={itemVariant}
                             >
                                 <Settings className="h-4 w-4" />
-                                <span>Unified Management</span>
+                                <span>{t('pages.fleet_electrification.sections.section3.badge')}</span>
                             </motion.div>
 
                             <motion.h2
                                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
-                                Manage
-                                <span className="text-emerald-500"> everything </span>
-                                in one place
+                                {t('pages.fleet_electrification.sections.section3.title.pre')}
+                                <span className="text-emerald-500"> {t('pages.fleet_electrification.sections.section3.title.highlight')} </span>
+                                {t('pages.fleet_electrification.sections.section3.title.post')}
                             </motion.h2>
 
                             <motion.p
                                 className="text-base md:text-lg text-gray-600 max-w-lg mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                Manage your combustion engine and electric vehicles in one place. Track where,
-                                when and how they are being used, Manage your EV fleet including cost optimization,
-                                charging management and route optimization.
+                                {t('pages.fleet_electrification.sections.section3.description')}
                             </motion.p>
 
                             <motion.div
@@ -310,8 +291,7 @@ const FleetElectrificationSections = () => {
                                 variants={itemVariant}
                             >
                                 <p className="text-gray-700 font-medium text-sm md:text-base">
-                                    Learn how to effectively reduce costs with help of Big Data and our AI technologies
-                                    that optimize fleet operations in real-time.
+                                    {t('pages.fleet_electrification.sections.section3.info')}
                                 </p>
                             </motion.div>
 
@@ -323,21 +303,21 @@ const FleetElectrificationSections = () => {
                                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-10">
                                     <div className="flex items-center gap-2">
                                         <Settings className="h-5 w-5 text-emerald-500" />
-                                        <span className="text-gray-700 font-medium">Fleet management</span>
+                                        <span className="text-gray-700 font-medium">{t('pages.fleet_electrification.sections.section3.features.fleet')}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <Zap className="h-5 w-5 text-emerald-500" />
-                                        <span className="text-gray-700 font-medium">Charging management</span>
+                                        <span className="text-gray-700 font-medium">{t('pages.fleet_electrification.sections.section3.features.charging')}</span>
                                     </div>
                                 </div>
                                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-10">
                                     <div className="flex items-center gap-2">
                                         <ArrowRightCircle className="h-5 w-5 text-emerald-500" />
-                                        <span className="text-gray-700 font-medium">Route optimization</span>
+                                        <span className="text-gray-700 font-medium">{t('pages.fleet_electrification.sections.section3.features.route')}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <TrendingUp className="h-5 w-5 text-emerald-500" />
-                                        <span className="text-gray-700 font-medium">Cost analytics</span>
+                                        <span className="text-gray-700 font-medium">{t('pages.fleet_electrification.sections.section3.features.cost')}</span>
                                     </div>
                                 </div>
                             </motion.div>
@@ -348,7 +328,7 @@ const FleetElectrificationSections = () => {
                                     whileTap={{ scale: 0.98 }}
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white rounded-full font-medium hover:bg-emerald-600 transition-colors shadow-md"
                                 >
-                                    Learn More
+                                    {t('pages.fleet_electrification.sections.learn_more')}
                                     <ChevronRight className="h-5 w-5" />
                                 </motion.button>
                             </motion.div>
@@ -371,7 +351,7 @@ const FleetElectrificationSections = () => {
                                 >
                                     <img
                                         src="/fleet-electrification/laptop.png"
-                                        alt="Fleet Management Dashboard"
+                                        alt={t('pages.fleet_electrification.sections.section3.image_alt')}
                                         className="w-full h-auto rounded-lg"
                                     />
                                 </motion.div>
@@ -379,7 +359,7 @@ const FleetElectrificationSections = () => {
                                 {/* Cost reduction stat */}
                                 <div className="absolute -bottom-4 -left-2 md:-left-4 p-2 md:p-3 bg-white rounded-md shadow-lg">
                                     <div className="flex flex-col">
-                                        <div className="text-xs text-gray-500">Cost Reduction</div>
+                                        <div className="text-xs text-gray-500">{t('pages.fleet_electrification.sections.section3.stats.cost.label')}</div>
                                         <div className="text-lg md:text-xl font-bold text-emerald-500">27%</div>
                                         <div className="w-20 md:w-24 h-2 bg-gray-100 rounded-full mt-1">
                                             <div className="w-3/4 h-full bg-emerald-500 rounded-full" />
@@ -390,7 +370,7 @@ const FleetElectrificationSections = () => {
                                 {/* Real-time updates badge */}
                                 <div className="absolute -top-2 right-2 md:-top-4 md:right-4 p-2 bg-white rounded-md shadow-lg flex items-center gap-2">
                                     <div className="w-2 h-2 md:w-3 md:h-3 bg-emerald-500 rounded-full" />
-                                    <div className="text-xs md:text-sm font-medium text-gray-800">Real-time updates</div>
+                                    <div className="text-xs md:text-sm font-medium text-gray-800">{t('pages.fleet_electrification.sections.section3.stats.realtime')}</div>
                                 </div>
                             </div>
                         </motion.div>

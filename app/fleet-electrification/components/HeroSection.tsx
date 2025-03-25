@@ -5,8 +5,10 @@ import Image from "next/image";
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
+    const { t } = useLanguage();
     const orbRef = useRef(null);
     const cardRef1 = useRef(null);
     const cardRef2 = useRef(null);
@@ -54,16 +56,16 @@ const HeroSection = () => {
                 <div className="flex flex-col sm:flex-row justify-between items-center mb-8 md:mb-10">
                     <div className="flex space-x-8 mb-4 sm:mb-0">
                         <div className="relative">
-                            <span className="text-lg font-medium text-gray-900 cursor-pointer">Benefits</span>
+                            <span className="text-lg font-medium text-gray-900 cursor-pointer">{t('pages.fleet_electrification.hero.tabs.benefits')}</span>
                             <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-500 rounded-full" />
                         </div>
                         <div>
-                            <span className="text-lg font-medium text-gray-700 hover:text-emerald-600 transition-colors cursor-pointer">Features</span>
+                            <span className="text-lg font-medium text-gray-700 hover:text-emerald-600 transition-colors cursor-pointer">{t('pages.fleet_electrification.hero.tabs.features')}</span>
                         </div>
                     </div>
 
                     <button className="py-2 inline-flex items-center justify-center text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-emerald-600 h-10 gap-1 border border-emerald-500 hover:bg-emerald-50 font-medium px-5 transition-all hover:scale-105 rounded-full">
-                        Learn more
+                        {t('pages.fleet_electrification.hero.learn_more')}
                         <ChevronRight className="h-4 w-4" />
                     </button>
                 </div>
@@ -77,27 +79,26 @@ const HeroSection = () => {
                         className="text-center md:text-left"
                     >
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 md:mb-8">
-                            Electrify your fleet
+                            {t('pages.fleet_electrification.hero.title')}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-emerald-600 block">
-                                with data
+                                {t('pages.fleet_electrification.hero.title_highlight')}
                             </span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-10 leading-relaxed max-w-md mx-auto md:mx-0">
-                            VivaDrive helps you select the best EV for your fleet, find the ideal charging
-                            infrastructure and help you manage your sustainable EV fleet.
+                            {t('pages.fleet_electrification.hero.description')}
                         </p>
 
                         {/* Email and CTA */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <input
                                 type="email"
-                                placeholder="Email address"
+                                placeholder={t('pages.fleet_electrification.hero.email_placeholder')}
                                 className="px-5 h-12 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 w-full sm:w-auto sm:min-w-[260px] shadow-sm"
                             />
 
                             <button className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-12 gap-2 shadow-lg shadow-emerald-500/20 bg-emerald-500 hover:bg-emerald-600 font-medium px-6 transition-all hover:scale-105 rounded-full">
-                                Contact Sales
+                                {t('pages.fleet_electrification.hero.contact_sales')}
                                 <ArrowRight className="h-4 w-4" />
                             </button>
                         </div>
@@ -130,8 +131,8 @@ const HeroSection = () => {
                                         <div className="text-emerald-600 text-xl font-bold">i3</div>
                                     </div>
                                     <div>
-                                        <div className="text-xs text-gray-500 uppercase tracking-wider">PRICE RANGE</div>
-                                        <div className="text-sm font-medium">€73,000 - 98,000</div>
+                                        <div className="text-xs text-gray-500 uppercase tracking-wider">{t('pages.fleet_electrification.hero.cards.price_range')}</div>
+                                        <div className="text-sm font-medium">{t('pages.fleet_electrification.hero.cards.price_value')}</div>
                                     </div>
                                 </div>
                             </div>
@@ -145,8 +146,8 @@ const HeroSection = () => {
                                         158<span className="text-xs">h</span>
                                     </div>
                                     <div>
-                                        <div className="text-xs text-gray-500 uppercase tracking-wider">USAGE</div>
-                                        <div className="text-sm sm:text-base font-medium">Weekly average</div>
+                                        <div className="text-xs text-gray-500 uppercase tracking-wider">{t('pages.fleet_electrification.hero.cards.usage')}</div>
+                                        <div className="text-sm sm:text-base font-medium">{t('pages.fleet_electrification.hero.cards.usage_value')}</div>
                                     </div>
                                 </div>
                             </div>
@@ -157,9 +158,9 @@ const HeroSection = () => {
                             >
                                 <div className="flex items-center gap-2 sm:gap-3">
                                     <div className="flex flex-col">
-                                        <div className="text-xs text-gray-500 uppercase tracking-wider">PUBLIC CHARGER</div>
+                                        <div className="text-xs text-gray-500 uppercase tracking-wider">{t('pages.fleet_electrification.hero.cards.charger')}</div>
                                         <div className="font-medium text-emerald-600 flex items-center gap-1">
-                                            37% <span className="text-xs text-gray-500">suitability</span>
+                                            37% <span className="text-xs text-gray-500">{t('pages.fleet_electrification.hero.cards.suitability')}</span>
                                         </div>
                                     </div>
                                     <div className="h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center">

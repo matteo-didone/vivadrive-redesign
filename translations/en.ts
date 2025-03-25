@@ -275,8 +275,8 @@ const en = {
           "Significantly reduce operational and maintenance expenses with electric vehicles",
         stat: "30% savings",
         detailedStat: {
-          before: "$0.42",
-          after: "$0.29",
+          before: "zł0.42",
+          after: "zł0.29",
           unit: "per mile",
         },
         testimonial:
@@ -325,6 +325,174 @@ const en = {
     getStartedButton: "Get Started",
     demoButton: "Book a Demo",
     trustSignal: "Trusted by industry leaders",
+  },
+  pages: {
+    fleet_electrification: {
+      hero: {
+        title: "Electrify your fleet",
+        title_highlight: "with data",
+        description:
+          "VivaDrive helps you select the best EV for your fleet, find the ideal charging infrastructure and help you manage your sustainable EV fleet.",
+        contact_sales: "Contact Sales",
+        email_placeholder: "Email address",
+        learn_more: "Learn more",
+        tabs: {
+          benefits: "Benefits",
+          features: "Features",
+        },
+        cards: {
+          price_range: "PRICE RANGE",
+          price_value: "73,000 - 98,000 zł",
+          usage: "USAGE",
+          usage_value: "Weekly average",
+          charger: "PUBLIC CHARGER",
+          suitability: "suitability",
+        },
+      },
+      partners: {
+        heading: "OUR PARTNERS & INTEGRATIONS",
+        visit_label: "Visit {{name}} website"
+      },
+      showcase: {
+        badge: "Fleet Optimization",
+        subtitle: "Made to make you productive",
+        heading_start: "Discover your fleet's",
+        heading_highlight: "full potential!",
+        button: "Get Started",
+        cards: {
+          1: {
+            title: "Replace your cars",
+            description: "See which cars can be replaced by EVs and how many replacement options there are available."
+          },
+          2: {
+            title: "Find the best charging strategy",
+            description: "Check out how to deploy your EV charging infrastructure such that you can still perform your transportation tasks."
+          },
+          3: {
+            title: "Build an EV deployment plan",
+            description: "We will prepare for you a personalized EV deployment and business plan that will allow you to save money and meet sustainability criteria."
+          },
+          4: {
+            title: "Manage EV fleet and reduce TCO",
+            description: "Our fleet management tools can manage your hybrid fleet consisting of traditional combustion engine cars and electric ones."
+          }
+        }
+      },
+      features: {
+        badge: "Discover all the Features",
+        heading: "GO electric with confidence",
+        description: "VivaDrive helps you transition to electric vehicles with comprehensive analysis and support.",
+        items: {
+          1: {
+            title: "Fleet Analysis",
+            description: "We analyze your current fleet in terms of transport tasks, energy consumption, and operational patterns."
+          },
+          2: {
+            title: "Charging Infrastructure",
+            description: "Detailed simulations for various scenarios of introducing new charging infrastructure tailored to your needs."
+          },
+          3: {
+            title: "TCO Analysis",
+            description: "Comprehensive total cost of ownership calculations to make informed financial decisions."
+          },
+          4: {
+            title: "Business Modeling",
+            description: "Create a detailed business model for EV implementation specific to your company's requirements."
+          },
+          5: {
+            title: "Implementation Plan",
+            description: "Step-by-step roadmap for transitioning your fleet partially or fully to electric vehicles."
+          },
+          6: {
+            title: "Ongoing Management",
+            description: "Support for managing a mixed fleet of electric and traditional vehicles and their charging infrastructure."
+          }
+        }
+      },
+      sections: {
+        learn_more: "Learn More",
+        section1: {
+          badge: "EV Fleet Transition",
+          title: {
+            pre: "Find out the best",
+            highlight: "EV options",
+            post: "for your fleet"
+          },
+          description: "We will take into account your operational needs. We will test EV feasibility in different roads and in different weather conditions. We will also assess your charging and EV infrastructure needs.",
+          result: "The result: A comprehensive recommendation showing which vehicles can be replaced by EVs, which drivers are suitable, and what charging infrastructure gaps need to be addressed.",
+          image_alt: "Recommended EVs",
+          stats: {
+            reliability: "EV reliability",
+            co2: "reduced CO₂"
+          }
+        },
+        section2: {
+          badge: "Charging Network",
+          title: {
+            pre: "Deploy the",
+            highlight: "ideal infrastructure",
+            post: "for your fleet"
+          },
+          description: "VivaDrive will allow you to design and implement a cost effective EV charging infrastructure for your EV fleet - we will assess charging site suitability and estimate the cost of infrastructure installation.",
+          image_alt: "EV Charging Infrastructure",
+          checklist: {
+            home: "Home location charging solutions",
+            office: "Office location optimization",
+            public: "Public charging station mapping",
+            stop: "Stop location analysis for 45+ minutes"
+          }
+        },
+        section3: {
+          badge: "Unified Management",
+          title: {
+            pre: "Manage",
+            highlight: "everything",
+            post: "in one place"
+          },
+          description: "Manage your combustion engine and electric vehicles in one place. Track where, when and how they are being used, Manage your EV fleet including cost optimization, charging management and route optimization.",
+          info: "Learn how to effectively reduce costs with help of Big Data and our AI technologies that optimize fleet operations in real-time.",
+          image_alt: "Fleet Management Dashboard",
+          features: {
+            fleet: "Fleet management",
+            charging: "Charging management",
+            route: "Route optimization",
+            cost: "Cost analytics"
+          },
+          stats: {
+            cost: {
+              label: "Cost Reduction"
+            },
+            realtime: "Real-time updates"
+          }
+        }
+      },
+      final_cta: {
+        badge: "Get in touch",
+        heading: "We believe the future of driving is electric",
+        button: "Start now"
+      }
+    },
+    fleet_management: {
+      hero: {
+        title: "Save up to 1000€",
+        title_highlight: "annually on a single fleet car",
+        description: "VivaDrive helps you increase your fleet efficiency and reduces your TCO costs including fuel, service and insurance costs, among others.",
+        email_placeholder: "Email address",
+        contact_sales: "Contact Sales",
+        learn_more: "Learn more",
+        image_alt: "VivaDrive dashboard on laptop",
+        tabs: {
+          benefits: "Benefits",
+          features: "Features"
+        },
+        cards: {
+          annual_savings: {
+            label: "ANNUAL SAVINGS",
+            value: "1000€"
+          }
+        }
+      }
+    },    
   },
 };
 

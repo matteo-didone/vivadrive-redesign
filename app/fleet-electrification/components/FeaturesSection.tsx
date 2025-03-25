@@ -1,8 +1,13 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Battery, BarChart3, PieChart, Car, Calendar, Zap } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FeaturesSection = () => {
+    const { t } = useLanguage();
+
     // Animation variants for staggered animations
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -33,7 +38,7 @@ const FeaturesSection = () => {
                         className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-sm font-medium shadow-sm"
                     >
                         <Zap className="h-4 w-4" />
-                        <span>Discover all the Features</span>
+                        <span>{t('pages.fleet_electrification.features.badge')}</span>
                     </motion.div>
 
                     <motion.h2
@@ -43,7 +48,7 @@ const FeaturesSection = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight text-gray-900 dark:text-white"
                     >
-                        GO electric with confidence
+                        {t('pages.fleet_electrification.features.heading')}
                     </motion.h2>
 
                     <motion.p
@@ -53,7 +58,7 @@ const FeaturesSection = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-lg text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto"
                     >
-                        VivaDrive helps you transition to electric vehicles with comprehensive analysis and support.
+                        {t('pages.fleet_electrification.features.description')}
                     </motion.p>
                 </div>
 
@@ -67,38 +72,38 @@ const FeaturesSection = () => {
                 >
                     <Feature
                         icon={<Car className="h-8 w-8" />}
-                        title="Fleet Analysis"
-                        description="We analyze your current fleet in terms of transport tasks, energy consumption, and operational patterns."
+                        title={t('pages.fleet_electrification.features.items.1.title')}
+                        description={t('pages.fleet_electrification.features.items.1.description')}
                     />
 
                     <Feature
                         icon={<Battery className="h-8 w-8" />}
-                        title="Charging Infrastructure"
-                        description="Detailed simulations for various scenarios of introducing new charging infrastructure tailored to your needs."
+                        title={t('pages.fleet_electrification.features.items.2.title')}
+                        description={t('pages.fleet_electrification.features.items.2.description')}
                     />
 
                     <Feature
                         icon={<BarChart3 className="h-8 w-8" />}
-                        title="TCO Analysis"
-                        description="Comprehensive total cost of ownership calculations to make informed financial decisions."
+                        title={t('pages.fleet_electrification.features.items.3.title')}
+                        description={t('pages.fleet_electrification.features.items.3.description')}
                     />
 
                     <Feature
                         icon={<PieChart className="h-8 w-8" />}
-                        title="Business Modeling"
-                        description="Create a detailed business model for EV implementation specific to your company's requirements."
+                        title={t('pages.fleet_electrification.features.items.4.title')}
+                        description={t('pages.fleet_electrification.features.items.4.description')}
                     />
 
                     <Feature
                         icon={<Calendar className="h-8 w-8" />}
-                        title="Implementation Plan"
-                        description="Step-by-step roadmap for transitioning your fleet partially or fully to electric vehicles."
+                        title={t('pages.fleet_electrification.features.items.5.title')}
+                        description={t('pages.fleet_electrification.features.items.5.description')}
                     />
 
                     <Feature
                         icon={<Zap className="h-8 w-8" />}
-                        title="Ongoing Management"
-                        description="Support for managing a mixed fleet of electric and traditional vehicles and their charging infrastructure."
+                        title={t('pages.fleet_electrification.features.items.6.title')}
+                        description={t('pages.fleet_electrification.features.items.6.description')}
                     />
                 </motion.div>
             </div>

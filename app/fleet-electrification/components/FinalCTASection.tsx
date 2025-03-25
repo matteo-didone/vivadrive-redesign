@@ -1,9 +1,13 @@
+"use client";
+
 import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FinalCTASection = () => {
+    const { t } = useLanguage();
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -51,7 +55,7 @@ const FinalCTASection = () => {
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
                             <Sparkles className="h-4 w-4" />
-                            <span>Get in touch</span>
+                            <span>{t('pages.fleet_electrification.final_cta.badge')}</span>
                         </motion.div>
                     </div>
 
@@ -59,7 +63,7 @@ const FinalCTASection = () => {
                         id="cta-heading"
                         className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-10 text-gray-900 dark:text-white"
                     >
-                        We believe the future of driving is electric
+                        {t('pages.fleet_electrification.final_cta.heading')}
                     </h2>
 
                     <div className="flex justify-center">
@@ -70,9 +74,9 @@ const FinalCTASection = () => {
                             <Button
                                 size="lg"
                                 className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-8 py-6 h-auto text-lg rounded-full group transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 dark:focus:ring-emerald-700"
-                                aria-label="Start now"
+                                aria-label={t('pages.fleet_electrification.final_cta.button')}
                             >
-                                Start now
+                                {t('pages.fleet_electrification.final_cta.button')}
                                 <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                             </Button>
                         </motion.div>

@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const FinalCTASection = () => {
     const { t } = useLanguage();
-    
+
     return (
         <section className="py-24 md:py-32 bg-gradient-to-br from-primary/10 via-blue-500/5 to-primary/10 dark:from-primary/20 dark:via-blue-500/10 dark:to-primary/20 relative overflow-hidden">
             {/* Decorative elements */}
@@ -62,24 +62,24 @@ const FinalCTASection = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                             <Link href="/contact-us">
-                            <Button
-                                size="lg"
-                                className="gap-2 bg-emerald-500 hover:bg-emerald-600 font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
-                            >
-                                {t('finalCTA.getStartedButton')}
-                                <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                            </Button>
+                                <Button
+                                    size="lg"
+                                    className="gap-2 bg-emerald-500 hover:bg-emerald-600 font-medium px-8 py-6 text-lg rounded-full group transition-all duration-300"
+                                >
+                                    {t('finalCTA.getStartedButton')}
+                                    <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                </Button>
                             </Link>
                         </motion.div>
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                             <Link href="/contact-us">
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-primary/20 text-primary hover:bg-primary/10 px-8 py-6 text-lg rounded-full transition-all duration-300"
-                            >
-                                {t('finalCTA.demoButton')}
-                            </Button>
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="border-primary/20 text-primary hover:bg-primary/10 px-8 py-6 text-lg rounded-full transition-all duration-300"
+                                >
+                                    {t('finalCTA.demoButton')}
+                                </Button>
                             </Link>
                         </motion.div>
                     </div>

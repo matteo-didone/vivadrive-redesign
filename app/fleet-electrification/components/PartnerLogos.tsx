@@ -2,8 +2,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const PartnerLogos = () => {
+  const { t } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -74,7 +76,7 @@ const PartnerLogos = () => {
     <div className="w-full py-6 md:py-12 bg-white dark:bg-gray-950">
       <div className="text-center mb-6 md:mb-10">
         <h3 className="text-sm md:text-base font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider px-4">
-          OUR PARTNERS & INTEGRATIONS
+          {t('pages.fleet_electrification.partners.heading')}
         </h3>
       </div>
 
@@ -107,7 +109,7 @@ const PartnerLogos = () => {
                 px-2
               `}
               style={{ WebkitTapHighlightColor: "transparent" }}
-              aria-label={`Visit ${partner.name} website`}
+              aria-label={t('pages.fleet_electrification.partners.visit_label', { name: partner.name })}
             >
               <Image
                 src={partner.img}
@@ -129,7 +131,7 @@ const PartnerLogos = () => {
               target="_blank"
               className="shrink-0 transition-all duration-300 opacity-70 hover:opacity-100 hover:scale-110 grayscale hover:grayscale-0 px-2"
               style={{ WebkitTapHighlightColor: "transparent" }}
-              aria-label={`Visit ${partner.name} website`}
+              aria-label={t('pages.fleet_electrification.partners.visit_label', { name: partner.name })}
             >
               <Image
                 src={partner.img}
