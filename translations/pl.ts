@@ -497,7 +497,42 @@ const pl = {
             value: "4170 zł"
           }
         }
-      }
+      },
+      features: {
+        badge: "Odkryj wszystkie funkcje",
+        heading: "Mierzymy. Analizujemy. Zyskujesz.",
+        description: "Jesteśmy Twoim partnerem w zarządzaniu kosztami TCO. Najpierw skupiamy się na poznaniu Twoich potrzeb, specyfikacji, KPI i ocenie Twojej floty. Następnie nasze algorytmy automatyzują system i interfejs zgodnie z Twoimi potrzebami. Zaczniesz oszczędzać pieniądze już po miesiącu, co oznacza, że rozwiązanie zwróci się już w pierwszym kwartale!",
+        badge_roi: "Szybki zwrot inwestycji w pierwszym kwartale",
+        cards: {
+          1: {
+            title: "Ocena Floty",
+            description: "Analizujemy Twoją obecną flotę, aby zidentyfikować możliwości optymalizacji i ustalić podstawowe wskaźniki."
+          },
+          2: {
+            title: "Spersonalizowane Rozwiązania",
+            description: "Nasze algorytmy tworzą dostosowane interfejsy i systemy, które odpowiadają Twoim konkretnym potrzebom operacyjnym."
+          },
+          3: {
+            title: "Szybki Zwrot z Inwestycji",
+            description: "Zacznij oszczędzać koszty już po miesiącu, a rozwiązanie zwróci się w ciągu pierwszego kwartału."
+          }
+        },
+        stats: {
+          cost_reduction: {
+            value: "27%",
+            label: "Średnia redukcja kosztów"
+          },
+          first_results: {
+            value: "1 Miesiąc",
+            label: "Do pierwszych rezultatów"
+          },
+          roi: {
+            value: "1 Kwartał",
+            label: "Do pełnego zwrotu z inwestycji"
+          }
+        },
+        cta: "Odkryj Więcej"
+      },
     },
   },
 };

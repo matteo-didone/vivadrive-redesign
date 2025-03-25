@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -8,8 +10,11 @@ import {
     Sparkles,
     BarChart3
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FeatureSection = () => {
+    const { t } = useLanguage();
+
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -34,13 +39,6 @@ const FeatureSection = () => {
         <div className="bg-white">
             {/* Features Header Section */}
             <section className="py-16 overflow-hidden relative">
-                {/* Enhanced background elements */}
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald-50 opacity-50 rounded-l-full transform -translate-x-1/4" />
-                <div className="absolute -top-16 -left-16 w-40 h-40 bg-emerald-100 rounded-full opacity-20" />
-                <div className="absolute bottom-24 right-12 w-32 h-32 bg-yellow-300 rounded-full opacity-20 blur-md" />
-                <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-emerald-500 rounded-full opacity-40" />
-                <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-emerald-300 rounded-full opacity-60" />
-                
                 {/* Decorative grid */}
                 <div className="absolute inset-0 bg-grid-pattern opacity-5" style={{
                     backgroundImage: 'linear-gradient(to right, #10b981 1px, transparent 1px), linear-gradient(to bottom, #10b981 1px, transparent 1px)',
@@ -59,27 +57,21 @@ const FeatureSection = () => {
                             className="text-xl md:text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-green-400 mb-4"
                             variants={itemVariant}
                         >
-                            Discover all the Features
+                            {t('pages.fleet_management.features.badge')}
                         </motion.h3>
                         
                         <motion.h2
                             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 relative"
                             variants={itemVariant}
                         >
-                            We measure. We analyse. <span className="relative">
-                                You profit.
-                                <span className="absolute -bottom-3 left-0 right-0 h-2 bg-gradient-to-r from-emerald-300 to-emerald-500 opacity-60 rounded-full"></span>
-                            </span>
+                            {t('pages.fleet_management.features.heading')}
                         </motion.h2>
                         
                         <motion.p
                             className="text-lg text-gray-600 max-w-4xl mx-auto"
                             variants={itemVariant}
                         >
-                            We are your partner in managing your TCO cost, first we focus on getting to know you, 
-                            learning about specs, KPIs and assessing your fleet. Then our algorithms automate the 
-                            system and interface according to your specific needs. You start saving money after 
-                            just one month, that means that it will pay for itself already in the first quarter!
+                            {t('pages.fleet_management.features.description')}
                         </motion.p>
                     </motion.div>
                     
@@ -92,7 +84,7 @@ const FeatureSection = () => {
                     >
                         <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200">
                             <Sparkles className="h-4 w-4 text-emerald-500" />
-                            <span className="text-sm font-medium text-emerald-700">Fast ROI in first quarter</span>
+                            <span className="text-sm font-medium text-emerald-700">{t('pages.fleet_management.features.badge_roi')}</span>
                         </div>
                     </motion.div>
                     
@@ -110,8 +102,8 @@ const FeatureSection = () => {
                                 <Zap className="text-white h-7 w-7" />
                             </div>
                             <div className="absolute top-0 right-0 w-24 h-24 -mr-8 -mt-8 bg-emerald-100 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors text-center">Fleet Assessment</h3>
-                            <p className="text-gray-600 text-center">We analyze your current fleet to identify optimization opportunities and establish baseline metrics.</p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors text-center">{t('pages.fleet_management.features.cards.1.title')}</h3>
+                            <p className="text-gray-600 text-center">{t('pages.fleet_management.features.cards.1.description')}</p>
                             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-300 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                         </motion.div>
                         
@@ -128,8 +120,8 @@ const FeatureSection = () => {
                                 <CheckSquare className="text-white h-7 w-7" />
                             </div>
                             <div className="absolute top-0 right-0 w-24 h-24 -mr-8 -mt-8 bg-emerald-100 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors text-center">Customized Solutions</h3>
-                            <p className="text-gray-600 text-center">Our algorithms create tailored interfaces and systems that match your specific operational needs.</p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors text-center">{t('pages.fleet_management.features.cards.2.title')}</h3>
+                            <p className="text-gray-600 text-center">{t('pages.fleet_management.features.cards.2.description')}</p>
                             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-300 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                         </motion.div>
                         
@@ -146,8 +138,8 @@ const FeatureSection = () => {
                                 <TrendingUp className="text-white h-7 w-7" />
                             </div>
                             <div className="absolute top-0 right-0 w-24 h-24 -mr-8 -mt-8 bg-emerald-100 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors text-center">Rapid ROI</h3>
-                            <p className="text-gray-600 text-center">Start seeing cost savings in just one month, with the solution paying for itself within the first quarter.</p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors text-center">{t('pages.fleet_management.features.cards.3.title')}</h3>
+                            <p className="text-gray-600 text-center">{t('pages.fleet_management.features.cards.3.description')}</p>
                             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-300 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                         </motion.div>
                     </div>
@@ -162,8 +154,8 @@ const FeatureSection = () => {
                             viewport={{ once: true }}
                         >
                             <BarChart3 className="h-8 w-8 text-emerald-500 mx-auto mb-3" />
-                            <h4 className="text-3xl font-bold text-emerald-600 mb-1">27%</h4>
-                            <p className="text-gray-600 text-sm">Average cost reduction</p>
+                            <h4 className="text-3xl font-bold text-emerald-600 mb-1">{t('pages.fleet_management.features.stats.cost_reduction.value')}</h4>
+                            <p className="text-gray-600 text-sm">{t('pages.fleet_management.features.stats.cost_reduction.label')}</p>
                         </motion.div>
                         
                         <motion.div 
@@ -174,8 +166,8 @@ const FeatureSection = () => {
                             viewport={{ once: true }}
                         >
                             <Zap className="h-8 w-8 text-emerald-500 mx-auto mb-3" />
-                            <h4 className="text-3xl font-bold text-emerald-600 mb-1">1 Month</h4>
-                            <p className="text-gray-600 text-sm">To see first results</p>
+                            <h4 className="text-3xl font-bold text-emerald-600 mb-1">{t('pages.fleet_management.features.stats.first_results.value')}</h4>
+                            <p className="text-gray-600 text-sm">{t('pages.fleet_management.features.stats.first_results.label')}</p>
                         </motion.div>
                         
                         <motion.div 
@@ -186,8 +178,8 @@ const FeatureSection = () => {
                             viewport={{ once: true }}
                         >
                             <TrendingUp className="h-8 w-8 text-emerald-500 mx-auto mb-3" />
-                            <h4 className="text-3xl font-bold text-emerald-600 mb-1">1 Quarter</h4>
-                            <p className="text-gray-600 text-sm">To full return on investment</p>
+                            <h4 className="text-3xl font-bold text-emerald-600 mb-1">{t('pages.fleet_management.features.stats.roi.value')}</h4>
+                            <p className="text-gray-600 text-sm">{t('pages.fleet_management.features.stats.roi.label')}</p>
                         </motion.div>
                     </div>
 
@@ -204,7 +196,7 @@ const FeatureSection = () => {
                             whileTap={{ scale: 0.98 }}
                             className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 relative overflow-hidden group"
                         >
-                            <span className="relative z-10">Discover More</span>
+                            <span className="relative z-10">{t('pages.fleet_management.features.cta')}</span>
                             <ArrowRightCircle className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform" />
                             <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                         </motion.button>

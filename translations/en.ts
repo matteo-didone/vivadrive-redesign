@@ -491,7 +491,42 @@ const en = {
             value: "1000€"
           }
         }
-      }
+      },
+      features: {
+        badge: "Discover all the Features",
+        heading: "We measure. We analyse. You profit.",
+        description: "We are your partner in managing your TCO cost, first we focus on getting to know you, learning about specs, KPIs and assessing your fleet. Then our algorithms automate the system and interface according to your specific needs. You start saving money after just one month, that means that it will pay for itself already in the first quarter!",
+        badge_roi: "Fast ROI in first quarter",
+        cards: {
+          1: {
+            title: "Fleet Assessment",
+            description: "We analyze your current fleet to identify optimization opportunities and establish baseline metrics."
+          },
+          2: {
+            title: "Customized Solutions",
+            description: "Our algorithms create tailored interfaces and systems that match your specific operational needs."
+          },
+          3: {
+            title: "Rapid ROI",
+            description: "Start seeing cost savings in just one month, with the solution paying for itself within the first quarter."
+          }
+        },
+        stats: {
+          cost_reduction: {
+            value: "27%",
+            label: "Average cost reduction"
+          },
+          first_results: {
+            value: "1 Month",
+            label: "To see first results"
+          },
+          roi: {
+            value: "1 Quarter",
+            label: "To full return on investment"
+          }
+        },
+        cta: "Discover More"
+      },
     },    
   },
 };
