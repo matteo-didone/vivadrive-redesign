@@ -4,8 +4,10 @@ import React, { useEffect, useRef } from 'react';
 import Image from "next/image";
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CareersHeroSection = () => {
+    const { t } = useLanguage();
     // Refs for animated elements
     const imageRef = useRef(null);
     const highlightRef = useRef(null);
@@ -55,7 +57,7 @@ const CareersHeroSection = () => {
                 >
                     <Image
                         src="/careers/team.jpg"
-                        alt="VivaDrive team collaborating"
+                        alt={t('pages.careers.hero.image_alt')}
                         fill
                         priority
                         sizes="100vw"
@@ -90,9 +92,9 @@ const CareersHeroSection = () => {
                 >
                     {/* Main heading */}
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-4 md:mb-5">
-                        At VivaDrive
+                        {t('pages.careers.hero.title_pre')}
                         <div ref={highlightRef} className="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
-                            we grow together
+                            {t('pages.careers.hero.title_highlight')}
                         </div>
                     </h1>
 
@@ -103,8 +105,7 @@ const CareersHeroSection = () => {
                         transition={{ delay: 0.3, duration: 0.6 }}
                         className="text-lg md:text-xl text-gray-100 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2"
                     >
-                        It's a perfect place for you if you have your own ideas, creative mind
-                        and a will to learn
+                        {t('pages.careers.hero.description')}
                     </motion.p>
 
                     {/* Buttons */}
@@ -116,13 +117,13 @@ const CareersHeroSection = () => {
                     >
                         <button className="w-full sm:w-auto px-6 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 group focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-black/50 flex items-center justify-center">
                             <span className="flex items-center">
-                                Open Positions
+                                {t('pages.careers.hero.button_positions')}
                                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                             </span>
                         </button>
 
                         <button className="w-full sm:w-auto px-6 py-3.5 bg-transparent border-2 border-white/80 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/50">
-                            Our Benefits
+                            {t('pages.careers.hero.button_benefits')}
                         </button>
                     </motion.div>
                 </motion.div>
@@ -136,7 +137,7 @@ const CareersHeroSection = () => {
                 className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 sm:hidden"
             >
                 <div className="flex flex-col items-center">
-                    <span className="text-white text-xs mb-2">Scroll to explore</span>
+                    <span className="text-white text-xs mb-2">{t('pages.careers.hero.scroll_text')}</span>
                     <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center items-start p-1">
                         <motion.div
                             animate={{

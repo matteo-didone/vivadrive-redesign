@@ -3,71 +3,59 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, ArrowRight, Code, Layout, Database, TrendingUp, Building, Palette, Sparkles } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const OpenPositionsSection = () => {
+    const { t } = useLanguage();
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-    // Job positions data with icons
+    // Job positions data with icons - now using translation keys
     const positions = [
         {
-            title: "Python/Django Developer",
-            subtitle: "Smart City/AI",
-            description: "We are looking for an experienced Python/Django developer with at least 4 years...",
+            key: "python_django",
             icon: <Code className="h-5 w-5 md:h-6 md:w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "Front-end Developer",
-            subtitle: "",
-            description: "We are looking for an experienced Python/Django developer with at least 4 years...",
+            key: "frontend",
             icon: <Layout className="h-5 w-5 md:h-6 md:w-6" />,
             color: "from-emerald-500 to-emerald-400",
             textColor: "text-emerald-600",
             bgColor: "bg-emerald-50"
         },
         {
-            title: "Data Scientist",
-            subtitle: "",
-            description: "We are looking for a Data Scientist with at least 3 years experience...",
+            key: "data_scientist",
             icon: <Database className="h-5 w-5 md:h-6 md:w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "Digital Marketer",
-            subtitle: "",
-            description: "We are looking for a Digital Marketer with at least 2 years experience...",
+            key: "digital_marketer",
             icon: <TrendingUp className="h-5 w-5 md:h-6 md:w-6" />,
             color: "from-emerald-500 to-emerald-400",
             textColor: "text-emerald-600",
             bgColor: "bg-emerald-50"
         },
         {
-            title: "Business Developer",
-            subtitle: "",
-            description: "We are looking for a Business Developer with at least 5 years experience...",
+            key: "business_developer",
             icon: <Building className="h-5 w-5 md:h-6 md:w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "UX/UI",
-            subtitle: "",
-            description: "We are looking for a UX/UI designer with at least 2 years experience...",
+            key: "ux_ui",
             icon: <Palette className="h-5 w-5 md:h-6 md:w-6" />,
             color: "from-emerald-500 to-emerald-400",
             textColor: "text-emerald-600",
             bgColor: "bg-emerald-50"
         },
         {
-            title: "Different position?",
-            subtitle: "",
-            description: "Is your skillset not on our list? Don't worry, we are always open for talents....",
+            key: "different",
             icon: <Sparkles className="h-5 w-5 md:h-6 md:w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
@@ -100,12 +88,12 @@ const OpenPositionsSection = () => {
                     <div className="flex items-center justify-center mb-3 md:mb-4">
                         <Briefcase className="w-6 md:w-8 h-6 md:h-8 text-emerald-500 mr-2" />
                         <span className="text-xs md:text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
-                            Career opportunities
+                            {t('pages.careers.positions.badge')}
                         </span>
                     </div>
 
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-10 text-gray-900 relative inline-block">
-                        Open positions
+                        {t('pages.careers.positions.heading')}
                         <motion.span
                             className="absolute -bottom-2 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-400 to-emerald-500 rounded-full"
                             initial={{ width: 0, left: "50%" }}
@@ -120,8 +108,7 @@ const OpenPositionsSection = () => {
                         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                         transition={{ duration: 0.7, delay: 0.5 }}
                     >
-                        Join our team and help us build sustainable solutions for the future.
-                        We're looking for passionate people who want to make a difference.
+                        {t('pages.careers.positions.description')}
                     </motion.p>
                 </motion.div>
 
@@ -159,27 +146,27 @@ const OpenPositionsSection = () => {
                                         {/* Content - centered on mobile */}
                                         <div className="text-center md:text-left">
                                             <h3 className="text-lg md:text-xl font-bold text-gray-800">
-                                                {position.title}
-                                                {position.subtitle && (
+                                                {t(`pages.careers.positions.jobs.${position.key}.title`)}
+                                                {t(`pages.careers.positions.jobs.${position.key}.subtitle`) && (
                                                     <span className="text-xs md:text-sm font-medium ml-2 text-gray-500">
-                                                        ({position.subtitle})
+                                                        ({t(`pages.careers.positions.jobs.${position.key}.subtitle`)})
                                                     </span>
                                                 )}
                                             </h3>
                                             <p className="text-sm md:text-base text-gray-600 mt-1 max-w-md mx-auto md:mx-0">
-                                                {position.description}
+                                                {t(`pages.careers.positions.jobs.${position.key}.description`)}
                                             </p>
                                         </div>
                                     </div>
 
                                     {/* Apply button - centered on mobile */}
                                     <div className="flex-shrink-0 flex justify-center md:justify-start">
-                                        <a href={`/apply/${position.title.toLowerCase().replace(/\s+/g, '-')}`}
+                                        <a href={`/apply/${t(`pages.careers.positions.jobs.${position.key}.title`).toLowerCase().replace(/\s+/g, '-')}`}
                                             className={`inline-flex items-center px-5 py-2.5 
                                             bg-gradient-to-r ${position.color} text-white 
                                             rounded-full shadow-sm hover:shadow-lg transition-all duration-300 
                                             transform hover:scale-105 group/btn`}>
-                                            Apply
+                                            {t('pages.careers.positions.apply_button')}
                                             <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
                                         </a>
                                     </div>
@@ -197,7 +184,7 @@ const OpenPositionsSection = () => {
                     transition={{ duration: 0.6, delay: 0.9 }}
                 >
                     <p className="text-base md:text-lg text-gray-600 mb-5 md:mb-6">
-                        Don't see a position that fits your skills?
+                        {t('pages.careers.positions.cta_question')}
                     </p>
                     <a
                         href="/contact"
@@ -211,7 +198,7 @@ const OpenPositionsSection = () => {
                         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent 
                         -translate-x-full animate-shimmer opacity-0 hover:opacity-100" />
 
-                        Contact our team
+                        {t('pages.careers.positions.cta_button')}
                         <ArrowRight className="h-4 md:h-5 w-4 md:w-5 transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                 </motion.div>

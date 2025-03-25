@@ -714,7 +714,102 @@ const en = {
         badge_label: "Global Team",
         badge_value: "Join Us"
       }
-    }   
+    },
+    careers: {
+      hero: {
+        title_pre: "At VivaDrive",
+        title_highlight: "we grow together",
+        description: "It's a perfect place for you if you have your own ideas, creative mind and a will to learn",
+        button_positions: "Open Positions",
+        button_benefits: "Our Benefits",
+        scroll_text: "Scroll to explore",
+        image_alt: "VivaDrive team collaborating"
+      },
+      culture: {
+        heading: "Culture and perks",
+        description: "We're a driven team with over 12 nationalities, working together to make the world sustainable. We believe that having stimulating and comfortable working conditions is really important to innovate and create something unique. We believe in teamwork, technology, and work-life balance, not to mention fun.",
+        apply_button: "Apply",
+        perks: {
+          flexible: {
+            title: "Flexible work-life",
+            description: "We trust you to know your schedule and work when you feel most productive."
+          },
+          learning: {
+            title: "Learning and Development",
+            description: "Internal webinars, mentorship program, P2P work - all to make sure that you grow. If you grow, we grow too 😊"
+          },
+          think_big: {
+            title: "We think big",
+            description: "We love being challenged and we aim to build a meaningful company, impacting the lives of millions of people and protecting the planet."
+          },
+          fun: {
+            title: "Fun friendly office:",
+            description: "Laughing to thrive - that's our motto. In a startup, you need to stay positive! But realistic too ;)"
+          },
+          diverse: {
+            title: "Diverse",
+            description: "We value all voices VivaDrive and we try to create a diverse and equitable work environment where every single person counts."
+          },
+          international: {
+            title: "International",
+            description: "We are building a global brand, so we need to understand our customers from different parts of the world. That is why our team is global too"
+          },
+          empowering: {
+            title: "Empowering",
+            description: "We know one person can make a meaningful impact. Work with us and find it out."
+          },
+          collaborative: {
+            title: "Collaborative",
+            description: "We are silo-free and ego-free. We are one team that supports each other to succeed."
+          }
+        }
+      },
+      positions: {
+        badge: "Career opportunities",
+        heading: "Open positions",
+        description: "Join our team and help us build sustainable solutions for the future. We're looking for passionate people who want to make a difference.",
+        apply_button: "Apply",
+        cta_question: "Don't see a position that fits your skills?",
+        cta_button: "Contact our team",
+        jobs: {
+          python_django: {
+            title: "Python/Django Developer",
+            subtitle: "Smart City/AI",
+            description: "We are looking for an experienced Python/Django developer with at least 4 years..."
+          },
+          frontend: {
+            title: "Front-end Developer",
+            subtitle: "",
+            description: "We are looking for an experienced Python/Django developer with at least 4 years..."
+          },
+          data_scientist: {
+            title: "Data Scientist",
+            subtitle: "",
+            description: "We are looking for a Data Scientist with at least 3 years experience..."
+          },
+          digital_marketer: {
+            title: "Digital Marketer",
+            subtitle: "",
+            description: "We are looking for a Digital Marketer with at least 2 years experience..."
+          },
+          business_developer: {
+            title: "Business Developer",
+            subtitle: "",
+            description: "We are looking for a Business Developer with at least 5 years experience..."
+          },
+          ux_ui: {
+            title: "UX/UI",
+            subtitle: "",
+            description: "We are looking for a UX/UI designer with at least 2 years experience..."
+          },
+          different: {
+            title: "Different position?",
+            subtitle: "",
+            description: "Is your skillset not on our list? Don't worry, we are always open for talents...."
+          }
+        }
+      },
+    },   
   },
 };
 

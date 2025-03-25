@@ -3,72 +3,66 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Clock, BookOpen, Lightbulb, SmilePlus, Users, Globe, Users2, Award } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CultureAndPerksSection = () => {
+    const { t } = useLanguage();
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-    // Perks data with icons
+    // Perks data with icons - now using translation keys
     const perks = [
         {
-            title: "Flexible work-life",
-            description: "We trust you to know your schedule and work when you feel most productive.",
+            key: "flexible",
             icon: <Clock className="h-6 w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "Learning and Development",
-            description: "Internal webinars, mentorship program, P2P work - all to make sure that you grow. If you grow, we grow too 😊",
+            key: "learning",
             icon: <BookOpen className="h-6 w-6" />,
             color: "from-emerald-500 to-emerald-400",
             textColor: "text-emerald-600",
             bgColor: "bg-emerald-50"
         },
         {
-            title: "We think big",
-            description: "We love being challenged and we aim to build a meaningful company, impacting the lives of millions of people and protecting the planet.",
+            key: "think_big",
             icon: <Lightbulb className="h-6 w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "Fun friendly office:",
-            description: "Laughing to thrive - that's our motto. In a startup, you need to stay positive! But realistic too ;)",
+            key: "fun",
             icon: <SmilePlus className="h-6 w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "Diverse",
-            description: "We value all voices VivaDrive and we try to create a diverse and equitable work environment where every single person counts.",
+            key: "diverse",
             icon: <Users className="h-6 w-6" />,
             color: "from-emerald-500 to-emerald-400",
             textColor: "text-emerald-600",
             bgColor: "bg-emerald-50"
         },
         {
-            title: "International",
-            description: "We are building a global brand, so we need to understand our customers from different parts of the world. That is why our team is global too",
+            key: "international",
             icon: <Globe className="h-6 w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "Empowering",
-            description: "We know one person can make a meaningful impact. Work with us and find it out.",
+            key: "empowering",
             icon: <Award className="h-6 w-6" />,
             color: "from-blue-500 to-blue-400",
             textColor: "text-blue-600",
             bgColor: "bg-blue-50"
         },
         {
-            title: "Collaborative",
-            description: "We are silo-free and ego-free. We are one team that supports each other to succeed.",
+            key: "collaborative",
             icon: <Users2 className="h-6 w-6" />,
             color: "from-emerald-500 to-emerald-400",
             textColor: "text-emerald-600",
@@ -99,7 +93,7 @@ const CultureAndPerksSection = () => {
                     transition={{ duration: 0.7 }}
                 >
                     <h2 className="text-5xl sm:text-6xl font-bold mb-10 text-gray-900 relative inline-block">
-                        Culture and perks
+                        {t('pages.careers.culture.heading')}
                         <motion.span
                             className="absolute -bottom-2 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full"
                             initial={{ width: 0, left: "50%" }}
@@ -114,10 +108,7 @@ const CultureAndPerksSection = () => {
                         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                         transition={{ duration: 0.7, delay: 0.5 }}
                     >
-                        We're a driven team with over 12 nationalities, working together to make the world sustainable. We
-                        believe that having stimulating and comfortable working conditions is really important to innovate and
-                        create something unique. We believe in teamwork, technology, and work-life balance, not to mention
-                        fun.
+                        {t('pages.careers.culture.description')}
                     </motion.p>
                 </motion.div>
 
@@ -156,12 +147,12 @@ const CultureAndPerksSection = () => {
 
                                 {/* Title - centered */}
                                 <h3 className="text-2xl font-bold mb-3 text-gray-800 group-hover:text-gray-900 transition-colors">
-                                    {perk.title}
+                                    {t(`pages.careers.culture.perks.${perk.key}.title`)}
                                 </h3>
 
                                 {/* Description - centered */}
                                 <p className="text-gray-600 group-hover:text-gray-700 transition-colors mx-auto">
-                                    {perk.description}
+                                    {t(`pages.careers.culture.perks.${perk.key}.description`)}
                                 </p>
                             </div>
                         </motion.div>
@@ -187,7 +178,7 @@ const CultureAndPerksSection = () => {
                         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent 
                           -translate-x-full animate-shimmer opacity-0 hover:opacity-100" />
 
-                        Apply
+                        {t('pages.careers.culture.apply_button')}
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1">
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>

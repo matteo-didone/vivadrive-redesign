@@ -721,6 +721,101 @@ const pl = {
         badge_value: "Dołącz do Nas"
       }
     },
+    careers: {
+      hero: {
+        title_pre: "W VivaDrive",
+        title_highlight: "rozwijamy się razem",
+        description: "To idealne miejsce dla Ciebie, jeśli masz własne pomysły, kreatywny umysł i chęć do nauki",
+        button_positions: "Otwarte Stanowiska",
+        button_benefits: "Nasze Benefity",
+        scroll_text: "Przewiń, aby odkryć więcej",
+        image_alt: "Zespół VivaDrive współpracujący"
+      },
+      culture: {
+        heading: "Kultura i benefity",
+        description: "Jesteśmy zespołem pełnym pasji, składającym się z ponad 12 narodowości, pracującym razem, aby uczynić świat bardziej zrównoważonym. Wierzymy, że stymulujące i komfortowe warunki pracy są naprawdę ważne dla innowacji i tworzenia czegoś wyjątkowego. Wierzymy w pracę zespołową, technologię i równowagę między życiem zawodowym a prywatnym, nie wspominając o dobrej zabawie.",
+        apply_button: "Aplikuj",
+        perks: {
+          flexible: {
+            title: "Elastyczny czas pracy",
+            description: "Ufamy, że znasz swój harmonogram i pracujesz wtedy, gdy czujesz się najbardziej produktywny."
+          },
+          learning: {
+            title: "Nauka i rozwój",
+            description: "Wewnętrzne webinary, program mentorski, praca P2P - wszystko po to, abyś się rozwijał. Jeśli ty rośniesz, my także rośniemy 😊"
+          },
+          think_big: {
+            title: "Myślimy globalnie",
+            description: "Lubimy wyzwania i dążymy do zbudowania znaczącej firmy, wpływającej na życie milionów ludzi i chroniącej planetę."
+          },
+          fun: {
+            title: "Przyjazne biuro",
+            description: "Śmiech, aby prosperować - to nasze motto. W startupie musisz pozostać pozytywny! Ale realistyczny też ;)"
+          },
+          diverse: {
+            title: "Różnorodność",
+            description: "Cenimy wszystkie głosy w VivaDrive i staramy się tworzyć zróżnicowane i sprawiedliwe środowisko pracy, gdzie każda osoba się liczy."
+          },
+          international: {
+            title: "Międzynarodowość",
+            description: "Budujemy globalną markę, więc musimy rozumieć naszych klientów z różnych części świata. Dlatego nasz zespół również jest globalny."
+          },
+          empowering: {
+            title: "Wzmacniający",
+            description: "Wiemy, że jedna osoba może mieć znaczący wpływ. Pracuj z nami i przekonaj się o tym."
+          },
+          collaborative: {
+            title: "Współpraca",
+            description: "Jesteśmy wolni od silosów i ego. Jesteśmy jednym zespołem, który wspiera się nawzajem, aby odnieść sukces."
+          }
+        }
+      },
+      positions: {
+        badge: "Możliwości kariery",
+        heading: "Otwarte stanowiska",
+        description: "Dołącz do naszego zespołu i pomóż nam budować zrównoważone rozwiązania dla przyszłości. Szukamy ludzi z pasją, którzy chcą wprowadzać pozytywne zmiany.",
+        apply_button: "Aplikuj",
+        cta_question: "Nie widzisz stanowiska pasującego do Twoich umiejętności?",
+        cta_button: "Skontaktuj się z nami",
+        jobs: {
+          python_django: {
+            title: "Python/Django Developer",
+            subtitle: "Smart City/AI",
+            description: "Poszukujemy doświadczonego programisty Python/Django z co najmniej 4-letnim doświadczeniem..."
+          },
+          frontend: {
+            title: "Front-end Developer",
+            subtitle: "",
+            description: "Poszukujemy doświadczonego programisty Python/Django z co najmniej 4-letnim doświadczeniem..."
+          },
+          data_scientist: {
+            title: "Data Scientist",
+            subtitle: "",
+            description: "Poszukujemy Data Scientista z co najmniej 3-letnim doświadczeniem..."
+          },
+          digital_marketer: {
+            title: "Digital Marketer",
+            subtitle: "",
+            description: "Poszukujemy Digital Marketera z co najmniej 2-letnim doświadczeniem..."
+          },
+          business_developer: {
+            title: "Business Developer",
+            subtitle: "",
+            description: "Poszukujemy Business Developera z co najmniej 5-letnim doświadczeniem..."
+          },
+          ux_ui: {
+            title: "UX/UI",
+            subtitle: "",
+            description: "Poszukujemy projektanta UX/UI z co najmniej 2-letnim doświadczeniem..."
+          },
+          different: {
+            title: "Inne stanowisko?",
+            subtitle: "",
+            description: "Twoje umiejętności nie znajdują się na naszej liście? Nie martw się, zawsze jesteśmy otwarci na talenty..."
+          }
+        }
+      }
+    },
   },
 };
 
