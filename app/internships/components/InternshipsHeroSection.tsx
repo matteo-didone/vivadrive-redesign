@@ -4,8 +4,10 @@ import React, { useEffect, useRef } from 'react';
 import Image from "next/image";
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const InternshipsHeroSection = () => {
+    const { t } = useLanguage();
     // Refs for animated elements
     const imageRef = useRef(null);
     const highlightRef = useRef(null);
@@ -55,7 +57,7 @@ const InternshipsHeroSection = () => {
                 >
                     <Image
                         src="/internships/teamwork.png"
-                        alt="VivaDrive internship team collaborating"
+                        alt={t('pages.internships.hero.image_alt')}
                         fill
                         priority
                         sizes="100vw"
@@ -90,9 +92,9 @@ const InternshipsHeroSection = () => {
                 >
                     {/* Main heading */}
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-4 md:mb-5">
-                        Internships
+                        {t('pages.internships.hero.title')}
                         <div ref={highlightRef} className="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
-                            Build your career with VivaDrive
+                            {t('pages.internships.hero.subtitle')}
                         </div>
                     </h1>
 
@@ -103,9 +105,7 @@ const InternshipsHeroSection = () => {
                         transition={{ delay: 0.3, duration: 0.6 }}
                         className="text-base md:text-xl text-gray-100 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2"
                     >
-                        At VivaDrive we believe that collaboration is the best way to learn and do something 
-                        meaningful. Start your career in technology, Data Science, and Business/Communication 
-                        in a international environment.
+                        {t('pages.internships.hero.description')}
                     </motion.p>
 
                     {/* Buttons */}
@@ -117,26 +117,26 @@ const InternshipsHeroSection = () => {
                     >
                         <button className="w-full sm:w-auto px-6 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 group focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-black/50 flex items-center justify-center">
                             <span className="flex items-center">
-                                View internships
+                                {t('pages.internships.hero.button')}
                                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                             </span>
                         </button>
                     </motion.div>
                 </motion.div>
             </div>
-            
+
             {/* Mobile-specific scroll indicator */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 transition={{ delay: 1.2, duration: 0.8 }}
                 className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 sm:hidden"
             >
                 <div className="flex flex-col items-center">
-                    <span className="text-white text-xs mb-2">Scroll to explore</span>
+                    <span className="text-white text-xs mb-2">{t('pages.internships.hero.scroll_text')}</span>
                     <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center items-start p-1">
-                        <motion.div 
-                            animate={{ 
+                        <motion.div
+                            animate={{
                                 y: [0, 8, 0],
                             }}
                             transition={{

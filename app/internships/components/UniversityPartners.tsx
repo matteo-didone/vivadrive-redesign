@@ -2,8 +2,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const UniversityPartners = () => {
+  const { t } = useLanguage();
   const scrollRef = useRef(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -89,7 +91,7 @@ const UniversityPartners = () => {
       <div className="container mx-auto">
         <div className="text-center mb-6 md:mb-10">
           <h3 className="text-sm md:text-base font-medium text-white uppercase tracking-wider px-4">
-            UNIVERSITY PARTNERS
+            {t('pages.internships.partners.heading')}
           </h3>
         </div>
 
@@ -122,7 +124,7 @@ const UniversityPartners = () => {
                   px-2
                 `}
                 style={{ WebkitTapHighlightColor: "transparent" }}
-                aria-label={`Visit ${university.name} website`}
+                aria-label={t('pages.internships.partners.visit_label', { name: university.name })}
               >
                 <Image
                   src={university.img}
@@ -144,7 +146,7 @@ const UniversityPartners = () => {
                 target="_blank"
                 className="shrink-0 transition-all duration-300 opacity-80 hover:opacity-100 hover:scale-110 px-2"
                 style={{ WebkitTapHighlightColor: "transparent" }}
-                aria-label={`Visit ${university.name} website`}
+                aria-label={t('pages.internships.partners.visit_label', { name: university.name })}
               >
                 <Image
                   src={university.img}

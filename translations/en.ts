@@ -808,6 +808,60 @@ const en = {
             description: "Is your skillset not on our list? Don't worry, we are always open for talents...."
           }
         }
+      }
+    },
+    internships: {
+      hero: {
+        title: "Internships",
+        subtitle: "Build your career with VivaDrive",
+        description: "At VivaDrive we believe that collaboration is the best way to learn and do something meaningful. Start your career in technology, Data Science, and Business/Communication in a international environment.",
+        button: "View internships",
+        scroll_text: "Scroll to explore",
+        image_alt: "VivaDrive internship team collaborating"
+      },
+      partners: {
+        heading: "UNIVERSITY PARTNERS",
+        visit_label: "Visit {{name}} website"
+      },
+      testimonials: {
+        positions: {
+          fullstack: "Full Stack Developer Intern",
+          frontend: "Frontend Developer Intern",
+          backend: "Backend Developer Intern",
+          datascience: "Data Science Intern",
+          ai: "AI Developer Intern"
+        },
+        quotes: {
+          patrik: "Joining VivaDrive as a full stack intern has been transformative for my career. The opportunity to work across the entire technology stack allowed me to discover my strengths and develop a holistic understanding of software development that would have taken years to gain elsewhere.",
+          matteo: "Time flies when you really enjoy what you do! Came to VivaDrive as a frontend intern to learn and gain experience. The flexible working culture and exploration-friendly environment made me move towards new challenges and grow as a developer.",
+          gabriele: "The best decision I ever made was to join VivaDrive as a data science intern. I learned a lot and a bit of everything, more than I asked for. I had space to learn, practice, and evolve as a professional in the data science field.",
+          giovanni: "I joined VivaDrive as an AI developer intern. It allowed me to gain so much practical experience on real projects that today I continue my AI development career thanks to this decision.",
+          christina: "Every day starts with new technical challenges and new objectives. I discovered my true passion for data science at VivaDrive which showed my impact on real-world data projects.",
+          goncalo: "Working at VivaDrive as a backend developer intern has been an incredible journey. The collaborative environment and hands-on approach have helped me develop both my technical skills and understanding of server-side architecture.",
+          dorian: "My experience as a frontend developer intern at VivaDrive has been truly enriching. Being part of a collaborative team and working on real-world projects has deepened my expertise in building dynamic user interfaces and refining client-side architecture."
+        },
+        countries: {
+          slovakia: "Slovakia",
+          italy: "Italy",
+          greece: "Greece",
+          portugal: "Portugal",
+          france: "France"
+        },
+        sections: {
+          our_people: "Our People",
+          heading: "From Interns to Innovators",
+          subheading: "Our interns grow into leaders, bringing fresh perspectives and innovative solutions to VivaDrive."
+        },
+        cta: {
+          question: "Interested in joining our intern program?",
+          button: "View Opportunities"
+        },
+        aria: {
+          linkedin: "Visit {{name}}'s LinkedIn profile",
+          slide: "Go to slide {{index}}",
+          previous: "Previous testimonial",
+          next: "Next testimonial"
+        }
       },
     },   
   },

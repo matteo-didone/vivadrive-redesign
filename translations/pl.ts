@@ -816,6 +816,60 @@ const pl = {
         }
       }
     },
+    internships: {
+      hero: {
+        title: "Staże",
+        subtitle: "Buduj swoją karierę z VivaDrive",
+        description: "W VivaDrive wierzymy, że współpraca to najlepszy sposób na naukę i robienie czegoś znaczącego. Rozpocznij swoją karierę w technologii, Data Science i Biznesie/Komunikacji w międzynarodowym środowisku.",
+        button: "Zobacz staże",
+        scroll_text: "Przewiń, aby odkryć więcej",
+        image_alt: "Zespół stażystów VivaDrive współpracujący ze sobą"
+      },
+      partners: {
+        heading: "PARTNERZY UNIWERSYTECCY",
+        visit_label: "Odwiedź stronę {{name}}"
+      },
+      testimonials: {
+        positions: {
+          fullstack: "Stażysta Full Stack Developer",
+          frontend: "Stażysta Frontend Developer",
+          backend: "Stażysta Backend Developer",
+          datascience: "Stażysta Data Science",
+          ai: "Stażysta AI Developer"
+        },
+        quotes: {
+          patrik: "Dołączenie do VivaDrive jako stażysta full stack było przełomowe dla mojej kariery. Możliwość pracy z całym stosem technologicznym pozwoliła mi odkryć moje mocne strony i rozwinąć holistyczne zrozumienie tworzenia oprogramowania, które gdzie indziej zajęłoby mi lata.",
+          matteo: "Czas leci, gdy naprawdę lubisz to, co robisz! Przyszedłem do VivaDrive jako stażysta frontend, aby uczyć się i zdobywać doświadczenie. Elastyczna kultura pracy i środowisko sprzyjające eksploracji pozwoliły mi zmierzyć się z nowymi wyzwaniami i rozwinąć się jako programista.",
+          gabriele: "Najlepszą decyzją, jaką kiedykolwiek podjąłem, było dołączenie do VivaDrive jako stażysta data science. Nauczyłem się wiele i trochę wszystkiego, więcej niż prosiłem. Miałem przestrzeń do nauki, praktyki i rozwoju jako profesjonalista w dziedzinie data science.",
+          giovanni: "Dołączyłem do VivaDrive jako stażysta AI developer. Pozwoliło mi to zdobyć tak dużo praktycznego doświadczenia w rzeczywistych projektach, że dziś kontynuuję moją karierę w rozwoju AI dzięki tej decyzji.",
+          christina: "Każdy dzień zaczyna się od nowych wyzwań technicznych i nowych celów. Odkryłam swoją prawdziwą pasję do data science w VivaDrive, co pokazało mój wpływ na projekty z danymi w rzeczywistym świecie.",
+          goncalo: "Praca w VivaDrive jako stażysta backend developer była niesamowitą podróżą. Współpracujące środowisko i praktyczne podejście pomogły mi rozwinąć zarówno moje umiejętności techniczne, jak i zrozumienie architektury po stronie serwera.",
+          dorian: "Moje doświadczenie jako stażysta frontend developer w VivaDrive było naprawdę wzbogacające. Bycie częścią współpracującego zespołu i praca nad projektami z rzeczywistego świata pogłębiły moją wiedzę w budowaniu dynamicznych interfejsów użytkownika i dopracowywaniu architektury po stronie klienta."
+        },
+        countries: {
+          slovakia: "Słowacja",
+          italy: "Włochy",
+          greece: "Grecja",
+          portugal: "Portugalia",
+          france: "Francja"
+        },
+        sections: {
+          our_people: "Nasi Ludzie",
+          heading: "Od Stażystów do Innowatorów",
+          subheading: "Nasi stażyści stają się liderami, wnosząc świeże perspektywy i innowacyjne rozwiązania do VivaDrive."
+        },
+        cta: {
+          question: "Zainteresowany dołączeniem do naszego programu stażowego?",
+          button: "Zobacz Możliwości"
+        },
+        aria: {
+          linkedin: "Odwiedź profil LinkedIn {{name}}",
+          slide: "Przejdź do slajdu {{index}}",
+          previous: "Poprzednie opinie",
+          next: "Następne opinie"
+        }
+      }
+    },
   },
 };
 
