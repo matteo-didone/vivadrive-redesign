@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { useLanguage } from '@/contexts/LanguageContext';
 import Image from "next/image";
 
 const PartnerLogos = () => {
+  const { t } = useLanguage();
+
   const scrollRef = useRef(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -88,9 +91,9 @@ const PartnerLogos = () => {
     <div className="w-full py-6 md:py-12 bg-emerald-500">
       <div className="container mx-auto">
         <div className="text-center mb-6 md:mb-10">
-          <h3 className="text-sm md:text-base font-medium text-white uppercase tracking-wider px-4">
-            OUR PARTNERS
-          </h3>
+        <h3 className="text-sm md:text-base font-medium text-white uppercase tracking-wider px-4">
+  {t('pages.about.partners.heading')}
+</h3>
         </div>
 
         <div className="w-full overflow-hidden relative">
@@ -122,7 +125,7 @@ const PartnerLogos = () => {
                   px-2
                 `}
                 style={{ WebkitTapHighlightColor: "transparent" }}
-                aria-label={`Visit ${partner.name} website`}
+                aria-label={t('pages.about.partners.visit_label', { name: partner.name })}
               >
                 <Image
                   src={partner.img}

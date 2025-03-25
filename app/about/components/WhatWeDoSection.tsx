@@ -4,8 +4,10 @@ import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const WhatWeDoSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -68,7 +70,7 @@ const WhatWeDoSection = () => {
           className="relative mb-10 md:mb-16 text-center"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-500 relative z-10 inline-block">
-            What do we do?
+            {t('pages.about.what_we_do.heading')}
           </h2>
           <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 h-3 bg-emerald-200/50 w-20 md:w-32 rounded-full blur-sm"></div>
         </motion.div>
@@ -85,7 +87,7 @@ const WhatWeDoSection = () => {
               variants={itemVariants}
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight text-center lg:text-center"
             >
-              We provide innovative solutions for fleets and managers
+              {t('pages.about.what_we_do.subheading')}
             </motion.h3>
 
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6 text-center">
@@ -94,8 +96,7 @@ const WhatWeDoSection = () => {
                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
                 </div>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  We work everyday with passion to provide tools that make
-                  work of fleet managers easy and enjoyable.
+                  {t('pages.about.what_we_do.point1')}
                 </p>
               </div>
 
@@ -104,8 +105,7 @@ const WhatWeDoSection = () => {
                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
                 </div>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  Every single day we save precious time and money on
-                  daunting fleet management tasks.
+                  {t('pages.about.what_we_do.point2')}
                 </p>
               </div>
 
@@ -114,9 +114,7 @@ const WhatWeDoSection = () => {
                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
                 </div>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  We are one among the first ones in the world who
-                  developed a system that saves your money, time and
-                  environment at the same time.
+                  {t('pages.about.what_we_do.point3')}
                 </p>
               </div>
             </motion.div>
@@ -127,7 +125,7 @@ const WhatWeDoSection = () => {
             >
               <button className="w-full sm:w-auto px-7 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 group focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 flex items-center justify-center">
                 <span className="flex items-center">
-                  Learn More About Our Solutions
+                  {t('pages.about.what_we_do.cta_button')}
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </button>
@@ -145,7 +143,7 @@ const WhatWeDoSection = () => {
             <div className="relative z-10 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/about/humans.jpg"
-                alt="Fleet managers discussing solutions"
+                alt={t('pages.about.what_we_do.image_alt')}
                 width={600}
                 height={450}
                 className="w-full h-auto object-cover"
@@ -162,10 +160,10 @@ const WhatWeDoSection = () => {
             <div className="absolute -bottom-4 md:-bottom-6 -left-2 md:-left-6 bg-white p-4 md:p-6 rounded-xl shadow-lg z-20 max-w-[65%] sm:max-w-[55%] md:max-w-[60%] border border-gray-100">
               <div className="flex flex-col sm:flex-row items-start sm:items-center sm:space-x-4">
                 <div className="text-3xl md:text-4xl font-bold text-emerald-500 mb-1 sm:mb-0 group transition-all duration-300 relative">
-                  30%
+                  {t('pages.about.what_we_do.stat_value')}
                   <span className="absolute -bottom-1 left-0 w-0 group-hover:w-full h-1 bg-emerald-200 transition-all duration-500 rounded-full"></span>
                 </div>
-                <div className="text-sm md:text-base text-gray-700">Average cost reduction for our clients</div>
+                <div className="text-sm md:text-base text-gray-700">{t('pages.about.what_we_do.stat_description')}</div>
               </div>
             </div>
           </motion.div>

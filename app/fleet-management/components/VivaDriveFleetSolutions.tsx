@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -14,8 +16,11 @@ import {
     TrendingUp,
     Shield
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const VivaDriveFleetSolutions = () => {
+    const { t } = useLanguage();
+
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -61,29 +66,25 @@ const VivaDriveFleetSolutions = () => {
                                 variants={itemVariant}
                             >
                                 <Smartphone className="h-4 w-4" />
-                                <span>Driver Management</span>
+                                <span>{t('pages.fleet_management.solutions.section1.badge')}</span>
                             </motion.div>
 
                             <motion.h2
                                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
-                                Improve your
+                                {t('pages.fleet_management.solutions.section1.heading_pre')}
                                 <span className="relative text-emerald-500 ml-2">
-                                    drivers'
-                                    <span className="absolute -bottom-1 left-0 right-0 h-1 bg-emerald-300 opacity-60 rounded-full"></span>
+                                    {t('pages.fleet_management.solutions.section1.heading_highlight')}
                                 </span>
-                                <span className="ml-2">experience</span>
+                                <span className="ml-2">{t('pages.fleet_management.solutions.section1.heading_post')}</span>
                             </motion.h2>
 
                             <motion.p
                                 className="text-base sm:text-lg text-gray-600 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                Analytics, personalised feedback, gamification and a motivation
-                                program build for better and more efficient drivers. With help of
-                                VivaDrive mobile you can accurately communicate with drivers and
-                                simplify and streamline how you manage your people in your fleet.
+                                {t('pages.fleet_management.solutions.section1.description')}
                             </motion.p>
 
                             <motion.div
@@ -91,8 +92,7 @@ const VivaDriveFleetSolutions = () => {
                                 variants={itemVariant}
                             >
                                 <p className="text-gray-700 font-medium text-sm sm:text-base">
-                                    Our mobile app provides real-time feedback, personalized guidance,
-                                    and gamified elements to boost driver engagement and performance.
+                                    {t('pages.fleet_management.solutions.section1.note')}
                                 </p>
                             </motion.div>
 
@@ -102,15 +102,15 @@ const VivaDriveFleetSolutions = () => {
                             >
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
                                     <Shield className="h-4 w-4 text-emerald-500" />
-                                    <span className="text-sm font-medium text-emerald-700">Improved safety</span>
+                                    <span className="text-sm font-medium text-emerald-700">{t('pages.fleet_management.solutions.section1.tags.safety')}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
                                     <TrendingUp className="h-4 w-4 text-emerald-500" />
-                                    <span className="text-sm font-medium text-emerald-700">Higher efficiency</span>
+                                    <span className="text-sm font-medium text-emerald-700">{t('pages.fleet_management.solutions.section1.tags.efficiency')}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
                                     <Zap className="h-4 w-4 text-emerald-500" />
-                                    <span className="text-sm font-medium text-emerald-700">Better engagement</span>
+                                    <span className="text-sm font-medium text-emerald-700">{t('pages.fleet_management.solutions.section1.tags.engagement')}</span>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -125,7 +125,7 @@ const VivaDriveFleetSolutions = () => {
                         >
                             <img
                                 src="/fleet-management/iphone-mockup.png"
-                                alt="VivaDrive Mobile App"
+                                alt={t('pages.fleet_management.solutions.section1.image_alt')}
                                 className="w-[100%] lg:w-[160%] max-w-none h-auto object-contain"
                             />
                         </motion.div>
@@ -165,7 +165,7 @@ const VivaDriveFleetSolutions = () => {
                                 >
                                     <img
                                         src="/fleet-management/recommended-ev.png"
-                                        alt="EV Recommendations Dashboard"
+                                        alt={t('pages.fleet_management.solutions.section2.image_alt')}
                                         className="w-full h-auto rounded-lg"
                                     />
                                     <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none" />
@@ -184,7 +184,7 @@ const VivaDriveFleetSolutions = () => {
                                     <div className="flex items-center gap-2">
                                         <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-500" />
                                         <div className="text-xs sm:text-sm font-medium text-gray-800">
-                                            75% savings
+                                            {t('pages.fleet_management.solutions.section2.stats.savings')}
                                         </div>
                                     </div>
                                 </motion.div>
@@ -198,7 +198,7 @@ const VivaDriveFleetSolutions = () => {
                                     <div className="flex items-center gap-2">
                                         <Battery className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-500" />
                                         <div className="text-xs sm:text-sm font-medium text-gray-800">
-                                            42.2 kWh
+                                            {t('pages.fleet_management.solutions.section2.stats.battery')}
                                         </div>
                                     </div>
                                 </motion.div>
@@ -218,65 +218,45 @@ const VivaDriveFleetSolutions = () => {
                                 variants={itemVariant}
                             >
                                 <Car className="h-4 w-4" />
-                                <span>Electric Transition</span>
+                                <span>{t('pages.fleet_management.solutions.section2.badge')}</span>
                             </motion.div>
 
                             <motion.h2
                                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
-                                Switch to
+                                {t('pages.fleet_management.solutions.section2.heading_pre')}
                                 <span className="relative text-emerald-500 ml-2">
-                                    EV
-                                    <span className="absolute -bottom-1 left-0 right-0 h-1 bg-emerald-300 opacity-60 rounded-full"></span>
+                                    {t('pages.fleet_management.solutions.section2.heading_highlight')}
                                 </span>
-                                <span className="ml-2">easily</span>
+                                <span className="ml-2">{t('pages.fleet_management.solutions.section2.heading_post')}</span>
                             </motion.h2>
 
                             <motion.p
                                 className="text-base sm:text-lg text-gray-600 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                Are you still wondering if Electric Vehicles is suitable for you or your
-                                company? We can solve that riddle and find the best solution for
-                                your fleet. Zero-emission zones, car-sharing, multi-modality
-                                transport - all these challenges causes a heavy headache. We can
-                                help you modernize and electrify your car park in an optimal way.
+                                {t('pages.fleet_management.solutions.section2.description')}
                             </motion.p>
 
                             <motion.div
                                 className="space-y-3 sm:space-y-4 pt-2 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                <motion.div
-                                    className="flex items-start sm:items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                                    whileHover={{ x: 5 }}
-                                >
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center flex-shrink-0">
-                                        <CheckSquare className="text-white h-5 w-5 flex-shrink-0" />
-                                    </div>
-                                    <span className="text-gray-700 font-medium text-left">Vehicle suitability analysis</span>
-                                </motion.div>
-
-                                <motion.div
-                                    className="flex items-start sm:items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                                    whileHover={{ x: 5 }}
-                                >
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center flex-shrink-0">
-                                        <CheckSquare className="text-white h-5 w-5 flex-shrink-0" />
-                                    </div>
-                                    <span className="text-gray-700 font-medium text-left">Charging infrastructure planning</span>
-                                </motion.div>
-
-                                <motion.div
-                                    className="flex items-start sm:items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                                    whileHover={{ x: 5 }}
-                                >
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center flex-shrink-0">
-                                        <CheckSquare className="text-white h-5 w-5 flex-shrink-0" />
-                                    </div>
-                                    <span className="text-gray-700 font-medium text-left">Electric fleet cost optimization</span>
-                                </motion.div>
+                                {['analysis', 'infrastructure', 'optimization'].map((key, index) => (
+                                    <motion.div
+                                        key={index}
+                                        className="flex items-start sm:items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                                        whileHover={{ x: 5 }}
+                                    >
+                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                                            <CheckSquare className="text-white h-5 w-5 flex-shrink-0" />
+                                        </div>
+                                        <span className="text-gray-700 font-medium text-left">
+                                            {t(`pages.fleet_management.solutions.section2.features.${key}`)}
+                                        </span>
+                                    </motion.div>
+                                ))}
                             </motion.div>
                         </motion.div>
                     </div>
@@ -316,32 +296,25 @@ const VivaDriveFleetSolutions = () => {
                                 variants={itemVariant}
                             >
                                 <BarChart3 className="h-4 w-4" />
-                                <span>Cost Management</span>
+                                <span>{t('pages.fleet_management.solutions.section3.badge')}</span>
                             </motion.div>
 
                             <motion.h2
                                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
                                 variants={itemVariant}
                             >
-                                Control your
+                                {t('pages.fleet_management.solutions.section3.heading_pre')}
                                 <span className="relative text-emerald-500 ml-2">
-                                    costs
-                                    <span className="absolute -bottom-1 left-0 right-0 h-1 bg-emerald-300 opacity-60 rounded-full"></span>
+                                    {t('pages.fleet_management.solutions.section3.heading_highlight')}
                                 </span>
-                                <span className="ml-2">and simplify your work</span>
+                                <span className="ml-2">{t('pages.fleet_management.solutions.section3.heading_post')}</span>
                             </motion.h2>
 
                             <motion.p
                                 className="text-base sm:text-lg text-gray-600 max-w-md mx-auto lg:mx-0"
                                 variants={itemVariant}
                             >
-                                We will help you replace a paper-based system with an electronic
-                                system that will help complete administrative tasks in less time.
-                                With a combination of telematics you will gain a powerful tool that
-                                will help you manage your vehicles, drivers, costs and administrative
-                                tools. All automated! Additionally our AI-powered algorithms will
-                                recommend you actions that will significantly reduce your fleet TCO
-                                cost.
+                                {t('pages.fleet_management.solutions.section3.description')}
                             </motion.p>
 
                             <motion.div
@@ -349,8 +322,7 @@ const VivaDriveFleetSolutions = () => {
                                 variants={itemVariant}
                             >
                                 <p className="text-gray-700 font-medium text-sm sm:text-base">
-                                    Our integrated dashboard provides real-time cost analysis, charging status monitoring,
-                                    and vehicle performance metrics in one centralized platform.
+                                    {t('pages.fleet_management.solutions.section3.note')}
                                 </p>
                             </motion.div>
 
@@ -360,15 +332,15 @@ const VivaDriveFleetSolutions = () => {
                             >
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
                                     <TrendingUp className="h-4 w-4 text-emerald-500" />
-                                    <span className="text-sm font-medium text-emerald-700">Cost reduction</span>
+                                    <span className="text-sm font-medium text-emerald-700">{t('pages.fleet_management.solutions.section3.tags.cost')}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
                                     <Clock className="h-4 w-4 text-emerald-500" />
-                                    <span className="text-sm font-medium text-emerald-700">Time savings</span>
+                                    <span className="text-sm font-medium text-emerald-700">{t('pages.fleet_management.solutions.section3.tags.time')}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full">
                                     <Settings className="h-4 w-4 text-emerald-500" />
-                                    <span className="text-sm font-medium text-emerald-700">Automated management</span>
+                                    <span className="text-sm font-medium text-emerald-700">{t('pages.fleet_management.solutions.section3.tags.automated')}</span>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -390,7 +362,7 @@ const VivaDriveFleetSolutions = () => {
                                 >
                                     <img
                                         src="/fleet-management/charging-stations.png"
-                                        alt="Charging Stations Dashboard"
+                                        alt={t('pages.fleet_management.solutions.section3.image_alt')}
                                         className="w-full h-auto rounded-lg"
                                     />
                                     <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none" />
@@ -407,8 +379,8 @@ const VivaDriveFleetSolutions = () => {
                                     transition={{ delay: 0.6, duration: 0.8 }}
                                 >
                                     <div className="flex flex-col">
-                                        <div className="text-xs text-gray-500 mb-1">Total Availability</div>
-                                        <div className="text-xl sm:text-2xl font-bold text-emerald-500">87%</div>
+                                        <div className="text-xs text-gray-500 mb-1">{t('pages.fleet_management.solutions.section3.stats.availability.label')}</div>
+                                        <div className="text-xl sm:text-2xl font-bold text-emerald-500">{t('pages.fleet_management.solutions.section3.stats.availability.value')}</div>
                                         <div className="w-20 sm:w-24 h-2 bg-gray-100 rounded-full mt-2">
                                             <div className="w-[87%] h-full bg-emerald-500 rounded-full" />
                                         </div>
@@ -423,7 +395,7 @@ const VivaDriveFleetSolutions = () => {
                                     transition={{ delay: 0.8, duration: 0.8 }}
                                 >
                                     <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-500 rounded-full" />
-                                    <div className="text-xs sm:text-sm font-medium text-gray-800">Real-time updates</div>
+                                    <div className="text-xs sm:text-sm font-medium text-gray-800">{t('pages.fleet_management.solutions.section3.stats.updates')}</div>
                                 </motion.div>
                             </div>
                         </motion.div>

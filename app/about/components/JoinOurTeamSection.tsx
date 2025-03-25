@@ -4,8 +4,10 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, CheckCircle, Briefcase } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const JoinOurTeamSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
@@ -65,7 +67,7 @@ const JoinOurTeamSection = () => {
             <div className="relative rounded-xl overflow-hidden shadow-2xl">
               <Image
                 src="/about/group.jpg"
-                alt="VivaDrive Team Collaboration"
+                alt={t('pages.about.join_team.image_alt')}
                 width={600}
                 height={450}
                 className="w-full h-auto object-cover"
@@ -94,8 +96,8 @@ const JoinOurTeamSection = () => {
                   <Briefcase className="h-4 md:h-5 w-4 md:w-5" />
                 </div>
                 <div>
-                  <span className="block text-xs md:text-sm text-gray-500">Global Team</span>
-                  <span className="font-bold text-sm md:text-base text-gray-800">Join Us</span>
+                  <span className="block text-xs md:text-sm text-gray-500">{t('pages.about.join_team.badge_label')}</span>
+                  <span className="font-bold text-sm md:text-base text-gray-800">{t('pages.about.join_team.badge_value')}</span>
                 </div>
               </div>
             </motion.div>
@@ -119,17 +121,17 @@ const JoinOurTeamSection = () => {
           >
             <motion.div variants={fadeInUp} className="text-center lg:text-left">
               <motion.span className="text-emerald-500 font-semibold text-base md:text-lg">
-                Work at VivaDrive
+                {t('pages.about.join_team.subtitle')}
               </motion.span>
 
               <motion.h2
                 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 leading-tight"
                 variants={fadeInUp}
               >
-                Start <span className="relative text-emerald-500">
-                  innovating
+                {t('pages.about.join_team.heading_pre')} <span className="relative text-emerald-500">
+                  {t('pages.about.join_team.heading_highlight')}
                   <span className="absolute -bottom-1 left-0 right-0 h-1 bg-emerald-300 opacity-60 rounded-full"></span>
-                </span> with us
+                </span> {t('pages.about.join_team.heading_post')}
               </motion.h2>
             </motion.div>
 
@@ -137,7 +139,7 @@ const JoinOurTeamSection = () => {
               variants={fadeInUp}
               className="text-lg md:text-xl font-medium text-gray-700 text-center lg:text-left"
             >
-              VivaDrive is a perfect place to develop your skills in a diverse environment
+              {t('pages.about.join_team.description')}
             </motion.p>
 
             <motion.div className="space-y-5 md:space-y-6 text-center lg:text-left" variants={fadeInUp}>
@@ -146,7 +148,7 @@ const JoinOurTeamSection = () => {
                   <CheckCircle className="h-5 md:h-6 w-5 md:w-6" />
                 </div>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  Be a part of a rapidly growing team of the biggest talents from all around the world
+                  {t('pages.about.join_team.point1')}
                 </p>
               </div>
 
@@ -155,7 +157,7 @@ const JoinOurTeamSection = () => {
                   <CheckCircle className="h-5 md:h-6 w-5 md:w-6" />
                 </div>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  Work on cutting-edge technologies in fleet management and electrification
+                  {t('pages.about.join_team.point2')}
                 </p>
               </div>
 
@@ -164,7 +166,7 @@ const JoinOurTeamSection = () => {
                   <CheckCircle className="h-5 md:h-6 w-5 md:w-6" />
                 </div>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  Develop professionally in a supportive and collaborative environment that values innovation
+                  {t('pages.about.join_team.point3')}
                 </p>
               </div>
             </motion.div>
@@ -178,7 +180,7 @@ const JoinOurTeamSection = () => {
 
               <div className="border-l-4 border-emerald-500 pl-3 md:pl-4 py-2">
                 <p className="text-base md:text-lg italic text-gray-700">
-                  "We're not just building a product, we're building a team that's passionate about making a difference in fleet management and sustainability."
+                  {t('pages.about.join_team.quote')}
                 </p>
               </div>
             </motion.div>
@@ -191,7 +193,7 @@ const JoinOurTeamSection = () => {
                 href="/about/careers"
                 className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium rounded-full transition-all shadow-lg shadow-emerald-500/20 group hover:scale-105 hover:shadow-xl"
               >
-                Open Positions
+                {t('pages.about.join_team.cta_button')}
                 <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>

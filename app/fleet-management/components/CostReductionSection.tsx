@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -7,8 +9,11 @@ import {
   Droplet,
   FileCheck
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CostReductionSection = () => {
+  const { t } = useLanguage();
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -26,26 +31,30 @@ const CostReductionSection = () => {
 
   const costItems = [
     {
-      percentage: "40%",
-      label: "Maintenance costs",
+      id: 'maintenance',
+      percentage: t('pages.fleet_management.cost_reduction.items.maintenance.percentage'),
+      label: t('pages.fleet_management.cost_reduction.items.maintenance.label'),
       icon: <Wrench className="h-6 w-6" />,
       color: "from-emerald-400 to-emerald-500"
     },
     {
-      percentage: "10%",
-      label: "Insurance fees",
+      id: 'insurance',
+      percentage: t('pages.fleet_management.cost_reduction.items.insurance.percentage'),
+      label: t('pages.fleet_management.cost_reduction.items.insurance.label'),
       icon: <Shield className="h-6 w-6" />,
       color: "from-emerald-400 to-emerald-500"
     },
     {
-      percentage: "20%",
-      label: "Cost of fuel to energy saving",
+      id: 'fuel',
+      percentage: t('pages.fleet_management.cost_reduction.items.fuel.percentage'),
+      label: t('pages.fleet_management.cost_reduction.items.fuel.label'),
       icon: <Droplet className="h-6 w-6" />,
       color: "from-emerald-400 to-emerald-500"
     },
     {
-      percentage: "25%",
-      label: "Claims",
+      id: 'claims',
+      percentage: t('pages.fleet_management.cost_reduction.items.claims.percentage'),
+      label: t('pages.fleet_management.cost_reduction.items.claims.label'),
       icon: <FileCheck className="h-6 w-6" />,
       color: "from-emerald-400 to-emerald-500"
     }
@@ -58,7 +67,7 @@ const CostReductionSection = () => {
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-emerald-200 rounded-full opacity-20 blur-md" />
         <div className="absolute top-1/2 -right-20 w-48 h-48 bg-emerald-300 rounded-full opacity-20 blur-md" />
         <div className="absolute bottom-0 left-1/4 w-32 h-32 bg-emerald-400 rounded-full opacity-10 blur-md" />
-        
+
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'linear-gradient(to right, #10b981 1px, transparent 1px), linear-gradient(to bottom, #10b981 1px, transparent 1px)',
@@ -67,33 +76,33 @@ const CostReductionSection = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
         >
-          <motion.h3 
+          <motion.h3
             className="text-emerald-500 text-xl font-medium mb-3"
             variants={fadeInUp}
           >
-            Opportunities in every dimension
+            {t('pages.fleet_management.cost_reduction.subtitle')}
           </motion.h3>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
             variants={fadeInUp}
           >
-            Reduce your operations cost by 
+            {t('pages.fleet_management.cost_reduction.heading_pre')}
             <span className="relative text-emerald-500 ml-2">
-              40%
+              {t('pages.fleet_management.cost_reduction.highlight')}
               <span className="absolute -bottom-1 left-0 right-0 h-1 bg-emerald-300 opacity-60 rounded-full"></span>
             </span>
           </motion.h2>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           initial="hidden"
           whileInView="visible"
@@ -108,14 +117,14 @@ const CostReductionSection = () => {
               whileHover={{ y: -5 }}
             >
               <div className="absolute top-0 right-0 w-24 h-24 -mr-8 -mt-8 bg-emerald-100 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
-              
+
               <div className="flex items-start gap-4">
                 <div className={`flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md shadow-emerald-200/50 group-hover:scale-110 transition-transform duration-300`}>
                   <span className="text-white">
                     {item.icon}
                   </span>
                 </div>
-                
+
                 <div className="flex-1">
                   <div className="text-4xl font-bold text-emerald-500 mb-1 flex items-center">
                     <TrendingDown className="h-6 w-6 mr-1" />
@@ -124,9 +133,9 @@ const CostReductionSection = () => {
                   <div className="text-gray-700 font-medium">{item.label}</div>
                 </div>
               </div>
-              
+
               <div className="mt-4 w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                <motion.div 
+                <motion.div
                   className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${parseInt(item.percentage)}%` }}
@@ -137,8 +146,8 @@ const CostReductionSection = () => {
             </motion.div>
           ))}
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -150,7 +159,7 @@ const CostReductionSection = () => {
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
           >
-            Explore Our Solutions
+            {t('pages.fleet_management.cost_reduction.cta')}
             <svg className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

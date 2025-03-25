@@ -3,12 +3,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const PartnersSection = () => {
+  const { t } = useLanguage();
+  
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1.0] }
     }
@@ -28,37 +31,37 @@ const PartnersSection = () => {
   const partnerLogos = [
     {
       src: '/footer-logos/eu-funds.svg',
-      alt: 'European Funds Smart Growth',
+      alt: t('pages.about.partners_section.logos.eu_funds'),
       width: 180,
       height: 80
     },
     {
       src: '/footer-logos/poland-republic-of.svg',
-      alt: 'Republic of Poland',
+      alt: t('pages.about.partners_section.logos.republic_of_poland'),
       width: 160,
       height: 70
     },
     {
       src: '/footer-logos/urban-mobility.png',
-      alt: 'EIT Urban Mobility',
+      alt: t('pages.about.partners_section.logos.eit_urban_mobility'),
       width: 200,
       height: 70
     },
     {
       src: '/footer-logos/eu-structural-funds.svg',
-      alt: 'European Union European Structural and Investment Funds',
+      alt: t('pages.about.partners_section.logos.eu_structural_funds'),
       width: 200,
       height: 80
     },
     {
       src: '/footer-logos/ncbr.png',
-      alt: 'National Centre for Research and Development',
+      alt: t('pages.about.partners_section.logos.ncbr'),
       width: 170,
       height: 70
     },
     {
       src: '/footer-logos/space-bridge-fund.png',
-      alt: 'Space Bridge Fund',
+      alt: t('pages.about.partners_section.logos.space_bridge_fund'),
       width: 180,
       height: 70
     }
@@ -74,22 +77,22 @@ const PartnersSection = () => {
           variants={staggerContainer}
           className="text-center mb-12"
         >
-          <motion.h2 
+          <motion.h2
             className="text-xl md:text-2xl font-medium text-gray-700"
             variants={fadeIn}
           >
-            Project VivaDrive is developed thanks to an investment from
+            {t('pages.about.partners_section.heading')}
           </motion.h2>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
         >
-          {partnerLogos.map((logo, index) => (
+          {partnerLogos.map((logo) => (
             <motion.div
               key={logo.alt}
               className="w-full flex justify-center items-center px-4"

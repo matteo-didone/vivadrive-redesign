@@ -4,8 +4,10 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation, PanInfo } from "framer-motion";
 import { Mail, ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const TeamCarousel = () => {
+    const { t } = useLanguage();
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -172,18 +174,18 @@ const TeamCarousel = () => {
                     variants={fadeInUp}
                 >
                     <motion.p className="text-emerald-500 text-base md:text-lg font-medium mb-2" variants={fadeInUp}>
-                        The people behind VivaDrive
+                        {t('pages.about.team.subtitle')}
                     </motion.p>
 
                     <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900" variants={fadeInUp}>
-                        Our <span className="text-emerald-500">core team</span>
+                        {t('pages.about.team.heading_pre')} <span className="text-emerald-500">{t('pages.about.team.heading_highlight')}</span>
                     </motion.h2>
 
                     <motion.p
                         className="mt-4 text-base md:text-lg text-gray-600 max-w-3xl mx-auto"
                         variants={fadeInUp}
                     >
-                        Meet the talented individuals who are driving innovation and excellence at VivaDrive
+                        {t('pages.about.team.description')}
                     </motion.p>
                 </motion.div>
 
@@ -193,7 +195,7 @@ const TeamCarousel = () => {
                     {isMobile && (
                         <div className="text-center mb-4 text-sm text-gray-500 flex items-center justify-center">
                             <ChevronLeft className="h-4 w-4 inline" />
-                            <span className="mx-1">Swipe to navigate</span>
+                            <span className="mx-1">{t('pages.about.team.swipe_instruction')}</span>
                             <ChevronRight className="h-4 w-4 inline" />
                         </div>
                     )}
@@ -202,7 +204,7 @@ const TeamCarousel = () => {
                     <button
                         onClick={prevSlide}
                         className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-lg text-emerald-500 hover:bg-emerald-50 transition-colors duration-300"
-                        aria-label="Previous slide"
+                        aria-label={t('pages.about.team.prev_slide')}
                     >
                         <ChevronLeft size={24} />
                     </button>
@@ -270,7 +272,7 @@ const TeamCarousel = () => {
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
                                                                 className="p-2 bg-emerald-100 text-emerald-600 rounded-full hover:bg-emerald-200 transition-colors"
-                                                                aria-label={`LinkedIn profile of ${member.name}`}
+                                                                aria-label={t('pages.about.team.linkedin_aria', { name: member.name })}
                                                             >
                                                                 <svg
                                                                     xmlns="http://www.w3.org/2000/svg"
@@ -286,7 +288,7 @@ const TeamCarousel = () => {
                                                             <a
                                                                 href={`mailto:${member.name.toLowerCase().replace(' ', '.')}@vivadrive.io`}
                                                                 className="p-2 bg-emerald-100 text-emerald-600 rounded-full hover:bg-emerald-200 transition-colors"
-                                                                aria-label={`Email ${member.name}`}
+                                                                aria-label={t('pages.about.team.email_aria', { name: member.name })}
                                                             >
                                                                 <Mail size={16} />
                                                             </a>
@@ -304,7 +306,7 @@ const TeamCarousel = () => {
                     <button
                         onClick={nextSlide}
                         className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-lg text-emerald-500 hover:bg-emerald-50 transition-colors duration-300"
-                        aria-label="Next slide"
+                        aria-label={t('pages.about.team.next_slide')}
                     >
                         <ChevronRight size={24} />
                     </button>
@@ -318,7 +320,7 @@ const TeamCarousel = () => {
                             onClick={() => goToSlide(index)}
                             className={`h-2 rounded-full transition-all duration-300 ${currentSlide === index ? "w-8 bg-emerald-500" : "w-2 bg-emerald-200"
                                 }`}
-                            aria-label={`Go to slide ${index + 1}`}
+                            aria-label={t('pages.about.team.go_to_slide', { number: index + 1 })}
                         />
                     ))}
                 </div>
@@ -337,7 +339,7 @@ const TeamCarousel = () => {
                         whileTap={{ scale: 0.98 }}
                         className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-medium transition-all shadow-lg shadow-emerald-500/20 group"
                     >
-                        Join Our Team
+                        {t('pages.about.team.join_button')}
                         <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                     </motion.a>
                 </motion.div>

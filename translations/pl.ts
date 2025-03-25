@@ -533,6 +533,193 @@ const pl = {
         },
         cta: "Odkryj Więcej"
       },
+      solutions: {
+        section1: {
+          badge: "Zarządzanie Kierowcami",
+          heading_pre: "Popraw",
+          heading_highlight: "doświadczenie",
+          heading_post: "kierowców",
+          description: "Analityka, spersonalizowany feedback, grywalizacja i program motywacyjny stworzony dla lepszych i bardziej efektywnych kierowców. Z pomocą VivaDrive mobile możesz dokładnie komunikować się z kierowcami oraz uprościć i usprawnić sposób zarządzania personelem we flocie.",
+          note: "Nasza aplikacja mobilna zapewnia informacje zwrotne w czasie rzeczywistym, spersonalizowane wskazówki i elementy grywalizacji, aby zwiększyć zaangażowanie i wydajność kierowców.",
+          image_alt: "Aplikacja mobilna VivaDrive",
+          tags: {
+            safety: "Większe bezpieczeństwo",
+            efficiency: "Wyższa wydajność",
+            engagement: "Lepsze zaangażowanie"
+          }
+        },
+        section2: {
+          badge: "Przejście na Pojazdy Elektryczne",
+          heading_pre: "Przejdź na",
+          heading_highlight: "EV",
+          heading_post: "łatwo",
+          description: "Wciąż zastanawiasz się, czy pojazdy elektryczne są odpowiednie dla Ciebie lub Twojej firmy? Możemy rozwiązać tę zagadkę i znaleźć najlepsze rozwiązanie dla Twojej floty. Strefy zeroemisyjne, car-sharing, transport multimodalny - wszystkie te wyzwania powodują wielki ból głowy. Możemy pomóc Ci zmodernizować i zelektryfikować Twój park samochodowy w optymalny sposób.",
+          image_alt: "Panel rekomendacji pojazdów elektrycznych",
+          stats: {
+            savings: "75% oszczędności",
+            battery: "42,2 kWh"
+          },
+          features: {
+            analysis: "Analiza przydatności pojazdu",
+            infrastructure: "Planowanie infrastruktury ładowania",
+            optimization: "Optymalizacja kosztów floty elektrycznej"
+          }
+        },
+        section3: {
+          badge: "Zarządzanie Kosztami",
+          heading_pre: "Kontroluj",
+          heading_highlight: "koszty",
+          heading_post: "i uprość swoją pracę",
+          description: "Pomożemy Ci zastąpić system papierowy systemem elektronicznym, który pomoże wykonać zadania administracyjne w krótszym czasie. Dzięki połączeniu telematyki zyskasz potężne narzędzie, które pomoże Ci zarządzać pojazdami, kierowcami, kosztami i narzędziami administracyjnymi. Wszystko zautomatyzowane! Dodatkowo nasze algorytmy oparte na sztucznej inteligencji będą rekomendować działania, które znacznie obniżą koszty TCO Twojej floty.",
+          note: "Nasz zintegrowany panel zapewnia analizę kosztów w czasie rzeczywistym, monitorowanie stanu ładowania i wskaźniki wydajności pojazdu na jednej scentralizowanej platformie.",
+          image_alt: "Panel stacji ładowania",
+          tags: {
+            cost: "Redukcja kosztów",
+            time: "Oszczędność czasu",
+            automated: "Zautomatyzowane zarządzanie"
+          },
+          stats: {
+            availability: {
+              label: "Całkowita Dostępność",
+              value: "87%"
+            },
+            updates: "Aktualizacje w czasie rzeczywistym"
+          }
+        }
+      },
+      cost_reduction: {
+        subtitle: "Możliwości w każdym wymiarze",
+        heading_pre: "Zmniejsz koszty operacyjne o",
+        highlight: "40%",
+        cta: "Poznaj nasze rozwiązania",
+        items: {
+          maintenance: {
+            percentage: "40%",
+            label: "Koszty utrzymania"
+          },
+          insurance: {
+            percentage: "10%",
+            label: "Opłaty ubezpieczeniowe"
+          },
+          fuel: {
+            percentage: "20%",
+            label: "Oszczędności na paliwie i energii"
+          },
+          claims: {
+            percentage: "25%",
+            label: "Szkody"
+          }
+        }
+      },
+      supercharge: {
+        badge: "Gotowy do rozpoczęcia?",
+        heading: "Przyspiesz swoją flotę",
+        heading_highlight: "teraz!",
+        primary_button: "Rozpocznij teraz",
+        secondary_button: "Dowiedz się więcej"
+      },
+    },
+    about: {
+      hero: {
+        title_pre: "Kształtujemy przyszłość",
+        title_highlight: "Zarządzania Flotą",
+        description: "Jedna misja, wiele rewolucyjnych rozwiązań. Zmieniamy floty samochodowe na ekologiczne i pozwalamy klientom oszczędzać pieniądze i czas!",
+        primary_button: "Nasze Rozwiązania",
+        secondary_button: "Poznaj Nasz Zespół",
+        scroll_text: "Przewiń, aby odkryć więcej",
+        image_alt: "Widok z lotu ptaka na węzeł drogowy"
+      },
+      what_we_do: {
+        heading: "Co robimy?",
+        subheading: "Dostarczamy innowacyjne rozwiązania dla flot i menedżerów",
+        point1: "Codziennie pracujemy z pasją, aby dostarczać narzędzia, które sprawiają, że praca menedżerów floty jest łatwa i przyjemna.",
+        point2: "Każdego dnia oszczędzamy cenny czas i pieniądze na zniechęcających zadaniach związanych z zarządzaniem flotą.",
+        point3: "Jesteśmy jednymi z pierwszych na świecie, którzy opracowali system oszczędzający pieniądze, czas i środowisko jednocześnie.",
+        cta_button: "Dowiedz się więcej o naszych rozwiązaniach",
+        image_alt: "Menedżerowie floty omawiający rozwiązania",
+        stat_value: "30%",
+        stat_description: "Średnia redukcja kosztów dla naszych klientów"
+      },
+      philosophy: {
+        heading: "Nasza filozofia",
+        learn_more: "Dowiedz się więcej",
+        cards: {
+          sustainable: {
+            title: "Zrównoważony",
+            description: "Promujemy pojazdy elektryczne, aby uczynić świat bardziej ekologicznym i zrównoważonym"
+          },
+          modern: {
+            title: "Nowoczesny",
+            description: "Korzystamy z najnowszych technologii i narzędzi na świecie"
+          },
+          human: {
+            title: "Skoncentrowany na człowieku",
+            description: "Nawet przy ogromnych zbiorach danych i złożonych algorytmach, pozostajemy firmą skoncentrowaną na człowieku."
+          },
+          simple: {
+            title: "Prosty",
+            description: "Zarządzanie flotą nigdy nie było tak proste i przyjazne dla użytkownika"
+          }
+        }
+      },
+      partners: {
+        heading: "NASI PARTNERZY",
+        visit_label: "Odwiedź stronę {{name}}"
+      },
+      our_story: {
+        since: "Od 2019",
+        heading_pre: "Nasza",
+        heading_highlight: "historia",
+        paragraph1: "VivaDrive został założony w 2019 roku w Warszawie z wizją zrewolucjonizowania zarządzania flotą.",
+        paragraph2: "Naszym głównym pomysłem za VivaDrive było uczynienie zarządzania flotą tak prostym, jak to możliwe, oraz zmniejszenie czasu i pieniędzy, które trzeba na to poświęcić.",
+        quote: "Dzięki wieloletniemu doświadczeniu w branży i nowatorskiej technologii, udało nam się stworzyć unikalny produkt, który od pierwszego dnia podbił rynek!",
+        technology_button: "Nasza Technologia",
+        team_button: "Poznaj Nasz Zespół",
+        image_alt: "Siedziba VivaDrive",
+        growth_label: "Wzrost od 2019",
+        growth_value: "85%",
+        established_label: "Założona",
+        established_year: "2019"
+      },
+      team: {
+        subtitle: "Ludzie tworzący VivaDrive",
+        heading_pre: "Nasz",
+        heading_highlight: "kluczowy zespół",
+        description: "Poznaj utalentowane osoby, które napędzają innowacje i doskonałość w VivaDrive",
+        swipe_instruction: "Przesuń, aby nawigować",
+        prev_slide: "Poprzedni slajd",
+        next_slide: "Następny slajd",
+        linkedin_aria: "Profil LinkedIn {{name}}",
+        email_aria: "Email do {{name}}",
+        go_to_slide: "Przejdź do slajdu {{number}}",
+        join_button: "Dołącz do Naszego Zespołu"
+      },
+      partners_section: {
+        heading: "Projekt VivaDrive jest rozwijany dzięki inwestycji od",
+        logos: {
+          eu_funds: "Fundusze Europejskie Inteligentny Rozwój",
+          republic_of_poland: "Rzeczpospolita Polska",
+          eit_urban_mobility: "EIT Urban Mobility",
+          eu_structural_funds: "Unia Europejska Europejskie Fundusze Strukturalne i Inwestycyjne",
+          ncbr: "Narodowe Centrum Badań i Rozwoju",
+          space_bridge_fund: "Space Bridge Fund"
+        }
+      },
+      join_team: {
+        subtitle: "Praca w VivaDrive",
+        heading_pre: "Zacznij",
+        heading_highlight: "tworzyć innowacje",
+        heading_post: "z nami",
+        description: "VivaDrive to idealne miejsce do rozwijania swoich umiejętności w różnorodnym środowisku",
+        point1: "Dołącz do szybko rozwijającego się zespołu największych talentów z całego świata",
+        point2: "Pracuj nad najnowocześniejszymi technologiami w zarządzaniu flotą i elektryfikacji",
+        point3: "Rozwijaj się zawodowo w wspierającym i współpracującym środowisku, które ceni innowacje",
+        quote: "\"Nie tylko tworzymy produkt, budujemy zespół, który z pasją dąży do wprowadzania zmian w zarządzaniu flotą i zrównoważonym rozwoju.\"",
+        cta_button: "Otwarte Stanowiska",
+        image_alt: "Współpraca Zespołu VivaDrive",
+        badge_label: "Globalny Zespół",
+        badge_value: "Dołącz do Nas"
+      }
     },
   },
 };

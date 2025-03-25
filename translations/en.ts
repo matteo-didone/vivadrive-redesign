@@ -527,7 +527,194 @@ const en = {
         },
         cta: "Discover More"
       },
-    },    
+      solutions: {
+        section1: {
+          badge: "Driver Management",
+          heading_pre: "Improve your",
+          heading_highlight: "drivers'",
+          heading_post: "experience",
+          description: "Analytics, personalised feedback, gamification and a motivation program build for better and more efficient drivers. With help of VivaDrive mobile you can accurately communicate with drivers and simplify and streamline how you manage your people in your fleet.",
+          note: "Our mobile app provides real-time feedback, personalized guidance, and gamified elements to boost driver engagement and performance.",
+          image_alt: "VivaDrive Mobile App",
+          tags: {
+            safety: "Improved safety",
+            efficiency: "Higher efficiency",
+            engagement: "Better engagement"
+          }
+        },
+        section2: {
+          badge: "Electric Transition",
+          heading_pre: "Switch to",
+          heading_highlight: "EV",
+          heading_post: "easily",
+          description: "Are you still wondering if Electric Vehicles is suitable for you or your company? We can solve that riddle and find the best solution for your fleet. Zero-emission zones, car-sharing, multi-modality transport - all these challenges causes a heavy headache. We can help you modernize and electrify your car park in an optimal way.",
+          image_alt: "EV Recommendations Dashboard",
+          stats: {
+            savings: "75% savings",
+            battery: "42.2 kWh"
+          },
+          features: {
+            analysis: "Vehicle suitability analysis",
+            infrastructure: "Charging infrastructure planning",
+            optimization: "Electric fleet cost optimization"
+          }
+        },
+        section3: {
+          badge: "Cost Management",
+          heading_pre: "Control your",
+          heading_highlight: "costs",
+          heading_post: "and simplify your work",
+          description: "We will help you replace a paper-based system with an electronic system that will help complete administrative tasks in less time. With a combination of telematics you will gain a powerful tool that will help you manage your vehicles, drivers, costs and administrative tools. All automated! Additionally our AI-powered algorithms will recommend you actions that will significantly reduce your fleet TCO cost.",
+          note: "Our integrated dashboard provides real-time cost analysis, charging status monitoring, and vehicle performance metrics in one centralized platform.",
+          image_alt: "Charging Stations Dashboard",
+          tags: {
+            cost: "Cost reduction",
+            time: "Time savings",
+            automated: "Automated management"
+          },
+          stats: {
+            availability: {
+              label: "Total Availability",
+              value: "87%"
+            },
+            updates: "Real-time updates"
+          }
+        }
+      },
+      cost_reduction: {
+        subtitle: "Opportunities in every dimension",
+        heading_pre: "Reduce your operations cost by",
+        highlight: "40%",
+        cta: "Explore Our Solutions",
+        items: {
+          maintenance: {
+            percentage: "40%",
+            label: "Maintenance costs"
+          },
+          insurance: {
+            percentage: "10%",
+            label: "Insurance fees"
+          },
+          fuel: {
+            percentage: "20%",
+            label: "Cost of fuel to energy saving"
+          },
+          claims: {
+            percentage: "25%",
+            label: "Claims"
+          }
+        }
+      },
+      supercharge: {
+        badge: "Ready to get started?",
+        heading: "Supercharge your fleet",
+        heading_highlight: "now!",
+        primary_button: "Start now",
+        secondary_button: "Learn more"
+      },
+    },
+    about: {
+      hero: {
+        title_pre: "Driving the future of",
+        title_highlight: "Fleet Management",
+        description: "One mission, many revolutionary solutions. We turn car fleets green, and let customers save their money and time!",
+        primary_button: "Our Solutions",
+        secondary_button: "Meet Our Team",
+        scroll_text: "Scroll to explore",
+        image_alt: "Aerial view of highway junction"
+      },
+      what_we_do: {
+        heading: "What do we do?",
+        subheading: "We provide innovative solutions for fleets and managers",
+        point1: "We work everyday with passion to provide tools that make work of fleet managers easy and enjoyable.",
+        point2: "Every single day we save precious time and money on daunting fleet management tasks.",
+        point3: "We are one among the first ones in the world who developed a system that saves your money, time and environment at the same time.",
+        cta_button: "Learn More About Our Solutions",
+        image_alt: "Fleet managers discussing solutions",
+        stat_value: "30%",
+        stat_description: "Average cost reduction for our clients"
+      }, 
+      philosophy: {
+        heading: "Our philosophy",
+        learn_more: "Learn more",
+        cards: {
+          sustainable: {
+            title: "Sustainable",
+            description: "We promote electric vehicles to make the world greener and more sustainable"
+          },
+          modern: {
+            title: "Modern",
+            description: "We make use of the newest technologies and tools in the world"
+          },
+          human: {
+            title: "Human-centred",
+            description: "Even with huge datasets and complex algorithms, We remain a human-centred company."
+          },
+          simple: {
+            title: "Simple",
+            description: "Fleet management was never so simple and user friendly"
+          }
+        }
+      },
+      partners: {
+        heading: "OUR PARTNERS",
+        visit_label: "Visit {{name}} website"
+      },
+      our_story: {
+        since: "Since 2019",
+        heading_pre: "Our",
+        heading_highlight: "story",
+        paragraph1: "VivaDrive was founded in 2019 in Warsaw with a vision to revolutionize fleet management.",
+        paragraph2: "Our main idea behind VivaDrive was to make fleet management as simple as possible and to reduce time and money one has to spend on it.",
+        quote: "With years of experience in the field and cutting edge technology, we were able to create a unique product that has taken the market by storm from day one!",
+        technology_button: "Our Technology",
+        team_button: "Meet Our Team",
+        image_alt: "VivaDrive Headquarters",
+        growth_label: "Growth since 2019",
+        growth_value: "85%",
+        established_label: "Established",
+        established_year: "2019"
+      },
+      team: {
+        subtitle: "The people behind VivaDrive",
+        heading_pre: "Our",
+        heading_highlight: "core team",
+        description: "Meet the talented individuals who are driving innovation and excellence at VivaDrive",
+        swipe_instruction: "Swipe to navigate",
+        prev_slide: "Previous slide",
+        next_slide: "Next slide",
+        linkedin_aria: "LinkedIn profile of {{name}}",
+        email_aria: "Email {{name}}",
+        go_to_slide: "Go to slide {{number}}",
+        join_button: "Join Our Team"
+      },
+      partners_section: {
+        heading: "Project VivaDrive is developed thanks to an investment from",
+        logos: {
+          eu_funds: "European Funds Smart Growth",
+          republic_of_poland: "Republic of Poland",
+          eit_urban_mobility: "EIT Urban Mobility",
+          eu_structural_funds: "European Union European Structural and Investment Funds",
+          ncbr: "National Centre for Research and Development",
+          space_bridge_fund: "Space Bridge Fund"
+        }
+      },
+      join_team: {
+        subtitle: "Work at VivaDrive",
+        heading_pre: "Start",
+        heading_highlight: "innovating",
+        heading_post: "with us",
+        description: "VivaDrive is a perfect place to develop your skills in a diverse environment",
+        point1: "Be a part of a rapidly growing team of the biggest talents from all around the world",
+        point2: "Work on cutting-edge technologies in fleet management and electrification",
+        point3: "Develop professionally in a supportive and collaborative environment that values innovation",
+        quote: "\"We're not just building a product, we're building a team that's passionate about making a difference in fleet management and sustainability.\"",
+        cta_button: "Open Positions",
+        image_alt: "VivaDrive Team Collaboration",
+        badge_label: "Global Team",
+        badge_value: "Join Us"
+      }
+    }   
   },
 };
 

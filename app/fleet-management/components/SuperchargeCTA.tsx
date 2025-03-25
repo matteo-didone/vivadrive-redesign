@@ -1,8 +1,13 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SuperchargeCTA = () => {
+    const { t } = useLanguage();
+
     return (
         <section className="relative overflow-hidden">
             {/* Main background */}
@@ -70,7 +75,7 @@ const SuperchargeCTA = () => {
                 >
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-medium backdrop-blur-sm">
                         <Zap className="h-4 w-4" />
-                        <span>Ready to get started?</span>
+                        <span>{t('pages.fleet_management.supercharge.badge')}</span>
                     </span>
                 </motion.div>
 
@@ -81,9 +86,9 @@ const SuperchargeCTA = () => {
                     viewport={{ once: true }}
                     className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8 text-center"
                 >
-                    Supercharge your fleet
+                    {t('pages.fleet_management.supercharge.heading')}
                     <span className="relative inline-block ml-2">
-                        now!
+                        {t('pages.fleet_management.supercharge.heading_highlight')}
                         <motion.span
                             className="absolute -bottom-1 left-0 right-0 h-1 bg-white opacity-60 rounded-full"
                             initial={{ width: 0 }}
@@ -109,7 +114,7 @@ const SuperchargeCTA = () => {
                         whileTap={{ scale: 0.98 }}
                         className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-emerald-600 rounded-full font-medium shadow-lg group"
                     >
-                        Start now
+                        {t('pages.fleet_management.supercharge.primary_button')}
                         <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                     </motion.button>
 
@@ -121,7 +126,7 @@ const SuperchargeCTA = () => {
                         whileTap={{ scale: 0.98 }}
                         className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-white/30 text-white rounded-full font-medium backdrop-blur-sm hover:bg-white/10 transition-colors group"
                     >
-                        Learn more
+                        {t('pages.fleet_management.supercharge.secondary_button')}
                         <ChevronRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                     </motion.button>
                 </motion.div>

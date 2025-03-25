@@ -4,8 +4,10 @@ import React from "react";
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import { ChevronRight, Calendar } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const OurStory = () => {
+  const { t } = useLanguage();
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -47,15 +49,15 @@ const OurStory = () => {
             <motion.div variants={fadeInUp} className="text-center lg:text-left">
               <motion.span className="text-emerald-500 font-semibold inline-flex items-center gap-2 justify-center lg:justify-start">
                 <Calendar className="h-4 md:h-5 w-4 md:w-5" />
-                Since 2019
+                {t('pages.about.our_story.since')}
               </motion.span>
 
               <motion.h2
                 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-2 leading-tight"
                 variants={fadeInUp}
               >
-                Our <span className="relative text-emerald-500">
-                  story
+                {t('pages.about.our_story.heading_pre')} <span className="relative text-emerald-500">
+                  {t('pages.about.our_story.heading_highlight')}
                   <span className="absolute -bottom-1 left-0 right-0 h-1 bg-emerald-300 opacity-60 rounded-full"></span>
                 </span>
               </motion.h2>
@@ -63,11 +65,11 @@ const OurStory = () => {
 
             <motion.div className="space-y-4 text-gray-700 text-center lg:text-left" variants={fadeInUp}>
               <motion.p className="text-lg md:text-xl font-medium" variants={fadeInUp}>
-                VivaDrive was founded in 2019 in Warsaw with a vision to revolutionize fleet management.
+                {t('pages.about.our_story.paragraph1')}
               </motion.p>
 
               <motion.p className="text-base md:text-lg" variants={fadeInUp}>
-                Our main idea behind VivaDrive was to make fleet management as simple as possible and to reduce time and money one has to spend on it.
+                {t('pages.about.our_story.paragraph2')}
               </motion.p>
 
               <motion.div
@@ -79,7 +81,7 @@ const OurStory = () => {
 
                 <div className="border-l-4 border-emerald-500 pl-3 md:pl-4 py-2">
                   <p className="text-base md:text-lg italic text-gray-700">
-                    With years of experience in the field and cutting edge technology, we were able to create a unique product that has taken the market by storm from day one!
+                    {t('pages.about.our_story.quote')}
                   </p>
                 </div>
               </motion.div>
@@ -94,7 +96,7 @@ const OurStory = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Our Technology
+                  {t('pages.about.our_story.technology_button')}
                   <ChevronRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </motion.a>
 
@@ -104,7 +106,7 @@ const OurStory = () => {
                   whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.3)" }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Meet Our Team
+                  {t('pages.about.our_story.team_button')}
                   <ChevronRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </motion.a>
               </motion.div>
@@ -122,7 +124,7 @@ const OurStory = () => {
             <div className="relative rounded-xl overflow-hidden shadow-2xl">
               <Image
                 src="/about/office-building.png"
-                alt="VivaDrive Headquarters"
+                alt={t('pages.about.our_story.image_alt')}
                 width={600}
                 height={450}
                 className="w-full h-auto"
@@ -133,8 +135,8 @@ const OurStory = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-blue-500/10 flex flex-col justify-end p-4 md:p-6">
                 <div className="mb-2">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-xs font-medium text-white drop-shadow-md">Growth since 2019</span>
-                    <span className="text-xs font-medium text-white drop-shadow-md">85%</span>
+                    <span className="text-xs font-medium text-white drop-shadow-md">{t('pages.about.our_story.growth_label')}</span>
+                    <span className="text-xs font-medium text-white drop-shadow-md">{t('pages.about.our_story.growth_value')}</span>
                   </div>
                   <motion.div
                     className="w-full h-1.5 md:h-2 bg-white/30 rounded-full overflow-hidden"
@@ -172,8 +174,8 @@ const OurStory = () => {
                 <Calendar className="h-4 md:h-5 w-4 md:w-5 text-white" />
               </div>
               <div>
-                <span className="block text-xs md:text-sm text-gray-500">Established</span>
-                <span className="font-bold text-sm md:text-base text-gray-800">2019</span>
+                <span className="block text-xs md:text-sm text-gray-500">{t('pages.about.our_story.established_label')}</span>
+                <span className="font-bold text-sm md:text-base text-gray-800">{t('pages.about.our_story.established_year')}</span>
               </div>
             </motion.div>
           </motion.div>
