@@ -4,14 +4,17 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, ArrowUpRight, Filter, X } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const AlumniGrid = () => {
+    const { t } = useLanguage(); // Add the translation hook
     const [hoverIndex, setHoverIndex] = useState<number | null>(null);
     const [selectedRole, setSelectedRole] = useState<string | null>(null);
     const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [membersList, setMembersList] = useState<any[]>([]);
 
+    // Team members data with LinkedIn URLs, roles, and country flags
     // Team members data with LinkedIn URLs, roles, and country flags
     const teamMembers = [
         {
@@ -252,13 +255,13 @@ const AlumniGrid = () => {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 mb-4 bg-emerald-600/10 text-emerald-600 border-emerald-600/20 hover:bg-emerald-600/20 py-1.5 px-4 text-sm font-medium">
-                        Our People
+                        {t('pages.internships.alumni_grid.badge')}
                     </div>
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gray-900 to-emerald-600 dark:from-white dark:to-emerald-400 bg-clip-text text-transparent">
-                        Meet Our Alumni
+                        {t('pages.internships.alumni_grid.title')}
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-8">
-                        Our team is made up of talented individuals who have grown from interns to professionals, shaping the future of sustainable transportation.
+                        {t('pages.internships.alumni_grid.description')}
                     </p>
 
                     {/* Filter toggle button */}
@@ -267,7 +270,7 @@ const AlumniGrid = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors duration-200 mb-6"
                     >
                         <Filter className="h-4 w-4" />
-                        {isFilterOpen ? 'Hide Filters' : 'Filter Alumni'}
+                        {isFilterOpen ? t('pages.internships.alumni_grid.hide_filters') : t('pages.internships.alumni_grid.filter_alumni')}
                     </button>
 
                     {/* Filter drawer */}
@@ -285,25 +288,25 @@ const AlumniGrid = () => {
                                     <div>
                                         <h3 className="font-medium text-gray-700 mb-3 flex items-center gap-2">
                                             <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                                            Filter by Role
+                                            {t('pages.internships.alumni_grid.filter_by_role')}
                                         </h3>
                                         <div className="flex flex-wrap gap-2">
                                             <button
                                                 onClick={() => setSelectedRole(null)}
                                                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${!selectedRole
-                                                        ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
-                                                        : 'border border-gray-200 hover:bg-gray-50'
+                                                    ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
+                                                    : 'border border-gray-200 hover:bg-gray-50'
                                                     }`}
                                             >
-                                                All Roles
+                                                {t('pages.internships.alumni_grid.all_roles')}
                                             </button>
                                             {roles.map((role) => (
                                                 <button
                                                     key={role}
                                                     onClick={() => setSelectedRole(role === selectedRole ? null : role)}
                                                     className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${selectedRole === role
-                                                            ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
-                                                            : 'border border-gray-200 hover:bg-gray-50'
+                                                        ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
+                                                        : 'border border-gray-200 hover:bg-gray-50'
                                                         }`}
                                                 >
                                                     {role}
@@ -316,17 +319,17 @@ const AlumniGrid = () => {
                                     <div>
                                         <h3 className="font-medium text-gray-700 mb-3 flex items-center gap-2">
                                             <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                                            Filter by Country
+                                            {t('pages.internships.alumni_grid.filter_by_country')}
                                         </h3>
                                         <div className="flex flex-wrap gap-2">
                                             <button
                                                 onClick={() => setSelectedCountry(null)}
                                                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${!selectedCountry
-                                                        ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
-                                                        : 'border border-gray-200 hover:bg-gray-50'
+                                                    ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
+                                                    : 'border border-gray-200 hover:bg-gray-50'
                                                     }`}
                                             >
-                                                All Countries
+                                                {t('pages.internships.alumni_grid.all_countries')}
                                             </button>
                                             {countries.map((country) => {
                                                 const flagEmoji = teamMembers.find(m => m.country === country)?.flag || '';
@@ -335,12 +338,12 @@ const AlumniGrid = () => {
                                                         key={country}
                                                         onClick={() => setSelectedCountry(country === selectedCountry ? null : country)}
                                                         className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-1 ${selectedCountry === country
-                                                                ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
-                                                                : 'border border-gray-200 hover:bg-gray-50'
+                                                            ? 'bg-emerald-100 text-emerald-800 border-emerald-200 shadow-sm'
+                                                            : 'border border-gray-200 hover:bg-gray-50'
                                                             }`}
                                                     >
                                                         <span>{flagEmoji}</span>
-                                                        {country}
+                                                        {t(`pages.internships.alumni_grid.countries.${country}`)}
                                                     </button>
                                                 );
                                             })}
@@ -353,7 +356,7 @@ const AlumniGrid = () => {
                                     <div className="mt-6 pt-6 border-t border-gray-100">
                                         <div className="flex flex-wrap items-center justify-between gap-4">
                                             <div className="flex flex-wrap items-center gap-2">
-                                                <span className="text-sm text-gray-500">Active filters:</span>
+                                                <span className="text-sm text-gray-500">{t('pages.internships.alumni_grid.active_filters')}:</span>
                                                 {selectedRole && (
                                                     <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-emerald-50 text-emerald-700 border border-emerald-100">
                                                         {selectedRole}
@@ -381,11 +384,11 @@ const AlumniGrid = () => {
                                                 onClick={resetFilters}
                                                 className="text-sm text-gray-500 hover:text-emerald-600 transition-colors"
                                             >
-                                                Clear all filters
+                                                {t('pages.internships.alumni_grid.clear_all_filters')}
                                             </button>
                                         </div>
                                         <div className="mt-3 text-sm text-gray-500">
-                                            Showing {membersList.length} of {teamMembers.length} alumni
+                                            {t('pages.internships.alumni_grid.showing_results', { count: membersList.length, total: teamMembers.length })}
                                         </div>
                                     </div>
                                 )}
@@ -399,13 +402,13 @@ const AlumniGrid = () => {
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center gap-3 text-sm bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
                             <span>
-                                Showing {membersList.length} of {teamMembers.length} alumni
+                                {t('pages.internships.alumni_grid.showing_results', { count: membersList.length, total: teamMembers.length })}
                             </span>
                             <button
                                 onClick={resetFilters}
                                 className="text-emerald-600 hover:text-emerald-800 font-medium"
                             >
-                                Clear filters
+                                {t('pages.internships.alumni_grid.clear_filters')}
                             </button>
                         </div>
                     </div>
@@ -417,15 +420,15 @@ const AlumniGrid = () => {
                         <div className="mx-auto w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4">
                             <Filter className="h-10 w-10 text-gray-400" />
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-700 mb-2">No matching alumni found</h3>
+                        <h3 className="text-xl font-semibold text-gray-700 mb-2">{t('pages.internships.alumni_grid.no_results.title')}</h3>
                         <p className="text-gray-500 mb-6 max-w-md mx-auto">
-                            Try adjusting your filters to find what you're looking for.
+                            {t('pages.internships.alumni_grid.no_results.description')}
                         </p>
                         <button
                             onClick={resetFilters}
                             className="px-4 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors"
                         >
-                            Reset filters
+                            {t('pages.internships.alumni_grid.reset_filters')}
                         </button>
                     </div>
                 )}
@@ -483,7 +486,7 @@ const AlumniGrid = () => {
                                                 <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                                     <div className="flex items-center space-x-2">
                                                         <Linkedin className="h-5 w-5" />
-                                                        <span className="font-medium">View profile</span>
+                                                        <span className="font-medium">{t('pages.internships.alumni_grid.view_profile')}</span>
                                                         <ArrowUpRight className="h-4 w-4" />
                                                     </div>
                                                 </div>

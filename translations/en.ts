@@ -351,7 +351,7 @@ const en = {
       },
       partners: {
         heading: "OUR PARTNERS & INTEGRATIONS",
-        visit_label: "Visit {{name}} website"
+        visit_label: "Visit {{name}} website",
       },
       showcase: {
         badge: "Fleet Optimization",
@@ -362,52 +362,63 @@ const en = {
         cards: {
           1: {
             title: "Replace your cars",
-            description: "See which cars can be replaced by EVs and how many replacement options there are available."
+            description:
+              "See which cars can be replaced by EVs and how many replacement options there are available.",
           },
           2: {
             title: "Find the best charging strategy",
-            description: "Check out how to deploy your EV charging infrastructure such that you can still perform your transportation tasks."
+            description:
+              "Check out how to deploy your EV charging infrastructure such that you can still perform your transportation tasks.",
           },
           3: {
             title: "Build an EV deployment plan",
-            description: "We will prepare for you a personalized EV deployment and business plan that will allow you to save money and meet sustainability criteria."
+            description:
+              "We will prepare for you a personalized EV deployment and business plan that will allow you to save money and meet sustainability criteria.",
           },
           4: {
             title: "Manage EV fleet and reduce TCO",
-            description: "Our fleet management tools can manage your hybrid fleet consisting of traditional combustion engine cars and electric ones."
-          }
-        }
+            description:
+              "Our fleet management tools can manage your hybrid fleet consisting of traditional combustion engine cars and electric ones.",
+          },
+        },
       },
       features: {
         badge: "Discover all the Features",
         heading: "GO electric with confidence",
-        description: "VivaDrive helps you transition to electric vehicles with comprehensive analysis and support.",
+        description:
+          "VivaDrive helps you transition to electric vehicles with comprehensive analysis and support.",
         items: {
           1: {
             title: "Fleet Analysis",
-            description: "We analyze your current fleet in terms of transport tasks, energy consumption, and operational patterns."
+            description:
+              "We analyze your current fleet in terms of transport tasks, energy consumption, and operational patterns.",
           },
           2: {
             title: "Charging Infrastructure",
-            description: "Detailed simulations for various scenarios of introducing new charging infrastructure tailored to your needs."
+            description:
+              "Detailed simulations for various scenarios of introducing new charging infrastructure tailored to your needs.",
           },
           3: {
             title: "TCO Analysis",
-            description: "Comprehensive total cost of ownership calculations to make informed financial decisions."
+            description:
+              "Comprehensive total cost of ownership calculations to make informed financial decisions.",
           },
           4: {
             title: "Business Modeling",
-            description: "Create a detailed business model for EV implementation specific to your company's requirements."
+            description:
+              "Create a detailed business model for EV implementation specific to your company's requirements.",
           },
           5: {
             title: "Implementation Plan",
-            description: "Step-by-step roadmap for transitioning your fleet partially or fully to electric vehicles."
+            description:
+              "Step-by-step roadmap for transitioning your fleet partially or fully to electric vehicles.",
           },
           6: {
             title: "Ongoing Management",
-            description: "Support for managing a mixed fleet of electric and traditional vehicles and their charging infrastructure."
-          }
-        }
+            description:
+              "Support for managing a mixed fleet of electric and traditional vehicles and their charging infrastructure.",
+          },
+        },
       },
       sections: {
         learn_more: "Learn More",
@@ -416,116 +427,125 @@ const en = {
           title: {
             pre: "Find out the best",
             highlight: "EV options",
-            post: "for your fleet"
+            post: "for your fleet",
           },
-          description: "We will take into account your operational needs. We will test EV feasibility in different roads and in different weather conditions. We will also assess your charging and EV infrastructure needs.",
-          result: "The result: A comprehensive recommendation showing which vehicles can be replaced by EVs, which drivers are suitable, and what charging infrastructure gaps need to be addressed.",
+          description:
+            "We will take into account your operational needs. We will test EV feasibility in different roads and in different weather conditions. We will also assess your charging and EV infrastructure needs.",
+          result:
+            "The result: A comprehensive recommendation showing which vehicles can be replaced by EVs, which drivers are suitable, and what charging infrastructure gaps need to be addressed.",
           image_alt: "Recommended EVs",
           stats: {
             reliability: "EV reliability",
-            co2: "reduced CO₂"
-          }
+            co2: "reduced CO₂",
+          },
         },
         section2: {
           badge: "Charging Network",
           title: {
             pre: "Deploy the",
             highlight: "ideal infrastructure",
-            post: "for your fleet"
+            post: "for your fleet",
           },
-          description: "VivaDrive will allow you to design and implement a cost effective EV charging infrastructure for your EV fleet - we will assess charging site suitability and estimate the cost of infrastructure installation.",
+          description:
+            "VivaDrive will allow you to design and implement a cost effective EV charging infrastructure for your EV fleet - we will assess charging site suitability and estimate the cost of infrastructure installation.",
           image_alt: "EV Charging Infrastructure",
           checklist: {
             home: "Home location charging solutions",
             office: "Office location optimization",
             public: "Public charging station mapping",
-            stop: "Stop location analysis for 45+ minutes"
-          }
+            stop: "Stop location analysis for 45+ minutes",
+          },
         },
         section3: {
           badge: "Unified Management",
           title: {
             pre: "Manage",
             highlight: "everything",
-            post: "in one place"
+            post: "in one place",
           },
-          description: "Manage your combustion engine and electric vehicles in one place. Track where, when and how they are being used, Manage your EV fleet including cost optimization, charging management and route optimization.",
+          description:
+            "Manage your combustion engine and electric vehicles in one place. Track where, when and how they are being used, Manage your EV fleet including cost optimization, charging management and route optimization.",
           info: "Learn how to effectively reduce costs with help of Big Data and our AI technologies that optimize fleet operations in real-time.",
           image_alt: "Fleet Management Dashboard",
           features: {
             fleet: "Fleet management",
             charging: "Charging management",
             route: "Route optimization",
-            cost: "Cost analytics"
+            cost: "Cost analytics",
           },
           stats: {
             cost: {
-              label: "Cost Reduction"
+              label: "Cost Reduction",
             },
-            realtime: "Real-time updates"
-          }
-        }
+            realtime: "Real-time updates",
+          },
+        },
       },
       final_cta: {
         badge: "Get in touch",
         heading: "We believe the future of driving is electric",
-        button: "Start now"
-      }
+        button: "Start now",
+      },
     },
     fleet_management: {
       hero: {
         title: "Save up to 1000€",
         title_highlight: "annually on a single fleet car",
-        description: "VivaDrive helps you increase your fleet efficiency and reduces your TCO costs including fuel, service and insurance costs, among others.",
+        description:
+          "VivaDrive helps you increase your fleet efficiency and reduces your TCO costs including fuel, service and insurance costs, among others.",
         email_placeholder: "Email address",
         contact_sales: "Contact Sales",
         learn_more: "Learn more",
         image_alt: "VivaDrive dashboard on laptop",
         tabs: {
           benefits: "Benefits",
-          features: "Features"
+          features: "Features",
         },
         cards: {
           annual_savings: {
             label: "ANNUAL SAVINGS",
-            value: "1000€"
-          }
-        }
+            value: "1000€",
+          },
+        },
       },
       features: {
         badge: "Discover all the Features",
         heading: "We measure. We analyse. You profit.",
-        description: "We are your partner in managing your TCO cost, first we focus on getting to know you, learning about specs, KPIs and assessing your fleet. Then our algorithms automate the system and interface according to your specific needs. You start saving money after just one month, that means that it will pay for itself already in the first quarter!",
+        description:
+          "We are your partner in managing your TCO cost, first we focus on getting to know you, learning about specs, KPIs and assessing your fleet. Then our algorithms automate the system and interface according to your specific needs. You start saving money after just one month, that means that it will pay for itself already in the first quarter!",
         badge_roi: "Fast ROI in first quarter",
         cards: {
           1: {
             title: "Fleet Assessment",
-            description: "We analyze your current fleet to identify optimization opportunities and establish baseline metrics."
+            description:
+              "We analyze your current fleet to identify optimization opportunities and establish baseline metrics.",
           },
           2: {
             title: "Customized Solutions",
-            description: "Our algorithms create tailored interfaces and systems that match your specific operational needs."
+            description:
+              "Our algorithms create tailored interfaces and systems that match your specific operational needs.",
           },
           3: {
             title: "Rapid ROI",
-            description: "Start seeing cost savings in just one month, with the solution paying for itself within the first quarter."
-          }
+            description:
+              "Start seeing cost savings in just one month, with the solution paying for itself within the first quarter.",
+          },
         },
         stats: {
           cost_reduction: {
             value: "27%",
-            label: "Average cost reduction"
+            label: "Average cost reduction",
           },
           first_results: {
             value: "1 Month",
-            label: "To see first results"
+            label: "To see first results",
           },
           roi: {
             value: "1 Quarter",
-            label: "To full return on investment"
-          }
+            label: "To full return on investment",
+          },
         },
-        cta: "Discover More"
+        cta: "Discover More",
       },
       solutions: {
         section1: {
@@ -533,53 +553,56 @@ const en = {
           heading_pre: "Improve your",
           heading_highlight: "drivers'",
           heading_post: "experience",
-          description: "Analytics, personalised feedback, gamification and a motivation program build for better and more efficient drivers. With help of VivaDrive mobile you can accurately communicate with drivers and simplify and streamline how you manage your people in your fleet.",
+          description:
+            "Analytics, personalised feedback, gamification and a motivation program build for better and more efficient drivers. With help of VivaDrive mobile you can accurately communicate with drivers and simplify and streamline how you manage your people in your fleet.",
           note: "Our mobile app provides real-time feedback, personalized guidance, and gamified elements to boost driver engagement and performance.",
           image_alt: "VivaDrive Mobile App",
           tags: {
             safety: "Improved safety",
             efficiency: "Higher efficiency",
-            engagement: "Better engagement"
-          }
+            engagement: "Better engagement",
+          },
         },
         section2: {
           badge: "Electric Transition",
           heading_pre: "Switch to",
           heading_highlight: "EV",
           heading_post: "easily",
-          description: "Are you still wondering if Electric Vehicles is suitable for you or your company? We can solve that riddle and find the best solution for your fleet. Zero-emission zones, car-sharing, multi-modality transport - all these challenges causes a heavy headache. We can help you modernize and electrify your car park in an optimal way.",
+          description:
+            "Are you still wondering if Electric Vehicles is suitable for you or your company? We can solve that riddle and find the best solution for your fleet. Zero-emission zones, car-sharing, multi-modality transport - all these challenges causes a heavy headache. We can help you modernize and electrify your car park in an optimal way.",
           image_alt: "EV Recommendations Dashboard",
           stats: {
             savings: "75% savings",
-            battery: "42.2 kWh"
+            battery: "42.2 kWh",
           },
           features: {
             analysis: "Vehicle suitability analysis",
             infrastructure: "Charging infrastructure planning",
-            optimization: "Electric fleet cost optimization"
-          }
+            optimization: "Electric fleet cost optimization",
+          },
         },
         section3: {
           badge: "Cost Management",
           heading_pre: "Control your",
           heading_highlight: "costs",
           heading_post: "and simplify your work",
-          description: "We will help you replace a paper-based system with an electronic system that will help complete administrative tasks in less time. With a combination of telematics you will gain a powerful tool that will help you manage your vehicles, drivers, costs and administrative tools. All automated! Additionally our AI-powered algorithms will recommend you actions that will significantly reduce your fleet TCO cost.",
+          description:
+            "We will help you replace a paper-based system with an electronic system that will help complete administrative tasks in less time. With a combination of telematics you will gain a powerful tool that will help you manage your vehicles, drivers, costs and administrative tools. All automated! Additionally our AI-powered algorithms will recommend you actions that will significantly reduce your fleet TCO cost.",
           note: "Our integrated dashboard provides real-time cost analysis, charging status monitoring, and vehicle performance metrics in one centralized platform.",
           image_alt: "Charging Stations Dashboard",
           tags: {
             cost: "Cost reduction",
             time: "Time savings",
-            automated: "Automated management"
+            automated: "Automated management",
           },
           stats: {
             availability: {
               label: "Total Availability",
-              value: "87%"
+              value: "87%",
             },
-            updates: "Real-time updates"
-          }
-        }
+            updates: "Real-time updates",
+          },
+        },
       },
       cost_reduction: {
         subtitle: "Opportunities in every dimension",
@@ -589,104 +612,116 @@ const en = {
         items: {
           maintenance: {
             percentage: "40%",
-            label: "Maintenance costs"
+            label: "Maintenance costs",
           },
           insurance: {
             percentage: "10%",
-            label: "Insurance fees"
+            label: "Insurance fees",
           },
           fuel: {
             percentage: "20%",
-            label: "Cost of fuel to energy saving"
+            label: "Cost of fuel to energy saving",
           },
           claims: {
             percentage: "25%",
-            label: "Claims"
-          }
-        }
+            label: "Claims",
+          },
+        },
       },
       supercharge: {
         badge: "Ready to get started?",
         heading: "Supercharge your fleet",
         heading_highlight: "now!",
         primary_button: "Start now",
-        secondary_button: "Learn more"
+        secondary_button: "Learn more",
       },
     },
     about: {
       hero: {
         title_pre: "Driving the future of",
         title_highlight: "Fleet Management",
-        description: "One mission, many revolutionary solutions. We turn car fleets green, and let customers save their money and time!",
+        description:
+          "One mission, many revolutionary solutions. We turn car fleets green, and let customers save their money and time!",
         primary_button: "Our Solutions",
         secondary_button: "Meet Our Team",
         scroll_text: "Scroll to explore",
-        image_alt: "Aerial view of highway junction"
+        image_alt: "Aerial view of highway junction",
       },
       what_we_do: {
         heading: "What do we do?",
         subheading: "We provide innovative solutions for fleets and managers",
-        point1: "We work everyday with passion to provide tools that make work of fleet managers easy and enjoyable.",
-        point2: "Every single day we save precious time and money on daunting fleet management tasks.",
-        point3: "We are one among the first ones in the world who developed a system that saves your money, time and environment at the same time.",
+        point1:
+          "We work everyday with passion to provide tools that make work of fleet managers easy and enjoyable.",
+        point2:
+          "Every single day we save precious time and money on daunting fleet management tasks.",
+        point3:
+          "We are one among the first ones in the world who developed a system that saves your money, time and environment at the same time.",
         cta_button: "Learn More About Our Solutions",
         image_alt: "Fleet managers discussing solutions",
         stat_value: "30%",
-        stat_description: "Average cost reduction for our clients"
-      }, 
+        stat_description: "Average cost reduction for our clients",
+      },
       philosophy: {
         heading: "Our philosophy",
         learn_more: "Learn more",
         cards: {
           sustainable: {
             title: "Sustainable",
-            description: "We promote electric vehicles to make the world greener and more sustainable"
+            description:
+              "We promote electric vehicles to make the world greener and more sustainable",
           },
           modern: {
             title: "Modern",
-            description: "We make use of the newest technologies and tools in the world"
+            description:
+              "We make use of the newest technologies and tools in the world",
           },
           human: {
             title: "Human-centred",
-            description: "Even with huge datasets and complex algorithms, We remain a human-centred company."
+            description:
+              "Even with huge datasets and complex algorithms, We remain a human-centred company.",
           },
           simple: {
             title: "Simple",
-            description: "Fleet management was never so simple and user friendly"
-          }
-        }
+            description:
+              "Fleet management was never so simple and user friendly",
+          },
+        },
       },
       partners: {
         heading: "OUR PARTNERS",
-        visit_label: "Visit {{name}} website"
+        visit_label: "Visit {{name}} website",
       },
       our_story: {
         since: "Since 2019",
         heading_pre: "Our",
         heading_highlight: "story",
-        paragraph1: "VivaDrive was founded in 2019 in Warsaw with a vision to revolutionize fleet management.",
-        paragraph2: "Our main idea behind VivaDrive was to make fleet management as simple as possible and to reduce time and money one has to spend on it.",
-        quote: "With years of experience in the field and cutting edge technology, we were able to create a unique product that has taken the market by storm from day one!",
+        paragraph1:
+          "VivaDrive was founded in 2019 in Warsaw with a vision to revolutionize fleet management.",
+        paragraph2:
+          "Our main idea behind VivaDrive was to make fleet management as simple as possible and to reduce time and money one has to spend on it.",
+        quote:
+          "With years of experience in the field and cutting edge technology, we were able to create a unique product that has taken the market by storm from day one!",
         technology_button: "Our Technology",
         team_button: "Meet Our Team",
         image_alt: "VivaDrive Headquarters",
         growth_label: "Growth since 2019",
         growth_value: "85%",
         established_label: "Established",
-        established_year: "2019"
+        established_year: "2019",
       },
       team: {
         subtitle: "The people behind VivaDrive",
         heading_pre: "Our",
         heading_highlight: "core team",
-        description: "Meet the talented individuals who are driving innovation and excellence at VivaDrive",
+        description:
+          "Meet the talented individuals who are driving innovation and excellence at VivaDrive",
         swipe_instruction: "Swipe to navigate",
         prev_slide: "Previous slide",
         next_slide: "Next slide",
         linkedin_aria: "LinkedIn profile of {{name}}",
         email_aria: "Email {{name}}",
         go_to_slide: "Go to slide {{number}}",
-        join_button: "Join Our Team"
+        join_button: "Join Our Team",
       },
       partners_section: {
         heading: "Project VivaDrive is developed thanks to an investment from",
@@ -694,80 +729,97 @@ const en = {
           eu_funds: "European Funds Smart Growth",
           republic_of_poland: "Republic of Poland",
           eit_urban_mobility: "EIT Urban Mobility",
-          eu_structural_funds: "European Union European Structural and Investment Funds",
+          eu_structural_funds:
+            "European Union European Structural and Investment Funds",
           ncbr: "National Centre for Research and Development",
-          space_bridge_fund: "Space Bridge Fund"
-        }
+          space_bridge_fund: "Space Bridge Fund",
+        },
       },
       join_team: {
         subtitle: "Work at VivaDrive",
         heading_pre: "Start",
         heading_highlight: "innovating",
         heading_post: "with us",
-        description: "VivaDrive is a perfect place to develop your skills in a diverse environment",
-        point1: "Be a part of a rapidly growing team of the biggest talents from all around the world",
-        point2: "Work on cutting-edge technologies in fleet management and electrification",
-        point3: "Develop professionally in a supportive and collaborative environment that values innovation",
-        quote: "\"We're not just building a product, we're building a team that's passionate about making a difference in fleet management and sustainability.\"",
+        description:
+          "VivaDrive is a perfect place to develop your skills in a diverse environment",
+        point1:
+          "Be a part of a rapidly growing team of the biggest talents from all around the world",
+        point2:
+          "Work on cutting-edge technologies in fleet management and electrification",
+        point3:
+          "Develop professionally in a supportive and collaborative environment that values innovation",
+        quote:
+          "\"We're not just building a product, we're building a team that's passionate about making a difference in fleet management and sustainability.\"",
         cta_button: "Open Positions",
         image_alt: "VivaDrive Team Collaboration",
         badge_label: "Global Team",
-        badge_value: "Join Us"
-      }
+        badge_value: "Join Us",
+      },
     },
     careers: {
       hero: {
         title_pre: "At VivaDrive",
         title_highlight: "we grow together",
-        description: "It's a perfect place for you if you have your own ideas, creative mind and a will to learn",
+        description:
+          "It's a perfect place for you if you have your own ideas, creative mind and a will to learn",
         button_positions: "Open Positions",
         button_benefits: "Our Benefits",
         scroll_text: "Scroll to explore",
-        image_alt: "VivaDrive team collaborating"
+        image_alt: "VivaDrive team collaborating",
       },
       culture: {
         heading: "Culture and perks",
-        description: "We're a driven team with over 12 nationalities, working together to make the world sustainable. We believe that having stimulating and comfortable working conditions is really important to innovate and create something unique. We believe in teamwork, technology, and work-life balance, not to mention fun.",
+        description:
+          "We're a driven team with over 12 nationalities, working together to make the world sustainable. We believe that having stimulating and comfortable working conditions is really important to innovate and create something unique. We believe in teamwork, technology, and work-life balance, not to mention fun.",
         apply_button: "Apply",
         perks: {
           flexible: {
             title: "Flexible work-life",
-            description: "We trust you to know your schedule and work when you feel most productive."
+            description:
+              "We trust you to know your schedule and work when you feel most productive.",
           },
           learning: {
             title: "Learning and Development",
-            description: "Internal webinars, mentorship program, P2P work - all to make sure that you grow. If you grow, we grow too 😊"
+            description:
+              "Internal webinars, mentorship program, P2P work - all to make sure that you grow. If you grow, we grow too 😊",
           },
           think_big: {
             title: "We think big",
-            description: "We love being challenged and we aim to build a meaningful company, impacting the lives of millions of people and protecting the planet."
+            description:
+              "We love being challenged and we aim to build a meaningful company, impacting the lives of millions of people and protecting the planet.",
           },
           fun: {
             title: "Fun friendly office:",
-            description: "Laughing to thrive - that's our motto. In a startup, you need to stay positive! But realistic too ;)"
+            description:
+              "Laughing to thrive - that's our motto. In a startup, you need to stay positive! But realistic too ;)",
           },
           diverse: {
             title: "Diverse",
-            description: "We value all voices VivaDrive and we try to create a diverse and equitable work environment where every single person counts."
+            description:
+              "We value all voices VivaDrive and we try to create a diverse and equitable work environment where every single person counts.",
           },
           international: {
             title: "International",
-            description: "We are building a global brand, so we need to understand our customers from different parts of the world. That is why our team is global too"
+            description:
+              "We are building a global brand, so we need to understand our customers from different parts of the world. That is why our team is global too",
           },
           empowering: {
             title: "Empowering",
-            description: "We know one person can make a meaningful impact. Work with us and find it out."
+            description:
+              "We know one person can make a meaningful impact. Work with us and find it out.",
           },
           collaborative: {
             title: "Collaborative",
-            description: "We are silo-free and ego-free. We are one team that supports each other to succeed."
-          }
-        }
+            description:
+              "We are silo-free and ego-free. We are one team that supports each other to succeed.",
+          },
+        },
       },
       positions: {
         badge: "Career opportunities",
         heading: "Open positions",
-        description: "Join our team and help us build sustainable solutions for the future. We're looking for passionate people who want to make a difference.",
+        description:
+          "Join our team and help us build sustainable solutions for the future. We're looking for passionate people who want to make a difference.",
         apply_button: "Apply",
         cta_question: "Don't see a position that fits your skills?",
         cta_button: "Contact our team",
@@ -775,58 +827,67 @@ const en = {
           python_django: {
             title: "Python/Django Developer",
             subtitle: "Smart City/AI",
-            description: "We are looking for an experienced Python/Django developer with at least 4 years..."
+            description:
+              "We are looking for an experienced Python/Django developer with at least 4 years...",
           },
           frontend: {
             title: "Front-end Developer",
             subtitle: "",
-            description: "We are looking for an experienced Python/Django developer with at least 4 years..."
+            description:
+              "We are looking for an experienced Python/Django developer with at least 4 years...",
           },
           data_scientist: {
             title: "Data Scientist",
             subtitle: "",
-            description: "We are looking for a Data Scientist with at least 3 years experience..."
+            description:
+              "We are looking for a Data Scientist with at least 3 years experience...",
           },
           digital_marketer: {
             title: "Digital Marketer",
             subtitle: "",
-            description: "We are looking for a Digital Marketer with at least 2 years experience..."
+            description:
+              "We are looking for a Digital Marketer with at least 2 years experience...",
           },
           business_developer: {
             title: "Business Developer",
             subtitle: "",
-            description: "We are looking for a Business Developer with at least 5 years experience..."
+            description:
+              "We are looking for a Business Developer with at least 5 years experience...",
           },
           ux_ui: {
             title: "UX/UI",
             subtitle: "",
-            description: "We are looking for a UX/UI designer with at least 2 years experience..."
+            description:
+              "We are looking for a UX/UI designer with at least 2 years experience...",
           },
           different: {
             title: "Different position?",
             subtitle: "",
-            description: "Is your skillset not on our list? Don't worry, we are always open for talents...."
-          }
-        }
-      }
+            description:
+              "Is your skillset not on our list? Don't worry, we are always open for talents....",
+          },
+        },
+      },
     },
     internships: {
       hero: {
         title: "Internships",
         subtitle: "Build your career with VivaDrive",
-        description: "At VivaDrive we believe that collaboration is the best way to learn and do something meaningful. Start your career in technology, Data Science, and Business/Communication in a international environment.",
+        description:
+          "At VivaDrive we believe that collaboration is the best way to learn and do something meaningful. Start your career in technology, Data Science, and Business/Communication in a international environment.",
         button: "View internships",
         scroll_text: "Scroll to explore",
-        image_alt: "VivaDrive internship team collaborating"
+        image_alt: "VivaDrive internship team collaborating",
       },
       partners: {
         heading: "UNIVERSITY PARTNERS",
-        visit_label: "Visit {{name}} website"
+        visit_label: "Visit {{name}} website",
       },
       testimonials: {
         badge: "Our People",
         title: "From Interns to Innovators",
-        subtitle: "Our interns grow into leaders, bringing fresh perspectives and innovative solutions to VivaDrive.",
+        subtitle:
+          "Our interns grow into leaders, bringing fresh perspectives and innovative solutions to VivaDrive.",
         cta_text: "Interested in joining our intern program?",
         cta_button: "View Opportunities",
         positions: {
@@ -834,53 +895,140 @@ const en = {
           frontend: "Frontend Developer Intern",
           backend: "Backend Developer Intern",
           datascience: "Data Science Intern",
-          ai: "AI Developer Intern"
+          ai: "AI Developer Intern",
         },
         countries: {
           slovakia: "Slovakia",
           italy: "Italy",
           greece: "Greece",
           portugal: "Portugal",
-          france: "France"
+          france: "France",
         },
         quotes: {
-          patrik: "Joining VivaDrive as a full stack intern has been transformative for my career. The opportunity to work across the entire technology stack allowed me to discover my strengths and develop a holistic understanding of software development that would have taken years to gain elsewhere.",
-          matteo: "Time flies when you really enjoy what you do! Came to VivaDrive as a frontend intern to learn and gain experience. The flexible working culture and exploration-friendly environment made me move towards new challenges and grow as a developer.",
-          gabriele: "The best decision I ever made was to join VivaDrive as a data science intern. I learned a lot and a bit of everything, more than I asked for. I had space to learn, practice, and evolve as a professional in the data science field.",
-          giovanni: "I joined VivaDrive as an AI developer intern. It allowed me to gain so much practical experience on real projects that today I continue my AI development career thanks to this decision.",
-          christina: "Every day starts with new technical challenges and new objectives. I discovered my true passion for data science at VivaDrive which showed my impact on real-world data projects.",
-          goncalo: "Working at VivaDrive as a backend developer intern has been an incredible journey. The collaborative environment and hands-on approach have helped me develop both my technical skills and understanding of server-side architecture.",
-          dorian: "My experience as a frontend developer intern at VivaDrive has been truly enriching. Being part of a collaborative team and working on real-world projects has deepened my expertise in building dynamic user interfaces and refining client-side architecture."
+          patrik:
+            "Joining VivaDrive as a full stack intern has been transformative for my career. The opportunity to work across the entire technology stack allowed me to discover my strengths and develop a holistic understanding of software development that would have taken years to gain elsewhere.",
+          matteo:
+            "Time flies when you really enjoy what you do! Came to VivaDrive as a frontend intern to learn and gain experience. The flexible working culture and exploration-friendly environment made me move towards new challenges and grow as a developer.",
+          gabriele:
+            "The best decision I ever made was to join VivaDrive as a data science intern. I learned a lot and a bit of everything, more than I asked for. I had space to learn, practice, and evolve as a professional in the data science field.",
+          giovanni:
+            "I joined VivaDrive as an AI developer intern. It allowed me to gain so much practical experience on real projects that today I continue my AI development career thanks to this decision.",
+          christina:
+            "Every day starts with new technical challenges and new objectives. I discovered my true passion for data science at VivaDrive which showed my impact on real-world data projects.",
+          goncalo:
+            "Working at VivaDrive as a backend developer intern has been an incredible journey. The collaborative environment and hands-on approach have helped me develop both my technical skills and understanding of server-side architecture.",
+          dorian:
+            "My experience as a frontend developer intern at VivaDrive has been truly enriching. Being part of a collaborative team and working on real-world projects has deepened my expertise in building dynamic user interfaces and refining client-side architecture.",
         },
         aria: {
           linkedin: "Visit {{name}}'s LinkedIn profile",
           goto_slide: "Go to slide {{index}}",
           previous: "Previous testimonial",
-          next: "Next testimonial"
+          next: "Next testimonial",
+        },
+      },
+      what_is_vivadrive: {
+        badge: "About Us",
+        title: "What is VivaDrive?",
+        description:
+          "Our unique approach combines passionate people with freedom to innovate.",
+        features: {
+          passionate_team: {
+            title: "Passionate Team",
+            description:
+              "Put a bunch of incredibly passionate, driven individuals together.",
+          },
+          complete_freedom: {
+            title: "Complete Freedom",
+            description:
+              "Take complete freedom to chase their goals in a completely unrestrained manner.",
+          },
+          team_vivadrive: {
+            title: "Team VivaDrive",
+            description: "You have team VivaDrive.",
+          },
+        },
+        cta_text: "Want to know how working at VivaDrive looks?",
+        cta_button: "Day at VivaDrive",
+      },
+      why_join_vivadrive: {
+        title: "Why join VivaDrive?",
+        description:
+          "We want our collaborators/employees to help us build this cool project and at the same time help them grow and accelerate their careers. We employ so-called Self Organized Learning Environment, where we give our staff autonomy in choosing solutions, space to make errors and an open and inclusive environment, where we all can grow.",
+        benefits: {
+          real_world_projects: {
+            title: "Real-world projects",
+            description:
+              "Most interns ship the code and projects from day one. We will make sure you will learn to take initiative, take a risk, and not be afraid of failures ;)",
+          },
+          get_a_job: {
+            title: "Get a job",
+            description:
+              "When your internship is successful, we are happy to offer you a job. Yes, real full-time paid positions! So it's worth joining and doing your best.",
+          },
+          learn_from_the_best: {
+            title: "Learn from the best",
+            description:
+              "You'll have access to mentors and you will receive support from your manager and your team. If you grow, we grow with you! You will boost your soft skills and learn how to work in a team.",
+          },
+          boost_your_skills: {
+            title: "Boost your skills",
+            description:
+              "We work with cutting-edge technologies and tools, and global customers so we make sure that you will have a chance to improve your technical and non-technical skills, how to be creative, and think out of the box.",
+          },
+          try_before_you_buy: {
+            title: "Try before you buy",
+            description:
+              "If you've grown up dreaming of life as a high-flying investment banker or an astronaut, it's easy to become blinkered to other career opportunities. The internship will give you the real experience of it, helping you to decide if your aspirations match reality.",
+          },
+          enjoy_international_workplace: {
+            title: "Enjoy international workplace",
+            description:
+              "We love diversity and we work with people from different countries all across the globe. Join us, enjoy this international atmosphere, have fun and grow with us.",
+          },
+        },
+        cta: {
+          heading: "Ready to grow with us?",
+          description:
+            "Join our team of passionate individuals and work on projects that truly matter.",
+          apply_button: "Apply for internship",
+          view_button: "View internships",
+        },
+      },
+      alumni_grid: {
+        badge: "Our People",
+        title: "Meet Our Alumni",
+        description: "Our team is made up of talented individuals who have grown from interns to professionals, shaping the future of sustainable transportation.",
+        filter_alumni: "Filter Alumni",
+        hide_filters: "Hide Filters",
+        filter_by_role: "Filter by Role",
+        filter_by_country: "Filter by Country",
+        all_roles: "All Roles",
+        all_countries: "All Countries",
+        active_filters: "Active filters",
+        clear_all_filters: "Clear all filters",
+        clear_filters: "Clear filters",
+        showing_results: "Showing {{count}} of {{total}} alumni",
+        reset_filters: "Reset filters",
+        view_profile: "View profile",
+        no_results: {
+          title: "No matching alumni found",
+          description: "Try adjusting your filters to find what you're looking for."
+        },
+        countries: {
+          Italy: "Italy",
+          Poland: "Poland",
+          Portugal: "Portugal",
+          Greece: "Greece",
+          France: "France",
+          Germany: "Germany",
+          Iran: "Iran",
+          Vietnam: "Vietnam",
+          Hungary: "Hungary",
+          Croatia: "Croatia"
         }
-      },
-  what_is_vivadrive: {
-    badge: "About Us",
-    title: "What is VivaDrive?",
-    description: "Our unique approach combines passionate people with freedom to innovate.",
-    features: {
-      passionate_team: {
-        title: "Passionate Team",
-        description: "Put a bunch of incredibly passionate, driven individuals together."
-      },
-      complete_freedom: {
-        title: "Complete Freedom",
-        description: "Take complete freedom to chase their goals in a completely unrestrained manner."
-      },
-      team_vivadrive: {
-        title: "Team VivaDrive",
-        description: "You have team VivaDrive."
       }
     },
-    cta_text: "Want to know how working at VivaDrive looks?",
-    cta_button: "Day at VivaDrive"
-  }
-    },   
   },
 };
 

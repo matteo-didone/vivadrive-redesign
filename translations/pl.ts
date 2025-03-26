@@ -930,27 +930,108 @@ const pl = {
           next: "Następny testimonial",
         },
       },
-  what_is_vivadrive: {
-    badge: "O Nas",
-    title: "Czym jest VivaDrive?",
-    description: "Nasze unikalne podejście łączy pasjonatów z wolnością do innowacji.",
-    features: {
-      passionate_team: {
-        title: "Zespół z Pasją",
-        description: "Zbierz grupę niesamowicie zaangażowanych, ambitnych osób."
+      what_is_vivadrive: {
+        badge: "O Nas",
+        title: "Czym jest VivaDrive?",
+        description:
+          "Nasze unikalne podejście łączy pasjonatów z wolnością do innowacji.",
+        features: {
+          passionate_team: {
+            title: "Zespół z Pasją",
+            description:
+              "Zbierz grupę niesamowicie zaangażowanych, ambitnych osób.",
+          },
+          complete_freedom: {
+            title: "Pełna Swoboda",
+            description:
+              "Daj im pełną swobodę w realizacji celów w niczym nieskrępowany sposób.",
+          },
+          team_vivadrive: {
+            title: "Zespół VivaDrive",
+            description: "I masz zespół VivaDrive.",
+          },
+        },
+        cta_text: "Chcesz wiedzieć, jak wygląda praca w VivaDrive?",
+        cta_button: "Dzień w VivaDrive",
       },
-      complete_freedom: {
-        title: "Pełna Swoboda",
-        description: "Daj im pełną swobodę w realizacji celów w niczym nieskrępowany sposób."
+      // Add this under 'pages.internships' in the Polish translations file
+      why_join_vivadrive: {
+        title: "Dlaczego dołączyć do VivaDrive?",
+        description:
+          "Chcemy, aby nasi współpracownicy/pracownicy pomogli nam budować ten świetny projekt, a jednocześnie mogli się rozwijać i przyspieszać swoją karierę. Stosujemy tak zwane Samozorganizowane Środowisko Nauki, w którym dajemy naszym pracownikom autonomię w wyborze rozwiązań, przestrzeń do popełniania błędów oraz otwarte i integracyjne środowisko, w którym wszyscy możemy się rozwijać.",
+        benefits: {
+          real_world_projects: {
+            title: "Prawdziwe projekty",
+            description:
+              "Większość stażystów wdraża kod i projekty od pierwszego dnia. Zadbamy o to, abyś nauczył się podejmować inicjatywę, podejmować ryzyko i nie bać się porażek ;)",
+          },
+          get_a_job: {
+            title: "Zdobądź pracę",
+            description:
+              "Gdy Twój staż zakończy się sukcesem, z przyjemnością zaoferujemy Ci pracę. Tak, prawdziwe pełnoetatowe płatne stanowiska! Dlatego warto dołączyć i dać z siebie wszystko.",
+          },
+          learn_from_the_best: {
+            title: "Ucz się od najlepszych",
+            description:
+              "Będziesz mieć dostęp do mentorów oraz otrzymasz wsparcie od swojego menedżera i zespołu. Jeśli Ty się rozwijasz, my rozwijamy się wraz z Tobą! Wzmocnisz swoje umiejętności miękkie i nauczysz się pracy w zespole.",
+          },
+          boost_your_skills: {
+            title: "Rozwijaj swoje umiejętności",
+            description:
+              "Pracujemy z najnowocześniejszymi technologiami i narzędziami oraz globalnymi klientami, dzięki czemu masz szansę poprawić swoje umiejętności techniczne i nietechniczne, nauczyć się kreatywności i myślenia nieszablonowego.",
+          },
+          try_before_you_buy: {
+            title: "Wypróbuj, zanim zdecydujesz",
+            description:
+              "Jeśli dorastałeś marząc o życiu jako wysoko postawiony bankier inwestycyjny lub astronauta, łatwo jest stracić z oczu inne możliwości kariery. Staż da Ci prawdziwe doświadczenie, pomagając Ci zdecydować, czy Twoje aspiracje odpowiadają rzeczywistości.",
+          },
+          enjoy_international_workplace: {
+            title: "Ciesz się międzynarodowym miejscem pracy",
+            description:
+              "Kochamy różnorodność i pracujemy z ludźmi z różnych krajów na całym świecie. Dołącz do nas, ciesz się międzynarodową atmosferą, baw się dobrze i rozwijaj się z nami.",
+          },
+        },
+        cta: {
+          heading: "Gotowy do rozwoju z nami?",
+          description:
+            "Dołącz do naszego zespołu pasjonatów i pracuj nad projektami, które naprawdę mają znaczenie.",
+          apply_button: "Aplikuj na staż",
+          view_button: "Zobacz staże",
+        },
       },
-      team_vivadrive: {
-        title: "Zespół VivaDrive",
-        description: "I masz zespół VivaDrive."
+      alumni_grid: {
+        badge: "Nasi Ludzie",
+        title: "Poznaj Naszych Absolwentów",
+        description: "Nasz zespół składa się z utalentowanych osób, które rozwinęły się od stażystów do profesjonalistów, kształtując przyszłość zrównoważonego transportu.",
+        filter_alumni: "Filtruj Absolwentów",
+        hide_filters: "Ukryj Filtry",
+        filter_by_role: "Filtruj według Roli",
+        filter_by_country: "Filtruj według Kraju",
+        all_roles: "Wszystkie Role",
+        all_countries: "Wszystkie Kraje",
+        active_filters: "Aktywne filtry",
+        clear_all_filters: "Wyczyść wszystkie filtry",
+        clear_filters: "Wyczyść filtry",
+        showing_results: "Wyświetlanie {{count}} z {{total}} absolwentów",
+        reset_filters: "Resetuj filtry",
+        view_profile: "Zobacz profil",
+        no_results: {
+          title: "Nie znaleziono pasujących absolwentów",
+          description: "Spróbuj dostosować filtry, aby znaleźć to, czego szukasz."
+        },
+        countries: {
+          Italy: "Włochy",
+          Poland: "Polska",
+          Portugal: "Portugalia",
+          Greece: "Grecja",
+          France: "Francja",
+          Germany: "Niemcy",
+          Iran: "Iran",
+          Vietnam: "Wietnam",
+          Hungary: "Węgry",
+          Croatia: "Chorwacja"
+        }
       }
-    },
-    cta_text: "Chcesz wiedzieć, jak wygląda praca w VivaDrive?",
-    cta_button: "Dzień w VivaDrive"
-  }
     },
   },
 };
