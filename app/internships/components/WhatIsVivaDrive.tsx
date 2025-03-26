@@ -1,26 +1,29 @@
 import React from 'react';
 import { ChevronRight, Users, Rocket, Flag } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const WhatIsVivaDrive = () => {
+    const { t } = useLanguage(); // Add the translation hook
+
     const features = [
         {
             step: "1",
-            title: "Passionate Team",
-            description: "Put a bunch of incredibly passionate, driven individuals together.",
+            title: t('pages.internships.what_is_vivadrive.features.passionate_team.title'),
+            description: t('pages.internships.what_is_vivadrive.features.passionate_team.description'),
             icon: <Users className="w-10 h-10 text-white" />,
             gradient: "from-[#13A661] to-[#12AC6C]"
         },
         {
             step: "2",
-            title: "Complete Freedom",
-            description: "Take complete freedom to chase their goals in a completely unrestrained manner.",
+            title: t('pages.internships.what_is_vivadrive.features.complete_freedom.title'),
+            description: t('pages.internships.what_is_vivadrive.features.complete_freedom.description'),
             icon: <Rocket className="w-10 h-10 text-white" />,
             gradient: "from-[#12AC6C] to-[#15BF70]"
         },
         {
             step: "3",
-            title: "Team VivaDrive",
-            description: "You have team VivaDrive.",
+            title: t('pages.internships.what_is_vivadrive.features.team_vivadrive.title'),
+            description: t('pages.internships.what_is_vivadrive.features.team_vivadrive.description'),
             icon: <Flag className="w-10 h-10 text-white" />,
             gradient: "from-[#15BF70] to-[#8BD9B8]"
         }
@@ -32,13 +35,13 @@ const WhatIsVivaDrive = () => {
                 {/* Header Section */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <div className="inline-flex items-center rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 mb-4 bg-emerald-600/10 text-emerald-600 border-emerald-600/20 hover:bg-emerald-600/20 py-1.5 px-4 text-sm font-medium">
-                        About Us
+                        {t('pages.internships.what_is_vivadrive.badge')}
                     </div>
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gray-900 to-emerald-600 dark:from-white dark:to-emerald-400 bg-clip-text text-transparent">
-                        What is VivaDrive?
+                        {t('pages.internships.what_is_vivadrive.title')}
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
-                        Our unique approach combines passionate people with freedom to innovate.
+                        {t('pages.internships.what_is_vivadrive.description')}
                     </p>
                 </div>
 
@@ -74,13 +77,17 @@ const WhatIsVivaDrive = () => {
                 {/* Call to Action */}
                 <div className="text-center max-w-2xl mx-auto">
                     <p className="text-emerald-600 text-xl font-medium mb-5">
-                        Want to know how working at VivaDrive looks?
+                        {t('pages.internships.what_is_vivadrive.cta_text')}
                     </p>
+
                     <a
-                        href="/day-at-vivadrive"
+                    
+                        href="https://www.youtube.com/watch?v=uRlqZAimyzM"
                         className="inline-flex items-center text-sm px-6 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-md hover:shadow-lg transition-all duration-300"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        Day at VivaDrive
+                        {t('pages.internships.what_is_vivadrive.cta_button')}
                         <ChevronRight className="ml-2 h-4 w-4" />
                     </a>
                 </div>

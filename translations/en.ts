@@ -858,7 +858,28 @@ const en = {
           previous: "Previous testimonial",
           next: "Next testimonial"
         }
+      },
+  what_is_vivadrive: {
+    badge: "About Us",
+    title: "What is VivaDrive?",
+    description: "Our unique approach combines passionate people with freedom to innovate.",
+    features: {
+      passionate_team: {
+        title: "Passionate Team",
+        description: "Put a bunch of incredibly passionate, driven individuals together."
+      },
+      complete_freedom: {
+        title: "Complete Freedom",
+        description: "Take complete freedom to chase their goals in a completely unrestrained manner."
+      },
+      team_vivadrive: {
+        title: "Team VivaDrive",
+        description: "You have team VivaDrive."
       }
+    },
+    cta_text: "Want to know how working at VivaDrive looks?",
+    cta_button: "Day at VivaDrive"
+  }
     },   
   },
 };

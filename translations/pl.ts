@@ -930,6 +930,27 @@ const pl = {
           next: "Następny testimonial",
         },
       },
+  what_is_vivadrive: {
+    badge: "O Nas",
+    title: "Czym jest VivaDrive?",
+    description: "Nasze unikalne podejście łączy pasjonatów z wolnością do innowacji.",
+    features: {
+      passionate_team: {
+        title: "Zespół z Pasją",
+        description: "Zbierz grupę niesamowicie zaangażowanych, ambitnych osób."
+      },
+      complete_freedom: {
+        title: "Pełna Swoboda",
+        description: "Daj im pełną swobodę w realizacji celów w niczym nieskrępowany sposób."
+      },
+      team_vivadrive: {
+        title: "Zespół VivaDrive",
+        description: "I masz zespół VivaDrive."
+      }
+    },
+    cta_text: "Chcesz wiedzieć, jak wygląda praca w VivaDrive?",
+    cta_button: "Dzień w VivaDrive"
+  }
     },
   },
 };
