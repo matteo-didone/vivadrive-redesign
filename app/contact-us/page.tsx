@@ -5,8 +5,10 @@ import { motion, useInView } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactPage() {
+  const { t } = useLanguage(); // Add the translation hook
   const [formSubmitted, setFormSubmitted] = useState(false);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
@@ -24,22 +26,22 @@ export default function ContactPage() {
 
   const benefitItems = [
     {
-      text: "Make your fleet cost-effective"
+      text: t('pages.contact.benefits.cost_effective')
     },
     {
-      text: "Make your driver safe and fuel efficient"
+      text: t('pages.contact.benefits.safe_drivers')
     },
     {
-      text: "Make your fleet green and sustainable"
+      text: t('pages.contact.benefits.sustainable')
     }
   ];
 
   const contactReasons = [
-    { value: "help", label: "How can we help you?" },
-    { value: "optimize", label: "I want to optimise my fleet cost" },
-    { value: "ev", label: "I want to introduce EV in my fleet" },
-    { value: "learn", label: "I want to learn more about VivaDrive" },
-    { value: "invest", label: "I want to invest in VivaDrive" }
+    { value: "help", label: t('pages.contact.form.reason.options.help') },
+    { value: "optimize", label: t('pages.contact.form.reason.options.optimize') },
+    { value: "ev", label: t('pages.contact.form.reason.options.ev') },
+    { value: "learn", label: t('pages.contact.form.reason.options.learn') },
+    { value: "invest", label: t('pages.contact.form.reason.options.invest') }
   ];
 
   return (
@@ -53,7 +55,7 @@ export default function ContactPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                {/* Left Column - Text Content - centrato SOLO su mobile */}
+                {/* Left Column - Text Content - centered only on mobile */}
                 <div>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -61,13 +63,15 @@ export default function ContactPage() {
                     transition={{ duration: 0.5 }}
                     className="mb-12 text-center lg:text-left"
                   >
-                    <span className="inline-block text-emerald-600 font-medium mb-2">Contact Us</span>
+                    <span className="inline-block text-emerald-600 font-medium mb-2">{t('pages.contact.title')}</span>
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6 leading-tight">
-                      Book a <span className="bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] bg-clip-text text-transparent relative inline-block">free demo</span>
+                      {t('pages.contact.heading').split('free demo')[0]}
+                      <span className="bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] bg-clip-text text-transparent relative inline-block">
+                        {t('pages.contact.heading').includes('free demo') ? 'free demo' : 'bezpłatną prezentację'}
+                      </span>
                     </h1>
                     <p className="text-xl text-gray-600 mb-8 max-w-md mx-auto lg:mx-0">
-                      Discover how VivaDrive can transform your fleet management with our 
-                      sustainable solutions.
+                      {t('pages.contact.description')}
                     </p>
                   </motion.div>
 
@@ -100,9 +104,9 @@ export default function ContactPage() {
                       <div className="w-16 h-16 flex items-center justify-center mb-4">
                         <CheckCircle className="h-16 w-16 text-emerald-500" />
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank you!</h3>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('pages.contact.form.success.title')}</h3>
                       <p className="text-gray-600 text-center max-w-xs">
-                        Your message has been sent. We'll get back to you shortly.
+                        {t('pages.contact.form.success.message')}
                       </p>
                     </div>
                   )}
@@ -117,7 +121,7 @@ export default function ContactPage() {
                     >
                       <h2 className="text-2xl md:text-3xl font-bold">
                         <span className="bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] bg-clip-text text-transparent">
-                          Get in touch
+                          {t('pages.contact.form.title')}
                         </span>
                       </h2>
                     </motion.div>
@@ -125,63 +129,63 @@ export default function ContactPage() {
                       {/* Name Field */}
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                          Name*
+                          {t('pages.contact.form.name.label')}
                         </label>
                         <input
                           type="text"
                           id="name"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
-                          placeholder="Your name"
+                          placeholder={t('pages.contact.form.name.placeholder')}
                         />
                       </div>
 
                       {/* Phone Field */}
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                          Phone number*
+                          {t('pages.contact.form.phone.label')}
                         </label>
                         <input
                           type="tel"
                           id="phone"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
-                          placeholder="Your phone number"
+                          placeholder={t('pages.contact.form.phone.placeholder')}
                         />
                       </div>
 
                       {/* Email Field */}
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          Email*
+                          {t('pages.contact.form.email.label')}
                         </label>
                         <input
                           type="email"
                           id="email"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
-                          placeholder="your.email@example.com"
+                          placeholder={t('pages.contact.form.email.placeholder')}
                         />
                       </div>
 
                       {/* Company Name */}
                       <div>
                         <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                          Company name*
+                          {t('pages.contact.form.company.label')}
                         </label>
                         <input
                           type="text"
                           id="company"
                           required
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none"
-                          placeholder="Your company"
+                          placeholder={t('pages.contact.form.company.placeholder')}
                         />
                       </div>
 
                       {/* Contact Reason Dropdown */}
                       <div>
                         <label htmlFor="reason" className="block text-sm font-medium text-gray-700 mb-1">
-                          Contact reason*
+                          {t('pages.contact.form.reason.label')}
                         </label>
                         <div className="relative">
                           <select
@@ -189,7 +193,7 @@ export default function ContactPage() {
                             required
                             className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none appearance-none bg-white"
                           >
-                            <option value="" disabled selected>Select a reason</option>
+                            <option value="" disabled selected>{t('pages.contact.form.reason.placeholder')}</option>
                             {contactReasons.map(reason => (
                               <option key={reason.value} value={reason.value}>{reason.label}</option>
                             ))}
@@ -205,13 +209,13 @@ export default function ContactPage() {
                       {/* Message */}
                       <div>
                         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                          Any questions?
+                          {t('pages.contact.form.message.label')}
                         </label>
                         <textarea
                           id="message"
                           rows="4"
                           className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none resize-none"
-                          placeholder="Your message or questions (optional)"
+                          placeholder={t('pages.contact.form.message.placeholder')}
                         ></textarea>
                       </div>
 
@@ -225,7 +229,7 @@ export default function ContactPage() {
                         type="submit"
                         className="w-full inline-flex items-center justify-center whitespace-nowrap bg-gradient-to-r from-[#108C57] via-[#12AC6C] to-[#15BF70] hover:from-[#0F7B4B] hover:to-[#14AD69] text-white font-medium px-6 py-3 text-base rounded-full group transition-all duration-300"
                       >
-                        <span>Send</span>
+                        <span>{t('pages.contact.form.send_button')}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1">
                           <path d="M22 2L11 13"></path>
                           <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>

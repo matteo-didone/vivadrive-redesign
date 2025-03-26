@@ -1033,6 +1033,55 @@ const pl = {
         }
       }
     },
+    contact: {
+      title: "Kontakt",
+      heading: "Zamów bezpłatną prezentację",
+      description: "Odkryj, jak VivaDrive może zmienić zarządzanie Twoją flotą dzięki naszym zrównoważonym rozwiązaniom.",
+      benefits: {
+        cost_effective: "Uczyń swoją flotę ekonomiczną",
+        safe_drivers: "Zapewnij swoim kierowcom bezpieczeństwo i oszczędność paliwa",
+        sustainable: "Uczyń swoją flotę ekologiczną i zrównoważoną"
+      },
+      form: {
+        title: "Skontaktuj się z nami",
+        name: {
+          label: "Imię i nazwisko*",
+          placeholder: "Twoje imię i nazwisko"
+        },
+        phone: {
+          label: "Numer telefonu*",
+          placeholder: "Twój numer telefonu"
+        },
+        email: {
+          label: "Email*",
+          placeholder: "twoj.email@przyklad.com"
+        },
+        company: {
+          label: "Nazwa firmy*",
+          placeholder: "Twoja firma"
+        },
+        reason: {
+          label: "Powód kontaktu*",
+          placeholder: "Wybierz powód",
+          options: {
+            help: "Jak możemy Ci pomóc?",
+            optimize: "Chcę zoptymalizować koszty mojej floty",
+            ev: "Chcę wprowadzić pojazdy elektryczne do mojej floty",
+            learn: "Chcę dowiedzieć się więcej o VivaDrive",
+            invest: "Chcę zainwestować w VivaDrive"
+          }
+        },
+        message: {
+          label: "Jakieś pytania?",
+          placeholder: "Twoja wiadomość lub pytania (opcjonalnie)"
+        },
+        send_button: "Wyślij",
+        success: {
+          title: "Dziękujemy!",
+          message: "Twoja wiadomość została wysłana. Wkrótce się z Tobą skontaktujemy."
+        }
+      }
+    },
   },
 };
 

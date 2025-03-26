@@ -1029,6 +1029,55 @@ const en = {
         }
       }
     },
+    contact: {
+      title: "Contact Us",
+      heading: "Book a free demo",
+      description: "Discover how VivaDrive can transform your fleet management with our sustainable solutions.",
+      benefits: {
+        cost_effective: "Make your fleet cost-effective",
+        safe_drivers: "Make your driver safe and fuel efficient",
+        sustainable: "Make your fleet green and sustainable"
+      },
+      form: {
+        title: "Get in touch",
+        name: {
+          label: "Name*",
+          placeholder: "Your name"
+        },
+        phone: {
+          label: "Phone number*",
+          placeholder: "Your phone number"
+        },
+        email: {
+          label: "Email*",
+          placeholder: "your.email@example.com"
+        },
+        company: {
+          label: "Company name*",
+          placeholder: "Your company"
+        },
+        reason: {
+          label: "Contact reason*",
+          placeholder: "Select a reason",
+          options: {
+            help: "How can we help you?",
+            optimize: "I want to optimise my fleet cost",
+            ev: "I want to introduce EV in my fleet",
+            learn: "I want to learn more about VivaDrive",
+            invest: "I want to invest in VivaDrive"
+          }
+        },
+        message: {
+          label: "Any questions?",
+          placeholder: "Your message or questions (optional)"
+        },
+        send_button: "Send",
+        success: {
+          title: "Thank you!",
+          message: "Your message has been sent. We'll get back to you shortly."
+        }
+      }
+    },    
   },
 };
 
