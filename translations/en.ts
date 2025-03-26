@@ -998,7 +998,8 @@ const en = {
       alumni_grid: {
         badge: "Our People",
         title: "Meet Our Alumni",
-        description: "Our team is made up of talented individuals who have grown from interns to professionals, shaping the future of sustainable transportation.",
+        description:
+          "Our team is made up of talented individuals who have grown from interns to professionals, shaping the future of sustainable transportation.",
         filter_alumni: "Filter Alumni",
         hide_filters: "Hide Filters",
         filter_by_role: "Filter by Role",
@@ -1013,7 +1014,8 @@ const en = {
         view_profile: "View profile",
         no_results: {
           title: "No matching alumni found",
-          description: "Try adjusting your filters to find what you're looking for."
+          description:
+            "Try adjusting your filters to find what you're looking for.",
         },
         countries: {
           Italy: "Italy",
@@ -1025,36 +1027,37 @@ const en = {
           Iran: "Iran",
           Vietnam: "Vietnam",
           Hungary: "Hungary",
-          Croatia: "Croatia"
-        }
-      }
+          Croatia: "Croatia",
+        },
+      },
     },
     contact: {
       title: "Contact Us",
       heading: "Book a free demo",
-      description: "Discover how VivaDrive can transform your fleet management with our sustainable solutions.",
+      description:
+        "Discover how VivaDrive can transform your fleet management with our sustainable solutions.",
       benefits: {
         cost_effective: "Make your fleet cost-effective",
         safe_drivers: "Make your driver safe and fuel efficient",
-        sustainable: "Make your fleet green and sustainable"
+        sustainable: "Make your fleet green and sustainable",
       },
       form: {
         title: "Get in touch",
         name: {
           label: "Name*",
-          placeholder: "Your name"
+          placeholder: "Your name",
         },
         phone: {
           label: "Phone number*",
-          placeholder: "Your phone number"
+          placeholder: "Your phone number",
         },
         email: {
           label: "Email*",
-          placeholder: "your.email@example.com"
+          placeholder: "your.email@example.com",
         },
         company: {
           label: "Company name*",
-          placeholder: "Your company"
+          placeholder: "Your company",
         },
         reason: {
           label: "Contact reason*",
@@ -1064,20 +1067,99 @@ const en = {
             optimize: "I want to optimise my fleet cost",
             ev: "I want to introduce EV in my fleet",
             learn: "I want to learn more about VivaDrive",
-            invest: "I want to invest in VivaDrive"
-          }
+            invest: "I want to invest in VivaDrive",
+          },
         },
         message: {
           label: "Any questions?",
-          placeholder: "Your message or questions (optional)"
+          placeholder: "Your message or questions (optional)",
         },
         send_button: "Send",
         success: {
           title: "Thank you!",
-          message: "Your message has been sent. We'll get back to you shortly."
-        }
-      }
-    },    
+          message: "Your message has been sent. We'll get back to you shortly.",
+        },
+      },
+    },
+    newsroom: {
+      hero: {
+        badge: "Press Resources",
+        title: {
+          part1: "Latest",
+          part2: "News",
+          part3: "&",
+          part4: "Announcements",
+        },
+        description:
+          "Stay updated with the latest partnerships, innovations, and insights as we transform fleet management and sustainable mobility.",
+        media_inquiries: "Media Inquiries",
+      },
+      about_vivadrive: {
+        title: "About VivaDrive",
+        description:
+          "VivaDrive aims to accelerate the transition of car fleets towards sustainable energy. We help businesses manage their fleets efficiently, provide security to drivers, reduce CO₂ emissions and many others. All this with a use of the advanced algorithms, AI and the team of fleet experts with 20+ years of experience.",
+        press_contact: "Press Contact",
+        brand_assets: "Brand Assets",
+        download_logo: "Get the logo",
+      },
+      filters: {
+        filters_button: "Filters",
+        search_placeholder: "Search articles...",
+        categories: "Categories",
+        all_categories: "All Categories",
+        types: "Types",
+        all_types: "All Types",
+        tags: "Tags",
+        all_tags: "All Tags",
+        more_tags: "+{{count}} more",
+        show_less: "Show less",
+        active: "Active:",
+        clear_all: "Clear all",
+        sort: {
+          newest: "Newest first",
+          oldest: "Oldest first",
+        },
+        view_mode: {
+          grid: "Grid",
+          list: "List",
+        },
+        mobile: {
+          search: "Search articles...",
+          cancel: "Cancel",
+          filters: "Filters",
+          close_filters: "Close filters",
+          showing_results: "Showing {{filtered}} of {{total}} articles",
+          apply_filters: "Apply filters",
+          reset_all: "Reset all",
+        },
+      },
+      grid: {
+        title: "Press Releases",
+        no_results: {
+          title: "No articles found",
+          description:
+            "Try adjusting your filters or search terms to find what you're looking for.",
+          reset: "Reset filters",
+        },
+        read_more: "Read more",
+        read_article: "Read article",
+        pagination: {
+          previous: "Previous page",
+          next: "Next page",
+          page: "Page {{current}} of {{total}}",
+        },
+      },
+      article: {
+        back_to_news: "Back to news",
+        partnership: "Partnership",
+        minute_read: "minute read",
+        share_on: "Share on {{platform}}",
+        copy_link: "Copy link",
+        link_copied: "Link copied!",
+        tags: "TAGS",
+        all_articles: "All articles",
+      },
+    },
   },
 };
 

@@ -1082,6 +1082,82 @@ const pl = {
         }
       }
     },
+    newsroom: {
+      hero: {
+        badge: "Materiały Prasowe",
+        title: {
+          part1: "Najnowsze",
+          part2: "Wiadomości",
+          part3: "i",
+          part4: "Ogłoszenia"
+        },
+        description: "Bądź na bieżąco z najnowszymi partnerstwami, innowacjami i spostrzeżeniami, gdy transformujemy zarządzanie flotą i zrównoważoną mobilność.",
+        media_inquiries: "Zapytania medialne"
+      },
+      about_vivadrive: {
+        title: "O VivaDrive",
+        description: "VivaDrive ma na celu przyspieszenie transformacji flot samochodowych w kierunku zrównoważonej energii. Pomagamy firmom efektywnie zarządzać swoimi flotami, zapewniamy bezpieczeństwo kierowcom, zmniejszamy emisję CO₂ i wiele innych. Wszystko to dzięki zaawansowanym algorytmom, sztucznej inteligencji i zespołowi ekspertów flotowych z ponad 20-letnim doświadczeniem.",
+        press_contact: "Kontakt dla prasy",
+        brand_assets: "Materiały brandingowe",
+        download_logo: "Pobierz logo"
+      },
+      filters: {
+        filters_button: "Filtry",
+        search_placeholder: "Szukaj artykułów...",
+        categories: "Kategorie",
+        all_categories: "Wszystkie Kategorie",
+        types: "Typy",
+        all_types: "Wszystkie Typy",
+        tags: "Tagi",
+        all_tags: "Wszystkie Tagi",
+        more_tags: "+{{count}} więcej",
+        show_less: "Pokaż mniej",
+        active: "Aktywne:",
+        clear_all: "Wyczyść wszystko",
+        sort: {
+          newest: "Od najnowszych",
+          oldest: "Od najstarszych"
+        },
+        view_mode: {
+          grid: "Siatka",
+          list: "Lista"
+        },
+        mobile: {
+          search: "Szukaj artykułów...",
+          cancel: "Anuluj",
+          filters: "Filtry",
+          close_filters: "Zamknij filtry",
+          showing_results: "Wyświetlanie {{filtered}} z {{total}} artykułów",
+          apply_filters: "Zastosuj filtry",
+          reset_all: "Resetuj wszystko"
+        }
+      },
+      grid: {
+        title: "Komunikaty Prasowe",
+        no_results: {
+          title: "Nie znaleziono artykułów",
+          description: "Spróbuj dostosować filtry lub terminy wyszukiwania, aby znaleźć to, czego szukasz.",
+          reset: "Resetuj filtry"
+        },
+        read_more: "Czytaj więcej",
+        read_article: "Czytaj artykuł",
+        pagination: {
+          previous: "Poprzednia strona",
+          next: "Następna strona",
+          page: "Strona {{current}} z {{total}}"
+        }
+      },
+      article: {
+        back_to_news: "Powrót do aktualności",
+        partnership: "Partnerstwo",
+        minute_read: "minut czytania",
+        share_on: "Udostępnij na {{platform}}",
+        copy_link: "Kopiuj link",
+        link_copied: "Link skopiowany!",
+        tags: "TAGI",
+        all_articles: "Wszystkie artykuły"
+      }
+    },
   },
 };
 
