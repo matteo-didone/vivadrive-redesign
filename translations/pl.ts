@@ -281,8 +281,7 @@ const pl = {
           after: "0,29 zł",
           unit: "na kilometr",
         },
-        testimonial:
-          "Nasze koszty utrzymania spadły już w pierwszym roku.",
+        testimonial: "Nasze koszty utrzymania spadły już w pierwszym roku.",
         learnMore: "Dowiedz się więcej",
       },
       {
@@ -674,8 +673,7 @@ const pl = {
           },
           modern: {
             title: "Nowocześnie",
-            description:
-              "Korzystamy z najnowszych technologii i narzędzi.",
+            description: "Korzystamy z najnowszych technologii i narzędzi.",
           },
           human: {
             title: "Blisko Klienta",
@@ -826,6 +824,7 @@ const pl = {
         cta_question:
           "Nie widzisz stanowiska pasującego do Twoich umiejętności?",
         cta_button: "Skontaktuj się z nami",
+        view_job: "Poznaj rolę",
         jobs: {
           python_django: {
             title: "Python/Django Developer",
@@ -837,7 +836,7 @@ const pl = {
             title: "Front-end Developer",
             subtitle: "",
             description:
-              "Poszukujemy doświadczonego programisty Python/Django z co najmniej 4-letnim doświadczeniem...",
+              "Poszukujemy doświadczonego programisty Front-end z co najmniej 4-letnim doświadczeniem...",
           },
           data_scientist: {
             title: "Data Scientist",
@@ -869,6 +868,30 @@ const pl = {
             description:
               "Twoje umiejętności nie znajdują się na naszej liście? Nie martw się, zawsze jesteśmy otwarci na talenty...",
           },
+        },
+      },
+      job: {
+        back_to_jobs: "Otwarte stanowiska",
+        job_description: "Opis stanowiska",
+        responsibilities: "Odpowiedzialności",
+        apply_for_this_position: "Aplikuj na to stanowisko",
+        posted_on: "Opublikowano",
+        salary_range: "Przedział wynagrodzeń",
+        apply_now: "Aplikuj",
+        requirements: "Wymagania",
+        benefits: "Benefity",
+        back_to_all_positions: "Powrót do wszystkich stanowisk",
+        preferred: "Mile widziane",
+        about_company: "O VivaDrive",
+        company_description:
+          "Jesteśmy startupem z obszaru #mobilności i #energii, który pomaga firmom wprowadzać samochody elektryczne do swojej floty. Naszą misją jest przyspieszenie rozwoju zrównoważonych rozwiązań transportowych na całym świecie.",
+        our_main_office: "Nasze Główne Biuro",
+        view_on_maps: "Zobacz na Mapach Google",
+        our_values: "Nasze Wartości",
+        values: {
+          sustainable: "Zrównoważone rozwiązania dla lepszej przyszłości",
+          collaborative: "Współpracujące i integracyjne miejsce pracy",
+          global: "Globalny wpływ poprzez lokalne inicjatywy",
         },
       },
     },
@@ -1002,7 +1025,8 @@ const pl = {
       alumni_grid: {
         badge: "Nasi Ludzie",
         title: "Poznaj Naszych Absolwentów",
-        description: "Nasz zespół składa się z utalentowanych osób, które rozwinęły się od stażystów do profesjonalistów, kształtując przyszłość zrównoważonego transportu.",
+        description:
+          "Nasz zespół składa się z utalentowanych osób, które rozwinęły się od stażystów do profesjonalistów, kształtując przyszłość zrównoważonego transportu.",
         filter_alumni: "Filtruj Absolwentów",
         hide_filters: "Ukryj Filtry",
         filter_by_role: "Filtruj według Roli",
@@ -1017,7 +1041,8 @@ const pl = {
         view_profile: "Zobacz profil",
         no_results: {
           title: "Nie znaleziono pasujących absolwentów",
-          description: "Spróbuj dostosować filtry, aby znaleźć to, czego szukasz."
+          description:
+            "Spróbuj dostosować filtry, aby znaleźć to, czego szukasz.",
         },
         countries: {
           Italy: "Włochy",
@@ -1029,43 +1054,46 @@ const pl = {
           Iran: "Iran",
           Vietnam: "Wietnam",
           Hungary: "Węgry",
-          Croatia: "Chorwacja"
-        }
-      }
+          Croatia: "Chorwacja",
+        },
+      },
     },
     contact: {
       title: "Kontakt",
       heading: "Zamów bezpłatną prezentację",
-      description: "Odkryj, jak VivaDrive może zmienić zarządzanie Twoją flotą dzięki naszym zrównoważonym rozwiązaniom.",
+      description:
+        "Odkryj, jak VivaDrive może zmienić zarządzanie Twoją flotą dzięki naszym zrównoważonym rozwiązaniom.",
       benefits: {
         cost_effective: "Uczyń swoją flotę ekonomiczną",
-        safe_drivers: "Zapewnij swoim kierowcom bezpieczeństwo i oszczędność paliwa",
-        sustainable: "Uczyń swoją flotę ekologiczną i zrównoważoną"
+        safe_drivers:
+          "Zapewnij swoim kierowcom bezpieczeństwo i oszczędność paliwa",
+        sustainable: "Uczyń swoją flotę ekologiczną i zrównoważoną",
       },
       testimonial: {
         rating: "4.9/5 od ponad 200 klientów",
-        quote: "Narzędzia do zarządzania flotą VivaDrive przekształciły nasze operacje, prowadząc do znacznych oszczędności kosztów i zwiększonej wydajności.",
+        quote:
+          "Narzędzia do zarządzania flotą VivaDrive przekształciły nasze operacje, prowadząc do znacznych oszczędności kosztów i zwiększonej wydajności.",
         name: "Jane Doe",
-        position: "Menedżer Floty, Tech Corp"
+        position: "Menedżer Floty, Tech Corp",
       },
       form: {
         title: "Skontaktuj się z nami",
         name: {
           label: "Imię i nazwisko*",
-          placeholder: "Twoje imię i nazwisko"
+          placeholder: "Twoje imię i nazwisko",
         },
         phone: {
           label: "Numer telefonu*",
           placeholder: "Twój numer telefonu",
-          error: "Wprowadź prawidłowy numer telefonu"
+          error: "Wprowadź prawidłowy numer telefonu",
         },
         email: {
           label: "Email*",
-          placeholder: "twoj.email@przyklad.com"
+          placeholder: "twoj.email@przyklad.com",
         },
         company: {
           label: "Nazwa firmy*",
-          placeholder: "Twoja firma"
+          placeholder: "Twoja firma",
         },
         reason: {
           label: "Powód kontaktu*",
@@ -1075,18 +1103,19 @@ const pl = {
             optimize: "Chcę zoptymalizować koszty mojej floty",
             ev: "Chcę wprowadzić pojazdy elektryczne do mojej floty",
             learn: "Chcę dowiedzieć się więcej o VivaDrive",
-            invest: "Chcę zainwestować w VivaDrive"
-          }
+            invest: "Chcę zainwestować w VivaDrive",
+          },
         },
         message: {
           label: "Jakieś pytania?",
-          placeholder: "Twoja wiadomość lub pytania (opcjonalnie)"
+          placeholder: "Twoja wiadomość lub pytania (opcjonalnie)",
         },
         send_button: "Wyślij",
         success: {
           title: "Dziękujemy!",
-          message: "Twoja wiadomość została wysłana. Wkrótce się z Tobą skontaktujemy."
-        }
+          message:
+            "Twoja wiadomość została wysłana. Wkrótce się z Tobą skontaktujemy.",
+        },
       },
     },
     apply: {
@@ -1094,7 +1123,8 @@ const pl = {
       hero: {
         title_pre: "Dołącz do naszego",
         title_highlight: "zespołu",
-        description: "Buduj swoją karierę z VivaDrive i pomóż kształtować przyszłość zrównoważonej mobilności"
+        description:
+          "Buduj swoją karierę z VivaDrive i pomóż kształtować przyszłość zrównoważonej mobilności",
       },
       benefits: {
         heading: "Dlaczego warto dołączyć do VivaDrive?",
@@ -1103,20 +1133,21 @@ const pl = {
         learn_from_the_best: "Ucz się od najlepszych",
         boost_your_skills: "Rozwijaj swoje umiejętności",
         try_before_you_buy: "Wypróbuj, zanim zdecydujesz",
-        enjoy_international_workplace: "Ciesz się międzynarodowym miejscem pracy"
+        enjoy_international_workplace:
+          "Ciesz się międzynarodowym miejscem pracy",
       },
       form: {
         first_name: {
-          label: "Imię *"
+          label: "Imię *",
         },
         last_name: {
-          label: "Nazwisko *"
+          label: "Nazwisko *",
         },
         email: {
-          label: "Email *"
+          label: "Email *",
         },
         phone: {
-          label: "Numer telefonu"
+          label: "Numer telefonu",
         },
         role: {
           label: "Stanowisko *",
@@ -1128,30 +1159,31 @@ const pl = {
             digital_marketer: "Digital Marketer",
             business_developer: "Business Developer",
             ux_ui: "UX/UI",
-            different: "Inne stanowisko?"
-          }
+            different: "Inne stanowisko?",
+          },
         },
         linkedin: {
-          label: "LinkedIn"
+          label: "LinkedIn",
         },
         github: {
-          label: "Github"
+          label: "Github",
         },
         portfolio: {
-          label: "Portfolio"
+          label: "Portfolio",
         },
         cover_letter: {
-          label: "List motywacyjny"
+          label: "List motywacyjny",
         },
         cv: {
-          label: "CV *"
+          label: "CV *",
         },
         send_button: "Wyślij",
         success: {
           title: "Dziękujemy!",
-          message: "Twoja aplikacja została przesłana. Wkrótce się z Tobą skontaktujemy."
-        }
-      }
+          message:
+            "Twoja aplikacja została przesłana. Wkrótce się z Tobą skontaktujemy.",
+        },
+      },
     },
     newsroom: {
       hero: {
@@ -1160,17 +1192,19 @@ const pl = {
           part1: "Najnowsze",
           part2: "Wiadomości",
           part3: "i",
-          part4: "Ogłoszenia"
+          part4: "Ogłoszenia",
         },
-        description: "Bądź na bieżąco z najnowszymi partnerstwami, innowacjami i spostrzeżeniami, gdy transformujemy zarządzanie flotą i zrównoważoną mobilność.",
-        media_inquiries: "Zapytania medialne"
+        description:
+          "Bądź na bieżąco z najnowszymi partnerstwami, innowacjami i spostrzeżeniami, gdy transformujemy zarządzanie flotą i zrównoważoną mobilność.",
+        media_inquiries: "Zapytania medialne",
       },
       about_vivadrive: {
         title: "O VivaDrive",
-        description: "VivaDrive ma na celu przyspieszenie transformacji flot samochodowych w kierunku zrównoważonej energii. Pomagamy firmom efektywnie zarządzać swoimi flotami, zapewniamy bezpieczeństwo kierowcom, zmniejszamy emisję CO₂ i wiele innych. Wszystko to dzięki zaawansowanym algorytmom, sztucznej inteligencji i zespołowi ekspertów flotowych z ponad 20-letnim doświadczeniem.",
+        description:
+          "VivaDrive ma na celu przyspieszenie transformacji flot samochodowych w kierunku zrównoważonej energii. Pomagamy firmom efektywnie zarządzać swoimi flotami, zapewniamy bezpieczeństwo kierowcom, zmniejszamy emisję CO₂ i wiele innych. Wszystko to dzięki zaawansowanym algorytmom, sztucznej inteligencji i zespołowi ekspertów flotowych z ponad 20-letnim doświadczeniem.",
         press_contact: "Kontakt dla prasy",
         brand_assets: "Materiały brandingowe",
-        download_logo: "Pobierz logo"
+        download_logo: "Pobierz logo",
       },
       filters: {
         filters_button: "Filtry",
@@ -1187,11 +1221,11 @@ const pl = {
         clear_all: "Wyczyść wszystko",
         sort: {
           newest: "Od najnowszych",
-          oldest: "Od najstarszych"
+          oldest: "Od najstarszych",
         },
         view_mode: {
           grid: "Siatka",
-          list: "Lista"
+          list: "Lista",
         },
         mobile: {
           search: "Szukaj artykułów...",
@@ -1200,23 +1234,24 @@ const pl = {
           close_filters: "Zamknij filtry",
           showing_results: "Wyświetlanie {{filtered}} z {{total}} artykułów",
           apply_filters: "Zastosuj filtry",
-          reset_all: "Resetuj wszystko"
-        }
+          reset_all: "Resetuj wszystko",
+        },
       },
       grid: {
         title: "Komunikaty Prasowe",
         no_results: {
           title: "Nie znaleziono artykułów",
-          description: "Spróbuj dostosować filtry lub terminy wyszukiwania, aby znaleźć to, czego szukasz.",
-          reset: "Resetuj filtry"
+          description:
+            "Spróbuj dostosować filtry lub terminy wyszukiwania, aby znaleźć to, czego szukasz.",
+          reset: "Resetuj filtry",
         },
         read_more: "Czytaj więcej",
         read_article: "Czytaj artykuł",
         pagination: {
           previous: "Poprzednia strona",
           next: "Następna strona",
-          page: "Strona {{current}} z {{total}}"
-        }
+          page: "Strona {{current}} z {{total}}",
+        },
       },
       article: {
         back_to_news: "Powrót do aktualności",
@@ -1226,8 +1261,8 @@ const pl = {
         copy_link: "Kopiuj link",
         link_copied: "Link skopiowany!",
         tags: "TAGI",
-        all_articles: "Wszystkie artykuły"
-      }
+        all_articles: "Wszystkie artykuły",
+      },
     },
   },
 };

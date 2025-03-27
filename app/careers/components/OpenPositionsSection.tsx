@@ -1,67 +1,147 @@
 "use client";
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { Briefcase, ArrowRight, Code, Layout, Database, TrendingUp, Building, Palette, Sparkles } from 'lucide-react';
+import { Briefcase, ArrowRight, MapPin, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getAllJobPositions } from '@/app/data/jobs';
+import { formatDate } from "@/lib/utils";
 
 const OpenPositionsSection = () => {
-    const { t } = useLanguage();
+    const { t, currentLanguage } = useLanguage();
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-    // Job positions data with icons - now using translation keys
-    const positions = [
-        {
-            key: "python_django",
-            icon: <Code className="h-5 w-5 md:h-6 md:w-6" />,
-            color: "from-blue-500 to-blue-400",
-            textColor: "text-blue-600",
-            bgColor: "bg-blue-50"
-        },
-        {
-            key: "frontend",
-            icon: <Layout className="h-5 w-5 md:h-6 md:w-6" />,
-            color: "from-emerald-500 to-emerald-400",
-            textColor: "text-emerald-600",
-            bgColor: "bg-emerald-50"
-        },
-        {
-            key: "data_scientist",
-            icon: <Database className="h-5 w-5 md:h-6 md:w-6" />,
-            color: "from-blue-500 to-blue-400",
-            textColor: "text-blue-600",
-            bgColor: "bg-blue-50"
-        },
-        {
-            key: "digital_marketer",
-            icon: <TrendingUp className="h-5 w-5 md:h-6 md:w-6" />,
-            color: "from-emerald-500 to-emerald-400",
-            textColor: "text-emerald-600",
-            bgColor: "bg-emerald-50"
-        },
-        {
-            key: "business_developer",
-            icon: <Building className="h-5 w-5 md:h-6 md:w-6" />,
-            color: "from-blue-500 to-blue-400",
-            textColor: "text-blue-600",
-            bgColor: "bg-blue-50"
-        },
-        {
-            key: "ux_ui",
-            icon: <Palette className="h-5 w-5 md:h-6 md:w-6" />,
-            color: "from-emerald-500 to-emerald-400",
-            textColor: "text-emerald-600",
-            bgColor: "bg-emerald-50"
-        },
-        {
-            key: "different",
-            icon: <Sparkles className="h-5 w-5 md:h-6 md:w-6" />,
-            color: "from-blue-500 to-blue-400",
-            textColor: "text-blue-600",
-            bgColor: "bg-blue-50"
+    // Get all job positions
+    const jobPositions = getAllJobPositions();
+
+    // Get translated field
+    const getTranslatedField = (job, fieldName: string, defaultValue: any): any => {
+        // Try with different case variations of language code
+        const languageVariations = [
+            currentLanguage,
+            currentLanguage.toLowerCase(),
+            currentLanguage.toUpperCase()
+        ];
+
+        for (const langCode of languageVariations) {
+            if (
+                job.translations &&
+                job.translations[langCode] &&
+                job.translations[langCode][fieldName] !== undefined
+            ) {
+                return job.translations[langCode][fieldName];
+            }
         }
-    ];
+
+        return defaultValue;
+    };
+
+    // Render icon based on category
+    const getCategoryIcon = (category) => {
+        switch (category) {
+            case 'ENGINEERING':
+                return <svg className="h-8 w-8 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 18L22 12L16 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M8 6L2 12L8 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M14 4L10 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>;
+            case 'DESIGN':
+                return <svg className="h-8 w-8 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="12" cy="10" r="4" stroke="currentColor" strokeWidth="1.5" />
+                    <path d="M7 18C8.48516 16.6842 10.2745 16 12 16C13.7255 16 15.5148 16.6842 17 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>;
+            case 'MARKETING':
+                return <svg className="h-8 w-8 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.5 8.25H4.5C3.67157 8.25 3 8.92157 3 9.75V18.75C3 19.5784 3.67157 20.25 4.5 20.25H19.5C20.3284 20.25 21 19.5784 21 18.75V9.75C21 8.92157 20.3284 8.25 19.5 8.25Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M16 8.25V6.375C16 5.175 15.325 4.125 13.75 4.125C12.175 4.125 11.5 5.175 11.5 6.375V8.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>;
+            case 'BUSINESS':
+                return <svg className="h-8 w-8 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M8.5 13.5L11 16L16 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M3 10C3 8.11438 3 7.17157 3.58579 6.58579C4.17157 6 5.11438 6 7 6H17C18.8856 6 19.8284 6 20.4142 6.58579C21 7.17157 21 8.11438 21 10V16C21 17.8856 21 18.8284 20.4142 19.4142C19.8284 20 18.8856 20 17 20H7C5.11438 20 4.17157 20 3.58579 19.4142C3 18.8284 3 17.8856 3 16V10Z" stroke="currentColor" strokeWidth="1.5" />
+                </svg>;
+            case 'DATA':
+                return <svg className="h-8 w-8 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2V4M12 20V22M4 12H2M22 12H20M5.93 5.93L4.51 4.51M19.49 4.51L18.07 5.93M18.07 18.07L19.49 19.49M5.93 18.07L4.51 19.49" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z" stroke="currentColor" strokeWidth="1.5" />
+                </svg>;
+            default:
+                return <svg className="h-8 w-8 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2V6M12 22V18M6 12H2M22 12H18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M4.92896 4.92896L7.75732 7.75732M19.0711 19.0711L16.2427 16.2427M4.92896 19.0711L7.75732 16.2427M19.0711 4.92896L16.2427 7.75732" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>;
+        }
+    };
+
+    // Get color scheme based on category
+    const getCategoryColorScheme = (category) => {
+        switch (category) {
+            case 'ENGINEERING':
+                return {
+                    bgFrom: 'from-blue-500',
+                    bgTo: 'to-blue-600',
+                    bgHoverFrom: 'hover:from-blue-600',
+                    bgHoverTo: 'hover:to-blue-700',
+                    shadowColor: 'shadow-blue-500/20',
+                    hoverShadowColor: 'hover:shadow-blue-500/30',
+                    bgLight: 'bg-blue-50'
+                };
+            case 'DESIGN':
+                return {
+                    bgFrom: 'from-purple-500',
+                    bgTo: 'to-purple-600',
+                    bgHoverFrom: 'hover:from-purple-600',
+                    bgHoverTo: 'hover:to-purple-700',
+                    shadowColor: 'shadow-purple-500/20',
+                    hoverShadowColor: 'hover:shadow-purple-500/30',
+                    bgLight: 'bg-purple-50'
+                };
+            case 'MARKETING':
+                return {
+                    bgFrom: 'from-amber-500',
+                    bgTo: 'to-amber-600',
+                    bgHoverFrom: 'hover:from-amber-600',
+                    bgHoverTo: 'hover:to-amber-700',
+                    shadowColor: 'shadow-amber-500/20',
+                    hoverShadowColor: 'hover:shadow-amber-500/30',
+                    bgLight: 'bg-amber-50'
+                };
+            case 'BUSINESS':
+                return {
+                    bgFrom: 'from-emerald-500',
+                    bgTo: 'to-emerald-600',
+                    bgHoverFrom: 'hover:from-emerald-600',
+                    bgHoverTo: 'hover:to-emerald-700',
+                    shadowColor: 'shadow-emerald-500/20',
+                    hoverShadowColor: 'hover:shadow-emerald-500/30',
+                    bgLight: 'bg-emerald-50'
+                };
+            case 'DATA':
+                return {
+                    bgFrom: 'from-cyan-500',
+                    bgTo: 'to-cyan-600',
+                    bgHoverFrom: 'hover:from-cyan-600',
+                    bgHoverTo: 'hover:to-cyan-700',
+                    shadowColor: 'shadow-cyan-500/20',
+                    hoverShadowColor: 'hover:shadow-cyan-500/30',
+                    bgLight: 'bg-cyan-50'
+                };
+            default:
+                return {
+                    bgFrom: 'from-indigo-500',
+                    bgTo: 'to-indigo-600',
+                    bgHoverFrom: 'hover:from-indigo-600',
+                    bgHoverTo: 'hover:to-indigo-700',
+                    shadowColor: 'shadow-indigo-500/20',
+                    hoverShadowColor: 'hover:shadow-indigo-500/30',
+                    bgLight: 'bg-indigo-50'
+                };
+        }
+    };
 
     return (
         <section ref={sectionRef} className="py-16 md:py-24 relative overflow-hidden bg-gray-50">
@@ -113,67 +193,85 @@ const OpenPositionsSection = () => {
                 </motion.div>
 
                 {/* Job Cards */}
-                <div className="space-y-5 md:space-y-6 max-w-5xl mx-auto">
-                    {positions.map((position, index) => (
-                        <motion.div
-                            key={index}
-                            className="relative group"
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.2 + index * 0.1,
-                                ease: [0.22, 1, 0.36, 1]
-                            }}
-                        >
-                            <div className={`rounded-xl ${position.bgColor} backdrop-blur-sm p-5 md:p-6 shadow-md relative z-10 
-                                border border-white/30 group-hover:shadow-xl group-hover:shadow-${position.color.split('-')[1]}-200/20 
-                                transition-all duration-300 overflow-hidden`}
-                            >
-                                {/* Background gradient animation on hover */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-white via-transparent to-transparent transition-opacity duration-300" />
+                <div className="space-y-6 md:space-y-8 max-w-5xl mx-auto px-4">
+                    {jobPositions.map((job, index) => {
+                        const title = getTranslatedField(job, 'title', job.title);
+                        const subtitle = getTranslatedField(job, 'subtitle', job.subtitle);
+                        const location = getTranslatedField(job, 'location', job.location);
+                        const colorScheme = getCategoryColorScheme(job.category);
 
-                                <div className="flex flex-col md:flex-row md:items-center justify-between">
-                                    <div className="flex flex-col items-center md:items-start md:flex-row mb-5 md:mb-0">
-                                        {/* Icon - centered on mobile */}
-                                        <div className={`mb-3 md:mb-0 md:mr-4 flex-shrink-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-xl 
-                                            bg-gradient-to-br ${position.color} shadow-md`}>
-                                            <div className="text-white">
-                                                {position.icon}
+                        return (
+                            <motion.div
+                                key={job.id}
+                                className="relative group"
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.2 + index * 0.1,
+                                    ease: [0.22, 1, 0.36, 1]
+                                }}
+                            >
+                                <Link href={`/careers/${job.slug}`} className="block">
+                                    <div className={`rounded-xl ${colorScheme.bgLight} backdrop-blur-sm p-5 md:p-6 shadow-md relative z-10 
+                        border border-white/30 group-hover:shadow-xl group-hover:${colorScheme.hoverShadowColor} 
+                        transition-all duration-300 overflow-hidden h-full`}
+                                    >
+                                        {/* Background gradient animation on hover */}
+                                        <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-white via-transparent to-transparent transition-opacity duration-300" />
+
+                                        <div className="flex flex-col">
+                                            {/* Icon and Title - always centered */}
+                                            <div className="flex flex-col items-center mb-4">
+                                                {/* Icon */}
+                                                <div className={`mb-3 flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-xl 
+                                    bg-gradient-to-br ${colorScheme.bgFrom} ${colorScheme.bgTo} shadow-md`}>
+                                                    <div className="text-white">
+                                                        {getCategoryIcon(job.category)}
+                                                    </div>
+                                                </div>
+
+                                                {/* Title */}
+                                                <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mt-2">
+                                                    {title}
+                                                </h3>
+
+                                                {/* Subtitle */}
+                                                {subtitle && (
+                                                    <div className="text-base text-gray-500 text-center mt-1">
+                                                        ({subtitle})
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Job details */}
+                                            <div className="flex flex-wrap justify-center gap-4 my-3">
+                                                <div className="flex items-center text-sm text-gray-600">
+                                                    <MapPin className="h-4 w-4 mr-1.5 text-gray-500" />
+                                                    <span>{location}</span>
+                                                </div>
+                                                <div className="flex items-center text-sm text-gray-600">
+                                                    <Calendar className="h-4 w-4 mr-1.5 text-gray-500" />
+                                                    <span>{formatDate(job.postedDate)}</span>
+                                                </div>
+                                            </div>
+
+                                            {/* Apply button */}
+                                            <div className="mt-4 flex justify-center">
+                                                <div className={`inline-flex items-center px-6 py-3 
+                                    bg-gradient-to-r ${colorScheme.bgFrom} ${colorScheme.bgTo} text-white 
+                                    rounded-full shadow-sm hover:shadow-lg transition-all duration-300 
+                                    transform hover:scale-105 group/btn`}>
+                                                    {t('pages.careers.positions.view_job')}
+                                                    <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                                                </div>
                                             </div>
                                         </div>
-
-                                        {/* Content - centered on mobile */}
-                                        <div className="text-center md:text-left">
-                                            <h3 className="text-lg md:text-xl font-bold text-gray-800">
-                                                {t(`pages.careers.positions.jobs.${position.key}.title`)}
-                                                {t(`pages.careers.positions.jobs.${position.key}.subtitle`) && (
-                                                    <span className="text-xs md:text-sm font-medium ml-2 text-gray-500">
-                                                        ({t(`pages.careers.positions.jobs.${position.key}.subtitle`)})
-                                                    </span>
-                                                )}
-                                            </h3>
-                                            <p className="text-sm md:text-base text-gray-600 mt-1 max-w-md mx-auto md:mx-0">
-                                                {t(`pages.careers.positions.jobs.${position.key}.description`)}
-                                            </p>
-                                        </div>
                                     </div>
-
-                                    {/* Apply button - centered on mobile */}
-                                    <div className="flex-shrink-0 flex justify-center md:justify-start">
-                                        <a href={`/apply/${t(`pages.careers.positions.jobs.${position.key}.title`).toLowerCase().replace(/\s+/g, '-')}`}
-                                            className={`inline-flex items-center px-5 py-2.5 
-                                            bg-gradient-to-r ${position.color} text-white 
-                                            rounded-full shadow-sm hover:shadow-lg transition-all duration-300 
-                                            transform hover:scale-105 group/btn`}>
-                                            {t('pages.careers.positions.apply_button')}
-                                            <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                                </Link>
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
                 {/* Call To Action */}
@@ -186,7 +284,7 @@ const OpenPositionsSection = () => {
                     <p className="text-base md:text-lg text-gray-600 mb-5 md:mb-6">
                         {t('pages.careers.positions.cta_question')}
                     </p>
-                    <a
+                    <Link
                         href="/contact"
                         className="relative inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium text-white 
                         bg-gradient-to-r from-blue-500 to-blue-600 rounded-full 
@@ -200,7 +298,7 @@ const OpenPositionsSection = () => {
 
                         {t('pages.careers.positions.cta_button')}
                         <ArrowRight className="h-4 md:h-5 w-4 md:w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </a>
+                    </Link>
                 </motion.div>
             </div>
         </section>

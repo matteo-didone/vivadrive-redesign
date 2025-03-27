@@ -823,6 +823,7 @@ const en = {
         apply_button: "Apply",
         cta_question: "Don't see a position that fits your skills?",
         cta_button: "Contact our team",
+        view_job: "Explore role",
         jobs: {
           python_django: {
             title: "Python/Django Developer",
@@ -834,7 +835,7 @@ const en = {
             title: "Front-end Developer",
             subtitle: "",
             description:
-              "We are looking for an experienced Python/Django developer with at least 4 years...",
+              "We are looking for an experienced Front-end developer with at least 4 years...",
           },
           data_scientist: {
             title: "Data Scientist",
@@ -866,6 +867,30 @@ const en = {
             description:
               "Is your skillset not on our list? Don't worry, we are always open for talents....",
           },
+        },
+      },
+      job: {
+        back_to_jobs: "Open positions",
+        job_description: "Job description",
+        responsibilities: "Responsibilities",
+        apply_for_this_position: "Apply for this position",
+        posted_on: "Posted on",
+        salary_range: "Salary range",
+        apply_now: "Apply",
+        requirements: "Requirements",
+        benefits: "Benefits",
+        back_to_all_positions: "Back to all positions",
+        preferred: "Preferred",
+        about_company: "About VivaDrive",
+        company_description:
+          "We are a #mobility #energy startup that helps companies introduce Electric Cars to their fleet. Our mission is to accelerate sustainable transport solutions worldwide.",
+        our_main_office: "Our Main Office",
+        view_on_maps: "View on Google Maps",
+        our_values: "Our Values",
+        values: {
+          sustainable: "Sustainable solutions for a better future",
+          collaborative: "Collaborative and inclusive workplace",
+          global: "Global impact through local initiatives",
         },
       },
     },
@@ -1034,7 +1059,8 @@ const en = {
     contact: {
       title: "Contact Us",
       heading: "Book a free demo",
-      description: "Discover how VivaDrive can transform your fleet management with our sustainable solutions.",
+      description:
+        "Discover how VivaDrive can transform your fleet management with our sustainable solutions.",
       benefits: {
         cost_effective: "Make your fleet cost-effective",
         safe_drivers: "Make your driver safe and fuel efficient",
@@ -1042,9 +1068,10 @@ const en = {
       },
       testimonial: {
         rating: "4.9/5 from 200+ customers",
-        quote: "VivaDrive's fleet management tools transformed our operations, leading to substantial cost savings and improved efficiency.",
+        quote:
+          "VivaDrive's fleet management tools transformed our operations, leading to substantial cost savings and improved efficiency.",
         name: "Jane Doe",
-        position: "Fleet Manager, Tech Corp"
+        position: "Fleet Manager, Tech Corp",
       },
       form: {
         title: "Get in touch",
@@ -1055,7 +1082,7 @@ const en = {
         phone: {
           label: "Phone number*",
           placeholder: "Your phone number",
-          error: "Please enter a valid phone number"
+          error: "Please enter a valid phone number",
         },
         email: {
           label: "Email*",
@@ -1092,7 +1119,8 @@ const en = {
       hero: {
         title_pre: "Join our",
         title_highlight: "team",
-        description: "Build your career with VivaDrive and help shape the future of sustainable mobility"
+        description:
+          "Build your career with VivaDrive and help shape the future of sustainable mobility",
       },
       benefits: {
         heading: "Why join VivaDrive?",
@@ -1101,20 +1129,20 @@ const en = {
         learn_from_the_best: "Learn from the best",
         boost_your_skills: "Boost your skills",
         try_before_you_buy: "Try before you buy",
-        enjoy_international_workplace: "Enjoy international workplace"
+        enjoy_international_workplace: "Enjoy international workplace",
       },
       form: {
         first_name: {
-          label: "First name *"
+          label: "First name *",
         },
         last_name: {
-          label: "Last name *"
+          label: "Last name *",
         },
         email: {
-          label: "Email *"
+          label: "Email *",
         },
         phone: {
-          label: "Phone number"
+          label: "Phone number",
         },
         role: {
           label: "Role *",
@@ -1126,30 +1154,31 @@ const en = {
             digital_marketer: "Digital Marketer",
             business_developer: "Business Developer",
             ux_ui: "UX/UI",
-            different: "Different position?"
-          }
+            different: "Different position?",
+          },
         },
         linkedin: {
-          label: "LinkedIn"
+          label: "LinkedIn",
         },
         github: {
-          label: "Github"
+          label: "Github",
         },
         portfolio: {
-          label: "Portfolio"
+          label: "Portfolio",
         },
         cover_letter: {
-          label: "Cover letter"
+          label: "Cover letter",
         },
         cv: {
-          label: "CV *"
+          label: "CV *",
         },
         send_button: "Send",
         success: {
           title: "Thank you!",
-          message: "Your application has been submitted. We'll get back to you shortly."
-        }
-      }
+          message:
+            "Your application has been submitted. We'll get back to you shortly.",
+        },
+      },
     },
     newsroom: {
       hero: {
