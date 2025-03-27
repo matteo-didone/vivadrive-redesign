@@ -3,9 +3,13 @@ import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'VivaDrive',
+  description: 'VivaDrive Website',
+  generator: 'VivaDrive',
+  icons: {
+    icon: '/Logo_Dark_Monogram.svg',
+    shortcut: '/Logo_Dark_Monogram.svg',
+  },
 }
 
 export default function RootLayout({
