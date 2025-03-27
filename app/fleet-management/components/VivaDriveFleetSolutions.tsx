@@ -52,13 +52,13 @@ const VivaDriveFleetSolutions = () => {
             {/* Section 1: Improve your drivers' experience - Text Left, Image Right */}
             <section className="pt-16 sm:pt-20 pb-0 overflow-hidden border-b border-gray-100 relative">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-0 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-0 items-center">
-                        {/* Content Column - With proper spacing at bottom */}
+                    <div className="grid lg:grid-cols-12 gap-0 items-center">
+                        {/* Content Column - With proper spacing at bottom - Takes 7 columns */}
                         <motion.div
-                            className="space-y-5 pr-4 sm:pr-6 lg:pr-12 mx-auto lg:mx-0 max-w-lg lg:max-w-none pb-16 text-center lg:text-left"
+                            className="lg:col-span-7 space-y-5 pr-4 sm:pr-6 lg:pr-12 mx-auto lg:mx-0 max-w-lg lg:max-w-none pb-16 text-center lg:text-left"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: true }}
                             variants={staggerChildren}
                         >
                             <motion.div
@@ -115,20 +115,44 @@ const VivaDriveFleetSolutions = () => {
                             </motion.div>
                         </motion.div>
 
-                        {/* Image Column - Adjusted to remove the gap */}
-                        <motion.div
-                            className="relative h-full flex items-center justify-center lg:justify-end -mr-4 sm:-mr-6 lg:-mr-8 xl:-mr-16 mt-8 sm:mt-0 pb-0"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={scaleIn}
-                        >
-                            <img
-                                src="/fleet-management/iphone-mockup.png"
-                                alt={t('pages.fleet_management.solutions.section1.image_alt')}
-                                className="w-[100%] lg:w-[160%] max-w-none h-auto object-contain"
-                            />
-                        </motion.div>
+                        {/* Image Column - Takes 5 columns */}
+                        <div className="lg:col-span-5 hidden lg:block relative" style={{ height: "480px" }}>
+                            <motion.div
+                                className="absolute inset-0 overflow-visible"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={scaleIn}
+                            >
+                                <div className="h-full w-full relative">
+                                    <img
+                                        src="/fleet-management/iphone-mockup.png"
+                                        alt={t('pages.fleet_management.solutions.section1.image_alt')}
+                                        className="absolute h-full object-contain object-left-top transform scale-[1.6] origin-left"
+                                        style={{
+                                            left: "0",
+                                            top: "0"
+                                        }}
+                                    />
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* Mobile-only image */}
+                        <div className="lg:hidden w-full mt-8">
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={scaleIn}
+                            >
+                                <img
+                                    src="/fleet-management/iphone-mockup.png"
+                                    alt={t('pages.fleet_management.solutions.section1.image_alt')}
+                                    className="w-full h-auto"
+                                />
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -153,7 +177,7 @@ const VivaDriveFleetSolutions = () => {
                             className="relative order-2 lg:order-1 flex justify-center lg:justify-start"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: true }}
                             variants={fadeIn}
                         >
                             <div className="relative max-w-md w-full">
@@ -178,7 +202,8 @@ const VivaDriveFleetSolutions = () => {
                                 <motion.div
                                     className="absolute -bottom-4 sm:-bottom-8 right-4 sm:right-8 p-2 sm:p-3 bg-white rounded-lg shadow-xl"
                                     initial={{ opacity: 0, x: 20, y: 20 }}
-                                    animate={{ opacity: 1, x: 0, y: 0 }}
+                                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                    viewport={{ once: true }}
                                     transition={{ delay: 0.7, duration: 0.8 }}
                                 >
                                     <div className="flex items-center gap-2">
@@ -192,7 +217,8 @@ const VivaDriveFleetSolutions = () => {
                                 <motion.div
                                     className="absolute top-6 sm:top-10 -left-4 sm:-left-6 p-2 sm:p-3 bg-white rounded-lg shadow-xl"
                                     initial={{ opacity: 0, x: -20, y: 0 }}
-                                    animate={{ opacity: 1, x: 0, y: 0 }}
+                                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                    viewport={{ once: true }}
                                     transition={{ delay: 0.9, duration: 0.8 }}
                                 >
                                     <div className="flex items-center gap-2">
@@ -210,7 +236,7 @@ const VivaDriveFleetSolutions = () => {
                             className="space-y-5 sm:space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none order-1 lg:order-2 text-center lg:text-left"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: true }}
                             variants={staggerChildren}
                         >
                             <motion.div
@@ -288,7 +314,7 @@ const VivaDriveFleetSolutions = () => {
                             className="space-y-5 sm:space-y-6 mx-auto lg:mx-0 max-w-lg lg:max-w-none text-center lg:text-left"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: true }}
                             variants={staggerChildren}
                         >
                             <motion.div
@@ -350,7 +376,7 @@ const VivaDriveFleetSolutions = () => {
                             className="relative flex justify-center lg:justify-start"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: true }}
                             variants={scaleIn}
                         >
                             <div className="relative max-w-md w-full">
@@ -375,7 +401,8 @@ const VivaDriveFleetSolutions = () => {
                                 <motion.div
                                     className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white rounded-lg shadow-xl"
                                     initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
                                     transition={{ delay: 0.6, duration: 0.8 }}
                                 >
                                     <div className="flex flex-col">
@@ -391,7 +418,8 @@ const VivaDriveFleetSolutions = () => {
                                 <motion.div
                                     className="absolute -top-2 sm:-top-4 right-4 sm:right-8 p-2 sm:p-3 bg-white rounded-lg shadow-xl flex items-center gap-2"
                                     initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
                                     transition={{ delay: 0.8, duration: 0.8 }}
                                 >
                                     <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-500 rounded-full" />
