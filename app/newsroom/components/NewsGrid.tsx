@@ -8,8 +8,10 @@ import NewsCard from "./NewsCard";
 import NewsFilters from "./NewsFilters";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatDate } from "@/lib/utils";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const NewsGrid = ({ articles = [] }) => { // Set default empty array
+  const { t } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
@@ -57,8 +59,8 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const titleMatch = article.title.toLowerCase().includes(query);
-        const excerptMatch = article.excerpt.toLowerCase().includes(query);
-        const contentMatch = article.content.toLowerCase().includes(query);
+        const excerptMatch = article.excerpt ? article.excerpt.toLowerCase().includes(query) : false;
+        const contentMatch = article.content ? article.content.toLowerCase().includes(query) : false;
         const tagsMatch = (article.tags || []).some(tag => tag.toLowerCase().includes(query));
 
         if (!(titleMatch || excerptMatch || contentMatch || tagsMatch)) {
@@ -151,7 +153,7 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       {/* Page heading */}
       <div className="flex flex-col mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Press Releases</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{t('pages.newsroom.grid.title')}</h1>
         <div className="w-24 h-1.5 bg-emerald-500 rounded-full"></div>
       </div>
 
@@ -213,15 +215,15 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
                 <line x1="15" y1="9" x2="15.01" y2="9"></line>
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">No articles found</h3>
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">{t('pages.newsroom.grid.no_results.title')}</h3>
             <p className="text-gray-500 mb-6 max-w-md mx-auto">
-              Try adjusting your filters or search terms to find what you're looking for.
+              {t('pages.newsroom.grid.no_results.description')}
             </p>
             <button
               onClick={handleResetFilters}
               className="px-4 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors"
             >
-              Reset filters
+              {t('pages.newsroom.grid.no_results.reset')}
             </button>
           </motion.div>
         )}
@@ -236,9 +238,10 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
               className={`flex items-center justify-center h-10 px-4 ${currentPage === 1
-                  ? "text-gray-300 cursor-not-allowed"
-                  : "text-gray-700 hover:bg-gray-50"
+                ? "text-gray-300 cursor-not-allowed"
+                : "text-gray-700 hover:bg-gray-50"
                 }`}
+              aria-label={t('pages.newsroom.grid.pagination.previous')}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M15 18l-6-6 6-6" />
@@ -293,8 +296,8 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
                     key={pageNumber}
                     onClick={() => setCurrentPage(pageNumber)}
                     className={`w-10 h-10 flex items-center justify-center text-sm font-medium ${currentPage === pageNumber
-                        ? "bg-emerald-500 text-white"
-                        : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-emerald-500 text-white"
+                      : "text-gray-700 hover:bg-gray-50"
                       }`}
                   >
                     {pageNumber}
@@ -305,7 +308,7 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
 
             {/* Current page indicator for mobile */}
             <div className="flex sm:hidden items-center px-4 h-10 text-sm text-gray-500">
-              Page {currentPage} of {totalPages}
+              {t('pages.newsroom.grid.pagination.page', { current: currentPage, total: totalPages })}
             </div>
 
             {/* Next page button */}
@@ -313,9 +316,10 @@ const NewsGrid = ({ articles = [] }) => { // Set default empty array
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
               className={`flex items-center justify-center h-10 px-4 ${currentPage === totalPages
-                  ? "text-gray-300 cursor-not-allowed"
-                  : "text-gray-700 hover:bg-gray-50"
+                ? "text-gray-300 cursor-not-allowed"
+                : "text-gray-700 hover:bg-gray-50"
                 }`}
+              aria-label={t('pages.newsroom.grid.pagination.next')}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 18l6-6-6-6" />

@@ -2,6 +2,7 @@
 import { Article } from "@/app/newsroom/components/NewsTypes";
 
 const article: Article = {
+  // Default language (English)
   id: "startups-w-palacu",
   slug: "vivadrive-among-the-most-innovative-startups-in-poland",
   title: "VivaDrive among the most innovative startups in Poland!",
@@ -45,6 +46,53 @@ const article: Article = {
     },
   ],
   tags: ["awards", "innovation", "startups", "Poland", "electric mobility"],
+
+  // Translations
+  translations: {
+    // Polish translation
+    pl: {
+      slug: "vivadrive-wsrod-najbardziej-innowacyjnych-startupow-w-polsce",
+      title: "VivaDrive wśród najbardziej innowacyjnych startupów w Polsce!",
+      readTime: 3,
+      category: "NAGRODA",
+      type: "KOMUNIKAT PRASOWY",
+      excerpt:
+        "VivaDrive został uznany za jeden z najbardziej innowacyjnych startupów w Polsce w konkursie 'Startupy w Pałacu' organizowanym przez Prezydenta Rzeczypospolitej Polskiej.",
+      content: `
+        <p>VivaDrive został uznany za jeden z najbardziej innowacyjnych startupów w Polsce w konkursie "Startupy w Pałacu" organizowanym przez Prezydenta Rzeczypospolitej Polskiej.</p>
+        
+        <p>Firma dotarła do finału konkursu i została doceniona za opracowanie przełomowych technologii i pomysłów, które mają realną szansę wejścia na globalne rynki. "Startupy w Pałacu" to inicjatywa mająca na celu promowanie Polski jako innowacyjnej gospodarki, otwartej na międzynarodową współpracę. Wspiera także polskie startupy w globalnej ekspansji.</p>
+        
+        <p>VivaDrive oferuje #DigitalFleet, rozwiązanie optymalizujące koszty dla mieszanych flot składających się z tradycyjnych i elektrycznych pojazdów. DigitalFleet kształtuje lepszych i bardziej praktycznych kierowców, co prowadzi do niższego zużycia paliwa/energii, mniejszej liczby wypadków samochodowych oraz niższych kosztów serwisowych i ubezpieczeniowych dla firm flotowych.</p>
+        
+        <p>VivaDrive opracował również EViRecommend, narzędzie rekomendacyjne, które wspiera firmy i samorządy, które chciałyby wprowadzić pojazdy elektryczne w swoich parkach samochodowych.</p>
+        
+        <blockquote>"Naszym celem jest oferowanie naszym klientom, firmom i samorządom, rozwiązań technicznych, które czynią ich floty samochodowe efektywnymi i inteligentnymi, a ich koszty finansowe, energetyczne i czasowe jak najniższymi." - powiedział Mateusz Maj, CEO VivaDrive</blockquote>
+        
+        <figure class="article-image">
+          <img src="/newsroom/startupy-palacu/group-photo.png" alt="Prezydent Polski z zespołem VivaDrive" class="w-full rounded-lg" />
+          <figcaption class="text-sm text-gray-600 mt-2">Andrzej Duda (Prezydent Rzeczypospolitej Polskiej), Piotr Płaszypski (Dyrektor Programu Pied w Techmo), Mateusz Maj (CEO VivaDrive)</figcaption>
+        </figure>
+        
+        <p>VivaDrive to nowa firma niedawno założona w Polsce, ale z dużym doświadczeniem w transporcie i mobilności. Rozpoczęła działalność w Belgii, gdzie we współpracy z międzynarodowo uznanym Instytutem Badań Transportu – IMOB, stworzyła innowacyjny system analityki jazdy, który łączy analitykę jazdy, spersonalizowane informacje zwrotne, grywalizację i aspekty społeczne. Jest on obecnie wykorzystywany przez wiele firm, organizacji rządowych, NGO i ubezpieczycieli do kształtowania lepszych kierowców, w tym KBC Group (BE), Mobilis Valipsi (BE), P&V Insurance (BE), Volvo (BE), Belgian Road Safety Institute (BE), Ministry of Transportation (BE), LCL Courange P&V, Levensplan (UK), itd.</p>
+        
+        <blockquote>"Jesteśmy bardzo podekscytowani przybyciem do Polski. Polska oferuje wiele możliwości, gdy łączymy i jak to jest z jednej strony najlepszych programistów komputerowych i bardzo dynamiczny biznes transportowy. Z drugiej strony niebezpieczni kierowcy i nadmierne użytkowanie samochodów. I wreszcie polskie plany e-mobilności. Nie możemy się doczekać 2020 roku" – powiedział Mateusz Maj, CEO VivaDrive</blockquote>
+        
+        <p>VivaDrive uczestniczy w Pittsburgh Roadmap (Elektro Mobilność), programie akceleracyjnym organizowanym przez AIP i prowadzonym przez Coollaborate, gdzie współpracuje z Synerise, wiodącym systemem operacyjnym wzrostu napędzanym sztuczną inteligencją.</p>
+        
+        <p>VivaDrive jest partnerem technicznym wyprawy #PowerofChange Marka Kamińskiego. Znany polski podróżnik zamierza objechać kulę ziemską samochodem elektrycznym. Naszym wspólnym celem jest promowanie ekologicznego i zrównoważonego transportu.</p>
+        
+        <p><a href="https://youtu.be/5gNHnwv77g" target="_blank" class="text-emerald-600 hover:underline">https://youtu.be/5gNHnwv77g</a></p>
+      `,
+      partners: [
+        {
+          name: "Startupy w Pałacu",
+          logo: "/newsroom/startupy-palacu/startupy.png",
+        },
+      ],
+      tags: ["nagrody", "innowacja", "startupy", "Polska", "elektromobilność"],
+    },
+  },
 };
 
 export default article;

@@ -1,9 +1,11 @@
+// NewsCard.tsx - with complete internationalization
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { formatDate } from "@/lib/utils";
 import { ChevronRight, Calendar, Clock, ArrowUpRight, Tag } from "lucide-react";
 import { Article } from "@/app/newsroom/components/NewsTypes";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface NewsCardProps {
   article: Article;
@@ -13,8 +15,32 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode }) => {
+  const { t, currentLanguage } = useLanguage();
+
   // Calculate animation delay based on index for staggered appearance
   const animationDelay = 100 + (index * 100);
+
+  // Get translated fields from article
+  const getTranslatedField = (fieldName: string, defaultValue: any): any => {
+    // Try with different case variations of language code
+    const languageVariations = [
+      currentLanguage,
+      currentLanguage.toLowerCase(),
+      currentLanguage.toUpperCase()
+    ];
+
+    for (const langCode of languageVariations) {
+      if (
+        article.translations &&
+        article.translations[langCode] &&
+        article.translations[langCode][fieldName] !== undefined
+      ) {
+        return article.translations[langCode][fieldName];
+      }
+    }
+
+    return defaultValue;
+  };
 
   // Common category badge rendering function to ensure consistency
   const renderCategoryBadge = () => {
@@ -27,7 +53,10 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
       </svg>
     );
 
-    if (article.category === "AWARD") {
+    // Get translated category
+    const category = getTranslatedField('category', article.category);
+
+    if (category === "AWARD" || category === "NAGRODA") {
       color = "bg-yellow-500";
       icon = (
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -35,7 +64,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
           <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
         </svg>
       );
-    } else if (article.category === "PARTNERSHIP ANNOUNCEMENT") {
+    } else if (category === "PARTNERSHIP ANNOUNCEMENT" || category === "PARTNERSTWO") {
       color = "bg-emerald-500";
       icon = (
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -45,7 +74,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
           <path d="M15 18h6"></path>
         </svg>
       );
-    } else if (article.category === "WEBINAR") {
+    } else if (category === "WEBINAR") {
       color = "bg-blue-500";
       icon = (
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +85,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
           <path d="M9 10a3 3 0 0 1 3-3a3 3 0 0 1 3 3" />
         </svg>
       );
-    } else if (article.category === "EV REVIEW") {
+    } else if (category === "EV REVIEW" || category === "RECENZJA EV") {
       color = "bg-purple-500";
       icon = (
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -74,13 +103,20 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
       <div className="absolute top-4 left-4 transform transition-transform duration-500 group-hover:-translate-y-1">
         <div className={`${color} text-white flex items-center gap-1.5 text-xs font-medium py-1.5 px-3 rounded-full shadow-md`}>
           {icon}
-          {article.category}
+          {category}
         </div>
       </div>
     );
 
     return badge;
   };
+
+  // Get translated title, excerpt, and other fields
+  const title = getTranslatedField('title', article.title);
+  const excerpt = getTranslatedField('excerpt', article.excerpt);
+  const type = getTranslatedField('type', article.type || "PRESS");
+  const readTime = getTranslatedField('readTime', article.readTime);
+  const tags = getTranslatedField('tags', article.tags);
 
   // Grid view rendering
   if (viewMode === "grid") {
@@ -102,7 +138,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
               {article.image && (
                 <Image
                   src={article.image}
-                  alt={article.title}
+                  alt={title}
                   className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -121,27 +157,27 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
             <div className="flex items-center text-sm text-gray-500 mb-3 font-medium">
               <span>{formatDate(article.date)}</span>
               <span className="mx-2 text-emerald-500">•</span>
-              <span>{article.readTime} minute read</span>
+              <span>{readTime} {t('pages.newsroom.article.minute_read')}</span>
             </div>
 
             <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300 line-clamp-2">
-              {article.title}
+              {title}
             </h3>
 
             {/* Optional article excerpt with line clamp */}
-            {article.excerpt && (
+            {excerpt && (
               <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
-                {article.excerpt}
+                {excerpt}
               </p>
             )}
 
             {/* Article type indicator and read more button */}
             <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
               <div className="text-xs font-medium uppercase tracking-wider text-gray-500">
-                {article.type || "PRESS"}
+                {type}
               </div>
               <span className="text-emerald-600 text-sm font-medium flex items-center opacity-0 transform translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                Read more
+                {t('pages.newsroom.grid.read_more')}
                 <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </span>
             </div>
@@ -163,7 +199,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
           <div className="relative w-full md:w-1/3 h-56 md:h-auto">
             <Image
               src={article.image}
-              alt={article.title}
+              alt={title}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -182,40 +218,40 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, index, isLoaded, viewMode 
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-1.5 text-emerald-500" />
-                <span>{article.readTime} min read</span>
+                <span>{readTime} {t('pages.newsroom.article.minute_read')}</span>
               </div>
               <div className="flex items-center">
                 <Tag className="h-4 w-4 mr-1.5 text-emerald-500" />
-                <span>{article.type}</span>
+                <span>{type}</span>
               </div>
             </div>
 
             {/* Title */}
             <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors line-clamp-2">
-              {article.title}
+              {title}
             </h2>
 
             {/* Excerpt */}
             <p className="text-gray-600 mb-4 line-clamp-2 flex-grow">
-              {article.excerpt}
+              {excerpt}
             </p>
 
             {/* Tags and read more */}
             <div className="flex flex-wrap items-center justify-between mt-2">
               <div className="flex flex-wrap gap-2 mb-2 md:mb-0">
-                {article.tags && article.tags.slice(0, 3).map(tag => (
+                {tags && tags.slice(0, 3).map(tag => (
                   <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 rounded-md text-xs">
                     #{tag}
                   </span>
                 ))}
-                {article.tags && article.tags.length > 3 && (
+                {tags && tags.length > 3 && (
                   <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-md text-xs">
-                    +{article.tags.length - 3}
+                    +{tags.length - 3}
                   </span>
                 )}
               </div>
               <span className="inline-flex items-center text-emerald-600 text-sm font-medium group-hover:translate-x-1 transition-transform">
-                Read article
+                {t('pages.newsroom.grid.read_article')}
                 <ArrowUpRight className="h-4 w-4 ml-1.5" />
               </span>
             </div>

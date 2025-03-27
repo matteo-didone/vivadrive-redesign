@@ -16,7 +16,7 @@ interface Language {
 interface LanguageContextType {
   currentLanguage: LanguageCode;
   switchLanguage: (code: LanguageCode) => void;
-  t: (key: string) => string;
+  t: (key: string, variables?: Record<string, any>) => string; // Updated to support variables
   languages: Record<LanguageCode, Language>;
 }
 
@@ -48,10 +48,23 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   };
 
   // Translation function that uses lodash get to safely access nested properties
-  const t = (key: string): string => {
-    const value = get(translations[currentLanguage], key);
+  // and supports variable interpolation
+  const t = (key: string, variables?: Record<string, any>): string => {
+    let value = get(translations[currentLanguage], key);
+
     // If the key doesn't exist, return the key itself
-    return value !== undefined ? value : key;
+    if (value === undefined) {
+      return key;
+    }
+
+    // Replace variables in the string if there are any
+    if (variables && typeof value === 'string') {
+      Object.entries(variables).forEach(([varName, varValue]) => {
+        value = value.replace(new RegExp(`{{${varName}}}`, 'g'), String(varValue));
+      });
+    }
+
+    return value;
   };
 
   const value = {

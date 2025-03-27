@@ -2,9 +2,11 @@
 import { Article } from "@/app/newsroom/components/NewsTypes";
 
 const article: Article = {
+  // Default language (English)
   id: "double-green-partnership",
   slug: "vivadrive-partners-with-double-green",
-  title: "VivaDrive partners with Double Green to help US logistic providers electrify their vehicle fleets",
+  title:
+    "VivaDrive partners with Double Green to help US logistic providers electrify their vehicle fleets",
   date: "2022-10-13T12:00:00Z",
   readTime: 3,
   image: "/newsroom/double-green/double-green-long.webp", // This is actually a logo image with both logos
@@ -43,8 +45,70 @@ const article: Article = {
     
     <p><a href="https://vivadrive.io" target="_blank" class="text-emerald-600 hover:underline">https://vivadrive.io</a></p>
   `,
-  partners: [], // Remove the partner section completely since it's causing duplication
-  tags: ["partnership", "sustainability", "fleet electrification", "logistics", "USA", "Double Green"],
+  partners: [], // No partners as specified in the original
+  tags: [
+    "partnership",
+    "sustainability",
+    "fleet electrification",
+    "logistics",
+    "USA",
+    "Double Green",
+  ],
+
+  // Translations
+  translations: {
+    // Polish translation
+    pl: {
+      slug: "vivadrive-nawiazuje-partnerstwo-z-double-green",
+      title:
+        "VivaDrive nawiązuje partnerstwo z Double Green, aby pomóc amerykańskim dostawcom logistycznym w elektryfikacji ich flot pojazdów",
+      readTime: 3,
+      category: "OGŁOSZENIE PARTNERSTWA",
+      type: "KOMUNIKAT PRASOWY",
+      excerpt:
+        "Double Green, kompleksowe rozwiązanie dla amerykańskiego przemysłu spożywczego i napojów w zakresie zrównoważonego rozwoju, nawiązało współpracę z VivaDrive, aby pomóc swoim klientom zoptymalizować i przygotować flotę na przyszłość.",
+      content: `
+        <p>Double Green, kompleksowe rozwiązanie dla amerykańskiego przemysłu spożywczego i napojów w zakresie zrównoważonego rozwoju, nawiązało współpracę z VivaDrive, aby pomóc swoim klientom zoptymalizować i przygotować flotę na przyszłość.</p>
+        
+        <figure class="article-image">
+          <img src="/newsroom/double-green/double-green.webp" alt="Ilustracja partnerstwa VivaDrive i Double Green z elektrycznymi pojazdami logistycznymi" class="w-full rounded-lg" />
+        </figure>
+        
+        <p>Klienci logistyczni będą korzystać z platformy AI ekspertów flotowych, aby ocenić swoją obecną flotę w kontekście przyszłych potrzeb oraz zmieniającej się infrastruktury i zachęt.</p>
+        
+        <p>Double Green wspiera firmy dążące do zaspokojenia popytu konsumentów na zrównoważone produkty w ramach operacji łańcucha dostaw, które są pod presją rosnących temperatur i kosztów energii. Z ponad dwudziestoletnim doświadczeniem w obsłudze globalnych marek żywności i napojów, zespół analityków efektywności, inżynierów i ekspertów komunikacyjnych Double Green jest biegły we współpracy między działami i firmami w celu rozwiązywania złożonych wyzwań łańcucha dostaw. Rozległa wiedza Double Green w zakresie społecznej odpowiedzialności biznesu zapewnia, że jej klienci spełniają, mierzą i komunikują swoje cele zrównoważonego rozwoju.</p>
+        
+        <blockquote>"Naszą misją jest redukcja emisji gazów cieplarnianych w całym przemyśle spożywczym i napojów, jednocześnie obniżając koszty naszych klientów. Wszystko to jest zawarte w naszej nazwie – dobre dla środowiska i lepsze dla wyniku finansowego. Ustawa infrastrukturalna zapewnia 7,5 miliarda dolarów na 500 000 nowych ładowarek. Partnerstwo między Double Green a VivaDrive zapewnia naszym klientom platformę umożliwiającą określenie, kiedy przejść na flotę o zerowej emisji, jednocześnie zmniejszając koszty, zwiększając bezpieczeństwo i realizując cele zrównoważonego rozwoju" powiedziała Molly Reilly, Prezes Double Green.</blockquote>
+        
+        <p>VivaDrive to europejski startup z branży mobilności i czystych technologii, który pomaga firmom wprowadzać pojazdy elektryczne i hybrydowe, jednocześnie je optymalizując. Rozwiązania VivaDrive mają na celu wspieranie rozwoju planów elektryfikacji floty, ocenę przydatności miejsc ładowania, szacowanie kosztów instalacji infrastruktury oraz obniżanie emisji w transporcie.</p>
+        
+        <p>W miarę jak branża flotowa przechodzi szybką transformację w kierunku zrównoważonego przemysłu, VivaDrive dostarcza profesjonalistom flotowym elementy niezbędne do przekształcenia ich firm w efektywne i ekologiczne organizacje. Nasz proces rekomendacji pojazdów elektrycznych dla flot skutkuje raportem audytowym pokazującym, które pojazdy można zastąpić pojazdami elektrycznymi, którzy kierowcy nadają się do pojazdów elektrycznych i jakie są luki w infrastrukturze ładowania pojazdów elektrycznych dla danej floty. Jesteśmy podekscytowani możliwością wspierania Double Green w ich misji tworzenia ekologicznych i opłacalnych flot w USA", powiedział Mateusz Maj, CEO VivaDrive.</p>
+        
+        <h3>O Double Green</h3>
+        
+        <p>Double Green to kompleksowe rozwiązanie w zakresie zrównoważonego rozwoju dla przemysłu spożywczego i napojów. Agencja dostarcza rentowne, wysoce skuteczne rozwiązania zrównoważonego rozwoju, aby wymiernie zmniejszyć negatywny wpływ swoich klientów na środowisko i koszty, jednocześnie tworząc pozytywne korzyści motywujące w zakresie ESG.</p>
+        
+        <h3>O VivaDrive</h3>
+        
+        <p>VivaDrive pomaga wprowadzać pojazdy elektryczne do floty firmy. System przeprowadza szczegółowe analizy i symulacje różnych scenariuszy wprowadzenia nowej infrastruktury ładowania i przeprowadza szczegółowy biznesplan wdrożenia, biorąc pod uwagę zadania transportowe firmy, pojazdy i kierowców. Efektem końcowym jest model biznesowy wdrożenia pojazdów elektrycznych w firmie i plan implementacji. Kiedy firma decyduje się na całkowite lub częściowe przejście na pojazdy elektryczne, VivaDrive pomaga zarządzać flotą (zarówno samochodami elektrycznymi, jak i tradycyjnymi) oraz infrastrukturą ładowania.</p>
+        
+        <p>Więcej informacji:</p>
+        
+        <p><a href="https://www.doublegrn.com" target="_blank" class="text-emerald-600 hover:underline">https://www.doublegrn.com</a></p>
+        
+        <p><a href="https://vivadrive.io" target="_blank" class="text-emerald-600 hover:underline">https://vivadrive.io</a></p>
+      `,
+      partners: [], // No partners as specified in the original
+      tags: [
+        "partnerstwo",
+        "zrównoważony rozwój",
+        "elektryfikacja floty",
+        "logistyka",
+        "USA",
+        "Double Green",
+      ],
+    },
+  },
 };
 
 export default article;

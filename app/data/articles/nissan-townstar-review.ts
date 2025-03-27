@@ -2,6 +2,7 @@
 import { Article } from "@/app/newsroom/components/NewsTypes";
 
 const article: Article = {
+  // Default language (English)
   id: "nissan-townstar-review",
   slug: "nissan-townstar-review-of-the-urban-electric-van",
   title: "Nissan Townstar - Review of the Urban Electric Van",
@@ -63,7 +64,86 @@ const article: Article = {
     <p>See more EV reviews and EV content here: <a href="/blog" class="text-emerald-600 hover:underline">VivaDrive Blog</a></p>
   `,
   partners: [],
-  tags: ["EV review", "Nissan", "Townstar", "electric van", "test drive", "fleet electrification"],
+  tags: [
+    "EV review",
+    "Nissan",
+    "Townstar",
+    "electric van",
+    "test drive",
+    "fleet electrification",
+  ],
+
+  // Translations
+  translations: {
+    // Polish translation
+    pl: {
+      slug: "nissan-townstar-recenzja-miejskiego-elektrycznego-vana",
+      title: "Nissan Townstar - Recenzja miejskiego elektrycznego vana",
+      readTime: 5,
+      category: "RECENZJA EV",
+      type: "BLOG",
+      excerpt:
+        "Dzięki uprzejmości Nissan Sales Central & Eastern Europe mieliśmy przyjemność testowania nowego Nissana Townstar. Dla tych, którzy nie wiedzą, to w pełni elektryczny van dostawczy.",
+      content: `
+        <p>Dzięki uprzejmości Nissan Sales Central & Eastern Europe mieliśmy przyjemność testowania nowego Nissana Townstar. Dla tych, którzy nie wiedzą, to w pełni elektryczny van dostawczy.</p>
+        
+        <h3>Zacznijmy od kilku szczegółów technicznych.</h3>
+        
+        <p>Napęd elektryczny składa się z silnika o mocy 90 koni mechanicznych i akumulatora o pojemności 45 kWh. Czas ładowania wynosi około 7,5 godziny przy użyciu standardowej ładowarki 7 kW lub około 50 minut przy użyciu szybkiej ładowarki 50 kW.</p>
+        
+        <p>Prowadziliśmy bardzo praktyczną wersję - konfigurację z dwoma fotelami z przodu i pełną przestrzenią ładunkową, która zapewniała komfortową jazdę dla dwóch osób i 3,3 m³ przestrzeni bagażowej. Ta wersja jest świetna dla tych, którzy potrzebują mobilnego biura i jednocześnie możliwości transportu większych przedmiotów. Przetestowaliśmy również bagażnik, wkładając do niego duży i nieporęczny bagaż. Normalnie wybralibyśmy Renault Master, ponieważ łatwo byłoby wrzucić do niego nasz bagaż i nie martwić się o jego ułożenie - ale tutaj Townstar poradził sobie bez żadnych problemów.</p>
+        
+        <p>Co ważne, Nissan oferuje również wersję 7-osobową, która umożliwia dużym rodzinom komfortowe i ekonomiczne podróżowanie. Z punktu widzenia kierowcy i pasażera kabina jest wygodnie skonfigurowana - wszystko jest w zasięgu ręki. A schowków jest mnóstwo, o łącznej pojemności 49 litrów. Fajnym rozwiązaniem jest "fabryczny" uchwyt na telefon zamontowany po prawej lub lewej stronie zegarów oraz bezprzewodowa ładowarka w konsoli środkowej.</p>
+        
+        <p>Dodatkową zaletą jest wyciszenie kabiny, co pozwala na spokojne rozmowy z klientami. Zaskakująco, system dźwiękowy Bose działa naprawdę dobrze jak na samochód dostawczy, a w połączeniu z 7-calową stacją multimedialną z ekranem dotykowym, sprawdza się naprawdę dobrze. Ładowanie, choć trwa dłużej niż tankowanie pojazdu benzynowego, jest również dość przyjemne. Około 50 minut wystarczy, aby naładować akumulator z około 20% do 80%. Głównie ładowaliśmy samochód w galeriach handlowych, więc podczas ładowania mogliśmy zrobić codzienne zakupy.</p>
+        
+        <figure class="article-image">
+          <img src="/newsroom/townstar/nissan-townstar-snow.webp" alt="Nissan Townstar w warunkach zimowych" class="w-full rounded-lg" />
+          <figcaption class="text-sm text-gray-600 mt-2">Nissan Townstar dobrze radzi sobie w warunkach zimowych</figcaption>
+        </figure>
+        
+        <h3>Czas na podsumowanie jazdy po mieście.</h3>
+        
+        <p>Chociaż dostępne parametry pokazują najniższe zużycie energii na poziomie 17,4 kWh/100 km, nie mogliśmy zejść poniżej 22 kWh - nasz tester ma ciężką stopę. W rezultacie osiągnęliśmy zasięg 180 km w typowych warszawskich warunkach jazdy miejskiej, czyli w jednym wielkim korku.</p>
+        
+        <p>Samochód jeździ świetnie i przyspiesza natychmiast i dynamicznie. Początkowo wydaje się, że słupki przy przedniej szybie są niezwykle szerokie, ale można się do tego przyzwyczaić, choć wybór cieńszych słupków lub mniejszej sztywności dachu może być dla wielu osób jeszcze łatwiejszy. W Townstarze bieg "B" w trzystopniowej skali odzysku energii pełni funkcję podobną do e-pedału - to bardzo praktyczna funkcja. Samochód jest zwinny i zwrotny, co czyni go wygodnym w parkowaniu zarówno w galeriach handlowych, jak i na standardowych parkingach. Dodatkową przyjemnością jest legalne korzystanie z buspasów i bezpłatne parkowanie w strefach płatnego parkowania.</p>
+        
+        <h3>Weekendowy wypad, czyli jak zabraliśmy Townstara w podróż.</h3>
+        
+        <p>Zaplanowaliśmy trasę 230 km do naszego celu. W rzeczywistości nie mogliśmy jej pokonać bez ładowania. Ale! Pogoda, którą napotkaliśmy, była okropna - śnieg, deszcz, silny wiatr i zimno.</p>
+        
+        <p>Dlatego - nie oszczędzając na ogrzewaniu, tempomacie, nawigacji, decybelach i wszystkich innych dostępnych udogodnieniach zużywających energię elektryczną - zrobiliśmy jeden 30-minutowy postój na doładowanie, ponieważ ładowarki były rzadkie w pobliżu naszego celu, a zawsze lepiej mieć bezpieczną rezerwę. Dzięki tej decyzji mieliśmy niezwykłą przyjemność spotkania innego członka rodziny Nissan - Ariya - w punkcie ładowania i wymiany obserwacji i doświadczeń z jazdy z jego kierowcą.</p>
+        
+        <p>Ponieważ nasz bagaż był duży i nieporęczny, ale nie nadmiernie ciężki, samochód był poważnie dotknięty przez silne wiatry boczne. Dodatkowo, w połowie podróży, przedni zderzak, gdzie znajduje się przednia kamera, zamarzł, powodując, że tempomat przestał działać. Ale jak wspomnieliśmy wcześniej, pogoda była wyjątkowo niekorzystna. Ostatnie kilometry naszej podróży prowadziły po pokrytej śniegiem leśnej drodze, ale nawet tam samochód poradził sobie bez żadnych problemów.</p>
+        
+        <figure class="article-image">
+          <img src="/newsroom/townstar/nissan-townstar-parked-snow.webp" alt="Nissan Townstar zaparkowany w śniegu" class="w-full rounded-lg" />
+          <figcaption class="text-sm text-gray-600 mt-2">Townstar zaparkowany podczas naszego zimowego testu</figcaption>
+        </figure>
+        
+        <p>Podróż powrotna okazała się znacznie lepsza. Z akumulatorem naładowanym do 90% - z regularnego gniazdka przez noc - pokonaliśmy całą trasę. Tempomat i asystent pasa ruchu to solidne rozwiązania, przetestowane przez nas na różne sposoby - teraz wiemy, że samochód "krzyczy", gdy zdejmujemy ręce z kierownicy. Ogólnie, podczas podróży osiągnęliśmy średnie zużycie około 23,5-24 kWh/100 km.</p>
+        
+        <figure class="article-image">
+          <img src="/newsroom/townstar/nissan-townstar.jpg" alt="Elektryczny van Nissan Townstar zaparkowany w mieście" class="w-full rounded-lg" />
+          <figcaption class="text-sm text-gray-600 mt-2">Nissan Townstar w środowisku miejskim</figcaption>
+        </figure>
+        
+        <h3>Podsumowanie</h3>
+        
+        <p>Nissan Townstar Electric to dość wydajny, przyjazny dla środowiska i innowacyjny van, którym można jeździć komfortowo i ekonomicznie po mieście. Jednocześnie jest na tyle duży i funkcjonalny, że może dostarczać materiały do klientów lub zabrać rodzinę na weekendowy wypad za miasto.</p>
+        
+        <p>Zobacz więcej recenzji pojazdów elektrycznych i treści związanych z elektromobilnością tutaj: <a href="/blog" class="text-emerald-600 hover:underline">Blog VivaDrive</a></p>
+      `,
+      tags: [
+        "recenzja EV",
+        "Nissan",
+        "Townstar",
+        "elektryczny van",
+        "test jazdy",
+        "elektryfikacja floty",
+      ],
+    },
+  },
 };
 
 export default article;

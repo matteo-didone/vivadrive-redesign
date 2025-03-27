@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ChevronLeft, Calendar, Clock, Tag, ChevronUp } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/app/newsroom/components/NewsTypes";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Social media icons as components
 const FacebookIcon = () => (
@@ -44,11 +45,50 @@ interface ArticlePageProps {
 }
 
 const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
+    const { t, currentLanguage } = useLanguage();
     const [isLoaded, setIsLoaded] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);
     const [showShareTooltip, setShowShareTooltip] = useState(false);
     const [showBackToTop, setShowBackToTop] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
+
+    // Forza un re-rendering quando la lingua cambia
+    useEffect(() => {
+        console.log("Language changed to:", currentLanguage);
+        // Forza un re-rendering dei contenuti traducibili
+        const translatedTitle = getTranslatedField('title', article.title);
+        console.log("Translated title:", translatedTitle);
+
+        // Opzionale: forza un re-render completo
+        setIsLoaded(false);
+        setTimeout(() => setIsLoaded(true), 10);
+    }, [currentLanguage]);
+
+    const getTranslatedField = (fieldName: string, defaultValue: any): any => {
+        console.log("Current language in getTranslatedField:", currentLanguage);
+        console.log("Available translations:", article.translations ? Object.keys(article.translations) : "none");
+
+        // Prova con diverse versioni del codice lingua (maiuscolo, minuscolo)
+        const languageVariations = [
+            currentLanguage,
+            currentLanguage.toLowerCase(),
+            currentLanguage.toUpperCase()
+        ];
+
+        for (const langCode of languageVariations) {
+            if (
+                article.translations &&
+                article.translations[langCode] &&
+                article.translations[langCode][fieldName] !== undefined
+            ) {
+                console.log(`Found translation for ${fieldName} using ${langCode}`);
+                return article.translations[langCode][fieldName];
+            }
+        }
+
+        console.log(`No translation found for ${fieldName}, using default`);
+        return defaultValue;
+    };
 
     // Track scroll progress
     useEffect(() => {
@@ -70,6 +110,22 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Update URL slug when language changes
+    useEffect(() => {
+        // Handle URL slug changes based on language
+        if (article.translations && article.translations[currentLanguage]?.slug) {
+            const translatedSlug = article.translations[currentLanguage].slug;
+            const currentPath = window.location.pathname;
+            const baseUrl = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+
+            // Only update if there's a meaningful change
+            if (translatedSlug && !currentPath.endsWith(translatedSlug)) {
+                // Use history API to update URL without page reload
+                window.history.replaceState(null, '', baseUrl + translatedSlug);
+            }
+        }
+    }, [currentLanguage, article]);
+
     // Set loaded state after mount
     useEffect(() => {
         setIsLoaded(true);
@@ -78,7 +134,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
     // Share functionality
     const handleShare = async (platform: string) => {
         const url = window.location.href;
-        const title = article.title;
+        const title = getTranslatedField('title', article.title);
 
         switch (platform) {
             case 'facebook':
@@ -105,11 +161,10 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
 
     // Format HTML content with enhanced presentation
     const processContent = () => {
-        if (!article.content) return '';
-
+        const contentToProcess = getTranslatedField('content', article.content);
+        if (!contentToProcess) return '';
         // Get content
-        let content = article.content.trim();
-
+        let content = contentToProcess.trim();
         // Enhance hashtags with styled spans
         content = content.replace(/#([a-zA-Z0-9]+)/g, '<span class="text-emerald-600 font-medium">#$1</span>');
 
@@ -119,7 +174,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             '<div class="my-8 border-l-4 border-emerald-500 pl-4 py-3 bg-emerald-50/50 rounded-r"><blockquote class="italic text-gray-800">$1</blockquote></div>'
         );
 
-        // Process YouTube Links - FIXED: Better handling of YouTube links
+        // Process YouTube Links - Better handling of YouTube links
         content = content.replace(
             /<p><a href="(https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)(?:[^\s"]*))"\s+([^>]*)>(.*?)<\/a><\/p>/g,
             (match, url, videoId, attributes, linkText) => {
@@ -153,7 +208,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             '<figure class="my-8 text-center">$1</figure>'
         );
 
-        // Enhance image styling - FIXED: Properly handle existing classes
+        // Enhance image styling - Properly handle existing classes
         content = content.replace(
             /<img([^>]*)>/g,
             (match, attributes) => {
@@ -168,7 +223,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             }
         );
 
-        // Enhance figcaption styling - FIXED: Properly handle existing classes
+        // Enhance figcaption styling - Properly handle existing classes
         content = content.replace(
             /<figcaption([^>]*)>(.*?)<\/figcaption>/g,
             (match, attributes, caption) => {
@@ -228,7 +283,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <button
                                 onClick={() => handleShare('facebook')}
                                 className="p-1.5 text-gray-500 hover:text-emerald-600 transition-colors block"
-                                aria-label="Share on Facebook"
+                                aria-label={t('pages.newsroom.article.share_on', { platform: 'Facebook' })}
                             >
                                 <FacebookIcon />
                             </button>
@@ -237,7 +292,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <button
                                 onClick={() => handleShare('twitter')}
                                 className="p-1.5 text-gray-500 hover:text-emerald-600 transition-colors block"
-                                aria-label="Share on X (Twitter)"
+                                aria-label={t('pages.newsroom.article.share_on', { platform: 'X (Twitter)' })}
                             >
                                 <XIcon />
                             </button>
@@ -246,7 +301,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <button
                                 onClick={() => handleShare('linkedin')}
                                 className="p-1.5 text-gray-500 hover:text-emerald-600 transition-colors block"
-                                aria-label="Share on LinkedIn"
+                                aria-label={t('pages.newsroom.article.share_on', { platform: 'LinkedIn' })}
                             >
                                 <LinkedInIcon />
                             </button>
@@ -255,7 +310,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <button
                                 onClick={() => handleShare('whatsapp')}
                                 className="p-1.5 text-gray-500 hover:text-emerald-600 transition-colors block"
-                                aria-label="Share on WhatsApp"
+                                aria-label={t('pages.newsroom.article.share_on', { platform: 'WhatsApp' })}
                             >
                                 <WhatsAppIcon />
                             </button>
@@ -264,12 +319,12 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <button
                                 onClick={() => handleShare('copy')}
                                 className="p-1.5 text-gray-500 hover:text-emerald-600 transition-colors block relative"
-                                aria-label="Copy link"
+                                aria-label={t('pages.newsroom.article.copy_link')}
                             >
                                 <CopyIcon />
                                 {showShareTooltip && (
                                     <div className="absolute left-full ml-3 bg-gray-800 text-white text-xs px-2 py-1 rounded">
-                                        Link copied!
+                                        {t('pages.newsroom.article.link_copied')}
                                     </div>
                                 )}
                             </button>
@@ -286,7 +341,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium group transition-all mb-6"
                         >
                             <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform mr-1" />
-                            Back to news
+                            {t('pages.newsroom.article.back_to_news')}
                         </Link>
 
                         {/* VivaDrive logo/name with animated glow */}
@@ -304,7 +359,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                                         article.category === "EVENT" ? "bg-purple-100 text-purple-800" :
                                             "bg-gray-100 text-gray-800"
                                     }`}>
-                                    {article.category}
+                                    {getTranslatedField('category', article.category)}
                                 </div>
                             </div>
                         )}
@@ -313,9 +368,9 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         {article.partners && article.partners.length > 0 && (
                             <div className="flex justify-center items-center gap-6 my-6 animate-fadeIn">
                                 {Array.isArray(article.partners[0]) || typeof article.partners[0] === 'string' ? (
-                                    // Handle case where partners is an array of strings (like in the Sagenso article)
+                                    // Handle case where partners is an array of strings
                                     <div className="text-center">
-                                        {article.partners.join(' & ')} Partnership
+                                        {article.partners.join(' & ')} {t('pages.newsroom.article.partnership')}
                                     </div>
                                 ) : (
                                     // Handle case where partners is an array of partner objects with logo and name
@@ -356,12 +411,12 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <div className="flex items-center text-sm text-gray-600">
                                 <span className="text-emerald-500 mx-1">•</span>
                                 <Clock className="h-4 w-4 mr-1 text-emerald-600" />
-                                <span>{article.readTime} minute read</span>
+                                <span>{getTranslatedField('readTime', article.readTime)} {t('pages.newsroom.article.minute_read')}</span>
                             </div>
                             <div className="flex items-center text-sm text-gray-600">
                                 <span className="text-emerald-500 mx-1">•</span>
                                 <Tag className="h-4 w-4 mr-1 text-emerald-600" />
-                                <span className="uppercase text-xs font-medium">{article.type}</span>
+                                <span className="uppercase text-xs font-medium">{getTranslatedField('type', article.type)}</span>
                             </div>
                         </div>
                     </div>
@@ -370,7 +425,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                 {/* Article title and excerpt */}
                 <div className="container mx-auto px-4 py-8">
                     <h1 className="text-3xl md:text-4xl text-center font-bold mb-6 max-w-4xl mx-auto animate-fadeIn">
-                        {article.title}
+                        {getTranslatedField('title', article.title)}
                     </h1>
 
                     {/* Article excerpt with stylized border */}
@@ -379,7 +434,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <div className="absolute top-0 left-0 w-20 h-1 bg-emerald-500"></div>
                             <div className="absolute bottom-0 right-0 w-20 h-1 bg-emerald-500"></div>
                             <p className="text-lg text-gray-600 text-center mx-auto px-6 py-4 italic">
-                                {article.excerpt}
+                                {getTranslatedField('excerpt', article.excerpt)}
                             </p>
                         </div>
                     )}
@@ -406,9 +461,9 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         {/* Tags section with animation */}
                         {article.tags && article.tags.length > 0 && (
                             <div className="mb-10 animate-fadeIn">
-                                <h4 className="text-gray-500 text-sm uppercase tracking-wider font-medium mb-3">TAGS</h4>
+                                <h4 className="text-gray-500 text-sm uppercase tracking-wider font-medium mb-3">{t('pages.newsroom.article.tags')}</h4>
                                 <div className="flex flex-wrap gap-2">
-                                    {article.tags.map((tag) => (
+                                    {getTranslatedField('tags', article.tags).map((tag) => (
                                         <Link
                                             key={tag}
                                             href={`/newsroom/tag/${tag}`}
@@ -427,40 +482,40 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                                 <button
                                     onClick={() => handleShare('facebook')}
                                     className="p-2 rounded-full bg-gray-100 hover:bg-emerald-50 text-gray-500 hover:text-emerald-600 transition-colors"
-                                    aria-label="Share on Facebook"
+                                    aria-label={t('pages.newsroom.article.share_on', { platform: 'Facebook' })}
                                 >
                                     <FacebookIcon />
                                 </button>
                                 <button
                                     onClick={() => handleShare('twitter')}
                                     className="p-2 rounded-full bg-gray-100 hover:bg-emerald-50 text-gray-500 hover:text-emerald-600 transition-colors"
-                                    aria-label="Share on X (Twitter)"
+                                    aria-label={t('pages.newsroom.article.share_on', { platform: 'X (Twitter)' })}
                                 >
                                     <XIcon />
                                 </button>
                                 <button
                                     onClick={() => handleShare('linkedin')}
                                     className="p-2 rounded-full bg-gray-100 hover:bg-emerald-50 text-gray-500 hover:text-emerald-600 transition-colors"
-                                    aria-label="Share on LinkedIn"
+                                    aria-label={t('pages.newsroom.article.share_on', { platform: 'LinkedIn' })}
                                 >
                                     <LinkedInIcon />
                                 </button>
                                 <button
                                     onClick={() => handleShare('whatsapp')}
                                     className="p-2 rounded-full bg-gray-100 hover:bg-emerald-50 text-gray-500 hover:text-emerald-600 transition-colors"
-                                    aria-label="Share on WhatsApp"
+                                    aria-label={t('pages.newsroom.article.share_on', { platform: 'WhatsApp' })}
                                 >
                                     <WhatsAppIcon />
                                 </button>
                                 <button
                                     onClick={() => handleShare('copy')}
                                     className="p-2 rounded-full bg-gray-100 hover:bg-emerald-50 text-gray-500 hover:text-emerald-600 transition-colors relative"
-                                    aria-label="Copy link"
+                                    aria-label={t('pages.newsroom.article.copy_link')}
                                 >
                                     <CopyIcon />
                                     {showShareTooltip && (
                                         <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded">
-                                            Link copied!
+                                            {t('pages.newsroom.article.link_copied')}
                                         </div>
                                     )}
                                 </button>
@@ -473,8 +528,8 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                                 href="/newsroom"
                                 className="text-emerald-600 hover:text-emerald-700 font-medium inline-flex items-center"
                             >
-                                <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform mr-1" />
-                                All articles
+                                <ChevronLeft className="h-4 w-4 mr-1" />
+                                {t('pages.newsroom.article.all_articles')}
                             </Link>
                         </div>
                     </div>
