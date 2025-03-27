@@ -1034,12 +1034,17 @@ const en = {
     contact: {
       title: "Contact Us",
       heading: "Book a free demo",
-      description:
-        "Discover how VivaDrive can transform your fleet management with our sustainable solutions.",
+      description: "Discover how VivaDrive can transform your fleet management with our sustainable solutions.",
       benefits: {
         cost_effective: "Make your fleet cost-effective",
         safe_drivers: "Make your driver safe and fuel efficient",
         sustainable: "Make your fleet green and sustainable",
+      },
+      testimonial: {
+        rating: "4.9/5 from 200+ customers",
+        quote: "VivaDrive's fleet management tools transformed our operations, leading to substantial cost savings and improved efficiency.",
+        name: "Jane Doe",
+        position: "Fleet Manager, Tech Corp"
       },
       form: {
         title: "Get in touch",
@@ -1050,6 +1055,7 @@ const en = {
         phone: {
           label: "Phone number*",
           placeholder: "Your phone number",
+          error: "Please enter a valid phone number"
         },
         email: {
           label: "Email*",
@@ -1080,6 +1086,70 @@ const en = {
           message: "Your message has been sent. We'll get back to you shortly.",
         },
       },
+    },
+    apply: {
+      title: "Apply",
+      hero: {
+        title_pre: "Join our",
+        title_highlight: "team",
+        description: "Build your career with VivaDrive and help shape the future of sustainable mobility"
+      },
+      benefits: {
+        heading: "Why join VivaDrive?",
+        real_world_projects: "Real-world projects",
+        get_a_job: "Get a job",
+        learn_from_the_best: "Learn from the best",
+        boost_your_skills: "Boost your skills",
+        try_before_you_buy: "Try before you buy",
+        enjoy_international_workplace: "Enjoy international workplace"
+      },
+      form: {
+        first_name: {
+          label: "First name *"
+        },
+        last_name: {
+          label: "Last name *"
+        },
+        email: {
+          label: "Email *"
+        },
+        phone: {
+          label: "Phone number"
+        },
+        role: {
+          label: "Role *",
+          placeholder: "Select a role",
+          options: {
+            python_django: "Python/Django Developer (Smart City/AI)",
+            frontend: "Front-end Developer",
+            data_scientist: "Data Scientist",
+            digital_marketer: "Digital Marketer",
+            business_developer: "Business Developer",
+            ux_ui: "UX/UI",
+            different: "Different position?"
+          }
+        },
+        linkedin: {
+          label: "LinkedIn"
+        },
+        github: {
+          label: "Github"
+        },
+        portfolio: {
+          label: "Portfolio"
+        },
+        cover_letter: {
+          label: "Cover letter"
+        },
+        cv: {
+          label: "CV *"
+        },
+        send_button: "Send",
+        success: {
+          title: "Thank you!",
+          message: "Your application has been submitted. We'll get back to you shortly."
+        }
+      }
     },
     newsroom: {
       hero: {

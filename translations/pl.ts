@@ -1042,6 +1042,12 @@ const pl = {
         safe_drivers: "Zapewnij swoim kierowcom bezpieczeństwo i oszczędność paliwa",
         sustainable: "Uczyń swoją flotę ekologiczną i zrównoważoną"
       },
+      testimonial: {
+        rating: "4.9/5 od ponad 200 klientów",
+        quote: "Narzędzia do zarządzania flotą VivaDrive przekształciły nasze operacje, prowadząc do znacznych oszczędności kosztów i zwiększonej wydajności.",
+        name: "Jane Doe",
+        position: "Menedżer Floty, Tech Corp"
+      },
       form: {
         title: "Skontaktuj się z nami",
         name: {
@@ -1050,7 +1056,8 @@ const pl = {
         },
         phone: {
           label: "Numer telefonu*",
-          placeholder: "Twój numer telefonu"
+          placeholder: "Twój numer telefonu",
+          error: "Wprowadź prawidłowy numer telefonu"
         },
         email: {
           label: "Email*",
@@ -1079,6 +1086,70 @@ const pl = {
         success: {
           title: "Dziękujemy!",
           message: "Twoja wiadomość została wysłana. Wkrótce się z Tobą skontaktujemy."
+        }
+      },
+    },
+    apply: {
+      title: "Aplikuj",
+      hero: {
+        title_pre: "Dołącz do naszego",
+        title_highlight: "zespołu",
+        description: "Buduj swoją karierę z VivaDrive i pomóż kształtować przyszłość zrównoważonej mobilności"
+      },
+      benefits: {
+        heading: "Dlaczego warto dołączyć do VivaDrive?",
+        real_world_projects: "Prawdziwe projekty",
+        get_a_job: "Zdobądź pracę",
+        learn_from_the_best: "Ucz się od najlepszych",
+        boost_your_skills: "Rozwijaj swoje umiejętności",
+        try_before_you_buy: "Wypróbuj, zanim zdecydujesz",
+        enjoy_international_workplace: "Ciesz się międzynarodowym miejscem pracy"
+      },
+      form: {
+        first_name: {
+          label: "Imię *"
+        },
+        last_name: {
+          label: "Nazwisko *"
+        },
+        email: {
+          label: "Email *"
+        },
+        phone: {
+          label: "Numer telefonu"
+        },
+        role: {
+          label: "Stanowisko *",
+          placeholder: "Wybierz stanowisko",
+          options: {
+            python_django: "Python/Django Developer (Smart City/AI)",
+            frontend: "Front-end Developer",
+            data_scientist: "Data Scientist",
+            digital_marketer: "Digital Marketer",
+            business_developer: "Business Developer",
+            ux_ui: "UX/UI",
+            different: "Inne stanowisko?"
+          }
+        },
+        linkedin: {
+          label: "LinkedIn"
+        },
+        github: {
+          label: "Github"
+        },
+        portfolio: {
+          label: "Portfolio"
+        },
+        cover_letter: {
+          label: "List motywacyjny"
+        },
+        cv: {
+          label: "CV *"
+        },
+        send_button: "Wyślij",
+        success: {
+          title: "Dziękujemy!",
+          message: "Twoja aplikacja została przesłana. Wkrótce się z Tobą skontaktujemy."
         }
       }
     },
