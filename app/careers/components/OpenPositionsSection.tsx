@@ -193,86 +193,137 @@ const OpenPositionsSection = () => {
                 </motion.div>
 
                 {/* Job Cards */}
-                <div className="space-y-6 md:space-y-8 max-w-5xl mx-auto px-4">
-                    {jobPositions.map((job, index) => {
-                        const title = getTranslatedField(job, 'title', job.title);
-                        const subtitle = getTranslatedField(job, 'subtitle', job.subtitle);
-                        const location = getTranslatedField(job, 'location', job.location);
-                        const colorScheme = getCategoryColorScheme(job.category);
+<div className="space-y-6 md:space-y-8 max-w-5xl mx-auto px-4">
+    {jobPositions.map((job, index) => {
+        const title = getTranslatedField(job, 'title', job.title);
+        const subtitle = getTranslatedField(job, 'subtitle', job.subtitle);
+        const location = getTranslatedField(job, 'location', job.location);
+        const colorScheme = getCategoryColorScheme(job.category);
 
-                        return (
-                            <motion.div
-                                key={job.id}
-                                className="relative group"
-                                initial={{ opacity: 0, y: 40 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-                                transition={{
-                                    duration: 0.5,
-                                    delay: 0.2 + index * 0.1,
-                                    ease: [0.22, 1, 0.36, 1]
-                                }}
+        return (
+            <motion.div
+                key={job.id}
+                className="relative group"
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{
+                    duration: 0.5,
+                    delay: 0.2 + index * 0.1,
+                    ease: [0.22, 1, 0.36, 1]
+                }}
+            >
+                <div className={`rounded-xl ${colorScheme.bgLight} backdrop-blur-sm p-5 md:p-6 shadow-md relative z-10 
+                    border border-white/30 group-hover:shadow-xl group-hover:${colorScheme.hoverShadowColor} 
+                    transition-all duration-300 overflow-hidden h-full`}
+                >
+                    {/* Background gradient animation on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-white via-transparent to-transparent transition-opacity duration-300" />
+
+                    {/* MOBILE LAYOUT (centered, vertical) */}
+                    <div className="flex flex-col md:hidden">
+                        {/* Icon and Title - centered on mobile */}
+                        <div className="flex flex-col items-center mb-4">
+                            {/* Icon */}
+                            <div className={`mb-3 flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-xl 
+                                bg-gradient-to-br ${colorScheme.bgFrom} ${colorScheme.bgTo} shadow-md`}>
+                                <div className="text-white">
+                                    {getCategoryIcon(job.category)}
+                                </div>
+                            </div>
+
+                            {/* Title */}
+                            <h3 className="text-xl font-bold text-center text-gray-800 mt-2">
+                                {title}
+                            </h3>
+                            
+                            {/* Subtitle */}
+                            {subtitle && (
+                                <div className="text-base text-gray-500 text-center mt-1">
+                                    ({subtitle})
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Job details */}
+                        <div className="flex flex-wrap justify-center gap-4 my-3">
+                            <div className="flex items-center text-sm text-gray-600">
+                                <MapPin className="h-4 w-4 mr-1.5 text-gray-500" />
+                                <span>{location}</span>
+                            </div>
+                            <div className="flex items-center text-sm text-gray-600">
+                                <Calendar className="h-4 w-4 mr-1.5 text-gray-500" />
+                                <span>{formatDate(job.postedDate)}</span>
+                            </div>
+                        </div>
+
+                        {/* Apply button */}
+                        <div className="mt-4 flex justify-center">
+                            <Link 
+                                href={`/careers/${job.slug}`}
+                                className={`inline-flex items-center px-6 py-3 
+                                bg-gradient-to-r ${colorScheme.bgFrom} ${colorScheme.bgTo} text-white 
+                                rounded-full shadow-sm hover:shadow-lg transition-all duration-300 
+                                transform hover:scale-105 group/btn`}
                             >
-                                <Link href={`/careers/${job.slug}`} className="block">
-                                    <div className={`rounded-xl ${colorScheme.bgLight} backdrop-blur-sm p-5 md:p-6 shadow-md relative z-10 
-                        border border-white/30 group-hover:shadow-xl group-hover:${colorScheme.hoverShadowColor} 
-                        transition-all duration-300 overflow-hidden h-full`}
-                                    >
-                                        {/* Background gradient animation on hover */}
-                                        <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-white via-transparent to-transparent transition-opacity duration-300" />
+                                {t('pages.careers.positions.view_job')}
+                                <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                            </Link>
+                        </div>
+                    </div>
 
-                                        <div className="flex flex-col">
-                                            {/* Icon and Title - always centered */}
-                                            <div className="flex flex-col items-center mb-4">
-                                                {/* Icon */}
-                                                <div className={`mb-3 flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-xl 
-                                    bg-gradient-to-br ${colorScheme.bgFrom} ${colorScheme.bgTo} shadow-md`}>
-                                                    <div className="text-white">
-                                                        {getCategoryIcon(job.category)}
-                                                    </div>
-                                                </div>
+                    {/* DESKTOP LAYOUT (horizontal) */}
+                    <div className="hidden md:flex md:flex-row md:items-center justify-between">
+                        <div className="flex flex-row items-center">
+                            {/* Icon - left aligned on desktop */}
+                            <div className={`mr-5 flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl 
+                                bg-gradient-to-br ${colorScheme.bgFrom} ${colorScheme.bgTo} shadow-md`}>
+                                <div className="text-white">
+                                    {getCategoryIcon(job.category)}
+                                </div>
+                            </div>
 
-                                                {/* Title */}
-                                                <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mt-2">
-                                                    {title}
-                                                </h3>
-
-                                                {/* Subtitle */}
-                                                {subtitle && (
-                                                    <div className="text-base text-gray-500 text-center mt-1">
-                                                        ({subtitle})
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            {/* Job details */}
-                                            <div className="flex flex-wrap justify-center gap-4 my-3">
-                                                <div className="flex items-center text-sm text-gray-600">
-                                                    <MapPin className="h-4 w-4 mr-1.5 text-gray-500" />
-                                                    <span>{location}</span>
-                                                </div>
-                                                <div className="flex items-center text-sm text-gray-600">
-                                                    <Calendar className="h-4 w-4 mr-1.5 text-gray-500" />
-                                                    <span>{formatDate(job.postedDate)}</span>
-                                                </div>
-                                            </div>
-
-                                            {/* Apply button */}
-                                            <div className="mt-4 flex justify-center">
-                                                <div className={`inline-flex items-center px-6 py-3 
-                                    bg-gradient-to-r ${colorScheme.bgFrom} ${colorScheme.bgTo} text-white 
-                                    rounded-full shadow-sm hover:shadow-lg transition-all duration-300 
-                                    transform hover:scale-105 group/btn`}>
-                                                    {t('pages.careers.positions.view_job')}
-                                                    <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                                                </div>
-                                            </div>
-                                        </div>
+                            {/* Content - left aligned on desktop */}
+                            <div className="text-left">
+                                <h3 className="text-xl font-bold text-gray-800">
+                                    {title}
+                                    {subtitle && (
+                                        <span className="text-sm font-medium ml-2 text-gray-500">
+                                            ({subtitle})
+                                        </span>
+                                    )}
+                                </h3>
+                                <div className="flex flex-wrap gap-4 mt-2">
+                                    <div className="flex items-center text-sm text-gray-600">
+                                        <MapPin className="h-4 w-4 mr-1.5 text-gray-500" />
+                                        <span>{location}</span>
                                     </div>
-                                </Link>
-                            </motion.div>
-                        );
-                    })}
+                                    <div className="flex items-center text-sm text-gray-600">
+                                        <Calendar className="h-4 w-4 mr-1.5 text-gray-500" />
+                                        <span>{formatDate(job.postedDate)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Apply button - right aligned on desktop */}
+                        <div className="flex-shrink-0">
+                            <Link 
+                                href={`/careers/${job.slug}`}
+                                className={`inline-flex items-center px-5 py-2.5 
+                                bg-gradient-to-r ${colorScheme.bgFrom} ${colorScheme.bgTo} text-white 
+                                rounded-full shadow-sm hover:shadow-lg transition-all duration-300 
+                                transform hover:scale-105 group/btn`}
+                            >
+                                {t('pages.careers.positions.view_job')}
+                                <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
+            </motion.div>
+        );
+    })}
+</div>
 
                 {/* Call To Action */}
                 <motion.div
