@@ -96,7 +96,7 @@ const pl = {
     title_part2: "w swojej Flocie",
     description:
       "Zarządzaj elektryfikacją swojej floty płynnie, zmniejszaj koszty i emisję CO₂ oraz optymalizuj swoje działania.",
-    button_explore: "Poznaj Więcej",
+    button_explore: "Dowiedz się więcej",
     button_demo: "Umów Prezentację",
     stat_co2_label: "Średnia redukcja CO₂",
     stat_co2_value: "48% na pojazd",
@@ -105,7 +105,7 @@ const pl = {
     stat_setup: "Szybkie wdrożenie",
   },
   partners: {
-    heading: "NASI PARTNERZY I INTEGRACJE",
+    heading: "NASI PARTNERZY I WSPÓŁPRACE",
   },
   awards: {
     heading: "NAGRODY & WYRÓŻNIENIA",
@@ -171,7 +171,7 @@ const pl = {
   cta: {
     heading: "Gotowi na przejście na elektryczne?",
     description:
-      "Rozpocznij od bezpłatnej konsultacji, aby ocenić potencjał elektryfikacji Twojej floty i odkryć, ile możesz zaoszczędzić.",
+      "Umów bezpłatne konsultacje, na których omówimy potencjał elektryfikacji Twojej floty.",
     buttonText: "Rozpocznij",
   },
   process: {
@@ -216,14 +216,14 @@ const pl = {
         },
         {
           title: "Analiza TCO",
-          description: "Oblicz całkowity koszt posiadania",
+          description: "Oblicz całkowity koszt użytkowania.",
         },
         {
           title: "Planowanie Infrastruktury",
           description: "Zaprojektuj optymalny system ładowania",
         },
         {
-          title: "Pozwolenia i Zgodność",
+          title: "Pozwolenia i Regulacje",
           description: "Poruszaj się po wymogach regulacyjnych",
         },
       ],
@@ -274,7 +274,7 @@ const pl = {
       {
         title: "Oszczędzaj Koszty Floty",
         description:
-          "Znacząco zmniejsz koszty operacyjne i konserwacyjne dzięki pojazdom elektrycznym",
+          "Znacząco zmniejsz koszty operacyjne i utrzymania dzięki pojazdom elektrycznym",
         stat: "30% oszczędności",
         detailedStat: {
           before: "0,42 zł",
@@ -282,13 +282,13 @@ const pl = {
           unit: "na kilometr",
         },
         testimonial:
-          "Nasze koszty konserwacji znacznie spadły już w pierwszym roku.",
+          "Nasze koszty utrzymania spadły już w pierwszym roku.",
         learnMore: "Dowiedz się więcej",
       },
       {
         title: "Zgodność z Przepisami",
         description:
-          "Wyprzedzaj przepisy środowiskowe i unikaj potencjalnych kar",
+          "Bądź na bieżąco z przepisami dotyczącymi ochrony środowiska i unikaj potencjalnych kar.",
         stat: "100% zgodności",
         detailedStat: {
           before: "47%",
@@ -296,7 +296,7 @@ const pl = {
           unit: "wskaźnik zgodności",
         },
         testimonial:
-          "Jesteśmy teraz w pełni zgodni ze wszystkimi obecnymi i nadchodzącymi przepisami dotyczącymi emisji.",
+          "Teraz działamy zgodnie ze wszystkimi obowiązującymi oraz przyszłymi przepisami dotyczącymi emisji.",
         learnMore: "Dowiedz się więcej",
       },
       {
@@ -310,7 +310,7 @@ const pl = {
           unit: "ocena postrzegania marki",
         },
         testimonial:
-          "Nasi klienci i partnerzy konsekwentnie wymieniają naszą zrównoważoną flotę jako powód, dla którego nas wybierają.",
+          "Nasi klienci i partnerzy nieustannie wskazują naszą ekologiczną flotę jako powód, dla którego nas wybierają.",
         learnMore: "Dowiedz się więcej",
       },
     ],
@@ -321,12 +321,12 @@ const pl = {
   },
   finalCTA: {
     badge: "Działaj Już Dziś",
-    heading: "Gotowy na przejście na elektryczne?",
+    heading: "Gotowy na elektryfikację floty?",
     description:
       "Dołącz do rosnącej liczby firm transformujących swoje floty z VivaDrive. Nasi eksperci są gotowi przeprowadzić Cię przez każdy etap procesu elektryfikacji.",
-    getStartedButton: "Rozpocznij",
+    getStartedButton: "Umów spotkanie",
     demoButton: "Umów Prezentację",
-    trustSignal: "Zaufane przez liderów branży",
+    trustSignal: "Cieszymy się zaufaniem liderów branży",
   },
   pages: {
     fleet_electrification: {
@@ -352,7 +352,7 @@ const pl = {
         },
       },
       partners: {
-        heading: "NASI PARTNERZY I INTEGRACJE",
+        heading: "NASI PARTNERZY I WSPÓŁPRACE",
         visit_label: "Odwiedź stronę {{name}}",
       },
       showcase: {
@@ -655,9 +655,9 @@ const pl = {
         point1:
           "Codziennie pracujemy z pasją, aby dostarczać narzędzia, które sprawiają, że praca menedżerów floty jest łatwa i przyjemna.",
         point2:
-          "Każdego dnia oszczędzamy cenny czas i pieniądze na zniechęcających zadaniach związanych z zarządzaniem flotą.",
+          "Każdego dnia oszczędzamy cenny czas i pieniądze managerów na zadaniach związanych z zarządzaniem flotą.",
         point3:
-          "Jesteśmy jednymi z pierwszych na świecie, którzy opracowali system oszczędzający pieniądze, czas i środowisko jednocześnie.",
+          "Jako jedni z pierwszych na świecie opracowaliśmy system, który oszczędza pieniądze, czas i środowisko jednocześnie.",
         cta_button: "Dowiedz się więcej o naszych rozwiązaniach",
         image_alt: "Menedżerowie floty omawiający rozwiązania",
         stat_value: "30%",
@@ -668,22 +668,22 @@ const pl = {
         learn_more: "Dowiedz się więcej",
         cards: {
           sustainable: {
-            title: "Zrównoważony",
+            title: "Ekologicznie",
             description:
               "Promujemy pojazdy elektryczne, aby uczynić świat bardziej ekologicznym i zrównoważonym",
           },
           modern: {
-            title: "Nowoczesny",
+            title: "Nowocześnie",
             description:
-              "Korzystamy z najnowszych technologii i narzędzi na świecie",
+              "Korzystamy z najnowszych technologii i narzędzi.",
           },
           human: {
-            title: "Skoncentrowany na człowieku",
+            title: "Blisko Klienta",
             description:
               "Nawet przy ogromnych zbiorach danych i złożonych algorytmach, pozostajemy firmą skoncentrowaną na człowieku.",
           },
           simple: {
-            title: "Prosty",
+            title: "Intuicyjnie",
             description:
               "Zarządzanie flotą nigdy nie było tak proste i przyjazne dla użytkownika",
           },
@@ -700,9 +700,9 @@ const pl = {
         paragraph1:
           "VivaDrive został założony w 2019 roku w Warszawie z wizją zrewolucjonizowania zarządzania flotą.",
         paragraph2:
-          "Naszym głównym pomysłem za VivaDrive było uczynienie zarządzania flotą tak prostym, jak to możliwe, oraz zmniejszenie czasu i pieniędzy, które trzeba na to poświęcić.",
+          "Główną ideą VivaDrive jest maksymalne uproszczenie zarządzania flotą oraz skrócenie czasu i oszczędzenie środków, które trzeba na to poświęcić.",
         quote:
-          "Dzięki wieloletniemu doświadczeniu w branży i nowatorskiej technologii, udało nam się stworzyć unikalny produkt, który od pierwszego dnia podbił rynek!",
+          "Dzięki wieloletniemu doświadczeniu w tej dziedzinie i najnowocześniejszej technologii udało nam się stworzyć wyjątkowy produkt, który od pierwszego dnia szturmem podbił rynek!",
         technology_button: "Nasza Technologia",
         team_button: "Poznaj Nasz Zespół",
         image_alt: "Siedziba VivaDrive",
@@ -726,7 +726,7 @@ const pl = {
         join_button: "Dołącz do Naszego Zespołu",
       },
       partners_section: {
-        heading: "Projekt VivaDrive jest rozwijany dzięki inwestycji od",
+        heading: "Projekt VivaDrive jest realizowany dzięki inwestycji z",
         logos: {
           eu_funds: "Fundusze Europejskie Inteligentny Rozwój",
           republic_of_poland: "Rzeczpospolita Polska",
@@ -749,10 +749,10 @@ const pl = {
         point2:
           "Pracuj nad najnowocześniejszymi technologiami w zarządzaniu flotą i elektryfikacji",
         point3:
-          "Rozwijaj się zawodowo w wspierającym i współpracującym środowisku, które ceni innowacje",
+          "Rozwijaj się zawodowo w wspierającym i zgranym zespole, który ceni innowacje.",
         quote:
           '"Nie tylko tworzymy produkt, budujemy zespół, który z pasją dąży do wprowadzania zmian w zarządzaniu flotą i zrównoważonym rozwoju."',
-        cta_button: "Otwarte Stanowiska",
+        cta_button: "Sprawdź oferty pracy",
         image_alt: "Współpraca Zespołu VivaDrive",
         badge_label: "Globalny Zespół",
         badge_value: "Dołącz do Nas",
@@ -793,7 +793,7 @@ const pl = {
           fun: {
             title: "Przyjazne biuro",
             description:
-              "Śmiech, aby prosperować - to nasze motto. W startupie musisz pozostać pozytywny! Ale realistyczny też ;)",
+              "Laughing to thrive - to nasze motto. W startupie musisz pozostać pozytywny! Ale również realistyczny :)",
           },
           diverse: {
             title: "Różnorodność",
@@ -819,7 +819,7 @@ const pl = {
       },
       positions: {
         badge: "Możliwości kariery",
-        heading: "Otwarte stanowiska",
+        heading: "Nasze oferty pracy",
         description:
           "Dołącz do naszego zespołu i pomóż nam budować zrównoważone rozwiązania dla przyszłości. Szukamy ludzi z pasją, którzy chcą wprowadzać pozytywne zmiany.",
         apply_button: "Aplikuj",
